@@ -692,11 +692,14 @@ function generateXml() {
 	// original empty staffId element
 	//hiddenXML=hiddenXML+"\t\t\t<staffId></staffId>\n";
 	// get80 start
-	
+	var staffId = jQuery.query.get("dsaStaffId")+"";
 	if( get80id ) {
 		hiddenXML=hiddenXML+"\t\t\t<staffId>"+get80id+"</staffId>\n";
 	} else {
-		hiddenXML=hiddenXML+"\t\t\t<staffId></staffId>\n";
+		if( staffId != "" && staffId.length > 7 ) {
+			staffId.substr(0, 7);
+		}
+		hiddenXML=hiddenXML+"\t\t\t<staffId>"+staffId+"</staffId>\n";
 	}
 	// get80 end
 	

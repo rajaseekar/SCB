@@ -274,8 +274,7 @@ $(document).ready(function(){
 	$('#hiddenForm').append('<input type="hidden" name="FormRefID" id="FormRefID">');
 	$('#hiddenForm').append('<input type="hidden" name="selectedCard" id="selectedCard">');
 	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR49">'); // prod
-	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR290">'); // prod uat
-	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR201">'); // uat with apps
+	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR472">'); // AIP SIT
 	$('.formidfield').val( $('#formId').val() );
 	$('#hiddenForm').append('<input type="hidden" name="numberOfDocsUploaded" id="numberOfDocsUploaded">');
 	$('#hiddenForm').append('<input type="hidden" id="form2_product_select" name="form2_product_select">');

@@ -1441,10 +1441,14 @@ function generateXml() {
 	//hiddenXML=hiddenXML+"\t\t\t<staffId><![CDATA["+$("#cpfLinkClicked").val()+"]]></staffId>\n";
 	// original empty staffId element
 	
+	var staffId = jQuery.query.get("dsaStaffId")+"";
 	if( get80id ) {
 		hiddenXML=hiddenXML+"\t\t\t<staffId>"+get80id+"</staffId>\n";
 	} else {
-		hiddenXML=hiddenXML+"\t\t\t<staffId></staffId>\n";
+		if( staffId != "" && staffId.length > 7 ) {
+			staffId.substr(0, 7);
+		}
+		hiddenXML=hiddenXML+"\t\t\t<staffId>"+staffId+"</staffId>\n";
 	}
 	
 	// upload docs
