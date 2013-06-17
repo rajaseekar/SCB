@@ -1,0 +1,83 @@
+.breadcrumb {
+	background-image: url(../images/steptracker_7steps.jpg);
+}
+
+.step_0 {
+	background-position:0 -420px;
+}
+
+.step_1 {
+	background-position:0 -350px;
+}
+
+.step_2 {
+		background-position: 0 -280px;
+}
+
+.step_3 {
+		background-position: 0 -210px;
+}
+
+.step_4 {
+		background-position: 0 -140px;
+}
+
+.step_5 {
+		background-position: 0 -70px;
+}
+
+.step_6 {
+		background-position: 0 0;
+}
+
+ul.tabs li {
+	padding:19px 5px 0 40px;
+	width: 90px;
+}
+
+td.column2 {
+	width: 200px;
+}
+
+td.column3 {
+	width: auto;
+}
+
+.error_box .error {
+	width: 160px;
+}
+	
+#pre_form2_loan_preview_container table tr td div {
+	font-weight: bold;
+}
+
+table.application_form tr td.column2-nowidth {
+	padding-left: 5px;
+}
+
+a.btn_cpf {
+    float: left;
+    height: 22px;
+    width: 180px;
+    display: block;
+    background: url(../images/btn_cpf_180.gif) no-repeat 0 0;
+    margin-left: 2px;
+    color: #fff;
+    font-size:13px;
+    font-weight:bold;
+    text-decoration:none;
+    padding:8px 0 0 0px;
+    margin-top: 2px;
+    text-align: center;
+}
+
+a.btn_cpf:hover {
+    background-position: 0 -30px;
+    text-decoration:none;
+}
+
+a.btn_cpf span {
+    text-decoration:none;
+    text-align: center;
+}
+

@@ -1,0 +1,10 @@
+var branches= {};
+branches['284']='[284] Ang Mo Kio';
+branches['285']='[285] Ang Mo Kio ACU';
+branches['277']='[277] Cecil Street';
+branches['278']='[278] Cecil Street Retail';
+branches['290']='[290] Clementi';
+branches['282']='[282] Jurong';
+branches['286']='[286] Marine Parade';
+branches['280']='[280] Rangoon Road';
+branches['288']='[288] Toa Payoh';

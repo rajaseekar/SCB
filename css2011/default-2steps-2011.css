@@ -1,0 +1,12 @@
+.breadcrumb {
+	background: url(../images/steptracker_2steps.jpg) no-repeat;
+}
+
+.step_1 {
+		background-position: 0 -70px;
+}
+
+.step_2 {
+		background-position: 0 0;
+}
+

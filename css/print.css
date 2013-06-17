@@ -1,0 +1,1051 @@
+/*************************** global ***************************/
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 12px;
+	color: #555555;
+	background: url(../images/bg.jpg) repeat-x;
+	line-height: 14px;
+}
+
+p {
+	padding-bottom: 10px;
+}
+
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.hide {
+	display: none;
+}
+
+.tab_content {
+	margin: 0 0 30px 0;	
+}
+
+/* horizontal rules */
+hr {
+	background: #808080;
+	border: none;
+	height: 1px;
+	margin: 5px 0 5px 0;
+}
+
+hr.sub {
+	background: #dfdfdf;
+	border: none;
+	height: 1px;
+	margin: 5px 0 5px 0;
+}
+
+hr.footer {
+	background: #cccccc;
+	border: none;
+	height: 1px;
+	margin: 5px 0 10px 0;	
+}
+
+/* buttons */
+.buttons {
+	padding: 20px 0 20px 0;
+}
+
+a.btn_continue {
+	float: left;
+	width: 87px;
+	height: 28px;
+	display: block;
+	background: url(../images/btn_continue.gif);
+	background-repeat: no-repeat;
+	margin-left: 5px;
+}
+
+a.btn_continue:hover {
+	background-position: 0 -28px;
+}
+
+a.btn_continue span {
+	display: none;
+}
+
+a.btn_cancel {
+	float: left;
+	width: 75px;
+	height: 28px;
+	display: block;
+	background: url(../images/btn_cancel.gif);
+	background-repeat: no-repeat;
+	margin-left: 5px;
+}
+
+a.btn_cancel:hover {
+	background-position: 0 -28px;
+}
+
+a.btn_cancel span {
+	display: none;
+}
+
+a.btn_back {
+	float: left;
+	width: 66px;
+	height: 28px;
+	display: block;
+	background: url(../images/btn_back.gif);
+	background-repeat: no-repeat;
+	margin-left: 5px;
+}
+
+a.btn_back:hover {
+	background-position: 0 -28px;
+}
+
+a.btn_back span {
+	display: none;
+}
+
+a.btn_next {
+	float: left;
+	width: 64px;
+	height: 28px;
+	display: block;
+	background: url(../images/btn_next.gif);
+	background-repeat: no-repeat;
+	margin-left: 5px;s
+}
+
+a.btn_next:hover {
+	background-position: 0 -28px;
+}
+
+a.btn_next span {
+	display: none;
+}
+
+a.btn_submit {
+	float: left;
+	width: 77px;
+	height: 28px;
+	display: block;
+	background: url(../images/btn_submit.gif);
+	background-repeat: no-repeat;
+	margin-left: 5px;
+}
+
+a.btn_submit:hover {
+	background-position: 0 -28px;
+}
+
+a.btn_submit span {
+	display: none;
+}
+
+/* lists */
+ul.listing {
+	margin: 10px 0px 0px 15px;
+}
+
+ul.listing li {
+	list-style-type: disc;
+	color: #86c533;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+ul.listing li span {
+	color: #808080;
+	font-size: 12px;
+}
+
+ul.listing_grey {
+	margin: 10px 0px 0px 50px;
+}
+
+ul.listing_grey li {
+	list-style-type: disc;
+	color: #86c533;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+ul.listing_grey li span {
+	color: #555555;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.list_dash {
+	padding: 0 10px 0 0;
+}
+
+.list_dash_sub {
+	padding: 0 10px 0 0;
+	margin: 0 0 0 20px;
+}
+
+.list_dash_sub_sub {
+	padding: 0 10px 0 0;
+	margin: 0 0 0 40px;
+}
+
+/* tables */
+table.cards_selected tr td {
+	padding: 5px 5px 0 0;
+	vertical-align: top;
+}
+
+table.sc_platinum_visa_card {
+	background: #e5eef5;
+	margin-top: 10px;
+}
+
+table.sc_platinum_visa_card tr td {
+	padding: 30px 15px 15px 45px;
+}
+
+table.cards tr td {
+	padding: 10px;
+}
+
+table.important_notes tr td {
+	font-size: 10px;
+	padding: 5px;
+}
+
+table.application_form tr td {
+	padding: 8px 5px 8px 15px;
+	vertical-align: top;
+}
+
+table.application_form input, table.application_form select {
+	margin: 0 0 0 10px;
+}
+
+
+
+/* errors */
+.error_message {
+	float: left;
+	color: #ffffff;
+	font-weight: bold;
+	position: relative;
+	background: #cf1314;
+	line-height: 21px;
+	margin-left: 10px;
+}
+
+.error_message .r_corner_l {
+	float: left;
+}
+
+.error_message .r_corner_r {
+	position: absolute;
+	top: 0;
+	right: -10px;
+}
+
+
+
+/*************************** fonts ***************************/
+h1 {
+	font-size: 20px;
+	color: #86c533;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #808080;
+	line-height: 28px;
+}
+
+h3 {
+	font-size: 16px;
+	color: #005d9a;
+	font-weight: bold;
+}
+
+h4 {
+	font-size: 16px;
+	color: #808080;
+	font-weight: bold;
+	padding: 0 0 0 9px;
+}
+
+span.blue {
+	color: #005d9a;
+}
+
+h4.toggle {
+	margin: 10px 0 10px 0;
+	padding: 0 0 10px 9px;
+	background: url(../images/icon_expand.gif) no-repeat;
+	background-position: top right;
+	border-bottom: 1px solid #808080;
+	cursor: pointer;
+}
+
+h4.active {
+	padding: 0 0 10px 9px;
+	background: url(../images/icon_collapse.gif) no-repeat;
+	background-position: top right;
+	border-bottom: 1px solid #808080;
+	cursor: pointer;
+}
+
+h5 {
+	font-size: 13px;
+	color: #86c533;
+	font-weight: bold;
+}
+
+h6 {
+
+}
+
+.mandatory {
+	color: #ff0000;
+}
+
+
+
+/*************************** forms ***************************/
+label.field_text {
+	float: left;
+	padding: 0 0 0 5px;
+	line-height: 23px;
+}
+
+label.error { 
+	color: #ffffff; 
+	font-weight: bold;
+	font-style: italic;
+	background: #CF1314 url(../images/error_l.gif) left no-repeat;
+	line-height: 23px;
+	margin: 0 5px 0 5px;
+	padding: 0 5px 0 15px;
+	border: none !important;
+}
+
+.message {
+	left: 100px;
+}
+
+label.blue {
+	color: #50b6e2;
+}
+
+.checkbox {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}
+
+.textfield {
+	width: 100px;
+	float: left;
+}
+
+input, select {
+	font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 12px;
+	color: #555555;
+	padding: 2px;
+}
+
+.error {
+	border: 2px solid #ea5900;
+	float: left;
+}
+
+.date_picker {
+	float: left;
+}
+	
+img.datepick-trigger {
+	float: left;
+}
+
+.formFieldFocus {
+	background: #F2FCFD;
+}
+
+.formFieldFocus input, .formFieldFocus select {
+	border: 2px solid #40ACDD;
+}
+
+/*	wrapper divs */
+.custom-checkbox, .custom-radio { 
+	position: relative; 
+}
+	
+/* input, label positioning */
+.custom-checkbox input, .custom-radio input {
+	position: absolute;
+	z-index: -100;
+	*top: 0;
+	*left: 0;
+	*width: 0;
+	*height: 0;
+	border: 1px solid red;
+}
+
+.custom-checkbox label, .custom-radio label {
+	display: block;
+	position: relative;
+	z-index: 90;
+	line-height: 1;
+	padding: 7px 5px 5px 25px;
+	margin: 0 0 .3em 0;
+	cursor: pointer;
+	float: left;
+}
+
+/* states */
+.custom-checkbox label { 
+	background: url(../images/checkbox.gif) no-repeat; 
+}
+
+.custom-radio label { 
+	background: url(../images/radiobutton.gif) no-repeat; 
+}
+
+.custom-checkbox label, .custom-radio label {
+	background-position: -10px -14px;
+}
+
+.custom-checkbox label.hover, .custom-checkbox label.focus, .custom-radio label.hover, .custom-radio label.focus {
+	background-position: -10px -114px;
+}
+
+.custom-checkbox label.checked, .custom-radio label.checked {
+	background-position: -10px -214px;
+}
+
+.custom-checkbox label.checkedHover, .custom-checkbox label.checkedFocus {
+	background-position: -10px -314px;
+}
+
+.custom-checkbox label.focus, .custom-radio label.focus {
+	outline: 1px dotted #ccc;
+}
+
+/* fields */
+.focusField {
+	width: 250px; 
+	border: solid 2px #40ACDD;
+	background: #fff url(img/text-bg.gif) repeat-x 0 0;
+	color: #333333;
+	font-size: 13px;
+	padding: 1px 3px;
+	float: left; 
+}
+
+.idleField { 
+	width: 250px;
+	color: #7E7E7E;
+	font-size: 13px;
+	float: left; 
+}
+
+.errorField { 
+	width: 250px; 
+	border: solid 2px #EC5800; 
+	background: #fff url(img/text-bg.gif) repeat-x 0 0;
+	color: #333333;
+	font-size: 13px; 
+	padding: 1px 3px;
+	float: left; 
+} 
+
+
+
+/*************************** hyperlinks ***************************/
+a {
+	color: #005D9A;
+	outline: none;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+:focus {
+  	-moz-outline-style: none; /* remove dotted border in firefox */
+}
+
+
+
+/*************************** layout ***************************/
+#page_container {
+	width: 940px;
+	margin: auto;
+	background: #ffffff;
+	border-left: 1px solid #eeeeee;
+	border-right: 1px solid #eeeeee;
+}
+
+#manhattan_header {
+	height: 130px;
+	background: url(../images/manhattan_header_bg.jpg) no-repeat;
+}
+
+#header {
+	height: 75px;
+	background: url(../images/header_bg.gif) no-repeat;
+}
+
+#header .country {
+	color: #86C533;
+	font-size: 20px;
+	font-weight: bold;
+	vertical-align: 15px;
+}
+
+#selected_cards {
+	height: 170px;
+}
+
+.more_cards {
+	width: 25%;
+	float: left;
+}
+
+.card_name {
+	padding: 5px 0 5px 0;
+	height: 35px;
+	font-weight: bold;
+}
+
+.card_info {
+	padding: 5px 0 5px 0;
+}
+
+.waive {
+	color: #a0a0a0;
+	font-weight: bold;
+	padding: 5px 0 5px 0;
+}
+
+#content {
+	margin-right: 184px;
+	background: #ffffff;
+}
+
+#content .content_padding {
+	padding: 15px 10px 15px 10px;
+}
+
+#content_skin {
+	background: url(../images/content_bg.jpg);
+	background-position: top;
+	background-repeat: repeat-x;
+}
+
+#content_skin .content_skin_padding {
+	padding: 10px;
+}
+
+#sidebar {
+	float: right;
+	width: 184px;
+	color: #808080;
+}
+
+#sidebar .padding {
+	padding: 15px 10px 15px 0;
+}
+
+#sidebar #top {
+	height: 25px;
+	background: url(../images/app_step.gif);
+	background-repeat: no-repeat;
+	color: #ffffff;
+	font-weight: bold;
+	line-height: 25px;
+	padding-left: 10px;
+}
+
+#sidebar #middle {
+	border-left: 1px solid #86c533;
+	border-right: 1px solid #86c533;
+	padding: 10px;
+}
+
+#sidebar #bottom {
+	height: 9px;
+	background: url(../images/app_btm.gif);
+	background-repeat: no-repeat;
+}
+
+#important_notes {
+	padding: 15px;
+}
+
+.breadcrumb {
+	width: 736px;
+	height: 33px;
+	background: url(../images/breadcrumb_bg.gif) no-repeat;
+	font-size: 13px;
+	line-height: 33px;
+	color: #ffffff;
+}
+
+.thanks_page {
+	border: 1px solid #D4D4D6;
+	padding: 20px;
+	margin: 30px 20px 30px 20px;
+}
+
+ul.tabs { 
+	list-style: none; 
+	margin: 0 !important; 
+	padding: 0;		
+	height: 33px;
+}
+
+ul.tabs li { 
+	float: left;	 
+	text-indent: 0;
+	padding: 0;
+	margin: 0 !important;
+	list-style-image: none !important; 
+	line-height: 31px;
+	font-size: 13px;
+	font-weight: bold;
+	display: block;
+	line-height: 31px;
+	padding: 0 5px 0 5px; 
+	color: #cccccc;
+	position: relative;
+}
+
+ul.tabs li.icon { 
+	float: left;	 
+	text-indent: 0;
+	line-height: 1px;
+	padding: 0 3px 0 12px;
+	margin: 0 !important;
+	list-style-image: none !important; 
+}
+
+ul.tabs li.selected {
+	color: #ffffff;
+}
+
+#manhattan_footer {
+	clear: both;
+	font-size: 11px;
+	color: #333333;
+	height: 31px;
+	background: url(../images/manhattan_footer_bg.jpg) no-repeat;
+	background-position: top;
+	text-align: center;
+}
+
+#manhattan_footer .padding {
+	padding: 40px 0 20px 0;
+}
+
+#footer {
+	clear: both;
+	font-size: 11px;
+	color: #333333;
+}
+
+#footer a {
+	color: #005D9A;
+	text-decoration: none;
+}
+
+#footer .padding {
+	padding: 10px;
+}
+
+#footer .notice {
+	padding: 0 10px 0 10px;
+}
+
+
+
+/*************************** datepicker ***************************/
+/* default style sheet for jQuery date picker v3.7.0. */
+#datepick-div, .datepick-inline {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 14px;
+	padding: 0;
+	margin: 0;
+	background: #ddd;
+	color: #000;
+	width: 15em;
+}
+
+#datepick-div {
+	display: none;
+	border: 1px solid #777;
+	z-index: 100; 
+}
+
+.datepick-inline {
+	float: left;
+	display: block;
+	border: 0;
+}
+
+.datepick-rtl {
+	direction: rtl;
+}
+
+.datepick-dialog {
+	padding: 5px !important;
+	border: 4px ridge #ddd !important;
+}
+
+.datepick-disabled {
+	position: absolute;
+	z-index: 100;
+	background-color: white;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+button.datepick-trigger {
+	width: 25px;
+	padding: 0px;
+}
+
+img.datepick-trigger {
+	margin: 2px;
+	vertical-align: middle;
+}
+
+.datepick-prompt {
+	float: left;
+	padding: 2px;
+}
+
+* html .datepick-prompt { /* IE6 */
+	width: 15em;
+}
+
+.datepick-control, .datepick-links, .datepick-header, .datepick {
+	clear: both;
+	float: left;
+	width: 100%;
+	color: #fff;
+}
+
+.datepick-control {
+	background: #017BA7;
+	padding: 2px 0px;
+}
+
+.datepick-links {
+	background: #86C533;
+	padding: 2px 0px;
+}
+
+.datepick-control, .datepick-links {
+	font-weight: bold;
+	font-size: 80%;
+}
+
+.datepick-links label {
+	padding: 2px 5px;
+	color: #888;
+}
+
+.datepick-clear, .datepick-prev {
+	float: left;
+	width: 34%;
+}
+
+.datepick-rtl .datepick-clear, .datepick-rtl .datepick-prev {
+	float: right;
+	text-align: right;
+}
+
+.datepick-current {
+	float: left;
+	width: 30%;
+	text-align: center;
+}
+
+.datepick-close, .datepick-next {
+	float: right;
+	width: 34%;
+	text-align: right;
+}
+
+.datepick-rtl .datepick-close, .datepick-rtl .datepick-next {
+	float: left;
+	text-align: left;
+}
+
+.datepick-header {
+	background: #333;
+	text-align: center;
+	font-weight: bold;
+	min-height: 1.5em;
+}
+
+.datepick-header select {
+	background: #333;
+	color: #fff;
+	border: 0px;
+	font-weight: bold;
+}
+
+.datepick-header span {
+	position: relative;
+	top: 3px;
+}
+
+.datepick {
+	text-align: center;
+	font-size: 100%;
+}
+
+.datepick a {
+	display: block;
+	width: 100%;
+}
+
+.datepick-title-row {
+	background: #777;
+}
+
+.datepick-title-row th {
+	text-align: center;
+	font-weight: normal;
+}
+
+.datepick-days-row {
+	background: #eee;
+	color: #666;
+}
+
+.datepick-week-col {
+	background: #777;
+	color: #fff;
+}
+
+.datepick-days-cell {
+	color: #000;
+	border: 1px solid #ddd;
+}
+
+.datepick-other-month {
+	background: #fff;
+}
+
+.datepick-week-end-cell {
+	background: #ddd;
+}
+
+.datepick-title-row .datepick-week-end-cell {
+	background: #777;
+}
+
+.datepick-week-over {
+	background: #ddd;
+}
+
+.datepick-unselectable {
+	color: #888;
+}
+
+.datepick-today {
+	background: #fcc;
+}
+
+.datepick-current-day {
+	background: #777;
+	color: #fff;
+}
+
+.datepick-days-cell-over {
+	background: #fff;
+	color: #000;
+	border: 1px solid #777;
+}
+
+.datepick-status {
+	background: #ddd;
+	width: 100%;
+	font-size: 80%;
+	text-align: center;
+}
+
+#datepick-div a, .datepick-inline a {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+.datepick-inline .datepick-links a {
+	padding: 0 5px !important;
+}
+
+.datepick-control a, .datepick-links a {
+	padding: 2px 5px !important;
+	color: #eee;
+}
+
+.datepick-title-row a {
+	color: #eee;
+}
+
+.datepick-control a:hover {
+	background: #fdd;
+	color: #333;
+}
+
+.datepick-links a:hover, .datepick-title-row a:hover {
+	background: #ddd;
+	color: #333;
+}
+
+.datepick-multi .datepick {
+	border: 1px solid #777;
+}
+
+.datepick-one-month {
+	float: left;
+	width: 15em;
+}
+
+.datepick-new-row {
+	clear: left;
+}
+
+/* ie6 frame fix */
+.datepick-cover { 
+    display: none; /*sorry for IE5*/
+    display/**/: block; /*sorry for IE5*/
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -1px; /*must have*/
+    left: -1px; /*must have*/
+    width: 187px; /*must have*/
+    height: 187px; /*must have*/
+}               
+
+
+
+/*************************** slider ***************************/
+
+.coda-slider-wrapper { 
+	width: 736px; 
+}
+
+/* use this to keep the slider content contained in a box even when javascript is disabled */
+.coda-slider-no-js .coda-slider { 
+	height: 200px; 
+	overflow: auto; 
+	padding-right: 20px; 
+}
+
+/* change the width of the entire slider (without dynamic arrows) */
+.coda-slider, .coda-slider .panel {
+	 width: 736px; 
+} 
+
+/* change margin and width of the slider (with dynamic arrows) */
+.coda-slider-wrapper.arrows .coda-slider, .coda-slider-wrapper.arrows .coda-slider .panel { 
+	width: 736px; 
+}
+
+/* tab nav */
+.coda-nav ul li a.current { 
+	color: #ffffff; 
+}
+
+/* preloader */
+.coda-slider p.loading { 
+	padding: 20px; 
+	text-align: center; 
+}
+
+/* tabbed nav */
+.coda-nav ul { 
+	clear: both; 
+	display: block; 
+	width: 736px; 
+	height: 33px;  
+	font-size: 13px; 
+	margin-left: 29px;	
+}
+
+.coda-nav ul li { 
+	display: inline; 
+}
+
+.coda-nav ul li a { 
+	display: block; 
+	float: left;  
+	text-decoration: none; 
+	color: #D8E8F0;
+	font-weight: bold; 
+	line-height: 31px;
+	padding: 0 5px;
+	clear: right;
+}
+
+.coda-nav ul li a:hover { 
+	color: #fff; 
+	text-decoration: none;
+}
+
+/* miscellaneous */
+.coda-slider-wrapper { 
+	overflow: visible;
+}
+
+.coda-slider { 
+	float: left; 
+	overflow: visible; 
+	position: relative;
+}
+
+.coda-slider .panel { 
+	display: block; 
+	float: left; 
+}
+
+.coda-slider .panel-container { 
+	position: relative; 
+	clear: both;
+}
+
+.coda-nav-left, .coda-nav-right { 
+	float: left 
+}
+
+.coda-nav-left a, .coda-nav-right a { 
+	display: block; 
+	text-align: center; 
+	text-decoration: none;
+}

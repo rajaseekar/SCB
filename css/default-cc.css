@@ -1,0 +1,29 @@
+.card_name {
+	font-size: 15px;
+}
+
+.card_msg_container {
+	height: 50px;
+}
+.card_msg {
+	font-size: 11px;
+}
+
+.confirmmsg {
+	padding: 5px 10px 10px 20px;
+}
+
+ol#confirmoutter {
+	list-style-type: decimal;
+	list-style-position: outside;
+	line-height: 16px;
+}
+
+ol#confirmoutter li {
+	margin-bottom: 5px;
+}
+
+ol#confirminner li {
+	margin-left: 20px;
+	list-style-type: lower-alpha;
+}

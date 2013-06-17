@@ -1,0 +1,33 @@
+#notes_documents {
+	height: 222px;
+}
+
+#short_notes_document_lists {
+	display: block;
+	float: right;
+	width: 670px;
+}
+
+#short_notes_document_lists table {
+	width: 100%;
+}
+
+#short_notes_document_lists table tr td {
+	padding: 15px 10px 5px 0;
+}
+
+.document-listing-link {
+	background: url(../images/cross.gif) no-repeat 0px center;
+	padding-left: 15px;
+	width: 100%;
+	height: 15px;
+	cursor: pointer;
+}
+
+.document-listing-link-hide {
+	background: url(../images/cross-hide.gif) no-repeat 0px center;
+	padding-left: 15px;
+	width: 100%;
+	height: 15px;
+	cursor: pointer;
+}

@@ -1,0 +1,14 @@
+.application_form .mandatory {
+    display:inline;
+    /*margin:-17px -8px 0 -8px;*/
+}
+
+table.application_form tr td:first-child {
+	padding-left: 10px;
+	padding-right:10px;
+}
+
+
+.error_box_note {
+	float: left;
+}

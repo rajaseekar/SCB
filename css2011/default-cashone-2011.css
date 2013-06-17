@@ -1,0 +1,59 @@
+.breadcrumb {
+	background-image: url(../images/steptracker_6steps.jpg);
+}
+
+.step_0 {
+	background-position:0 -350px;
+}
+
+.step_1 {
+		background-position: 0 -280px;
+}
+
+.step_2 {
+		background-position: 0 -210px;
+}
+
+.step_3 {
+		background-position: 0 -140px;
+}
+
+.step_4 {
+		background-position: 0 -70px;
+}
+
+.step_6 {
+		background-position: 0 0;
+}
+
+ul.tabs li {
+	padding:19px 5px 0 40px;
+	width: 112px;
+}
+
+#selected_cards {
+	display: none !important;
+}
+
+td.column2 {
+	width: 200px;
+}
+
+td.column3 {
+	width: auto;
+}
+
+.error_box .error {
+	width: 160px;
+}
+	
+#pre_form2_loan_preview_container table tr td div {
+	font-weight: bold;
+}
+
+table.application_form tr td.column2-nowidth {
+	padding-left: 5px;
+}
+
+
+

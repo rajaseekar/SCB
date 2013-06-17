@@ -1,0 +1,99 @@
+.application_form .mandatory {
+    display: inline;
+    /*float:right;
+    margin:-15px -7px 0 -7px;
+    padding-left:3px;*/
+}
+
+hr {
+	margin: 0 0;
+}
+
+h2 {
+	padding-bottom: 9px;
+}
+
+.h4floatleft {
+	margin-bottom: 0;
+}
+
+#form_new_customer_credit_cards_1 form {
+	margin-top: -17px;
+}
+
+#form_new_customer_credit_cards_2 form {
+	margin-top: -17px;
+}
+
+#form_new_customer_credit_cards_3 form {
+	margin-top: -17px;
+}
+
+#form_new_customer_credit_cards_4 form {
+	margin-top: -17px;
+}
+
+#form_new_customer_credit_cards_5 form {
+	margin-top: -17px;
+}
+
+#form_new_customer_credit_cards_6 form {
+	margin-top: -17px;
+}
+
+#form_new_customer_credit_cards form {
+	margin-top: -17px;
+}
+
+#form_new_customer_credit_cards_1 form {
+	margin-top: -17px;
+}
+
+#selected_cards {
+	margin-top:5px;
+}
+
+.card1moveup {
+} 
+
+.card2moveup {
+} 
+
+ul.tabs li { 
+	padding-top: 9px;
+}
+
+ul.tabs li.line2{ 
+	padding-top: 1px; 
+}
+
+a.btn_save {
+	padding:1px 0 0 3px;
+}
+
+.input_width {
+	width:195px;
+}
+
+.input_width_short {
+}
+
+.error_box_note .error {
+	width:116px;
+}
+
+.error_box .error {
+	width: 180px;
+}
+
+.MultiFile-applied {
+	width: 65px;
+}
+
+table.application_form select {
+	width: auto;
+}
+
+.error_box_note {
+	float: left;
+}

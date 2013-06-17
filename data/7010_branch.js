@@ -1,0 +1,11 @@
+var branches= {};
+branches['051']='[051] Consumer Banking';
+branches['057']='[057] Credit Card Centre';
+branches['058']='[058] Ngee Ann City';
+branches['052']='[052] One Raffles Quay (052)';
+branches['055']='[055] One Raffles Quay (055)';
+branches['056']='[056] One Raffles Quay (056)';
+branches['060']='[060] One Raffles Quay (060)';
+branches['050']='[050] Singapore Branch';
+branches['059']='[059] Suntec City';
+branches['053']='[053] Thomson';

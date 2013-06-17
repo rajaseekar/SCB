@@ -1,0 +1,29 @@
+a.btn_cpf {
+    float: left;
+    height: 19px;
+    width: 180px;
+    display: block;
+    background: url(../images/btn_cpf.gif) no-repeat 0 0;
+    margin-left: 2px;
+    color: #fff;
+    font-size:13px;
+    font-weight:bold;
+    text-decoration:none;
+    padding:3px 0 0 0px;
+    margin-top: 2px;
+    text-align: center;
+}
+
+a.btn_cpf:hover {
+    background-position: 0 -22px;
+    text-decoration:none;
+}
+
+a.btn_cpf span {
+    text-decoration:none;
+    text-align: center;
+}
+
+.error_box_note {
+	float: left;
+}
