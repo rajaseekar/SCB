@@ -732,6 +732,26 @@ function display_new_credit_card_thanks_page() {
 	$("#newcard_breadcrumb").hide();
 	$("#existingcard_breadcrumb").hide();
 	$("#new_credit_card_thanks_page").show();
+	$("#waiting_oage_for_aip").hide();
+	$("#newcard_submit_form").hide();
+	$("#existingcard_submit_form").hide();
+	$("div.form_new_print_button").css('display','inline');
+	$(".form2_link_to_personal_credit_container").hide();
+	$("#terms_and_conditions").hide();
+}
+
+function display_waiting_oage_for_aip() {
+	$("#loading_page").hide();
+	$("#landing_page").hide();
+	$("#notes_page").hide();
+	$("#selected_cards").hide();
+	$("#existing_credit_card").hide();
+	$("#existing_credit_card_thanks_page").hide();
+	//$("#new_credit_card").hide();
+	$("#newcard_breadcrumb").hide();
+	$("#existingcard_breadcrumb").hide();
+	$("#new_credit_card_thanks_page").hide();
+	$("#waiting_oage_for_aip").show();
 	$("#newcard_submit_form").hide();
 	$("#existingcard_submit_form").hide();
 	$("div.form_new_print_button").css('display','inline');
@@ -2244,6 +2264,7 @@ $(document).ready(function(){
 			form2_name_of_business: { required: function(element) { return $("input[name='form2_nature_of_employment']:checked").val() != "Salaried" } },
 			form2_occupation: { required: true, minlength: 1 },
 			form2_job_title: { required: true, minlength: 1	},
+			form2_loan_my_income: {required: true, number: true},
 			form2_years_in_service: { required: true },
 			//form2_months_in_service: { required: true, number: true, min: 0, max: 11 },
 			//// hidden the whole business address section
@@ -2262,6 +2283,7 @@ $(document).ready(function(){
 			form2_name_of_business: { required: "Please enter the name of your business" },
 			form2_occupation: { required: "Please select your industry." },
 			form2_job_title: { required: "Please select your job title/position held." },
+			form2_loan_my_income: {required: 'Please enter your annual income'},
 			form2_years_in_service: { required: "Please select the number of years you have been in service with this company." },
 			//form2_months_in_service: { required: "Please enter your months in service."	},
 			form2_employer_block_number: { required: "Please enter the building number." },
@@ -3335,6 +3357,7 @@ $(document).ready(function(){
 			form2_name_of_business: { required: function(element) { return $("input[name='form2_nature_of_employment']:checked").val() != "Salaried" } },
 			form2_occupation: { required: true, minlength: 1 },
 			form2_job_title: { required: true, minlength: 1	},
+			form2_loan_my_income: {required: true, number: true},
 			form2_years_in_service: { required: true },
 			//form2_months_in_service: { required: true, number: true, min: 0, max: 11 },
 			//// hidden the whole business address section
@@ -3440,6 +3463,7 @@ $(document).ready(function(){
 			form2_name_of_business: { required: "Please enter the name of your business" },
 			form2_occupation: { required: "Please select your industry." },
 			form2_job_title: { required: "Please select your job title/position held." },
+			form2_loan_my_income: {required: 'Please enter your annual income'},
 			form2_years_in_service: { required: "Please select the number of years you have been in service with this company." },
 			//form2_months_in_service: { required: "Please enter your months in service."	},
 			form2_employer_block_number: { required: "Please enter the building number." },
@@ -4074,6 +4098,7 @@ $(document).ready(function(){
 		$("#pre_form2_name_of_business").html(form2_name_of_business);
 		$("#pre_form2_occupation").html(form2_occupation);
 		$("#pre_form2_job_title").html(form2_job_title);
+		$("#pre_form2_loan_my_income").html( $("#form2_loan_my_income").val() );
 		$("#pre_form2_job_title_other").html(form2_job_title_other);
 		$("#pre_form2_years_in_service").html(form2_years_in_service);
 		$("#pre_form2_months_in_service").html(form2_months_in_service);
@@ -4257,6 +4282,7 @@ $(document).ready(function(){
 			window.onbeforeunload = null;
 			//$("#form2_xml").hide();
 			//$("#new_credit_card").hide();
+			display_waiting_oage_for_aip(); // AIP
 			var formxml = generateXml();
 			formxml = formxml.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "");
 			formxmlArr = formxml.split("<eform FID=\""+$('#formId').val()+"\">");
@@ -4271,27 +4297,27 @@ $(document).ready(function(){
 				$.ajaxSetup({
 					async: 'false'
 					});
-				$.post("/FormProcessor/FormReceiverServlet", { formXML :  resultXML }, function(responseText, statusText){
+				$.post("/nfs-ofp/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
 					// Success Leads DB
 					onCompleted();
 					if(statusText == "success") {
 						// call GA
 						recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '6_FormSubmitted');
-						$('#tempReturn').empty();
-						$('#tempReturn').append(responseText);
-						var returnText = $("#tempReturn td:contains('Form ')").text();
-						returnText = returnText.replace(/\s*/g, '');
-						returnText = returnText.replace(/FormSubmittedSuccesfully/g, ',');
-						returnText = returnText.split(',')[1];
-						if(returnText != null) {
-							if( returnText.indexOf('%') != -1 ) {
-								returnText = returnText.substring(0, returnText.indexOf('%'));
-							}
-							$(".newcard_receipt").append('<span>'+returnText+'</span><br />');
-							$('#FormRefID').val(returnText);
-							sendscode(returnText);
+						var returnText = $(responseText);
+						var returnCode = "";
+						var returnID = "";
+						returnText.find('STATUS').each(function(){
+							returnCode = $(this).text();
+						});
+						returnText.find('REFID').each(function(){
+							returnID = $(this).text();
+						});
+						if(returnID != null && returnID != "" ) {
+							//$(".newcard_receipt").append('<span>'+returnID+'</span><br />');
+							$('#FormRefID').val(returnID+"|"+returnCode);
+							//sendscode(returnID);
 							generateForm();
-							//display_new_credit_card_thanks_page();
+							//document.location.replace("credit_card_form_thankyou_aip.html?returnCode="+returnCode+"&returnID="+returnID);
 							//scroll to top
 							//window.scrollTo(0,0);
 							
@@ -4308,5 +4334,4 @@ $(document).ready(function(){
 
 		}
 	);
-		
 });

@@ -800,6 +800,20 @@ if( self == top ) {
             <br>
         </div>
       <!-- end new credit card thanks page -->
+      
+      <!-- waiting page for AIP -->
+        <div id="waiting_oage_for_aip" style="display: none;">
+            <div class="thanks_page">
+            	<div id="thanks_left">
+            		<img src="images/ajax-loader-2.gif" alt="" /> 
+         		</div>
+  			    <!-- end thank you page left column -->
+            </div>
+            <br>
+            <br>
+        </div>
+      <!-- end waiting page for AIP -->
+      
       <!-- new credit card -->
 <div id="new_credit_card">
         <!-- slider wrapper -->
@@ -1674,6 +1688,14 @@ if( self == top ) {
                           <input id="form2_job_title_other" name="form2_job_title_other" style="display:none;" />
                           <div id="form2_job_title_label_container"></div>
                       </td>
+                      </tr>
+                      <tr>
+                          <td width="200" style="text-align:right;">Annual Income  <span class="mandatory">*</span></td>
+                          <td class="column2">
+                            <input id="form2_loan_my_income" name="form2_loan_my_income" class="required input_l_width"/>
+                          </td>
+                        <td class="column3">
+                        </td>
                       </tr>
                   </table>
                   <table width="100%" class="application_form">
@@ -3332,6 +3354,10 @@ if( self == top ) {
                       <tr>
                         <td width="200" style="text-align:right;">Job title:</td>
                         <td><div><span id="pre_form2_job_title"></span> <span id="pre_form2_job_title_other"></span></div></td>
+                      </tr>
+                      <tr>
+                          <td width="200" style="text-align:right;">My Annual Income: </td>
+                        <td><div id="pre_form2_loan_my_income"></div></td>
                       </tr>
                        <tr>
                         <td width="200" style="text-align:right;">Office phone number:</td>

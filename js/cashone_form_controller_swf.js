@@ -731,6 +731,25 @@ function display_new_credit_card_thanks_page() {
 	$("#terms_and_conditions").hide();
 }
 
+function display_waiting_oage_for_aip() {
+	$("#loading_page").hide();
+	$("#landing_page").hide();
+	$("#notes_page").hide();
+	$("#selected_cards").hide();
+	$("#existing_credit_card").hide();
+	$("#existing_credit_card_thanks_page").hide();
+	//$("#new_credit_card").hide();
+	$("#newcard_breadcrumb").hide();
+	$("#existingcard_breadcrumb").hide();
+	$("#new_credit_card_thanks_page").hide();
+	$("#waiting_oage_for_aip").show();
+	$("#newcard_submit_form").hide();
+	$("#existingcard_submit_form").hide();
+	$("div.form_new_print_button").css('display','inline');
+	$(".form2_link_to_personal_credit_container").hide();
+	$("#terms_and_conditions").hide();
+}
+
 // hide all cards
 function hide_all_cards() {
 	$(".sc_platinum_visa_card").hide();
@@ -5753,6 +5772,7 @@ $(document).ready(function(){
 			window.onbeforeunload = null;
 			//$("#form2_xml").hide();
 			//$("#new_credit_card").hide();
+			display_waiting_oage_for_aip(); // AIP
 			var formxml = generateXml();
 			formxml = formxml.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "");
 			formxmlArr = formxml.split("<eform FID=\""+$('#formId').val()+"\">");
@@ -5767,23 +5787,23 @@ $(document).ready(function(){
 				$.ajaxSetup({
 					async: 'false'
 					});
-				$.post("/FormProcessor/FormReceiverServlet", { formXML :  resultXML }, function(responseText, statusText){
+				$.post("/nfs-ofp/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
 					// Success Leads DB
 					onCompleted();
 					if(statusText == "success") {
-						$('#tempReturn').empty();
-						$('#tempReturn').append(responseText);
-						var returnText = $("#tempReturn td:contains('Form ')").text();
-						returnText = returnText.replace(/\s*/g, '');
-						returnText = returnText.replace(/FormSubmittedSuccesfully/g, ',');
-						returnText = returnText.split(',')[1];
-						if(returnText != null) {
-							if( returnText.indexOf('%') != -1 ) {
-								returnText = returnText.substring(0, returnText.indexOf('%'));
-							}
-							$(".newcard_receipt").append('<span>'+returnText+'</span><br />');
-							$('#FormRefID').val(returnText);
-							sendscode(returnText);
+						var returnText = $(responseText);
+						var returnCode = "";
+						var returnID = "";
+						returnText.find('STATUS').each(function(){
+							returnCode = $(this).text();
+						});
+						returnText.find('REFID').each(function(){
+							returnID = $(this).text();
+						});
+						if(returnID != null && returnID != "") {
+							//$(".newcard_receipt").append('<span>'+returnText+'</span><br />');
+							$('#FormRefID').val(returnID+"|"+returnCode);
+							//sendscode(returnText);
 							generateForm();
 							//display_new_credit_card_thanks_page();
 							//scroll to top

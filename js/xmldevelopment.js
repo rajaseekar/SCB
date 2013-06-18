@@ -1,19 +1,19 @@
 function generateForm() {
 		if ($("input[name='form2_nature_of_employment']:checked").val() == "Salaried"){
 			if ($("input[name='form2_nationality']:checked").val() == "Singaporean" ) {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou.html">');
+				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_aip.html">');
 			} else if ( $("input[name='form2_nationality']:checked").val() == "Singapore Permanent Resident" ) {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou.html">');
+				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_aip.html">');
  			} else {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_f.html">');
+ 				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_f_aip.html">');
 			}
 		} else {
 			if ($("input[name='form2_nationality']:checked").val() == "Singaporean" ) {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_ss.html">');
+				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_ss_aip.html">');
 			} else if ( $("input[name='form2_nationality']:checked").val() == "Singapore Permanent Resident" ) {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_ss.html">');
+				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_ss_aip.html">');
 			} else {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_fs.html">');
+				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_fs_aip.html">');
 			}
 		}
 
