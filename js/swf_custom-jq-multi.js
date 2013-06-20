@@ -105,7 +105,7 @@ $(function(){
 					resetUiStyle();
 					
 					// call GA
-					recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '5_DocUploadFlashSuccess');
+					//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '5_DocUploadFlashSuccess');
 					
 					//$(".ui-dialog-titlebar").hide();
 					//$('#pop-up-upload-completed').css('height','258px');
@@ -177,7 +177,7 @@ $(function(){
 				$('#error-dialog').dialog('open');
 				resetUiStyle();
 				// call GA
-				recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '5_DocUploadFlashFailed');
+				//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '5_DocUploadFlashFailed');
 				//$(".ui-dialog-titlebar").hide();
 				//$('#pop-up-upload-error').css('height','258px');
 

@@ -758,7 +758,7 @@ function display_waiting_oage_for_aip() {
 	$("#selected_cards").hide();
 	$("#existing_credit_card").hide();
 	$("#existing_credit_card_thanks_page").hide();
-	//$("#new_credit_card").hide();
+	$("#new_credit_card").hide();
 	$("#newcard_breadcrumb").hide();
 	$("#existingcard_breadcrumb").hide();
 	$("#new_credit_card_thanks_page").hide();

@@ -747,7 +747,7 @@ function display_waiting_oage_for_aip() {
 	$("#selected_cards").hide();
 	$("#existing_credit_card").hide();
 	$("#existing_credit_card_thanks_page").hide();
-	//$("#new_credit_card").hide();
+	$("#new_credit_card").hide();
 	$("#newcard_breadcrumb").hide();
 	$("#existingcard_breadcrumb").hide();
 	$("#new_credit_card_thanks_page").hide();
@@ -1441,9 +1441,9 @@ $(document).ready(function(){
 				display_new_credit_card_page();
 				$("#form2_name_on_card").attr("value",(($("input[name=form2_first_name]").val() + " " + $("input[name=form2_name]").val()).toUpperCase()));
 				// Send Leads Function
-				sendLeads();
+				//sendLeads();
 				// call GA
-				recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '1_LeadCapture');
+				//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '1_LeadCapture');
 			}
 			return false;
 			
@@ -2053,7 +2053,7 @@ $(document).ready(function(){
 					}
 					resizeSlider();
 					// call GA
-					recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '2_Personal');
+					//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '2_Personal');
 				}});
 				return false;
 			} else {
@@ -2351,7 +2351,7 @@ $(document).ready(function(){
 					$("#form_new_customer_credit_cards_2 .next").click();
 					resizeSlider();
 					// call GA
-					recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '3_Employment');
+					//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '3_Employment');
 				}});
 				return false;
 			} else {
@@ -2814,7 +2814,7 @@ $(document).ready(function(){
 					$("#form_new_customer_credit_cards_3 .next").click();
 					resizeSlider();
 					// call GA
-					recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '4_AdditionalOptions');
+					//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '4_AdditionalOptions');
 				}});
 				return false;
 			} else {
@@ -4299,10 +4299,10 @@ $(document).ready(function(){
 					});
 				$.post("/nfs-ofp/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
 					// Success Leads DB
-					onCompleted();
+					//onCompleted();
 					if(statusText == "success") {
 						// call GA
-						recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '6_FormSubmitted');
+						//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '6_FormSubmitted');
 						var returnText = $(responseText);
 						var returnCode = "";
 						var returnID = "";
