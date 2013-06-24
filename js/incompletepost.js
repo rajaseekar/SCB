@@ -20,7 +20,7 @@ function generateInCompleteXml() {
 
 function postInCompleteXml() {
 	
-	$.post("/FormProcessor/IncompleteReceiverServlet", { formIncXML :  generateInCompleteXml() }, function(responseText, statusText){
+	$.post("/nfs-ofp/ofpservice.htm", { formIncXML :  generateInCompleteXml() }, function(responseText, statusText){
 		if(statusText == "success") {
 			
 		} else {
