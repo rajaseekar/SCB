@@ -5791,16 +5791,17 @@ $(document).ready(function(){
 					// Success Leads DB
 					//onCompleted();
 					if(statusText == "success") {
-						var returnText = $(responseText);
 						var returnCode = "";
 						var returnID = "";
-						returnText.find('STATUS').each(function(){
-							returnCode = $(this).text();
-						});
-						returnText.find('REFID').each(function(){
-							returnID = $(this).text();
-						});
-						if(returnID != null && returnID != "") {
+
+						var regRefID = new RegExp("</REFID>");
+						returnID = responseText.substring(13, responseText.search(regRefID));
+						
+						var regStatus1 = new RegExp("<STATUS>"); 
+						var regStatus2 = new RegExp("</STATUS>");
+						returnCode = responseText.substring(responseText.search(regStatus1)+8, responseText.search(regStatus2));
+						
+						if(returnID != null && returnID != "" ) {
 							//$(".newcard_receipt").append('<span>'+returnText+'</span><br />');
 							$('#FormRefID').val(returnID+"|"+returnCode);
 							//sendscode(returnText);

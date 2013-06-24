@@ -5,15 +5,15 @@ function generateForm() {
 			} else if ( $("input[name='form2_nationality']:checked").val() == "Singapore Permanent Resident" ) {
 				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_aip.html">');
  			} else {
- 				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_f_aip.html">');
+ 				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_aip_f.html">');
 			}
 		} else {
 			if ($("input[name='form2_nationality']:checked").val() == "Singaporean" ) {
-				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_ss_aip.html">');
+				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_aip_ss.html">');
 			} else if ( $("input[name='form2_nationality']:checked").val() == "Singapore Permanent Resident" ) {
-				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_ss_aip.html">');
+				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_aip_ss.html">');
 			} else {
-				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_fs_aip.html">');
+				$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/credit_card_form_thankyou_aip_fs.html">');
 			}
 		}
 
@@ -268,8 +268,8 @@ $(document).ready(function(){
 	});
 	//display_none(); disable the hide function, otherwise IE cannot show the card images
 	$('#form2_upload_file_list').val('');
-	$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="https://apps1.standardchartered.com/FormProcessor/ThankYou"></form></div>');
-	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="http://10.20.218.168/FormProcessor/ThankYou"></form></div>');
+	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="https://apps1.standardchartered.com/FormProcessor/ThankYou"></form></div>');
+	$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="http://10.20.218.168/FormProcessor/ThankYou"></form></div>');
 	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="/FormProcessor/ThankYou"></form></div>');
 	$('#hiddenForm').append('<input type="hidden" name="FormRefID" id="FormRefID">');
 	$('#hiddenForm').append('<input type="hidden" name="selectedCard" id="selectedCard">');

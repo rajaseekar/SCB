@@ -4303,15 +4303,16 @@ $(document).ready(function(){
 					if(statusText == "success") {
 						// call GA
 						//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '6_FormSubmitted');
-						var returnText = $(responseText);
 						var returnCode = "";
 						var returnID = "";
-						returnText.find('STATUS').each(function(){
-							returnCode = $(this).text();
-						});
-						returnText.find('REFID').each(function(){
-							returnID = $(this).text();
-						});
+
+						var regRefID = new RegExp("</REFID>");
+						returnID = responseText.substring(13, responseText.search(regRefID));
+						
+						var regStatus1 = new RegExp("<STATUS>"); 
+						var regStatus2 = new RegExp("</STATUS>");
+						returnCode = responseText.substring(responseText.search(regStatus1)+8, responseText.search(regStatus2));
+						
 						if(returnID != null && returnID != "" ) {
 							//$(".newcard_receipt").append('<span>'+returnID+'</span><br />');
 							$('#FormRefID').val(returnID+"|"+returnCode);
@@ -4334,4 +4335,5 @@ $(document).ready(function(){
 
 		}
 	);
+
 });
