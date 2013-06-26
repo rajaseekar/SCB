@@ -55,5 +55,37 @@ table.application_form tr td.column2-nowidth {
 	padding-left: 5px;
 }
 
-
+a.btn_ccform {
+    -moz-background-inline-policy: continuous;
+    background: url("../images/btn_ccform.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 48px;
+    margin-left: 5px;
+    width: 150px;
+}
+a.btn_coform {
+    -moz-background-inline-policy: continuous;
+    background: url("../images/btn_coform.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 48px;
+    margin-left: 5px;
+    width: 150px;
+}
+a.btn_cchyform {
+    -moz-background-inline-policy: continuous;
+    background: url("../images/btn_ezyform.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 48px;
+    margin-left: 5px;
+    width: 150px;
+}
+a.btn_ccform:hover, a.btn_coform:hover, a.btn_cchyform:hover {
+    background-position: 0 -49px;
+}
+a.btn_ccform span, a.btn_coform span, a.btn_cchyform span {
+    display: none;
+}
 

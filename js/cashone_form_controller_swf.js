@@ -5749,30 +5749,24 @@ $(document).ready(function(){
 				resizeSlider();
 				return false;
 			}
-			/*
-			if (!($('#form2_declaration').is(':checked'))) {
-				alert("Please read and agree to the terms and conditions before submitting the application.");
-				return;
-			}
-			*/
 		
-		$("#h4declation, #divdeclation").hide();
-		
-		if ($("#"+"pre_form2_nationality").text() == "Singaporean" || $("#"+"pre_form2_nationality").text() == "Singapore Permanent Resident") {
-				$("#new_singaporean_document").show();
-				$("#new_non_singaporean_document").hide();
-		}
+			$("#h4declation, #divdeclation").hide();
 			
-		else {
-				
-				$("#new_non_singaporean_document").show();
-				$("#new_singaporean_document").hide();
-		}
+			if ($("#"+"pre_form2_nationality").text() == "Singaporean" || $("#"+"pre_form2_nationality").text() == "Singapore Permanent Resident") {
+					$("#new_singaporean_document").show();
+					$("#new_non_singaporean_document").hide();
+			} else {
+					$("#new_non_singaporean_document").show();
+					$("#new_singaporean_document").hide();
+			}
+			display_waiting_oage_for_aip(); // AIP
+			while( !$("#waiting_oage_for_aip").is(":visible") ) {
+				display_waiting_oage_for_aip();
+			}
 			
 			window.onbeforeunload = null;
 			//$("#form2_xml").hide();
 			//$("#new_credit_card").hide();
-			display_waiting_oage_for_aip(); // AIP
 			var formxml = generateXml();
 			formxml = formxml.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "");
 			formxmlArr = formxml.split("<eform FID=\""+$('#formId').val()+"\">");

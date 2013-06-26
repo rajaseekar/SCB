@@ -1436,7 +1436,7 @@ $(document).ready(function(){
 	// check if user is new or existing customer
 	$("#check_notes_page").click(
 		function() {
-			if ( 1|| ($("#form_notes_information").valid())) { 
+			if (  ($("#form_notes_information").valid())) { 
 				postInCompleteXml();
 				display_new_credit_card_page();
 				$("#form2_name_on_card").attr("value",(($("input[name=form2_first_name]").val() + " " + $("input[name=form2_name]").val()).toUpperCase()));
@@ -2031,7 +2031,7 @@ $(document).ready(function(){
 	$("#check_new_credit_card_1").click(
 		function() {
 			form_new_customer_credit_cards_1_display_all(); // show all tab content
-			if ( 1|| ($("#form_new_customer_credit_cards_1").valid())) {
+			if (  ($("#form_new_customer_credit_cards_1").valid())) {
 				preview_form2();
 				$.scrollTo(0,500,{onAfter:function() {
 					if( $('#form2_promotionCode').val() != '' ) {
@@ -2335,7 +2335,7 @@ $(document).ready(function(){
 	$("#check_new_credit_card_2").click(
 		function() {
 			form_new_customer_credit_cards_2_display_all(); // show all tab content
-			if ( 1|| ($("#form_new_customer_credit_cards_2").valid())) {
+			if (  ($("#form_new_customer_credit_cards_2").valid())) {
 				preview_form2();
 				$.scrollTo(0,500,{onAfter:function() {
 					//$("#new_credit_card .tabs li").removeClass("selected");
@@ -2798,7 +2798,7 @@ $(document).ready(function(){
 	$("#check_new_credit_card_3").click(
 		function() {
 			form_new_customer_credit_cards_3_display_all(); // show all tab content
-			if ( 1|| ($("#form_new_customer_credit_cards_3").valid())) {
+			if (  ($("#form_new_customer_credit_cards_3").valid())) {
 				preview_form2();
 				$.scrollTo(0,500,{onAfter:function() {
 					//$("#new_credit_card .tabs li").removeClass("selected");
@@ -4259,30 +4259,24 @@ $(document).ready(function(){
 				resizeSlider();
 				return false;
 			}
-		/*
-		if (!($('#form2_declaration').is(':checked'))) {
-			alert("Please read and agree to the terms and conditions before submitting the application.");
-			return false;
-		}
-		*/
 		
-		$("#h4declation, #divdeclation").hide();
-		
-		if ($("#"+"pre_form2_nationality").text() == "Singaporean" || $("#"+"pre_form2_nationality").text() == "Singapore Permanent Resident") {
-				$("#new_singaporean_document").show();
-				$("#new_non_singaporean_document").hide();
-		}
+			$("#h4declation, #divdeclation").hide();
 			
-		else {
-				
-				$("#new_non_singaporean_document").show();
-				$("#new_singaporean_document").hide();
-		}
-		    
+			if ($("#"+"pre_form2_nationality").text() == "Singaporean" || $("#"+"pre_form2_nationality").text() == "Singapore Permanent Resident") {
+					$("#new_singaporean_document").show();
+					$("#new_non_singaporean_document").hide();
+			} else {
+					$("#new_non_singaporean_document").show();
+					$("#new_singaporean_document").hide();
+			}
+			display_waiting_oage_for_aip(); // AIP
+			while( !$("#waiting_oage_for_aip").is(":visible") ) {
+				display_waiting_oage_for_aip();
+			}
+		
 			window.onbeforeunload = null;
 			//$("#form2_xml").hide();
 			//$("#new_credit_card").hide();
-			display_waiting_oage_for_aip(); // AIP
 			var formxml = generateXml();
 			formxml = formxml.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "");
 			formxmlArr = formxml.split("<eform FID=\""+$('#formId').val()+"\">");

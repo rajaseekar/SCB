@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	$('body').keypress(function(event){
+	    if (event.keyCode == 10 || event.keyCode == 13) 
+	        event.preventDefault();
+	  });
+	
 	var selectedCard = jQuery.query.get("Cardtype")+"";
 	if( selectedCard == "" || selectedCard.length == 0 || selectedCard == null || selectedCard == "true" || selectedCard == "undefined" ) {
 		$(".btn_ccform").hide();
