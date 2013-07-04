@@ -589,12 +589,16 @@ function generateXml() {
 	//commonXML=commonXML+"\t\t\t<emp-position>30</emp-position>\n";
 	commonXML=commonXML+"\t\t\t<emp-serviceYears><![CDATA["+$("#"+formname+"_years_in_service").val().toUpperCase()+"]]></emp-serviceYears>\n";
 	commonXML=commonXML+"\t\t\t<emp-serviceMonths>1</emp-serviceMonths>\n";
+	// replace with user enter value
+	/* 
 	if($("input[name="+formname+"_nationality]:checked").val()!='Foreigner') {
 		commonXML=commonXML+"\t\t\t<emp-incomeAnnual>30000</emp-incomeAnnual>\n"; 
 	}
 	else {
 		commonXML=commonXML+"\t\t\t<emp-incomeAnnual>36000</emp-incomeAnnual>\n"; 
-	}
+	}*/
+	commonXML=commonXML+"\t\t\t<emp-incomeAnnual>"+$("#form2_loan_my_income").val().toUpperCase()+"</emp-incomeAnnual>\n";
+	
 	//// hidden the whole business address section
 	commonXML=commonXML+"\t\t\t<emp-officeAddress><![CDATA["+em_add.toUpperCase()+" "+em_add_a.toUpperCase()+"]]></emp-officeAddress>\n";
 	commonXML=commonXML+"\t\t\t<emp-officeAddress1><![CDATA["+em_add1.toUpperCase()+"]]></emp-officeAddress1>\n";

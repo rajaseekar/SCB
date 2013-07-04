@@ -4291,40 +4291,43 @@ $(document).ready(function(){
 				$.ajaxSetup({
 					async: 'false'
 					});
-				$.post("/nfs-ofp/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
-					// Success Leads DB
-					//onCompleted();
-					if(statusText == "success") {
-						// call GA
-						//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '6_FormSubmitted');
-						var returnCode = "";
-						var returnID = "";
-
-						var regRefID = new RegExp("</REFID>");
-						returnID = responseText.substring(13, responseText.search(regRefID));
-						
-						var regStatus1 = new RegExp("<STATUS>"); 
-						var regStatus2 = new RegExp("</STATUS>");
-						returnCode = responseText.substring(responseText.search(regStatus1)+8, responseText.search(regStatus2));
-						
-						if(returnID != null && returnID != "" ) {
-							//$(".newcard_receipt").append('<span>'+returnID+'</span><br />');
-							$('#FormRefID').val(returnID+"|"+returnCode);
-							//sendscode(returnID);
-							generateForm();
-							//document.location.replace("credit_card_form_thankyou_aip.html?returnCode="+returnCode+"&returnID="+returnID);
-							//scroll to top
-							//window.scrollTo(0,0);
+				setTimeout(function(){
+					$.post("/nfs-ofp/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
+						// Success Leads DB
+						//onCompleted();
+						if(statusText == "success") {
+							// call GA
+							//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '6_FormSubmitted');
+							var returnCode = "";
+							var returnID = "";
+	
+							var regRefID = new RegExp("</REFID>");
+							returnID = responseText.substring(13, responseText.search(regRefID));
+							
+							var regStatus1 = new RegExp("<STATUS>"); 
+							var regStatus2 = new RegExp("</STATUS>");
+							returnCode = responseText.substring(responseText.search(regStatus1)+8, responseText.search(regStatus2));
+							
+							if(returnID != null && returnID != "" ) {
+								//$(".newcard_receipt").append('<span>'+returnID+'</span><br />');
+								$('#FormRefID').val(returnID+"|"+returnCode);
+								$('#FormRefID_AIP').val(returnID);
+								//sendscode(returnID);
+								generateForm();
+								//document.location.replace("credit_card_form_thankyou_aip.html?returnCode="+returnCode+"&returnID="+returnID);
+								//scroll to top
+								//window.scrollTo(0,0);
+								
+							} else {
+								alert("Form submission failed, please try again later");
+							}
 							
 						} else {
-							alert("Form submission failed, please try again later");
+							alert("System is busy, please try again later");
 						}
-						
-					} else {
-						alert("System is busy, please try again later");
-					}
-
-				});
+	
+					});
+				}, 2000); // end of timer
 			});
 
 		}

@@ -250,7 +250,7 @@ function generateForm() {
 
 // Bank Info
 	
-	$('#hiddenForm').append('<input type="hidden" id="selectedForms" name="selectedForms" value="sgccen" >');
+	$('#hiddenForm').append('<input type="hidden" id="selectedForms" name="selectedForms" value="sgccenaip" >');
 	setTimeout(function(){
 		document.hiddenForm.submit();
 	}, 1000);
@@ -272,6 +272,7 @@ $(document).ready(function(){
 	$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="http://10.20.218.168/FormProcessor/ThankYou"></form></div>');
 	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="/FormProcessor/ThankYou"></form></div>');
 	$('#hiddenForm').append('<input type="hidden" name="FormRefID" id="FormRefID">');
+	$('#hiddenForm').append('<input type="hidden" name="FormRefID_AIP" id="FormRefID_AIP">');
 	$('#hiddenForm').append('<input type="hidden" name="selectedCard" id="selectedCard">');
 	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR49">'); // prod
 	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR472">'); // AIP SIT
