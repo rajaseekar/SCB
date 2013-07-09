@@ -322,7 +322,7 @@ $(function(){
 $(function(){
 	$('.swf_upload_file').each(function(){
 		$(this).swfupload({
-			upload_url: "/FormProcessor/FormReceiverAttchServlet",
+			upload_url: "/nfs-ofp/ofpservice.htm",
 			file_size_limit : "5120",
 			file_types : "*.jpg;*.gif;*.tif;*.pdf;*.png",
 			file_types_description : "All Files",
