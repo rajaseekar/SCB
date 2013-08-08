@@ -1373,12 +1373,15 @@ function generateXml() {
 	//commonXML=commonXML+"\t\t\t<emp-position>30</emp-position>\n";
 	commonXML=commonXML+"\t\t\t<emp-serviceYears><![CDATA["+$("#"+formname+"_years_in_service").val().toUpperCase()+"]]></emp-serviceYears>\n";
 	commonXML=commonXML+"\t\t\t<emp-serviceMonths>1</emp-serviceMonths>\n";
+	// replace with user enter value
+	/*
 	if($("input[name="+formname+"_nationality]:checked").val()!='Foreigner') {
 		commonXML=commonXML+"\t\t\t<emp-incomeAnnual>30000</emp-incomeAnnual>\n"; 
 	}
 	else {
 		commonXML=commonXML+"\t\t\t<emp-incomeAnnual>60000</emp-incomeAnnual>\n"; 
-	}
+	}*/
+	commonXML=commonXML+"\t\t\t<emp-incomeAnnual>"+$("#form2_loan_my_income").val().toUpperCase()+"</emp-incomeAnnual>\n";
 
 	commonXML=commonXML+"\t\t\t<emp-officeAddress><![CDATA["+em_add.toUpperCase()+" "+em_add_a.toUpperCase()+"]]></emp-officeAddress>\n";
 	commonXML=commonXML+"\t\t\t<emp-officeAddress1><![CDATA["+em_add1.toUpperCase()+"]]></emp-officeAddress1>\n";
@@ -5690,10 +5693,17 @@ $(document).ready(function(){
 					$("#new_non_singaporean_document").show();
 					$("#new_singaporean_document").hide();
 			}
-			display_waiting_oage_for_aip(); // AIP
-			while( !$("#waiting_oage_for_aip").is(":visible") ) {
-				display_waiting_oage_for_aip();
-			}
+			//display_waiting_oage_for_aip(); // AIP
+			//while( !$("#waiting_oage_for_aip").is(":visible") ) {
+			//	display_waiting_oage_for_aip();
+			//}
+			//scroll to top
+			window.scrollTo(0,0);
+			$('#spinning-dialog').dialog('open');
+			resetUiStyle();
+			$('#spinning-dialog .wrap-img h2').empty().append('Please wait and do not close your browser while we are processing your request.');
+			$('#spinning-dialog .wrap-img p').empty().append('This may take some time. Thank you for your patience.');
+			$('#spinning-dialog .buttons-pop').empty();
 			
 			window.onbeforeunload = null;
 			//$("#form2_xml").hide();

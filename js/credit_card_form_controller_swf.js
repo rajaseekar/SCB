@@ -4269,11 +4269,18 @@ $(document).ready(function(){
 					$("#new_non_singaporean_document").show();
 					$("#new_singaporean_document").hide();
 			}
-			display_waiting_oage_for_aip(); // AIP
-			while( !$("#waiting_oage_for_aip").is(":visible") ) {
-				display_waiting_oage_for_aip();
-			}
-		
+			//display_waiting_oage_for_aip(); // AIP
+			//while( !$("#waiting_oage_for_aip").is(":visible") ) {
+			//	display_waiting_oage_for_aip();
+			//}
+			//scroll to top
+			window.scrollTo(0,0);
+			$('#spinning-dialog').dialog('open');
+			resetUiStyle();
+			$('#spinning-dialog .wrap-img h2').empty().append('Please wait and do not close your browser while we are processing your request.');
+			$('#spinning-dialog .wrap-img p').empty().append('This may take some time. Thank you for your patience.');
+			$('#spinning-dialog .buttons-pop').empty();
+					
 			window.onbeforeunload = null;
 			//$("#form2_xml").hide();
 			//$("#new_credit_card").hide();
@@ -4315,8 +4322,6 @@ $(document).ready(function(){
 								//sendscode(returnID);
 								generateForm();
 								//document.location.replace("credit_card_form_thankyou_aip.html?returnCode="+returnCode+"&returnID="+returnID);
-								//scroll to top
-								//window.scrollTo(0,0);
 								
 							} else {
 								alert("Form submission failed, please try again later");

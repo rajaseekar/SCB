@@ -753,7 +753,7 @@ function generateXml() {
 	// KORN
     addXML=addXML+"\t\t\t<staffContactNo></staffContactNo>\n";
 	addXML=addXML+"\t\t\t<referralId></referralId>\n";
-	addXML=addXML+"\t\t\t<closingId></closingId>\n";
+	addXML=addXML+"\t\t\t<closingId>1889559</closingId>\n";
 	addXML=addXML+"\t\t\t<prodType2></prodType2>\n";
 	addXML=addXML+"\t\t\t<prodType3></prodType3>\n";
 	addXML=addXML+"\t\t\t<prodType4></prodType4>\n";
