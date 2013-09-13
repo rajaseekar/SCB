@@ -48,6 +48,10 @@ $(document).ready(function(){
     
     $("#pre_form2_refid").empty().append(FormRefID);
     
+    uuid = jQuery.query.get("uuid");
+	var fileName = uuid+$('#id').val();
+	$('#id').val('').val(fileName);
+    
     if( selectedCard != '' || selectedCard.length != 0 ) {
         if ( selectedCard == 'SG_MPC') {
             $('#card_7').attr('checked','checked');
@@ -314,6 +318,7 @@ if ( selectedCard == 'SG_MPC') {
                     <input type="hidden" id="whatFile" name="whatFile" value="PDF"/>
                     <input type="hidden" id="callback" name="callback" value="callback"/>
                     <div id="print-pdf-button-2"><a id="print-pdf-button_a">Save application as PDF</a></div>
+                    <div style="height: 100px; font-size:10pt; text-decoration: underline;">For security reasons, please clear your browser's disk cache after each application</div>
             </div>
             
             <div id="aip_container">

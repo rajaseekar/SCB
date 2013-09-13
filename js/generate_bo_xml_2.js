@@ -564,8 +564,14 @@ function generateXml() {
 	commonXML=commonXML+"\t\t\t<per-maritalSt><![CDATA["+marital_status.toUpperCase()+"]]></per-maritalSt>\n";
 	commonXML=commonXML+"\t\t\t<per-noDep>0</per-noDep>\n";
 	commonXML=commonXML+"\t\t\t<per-education><![CDATA["+education_status.toUpperCase()+"]]></per-education>\n";
-	commonXML=commonXML+"\t\t\t<per-mobph>0</per-mobph>\n";
-	
+
+	if( $("input[name='form2_nationality']:checked").val() != "Singaporean" && $('#form2_employ_pass_type_p1p2').is(':checked') ) {
+    	commonXML=commonXML+"\t\t\t<per-mobph>Q</per-mobph>\n";
+	} else if( $("input[name='form2_nationality']:checked").val() != "Singaporean" && $('#form2_employ_pass_type_s').is(':checked') ) {
+    	commonXML=commonXML+"\t\t\t<per-mobph>S</per-mobph>\n";
+	} else {
+    	commonXML=commonXML+"\t\t\t<per-mobph>0</per-mobph>\n";
+	}
 	
 	commonXML=commonXML+"\t\t\t<res-homeAddrs><![CDATA["+homeadd.toUpperCase()+" "+homeadd_a.toUpperCase()+"]]></res-homeAddrs>\n";
 	commonXML=commonXML+"\t\t\t<res-homeAddrs1><![CDATA["+homeadd1.toUpperCase()+"]]></res-homeAddrs1>\n";

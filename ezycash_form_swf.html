@@ -74,6 +74,7 @@
 <!-- <script type="text/javascript" src="js/singapore_pl_en_min_custom.js"></script> -->
 <script type="text/javascript" src="js/generate_bo_xml_attachments.js"></script>
 <script type="text/javascript" src="data/banks.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.js" charset="utf-8"></script>
 
 <style>
 html{display : none; }
@@ -2031,6 +2032,16 @@ if( self == top ) {
                         <td width="200" style="text-align:right;">Passport number <span class="mandatory">*</span></td>
                         <td><input id="form2_passport_number" name="form2_passport_number" class="input_l_width" /></td>
                         <td></td>
+                     </tr>
+                     <tr>
+                        <td width="200" style="text-align:right;">Employment Pass Type <span class="mandatory">*</span></td>
+                        <td class="column2">
+                            <input id="form2_employ_pass_type_p1p2" name="form2_employ_pass_type" type="radio" value="P1P2" />
+                            <label for="form2_employ_pass_type_p1p2">P1/P2</label><br />
+                            <br /><input id="form2_employ_pass_type_s" name="form2_employ_pass_type" type="radio" value="S" />
+                            <label for="form2_employ_pass_type_s">S</label><br />
+                        </td>
+                       <td class="column3"><div id="form2_employ_pass_type_lbl"></div></td>
                      </tr>
                       <!--<tr>
                         <td width="200" style="text-align:right;">Previous Passport Number </td>
@@ -4034,6 +4045,10 @@ if( self == top ) {
                         <td width="200" style="text-align:right;">Passport number:</td>
                         <td><div id="pre_form2_passport_number"></div></td>
                       </tr>
+                      <tr>
+                        <td width="200" style="text-align:right;">Employment Pass Type:</td>
+                        <td><div id="pre_form2_employ_pass_type"></div></td>
+                      </tr>
                       <!--<tr>
                         <td width="200" style="text-align:right;">Previous Passport Number </td>
                         <td><div id="pre_form2_previous_passport_number"></div></td>
@@ -4666,6 +4681,7 @@ if( self == top ) {
         <div class="buttons-pop">
             <span><img id="cancelUploadButton" src="images/cancel-button.jpg" width="78" height="28"/></span>
         </div>
+        <div id="counter" style="display: none; width: 220px; margin-left: auto; margin-right: auto;"></div>
     </div>
 </div>
 <div id="completed-dialog" style="padding: 0;">

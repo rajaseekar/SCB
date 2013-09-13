@@ -5,6 +5,16 @@ var isDGM;
 var subChanCode = '';
 // get80 end
 
+var idleTime = 0;
+var timeoutUrl = "http://www.standardchartered.com.sg/credit-cards/";
+
+function timerIncrement() {
+    idleTime++;
+    if (idleTime >= 900) { // 15 minutes
+		window.location.replace(timeoutUrl);
+    }
+}
+
 var status = false;
 
 function resizeSlider() {
@@ -838,7 +848,17 @@ window.open('print_form_cc_new.html','SCBPrint','resizable=yes,toolbar=yes,locat
 
 
 /************************** onload functions ***************************/
-$(document).ready(function(){	
+$(document).ready(function(){
+
+    // AVT 15 mins timeout
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
+    $(this).mousedown(function (e) {
+        idleTime = 0;
+    });	
+	setInterval("timerIncrement()", 1000); // 1 second
+
 	$('#form2_upload_id_01').change(function() {
 		if( $('#form2_upload_id_01selectedfile').val() != '' ) {
 			$('#form2_upload_id_01selectedfile').val('').val( $('#form2_upload_id_01 option:selected').text() );
@@ -1934,6 +1954,7 @@ $(document).ready(function(){
 			form2_name_on_card: { required: true, minlength: 5, maxlength: 19 },
 			form2_nric_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Foreigner" }, minlength: 9, maxlength: 9 },
 			form2_passport_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" }, minlength: 5, maxlength: 16 },
+			form2_employ_pass_type: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" } },
 			form2_date_of_birth: { required: true, dpDate: true, dpMinMaxDate: [] },
 			form2_gender: {required: function(element) { return $("input[name='form2_gender']:checked").val() == undefined}},
 			form2_marital_status: { required: true, minlength: 1 },
@@ -1962,6 +1983,7 @@ $(document).ready(function(){
 			form2_name_on_card: { required: "Please enter the name that you want to be displayed on your card.", minlength: "Please enter a valid card name (min 5 characters).", maxlength: "Please enter a valid card name (max 19 characters)." },
 			form2_nric_number: { required: "Please enter your NRIC." },
 			form2_passport_number: { required: "Please enter your passport number" },
+			form2_employ_pass_type: { required: "Please select your employment pass type" },
 			form2_date_of_birth: { required: "Please enter your date of birth." },
 			form2_gender: { required : "Please select your gender"},
 			form2_marital_status: { required: "Please select your marital status." },
@@ -2014,6 +2036,8 @@ $(document).ready(function(){
        			error.insertAfter("#mailingRadio");
              else if (element.attr("name") == "form2_name_of_relative_not_living_with_you")
         			error.insertAfter("#form2_name_of_relative_not_living_with_you_label_container");
+            else if (element.attr("name") == "form2_employ_pass_type")
+        			error.insertAfter("#form2_employ_pass_type_lbl");
  			else {
                 error.appendTo( element.parent().next() ); 
 			}
@@ -2031,7 +2055,7 @@ $(document).ready(function(){
 	$("#check_new_credit_card_1").click(
 		function() {
 			form_new_customer_credit_cards_1_display_all(); // show all tab content
-			if (  ($("#form_new_customer_credit_cards_1").valid())) {
+			if ( ($("#form_new_customer_credit_cards_1").valid())) {
 				preview_form2();
 				$.scrollTo(0,500,{onAfter:function() {
 					if( $('#form2_promotionCode').val() != '' ) {
@@ -3323,6 +3347,7 @@ $(document).ready(function(){
 			form2_name_on_card: { required: true, minlength: 5, maxlength: 19 },
 			form2_nric_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Foreigner" }, minlength: 9, maxlength: 9 },
 			form2_passport_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" }, minlength: 5, maxlength: 16 },
+			form2_employ_pass_type: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" } },
 			//form2_previous_passport_number: { minlength: 5, maxlength: 16 },
 			form2_date_of_birth: { required: true },
 			form2_gender: {required: function(element) { return $("input[name='form2_gender']:checked").val() == undefined}},
@@ -3425,6 +3450,7 @@ $(document).ready(function(){
 			form2_name_on_card: { required: "Please enter the name that you want to be displayed on your card.", minlength: "Please enter a valid card name (min 5 characters).", maxlength: "Please enter a valid card name (max 19 characters)." },
 			form2_nric_number: { required: "Please enter your NRIC." },
 			form2_passport_number: { required: "Please enter your passport number" },
+			form2_employ_pass_type: { required: "Please select your employment pass type" },
 			//form2_previous_passport_number: { required: "Please enter your previous Passport no." },
 			form2_date_of_birth: { required: "Please enter your date of birth." },
 			form2_gender: { required : "Please select your gender"},
@@ -3541,6 +3567,8 @@ $(document).ready(function(){
        			error.insertAfter("#mailingRadio");
 			else if (element.attr("name") == "form2_employer_unit_number")
        			error.insertAfter("#lbl_form2_employer_unit_number_container");
+            else if (element.attr("name") == "form2_employ_pass_type")
+        			error.insertAfter("#form2_employ_pass_type_lbl");
  			else {
                 error.appendTo( element.parent().next() ); 
 			}
@@ -4071,6 +4099,14 @@ $(document).ready(function(){
 		$("#pre_form2_nationality").html(form2_nationality);
 		$("#pre_form2_nric_number").html(form2_nric_number);
 		$("#pre_form2_passport_number").html(form2_passport_number);
+		if( $("input[name='form2_nationality']:checked").val() != "Singaporean" && $('#form2_employ_pass_type_p1p2').is(':checked') ) {
+			$("#pre_form2_employ_pass_type").html( "P1/P2" );
+			$("#form2_employ_pass_type_p1p2").val( "P1/P2" );
+		} else if( $("input[name='form2_nationality']:checked").val() != "Singaporean" && $('#form2_employ_pass_type_s').is(':checked') ) {
+			$("#pre_form2_employ_pass_type").html( "S" );
+			$("#form2_employ_pass_type_s").val( "S" );
+		}
+
 		//$("#pre_form2_previous_passport_number").html(form2_previous_passport_number);
 		$("#pre_form2_date_of_birth").html(form2_date_of_birth);
 		$("#pre_form2_gender").html(form2_gender);
@@ -4275,11 +4311,20 @@ $(document).ready(function(){
 			//}
 			//scroll to top
 			window.scrollTo(0,0);
-			$('#spinning-dialog').dialog('open');
 			resetUiStyle();
 			$('#spinning-dialog .wrap-img h2').empty().append('Please wait and do not close your browser while we are processing your request.');
 			$('#spinning-dialog .wrap-img p').empty().append('This may take some time. Thank you for your patience.');
 			$('#spinning-dialog .buttons-pop').empty();
+			$('#spinning-dialog').css('height','290px');
+			$('#pop-up-upload').css('height','250px');
+			$('#spinning-dialog').dialog('open');
+			$('#counter').show();
+			$('#counter').countdown({
+              image: 'images/digits.png',
+              startTime: '00:90',
+              timerEnd: function(){},
+              format: 'mm:ss'
+            });
 					
 			window.onbeforeunload = null;
 			//$("#form2_xml").hide();
@@ -4300,6 +4345,7 @@ $(document).ready(function(){
 					});
 				setTimeout(function(){
 					$.post("/nfs-ofp/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
+					//$.post("/nfs-ofp-foa/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
 						// Success Leads DB
 						//onCompleted();
 						if(statusText == "success") {

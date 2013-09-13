@@ -268,9 +268,10 @@ $(document).ready(function(){
 	});
 	//display_none(); disable the hide function, otherwise IE cannot show the card images
 	$('#form2_upload_file_list').val('');
-	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="https://apps1.standardchartered.com/FormProcessor/ThankYou"></form></div>');
-	$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="http://10.20.218.168/FormProcessor/ThankYou"></form></div>');
-	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="/FormProcessor/ThankYou"></form></div>');
+	$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="https://apps.mykorn.com/FormProcessor/ThankYouRedirect"></form></div>');
+	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="https://apps1.standardchartered.com/FormProcessor/ThankYouRedirect"></form></div>');
+	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="http://10.20.218.168/FormProcessor/ThankYouRedirect"></form></div>');
+	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="/FormProcessor/ThankYouRedirect"></form></div>');
 	$('#hiddenForm').append('<input type="hidden" name="FormRefID" id="FormRefID">');
 	$('#hiddenForm').append('<input type="hidden" name="FormRefID_AIP" id="FormRefID_AIP">');
 	$('#hiddenForm').append('<input type="hidden" name="selectedCard" id="selectedCard">');

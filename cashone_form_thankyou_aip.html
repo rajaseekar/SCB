@@ -46,6 +46,10 @@ $(document).ready(function(){
     
     $("#pre_form2_refid").empty().append(FormRefID);
     
+    uuid = jQuery.query.get("uuid");
+	var fileName = uuid+$('#id').val();
+	$('#id').val('').val(fileName);
+    
     $('#thanks_left span').hide();
     
     // check if doc upload number > 0
@@ -114,14 +118,17 @@ $(document).ready(function(){
             After submitting  your CPF statement,  please fax or email your  IC copy (Front and Back) to (65) 6305 1787. You can also submit your income documents via this fax number if you are not submitting CPF Statement online or did not upload any documents.
         </div> 
         <!-- end manhattan platinum card -->
-            		<div style="font-size:10pt; margin-bottom: 40px;"><br />Your reference number for the application is 
+            		<div style="font-size:10pt; margin-bottom: 20px;"><br />Your reference number for the application is 
                     <div class="newcard_receipt_off" id="pre_form2_refid" style="display:inline; font-weight:bold;"></div>
                     <form id="print-pdf-form" method="post" action="/FormProcessor/loadFile" target="_blank">
 	                    <input type="hidden" id="id" name="id" value="sgplenaip.pdf"/>
 	                    <input type="hidden" id="whatFile" name="whatFile" value="PDF"/>
 	                    <input type="hidden" id="callback" name="callback" value="callback"/>
-	                    <div id="print-pdf-button-2"><a id="print-pdf-button_a">Save application as PDF</a></div></div>
+	                    <div id="print-pdf-button-2"><a id="print-pdf-button_a">Save application as PDF</a></div>
+	                <div style="height: 100px; font-size:10pt; text-decoration: underline;">For security reasons, please clear your browser's disk cache after each application</div>
+                    </div>
 	                </form>
+
 	                
 	                <iframe src="https://www.surveygizmo.com/s3/1139629/osnpssgpl" style="width:350px; height:250px; border: 0 solid black; overflow-x: hidden; overflow-y: hidden; background-color: white; padding: 0; margin: 0;" frameBorder="0"></iframe>
 	                
