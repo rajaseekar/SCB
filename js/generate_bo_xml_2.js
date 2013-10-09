@@ -960,11 +960,11 @@ function generateXml() {
 		*/
 	}
 	var TGRType = jQuery.query.get("TGRType");
+	if(TGRType.indexOf("#") != -1) { 
+        TGRType = TGRType.substring(0, TGRType.length - 1);
+    }
 	if ($("#card_11").attr("checked")) {
-		if( online50Found != null || get80id != '' ) {
-			card6_XML=startXML+"\t\t\t<prodType>11401</prodType>\n"+commonXML+"\t\t\t<promoCode>6103</promoCode>\n"+hiddenXML+addXML+endXML;
-			finalXML=finalXML+card6_XML;
-		} else if( TGRType == "UR" ) {
+		if( TGRType == "UR" ) {
 			card6_XML=startXML+"\t\t\t<prodType>11401</prodType>\n"+commonXML+"\t\t\t<promoCode>6103</promoCode>\n"+hiddenXML+addXML+endXML;
 			finalXML=finalXML+card6_XML;
 		} else if( TGRType == "URR" ) {

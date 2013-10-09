@@ -3699,7 +3699,7 @@ $(document).ready(function(){
 			form2_passport_number: { required: "Please enter your passport number" },
 			form2_employ_pass_type: { required: "Please select your employment pass type" },
 			//form2_previous_passport_number: { required: "Please enter your previous Passport no." },
-			form2_date_of_birth: { required: "Please enter your date of birth." },
+			form2_date_of_birth: { required: "Please enter your date of birth.", dpDate: "Please enter a valid date. <br />Age must be between 21 to 65.", dpMinMaxDate: "Please enter a valid date. <br />Age must be between 21 to 65."   },
 			form2_gender: { required : "Please select your gender"},
 			form2_marital_status: { required: "Please select your marital status." },
 			//form2_number_of_dependents: { required: "Please enter your number of dependents." },
@@ -4924,7 +4924,7 @@ $(document).ready(function(){
 			form2_passport_number: { required: "Please enter your passport number" },
 			form2_employ_pass_type: { required: "Please select your employment pass type" },
 			//form2_previous_passport_number: { required: "Please enter your previous Passport no." },
-			form2_date_of_birth: { required: "Please enter your date of birth." },
+			form2_date_of_birth: { required: "Please enter your date of birth.", dpDate: "Please enter a valid date. <br />Age must be between 21 to 65.", dpMinMaxDate: "Please enter a valid date. <br />Age must be between 21 to 65."   },
 			form2_gender: { required : "Please select your gender"},
 			form2_marital_status: { required: "Please select your marital status." },
 			//form2_number_of_dependents: { required: "Please enter your number of dependents." },
@@ -5815,17 +5815,37 @@ $(document).ready(function(){
 			$('#spinning-dialog .wrap-img h2').empty().append('Please wait and do not close your browser while we are processing your request.');
 			$('#spinning-dialog .wrap-img p').empty().append('This may take some time. Thank you for your patience.');
 			$('#spinning-dialog .buttons-pop').empty();
+			/*
+			if ( $.browser.msie ) {
+    			$('#spinning-dialog').css('height','240px');
+    			$('#pop-up-upload').css('height','200px');
+    			$('#spinning-dialog').dialog('open');
+
+			} else {
+    			$('#spinning-dialog').css('height','290px');
+    			$('#pop-up-upload').css('height','250px');
+    			$('#spinning-dialog').dialog('open');
+    			$('#counter').show();
+    			$('#counter').countdown({
+                  image: 'images/digits.png',
+                  startTime: '01:30',
+                  timerEnd: function(){},
+                  format: 'mm:ss'
+                });
+
+			}
+			*/
 			$('#spinning-dialog').css('height','290px');
 			$('#pop-up-upload').css('height','250px');
 			$('#spinning-dialog').dialog('open');
 			$('#counter').show();
 			$('#counter').countdown({
               image: 'images/digits.png',
-              startTime: '00:90',
+              startTime: '00:60',
               timerEnd: function(){},
               format: 'mm:ss'
             });
-			
+            						
 			window.onbeforeunload = null;
 			//$("#form2_xml").hide();
 			//$("#new_credit_card").hide();
@@ -5841,7 +5861,7 @@ $(document).ready(function(){
 				resultXML = resultXML.substring(0, resultXML.length-39);
 				}
 				$.ajaxSetup({
-					async: 'false'
+					async: 'true'
 					});
 				setTimeout(function(){
 					$.post("/nfs-ofp/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){

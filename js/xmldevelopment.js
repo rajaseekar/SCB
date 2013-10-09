@@ -428,9 +428,11 @@ $(document).ready(function(){
 			var TGRCardName = "";
 			var TGRType = jQuery.query.get("TGRType");
 			if( TGRType == "UR" ) {
-				TGRCardName = "Tiger Airways Platinum Credit Card (Upfront Rewards)";
+				TGRCardName = "Tigerair Platinum Credit Card (Upfront Rewards)";
+			} else if( TGRType == "URR" ) {
+				TGRCardName = "Tigerair Platinum Credit Card (Upfront Rewards)";
 			} else {
-				TGRCardName = "Tiger Airways Platinum Credit Card (Future Rewards)";
+				TGRCardName = "Tigerair Platinum Credit Card (Future Rewards)";
 			}
 			$('#card_11').attr('checked','checked');
 			$('#note_selected_card').append('<img class="reflect" src="images/cards/platinum-visa_front-tiger.jpg" />');

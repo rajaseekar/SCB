@@ -1984,7 +1984,7 @@ $(document).ready(function(){
 			form2_nric_number: { required: "Please enter your NRIC." },
 			form2_passport_number: { required: "Please enter your passport number" },
 			form2_employ_pass_type: { required: "Please select your employment pass type" },
-			form2_date_of_birth: { required: "Please enter your date of birth." },
+			form2_date_of_birth: { required: "Please enter your date of birth.", dpDate: "Please enter a valid date. <br />Age must be between 21 to 65.", dpMinMaxDate: "Please enter a valid date. <br />Age must be between 21 to 65."  },
 			form2_gender: { required : "Please select your gender"},
 			form2_marital_status: { required: "Please select your marital status." },
 			form2_education_status: {  required: "Please select your highest education level." },
@@ -2055,7 +2055,7 @@ $(document).ready(function(){
 	$("#check_new_credit_card_1").click(
 		function() {
 			form_new_customer_credit_cards_1_display_all(); // show all tab content
-			if ( ($("#form_new_customer_credit_cards_1").valid())) {
+			if (  ($("#form_new_customer_credit_cards_1").valid())) {
 				preview_form2();
 				$.scrollTo(0,500,{onAfter:function() {
 					if( $('#form2_promotionCode').val() != '' ) {
@@ -3349,7 +3349,7 @@ $(document).ready(function(){
 			form2_passport_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" }, minlength: 5, maxlength: 16 },
 			form2_employ_pass_type: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" } },
 			//form2_previous_passport_number: { minlength: 5, maxlength: 16 },
-			form2_date_of_birth: { required: true },
+			form2_date_of_birth: { required: true, dpDate: true, dpMinMaxDate: []  },
 			form2_gender: {required: function(element) { return $("input[name='form2_gender']:checked").val() == undefined}},
 			form2_marital_status: { required: true, minlength: 1 },
 			//form2_number_of_dependents: { required: true, number: true, min: 0, maxlength: 2 },
@@ -3452,7 +3452,7 @@ $(document).ready(function(){
 			form2_passport_number: { required: "Please enter your passport number" },
 			form2_employ_pass_type: { required: "Please select your employment pass type" },
 			//form2_previous_passport_number: { required: "Please enter your previous Passport no." },
-			form2_date_of_birth: { required: "Please enter your date of birth." },
+			form2_date_of_birth: { required: "Please enter your date of birth.", dpDate: "Please enter a valid date. <br />Age must be between 21 to 65.", dpMinMaxDate: "Please enter a valid date. <br />Age must be between 21 to 65."  },
 			form2_gender: { required : "Please select your gender"},
 			form2_marital_status: { required: "Please select your marital status." },
 			//form2_number_of_dependents: { required: "Please enter your number of dependents." },
@@ -4315,13 +4315,33 @@ $(document).ready(function(){
 			$('#spinning-dialog .wrap-img h2').empty().append('Please wait and do not close your browser while we are processing your request.');
 			$('#spinning-dialog .wrap-img p').empty().append('This may take some time. Thank you for your patience.');
 			$('#spinning-dialog .buttons-pop').empty();
+			/*
+			if ( $.browser.msie ) {
+    			$('#spinning-dialog').css('height','240px');
+    			$('#pop-up-upload').css('height','200px');
+    			$('#spinning-dialog').dialog('open');
+
+			} else {
+    			$('#spinning-dialog').css('height','290px');
+    			$('#pop-up-upload').css('height','250px');
+    			$('#spinning-dialog').dialog('open');
+    			$('#counter').show();
+    			$('#counter').countdown({
+                  image: 'images/digits.png',
+                  startTime: '01:30',
+                  timerEnd: function(){},
+                  format: 'mm:ss'
+                });
+
+			}
+			*/
 			$('#spinning-dialog').css('height','290px');
 			$('#pop-up-upload').css('height','250px');
 			$('#spinning-dialog').dialog('open');
 			$('#counter').show();
 			$('#counter').countdown({
               image: 'images/digits.png',
-              startTime: '00:90',
+              startTime: '00:60',
               timerEnd: function(){},
               format: 'mm:ss'
             });
@@ -4341,7 +4361,7 @@ $(document).ready(function(){
 				resultXML = resultXML.substring(0, resultXML.length-39);
 				}
 				$.ajaxSetup({
-					async: 'false'
+					async: 'true'
 					});
 				setTimeout(function(){
 					$.post("/nfs-ofp/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
