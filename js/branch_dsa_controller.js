@@ -38,10 +38,15 @@ $(document).ready(function(){
 			location.replace('ezycash_form_swf.html?dsaStaffId='+$('#staff_input_id').val()+'&inputmode=DSA&formtype=HY');
 		}
 	});
+	var TGRTypeParam = "";
+	var TGRType = jQuery.query.get("TGRType")+"";
+	if( TGRType != "" && TGRType.length != 0 && TGRType != null && TGRType != "true" && TGRType != "undefined" && TGRType != "#" ) {
+		TGRTypeParam = "&TGRType="+TGRType;
+	}
 	$('.btn_ccform').click(function() {
 		if( $("#form_new_customer_office_form").valid() ) {
-			$(this).attr('href','credit_card_form_swf.html?dsaStaffId='+$('#staff_input_id').val()+'&inputmode=DSA&Cardtype='+selectedCard);
-			location.replace('credit_card_form_swf.html?dsaStaffId='+$('#staff_input_id').val()+'&inputmode=DSA&Cardtype='+selectedCard);
+			$(this).attr('href','credit_card_form_swf.html?dsaStaffId='+$('#staff_input_id').val()+'&inputmode=DSA&Cardtype='+selectedCard+TGRTypeParam);
+			location.replace('credit_card_form_swf.html?dsaStaffId='+$('#staff_input_id').val()+'&inputmode=DSA&Cardtype='+selectedCard+TGRTypeParam);
 		}
 	});
 	$('.btn_coform').click(function() {
