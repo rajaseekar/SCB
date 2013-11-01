@@ -1457,6 +1457,17 @@ function generateXml() {
 
 	commonXML=commonXML+"\t\t\t<agencyNo><![CDATA["+loan_amount_required.toUpperCase()+"]]></agencyNo>\n";
 	
+	for(var i=1, form2_pdpa; i < 11; i++) {
+		form2_pdpa="Not selected";
+		if( "YesNo".indexOf($("input[name='form2_pdpa_q"+i+"']:checked").val()) >= 0 ) {
+			form2_pdpa=$("input[name='form2_pdpa_q"+i+"']:checked").val();
+		}
+		if( $.trim($("#pre_form2_pdpa_q"+i).parent().prev().html()) == "" ) {
+			form2_pdpa="";
+		}
+		commonXML=commonXML+"\t\t\t<form2_pdpa_q"+i+"><![CDATA["+form2_pdpa+"]]></form2_pdpa_q"+i+">\n";
+	}		
+	
 	var hiddenXML = '';
 	hiddenXML=hiddenXML+"\t\t\t<acqCode>SP</acqCode>\n";
 
@@ -5249,6 +5260,49 @@ $(document).ready(function(){
 		}
 	);
 
+	$("#from2_pdpa_edit").click(
+		function() {
+			$("#pre_form2_pdpa_edit_container").show();
+			$("#pre_form2_pdpa_preview_container").hide();
+
+			for(var i=1, form2_pdpa; i < 11; i++) {
+				form2_pdpa=$("input[name='form2_pdpa_q"+i+"']:checked").val();
+				$('input:radio[name="form2_pdpa_q'+i+'1"]').filter('[value="' + form2_pdpa + '"]').attr("checked", true);		
+			}				
+			$('#form2_pdpa_container').appendTo('#pre_form2_pdpa_edit_content_container');
+
+			resizeSlider();
+			clonefields( "pre_form2_pdpa_edit_content_container" );
+			return false;
+		}
+	);
+
+	$("#from2_pdpa_cancel").click(
+		function() {
+			$("#pre_form2_pdpa_edit_container").hide();
+			$("#pre_form2_pdpa_preview_container").show();
+			resizeSlider();
+			restorefields( "pre_form2_pdpa_edit_content_container" );
+			resetCancelFields( "pre_form2_pdpa_edit_content_container" );
+			return false;
+		}
+	);
+
+	$("#from2_pdpa_save").click(
+		function() {
+		
+			if (($("#form_new_customer_credit_cards").valid())) {
+				preview_form2();
+				$("#pre_form2_pdpa_preview_container .tab_content").addClass("yellow_box_no_padding");
+				$("#pre_form2_pdpa_edit_container").hide();
+				$("#pre_form2_pdpa_preview_container").show();
+			}
+			resizeSlider();
+			resetCancelFields( "pre_form2_pdpa_edit_content_container" );
+  			return false;
+		}
+	);	
+	
 	/******** secondary contact preview **********/
 	
 	$("#from2_secondary_contact_edit").click(
@@ -5715,7 +5769,13 @@ $(document).ready(function(){
 		}
 		$("#pre_form2_upload_file_list").html(form2_upload_file_list);
 		
-		
+		for(var i=1, form2_pdpa; i < 11; i++) {
+			form2_pdpa="Not selected";
+			if( "YesNo".indexOf($("input[name='form2_pdpa_q"+i+"']:checked").val()) >= 0 ) {
+				form2_pdpa=$("input[name='form2_pdpa_q"+i+"']:checked").val();
+			}
+			$("#pre_form2_pdpa_q"+i).html(form2_pdpa);	
+		}			
 		
 		
 	} // end of preview_form2

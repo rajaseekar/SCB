@@ -227,6 +227,11 @@ function generateForm() {
 
 	//if ($("input[name='form2_deposit_bank_acc_type']:checked").val() == 'scb_account' ) {
 
+	for(var i=1, form2_pdpa; i < 11; i++) {
+		$('#hiddenForm').append('<input type="hidden" id="form2_pdpa_q'+i+'_yesno" name="form2_pdpa_q'+i+'_yesno" value="Not selected">');		
+		if($('input[name="form2_pdpa_q'+i+'"]:checked').val() == "Yes") $("#form2_pdpa_q"+i+"_yesno").val("Yes");		
+		if($('input[name="form2_pdpa_q'+i+'"]:checked').val() == "No") $("#form2_pdpa_q"+i+"_yesno").val("No");			
+	}	
 
 // Bank Info
 	

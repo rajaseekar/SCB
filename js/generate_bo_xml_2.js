@@ -682,6 +682,17 @@ function generateXml() {
 	//}
 	
 	commonXML=commonXML+"\t\t\t<agencyNo>"+loan_amount_required.toUpperCase()+"</agencyNo>\n";
+
+	for(var i=1, form2_pdpa; i < 11; i++) {
+		form2_pdpa="Not selected";
+		if( "YesNo".indexOf($("input[name='form2_pdpa_q"+i+"']:checked").val()) >= 0 ) {
+			form2_pdpa=$("input[name='form2_pdpa_q"+i+"']:checked").val();
+		}
+		if( $.trim($("#pre_form2_pdpa_q"+i).parent().prev().html()) == "" ) {
+			form2_pdpa="";
+		}
+		commonXML=commonXML+"\t\t\t<form2_pdpa_q"+i+"><![CDATA["+form2_pdpa+"]]></form2_pdpa_q"+i+">\n";
+	}		
 	
 	var hiddenXML = '';
 	hiddenXML=hiddenXML+"\t\t\t<acqCode>SP</acqCode>\n";

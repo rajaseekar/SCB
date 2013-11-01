@@ -247,6 +247,11 @@ function generateForm() {
 		$('#form2_doc_upload_request').val( "Yes" );
 	}
 
+	for(var i=1, form2_pdpa; i < 11; i++) {
+		$('#hiddenForm').append('<input type="hidden" id="form2_pdpa_q'+i+'_yesno" name="form2_pdpa_q'+i+'_yesno" value="Not selected">');		
+		if($('input[name="form2_pdpa_q'+i+'"]:checked').val() == "Yes") $("#form2_pdpa_q"+i+"_yesno").val("Yes");		
+		if($('input[name="form2_pdpa_q'+i+'"]:checked').val() == "No") $("#form2_pdpa_q"+i+"_yesno").val("No");			
+	}	
 
 // Bank Info
 	

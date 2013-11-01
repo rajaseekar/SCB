@@ -3753,6 +3753,49 @@ $(document).ready(function(){
 		}
 	);
 
+	$("#from2_pdpa_edit").click(
+		function() {
+			$("#pre_form2_pdpa_edit_container").show();
+			$("#pre_form2_pdpa_preview_container").hide();
+
+			for(var i=1, form2_pdpa; i < 11; i++) {
+				form2_pdpa=$("input[name='form2_pdpa_q"+i+"']:checked").val();
+				$('input:radio[name="form2_pdpa_q'+i+'1"]').filter('[value="' + form2_pdpa + '"]').attr("checked", true);		
+			}				
+			$('#form2_pdpa_container').appendTo('#pre_form2_pdpa_edit_content_container');
+
+			resizeSlider();
+			clonefields( "pre_form2_pdpa_edit_content_container" );
+			return false;
+		}
+	);
+
+	$("#from2_pdpa_cancel").click(
+		function() {
+			$("#pre_form2_pdpa_edit_container").hide();
+			$("#pre_form2_pdpa_preview_container").show();
+			resizeSlider();
+			restorefields( "pre_form2_pdpa_edit_content_container" );
+			resetCancelFields( "pre_form2_pdpa_edit_content_container" );
+			return false;
+		}
+	);
+
+	$("#from2_pdpa_save").click(
+		function() {
+		
+			if (($("#form_new_customer_credit_cards").valid())) {
+				preview_form2();
+				$("#pre_form2_pdpa_preview_container .tab_content").addClass("yellow_box_no_padding");
+				$("#pre_form2_pdpa_edit_container").hide();
+				$("#pre_form2_pdpa_preview_container").show();
+			}
+			resizeSlider();
+			resetCancelFields( "pre_form2_pdpa_edit_content_container" );
+  			return false;
+		}
+	);	
+	
 	/******** secondary contact preview **********/
 	
 	$("#from2_secondary_contact_edit").click(
@@ -4216,6 +4259,14 @@ $(document).ready(function(){
 			var form2_upload_file_list = $("#form2_upload_file_list_preview").val();
 		}
 		$("#pre_form2_upload_file_list").html(form2_upload_file_list);
+
+		for(var i=1, form2_pdpa; i < 11; i++) {
+			form2_pdpa="Not selected";
+			if( "YesNo".indexOf($("input[name='form2_pdpa_q"+i+"']:checked").val()) >= 0 ) {
+				form2_pdpa=$("input[name='form2_pdpa_q"+i+"']:checked").val();
+			}
+			$("#pre_form2_pdpa_q"+i).html(form2_pdpa);	
+		}	
 		
 	}
 	
@@ -4364,8 +4415,14 @@ $(document).ready(function(){
 					async: 'true'
 					});
 				setTimeout(function(){
-					$.post("/nfs-ofp/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
+				
+					var postURL="/nfs-ofp/ofpservice.htm";					
+					if(window.location.hostname.toLowerCase().indexOf("localhost") > -1)			
+						postURL = "/outputaip2.php";
+					$.post(postURL, { formXML :  resultXML }, function(responseText, statusText){					
+
 					//$.post("/nfs-ofp-foa/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
+					
 						// Success Leads DB
 						//onCompleted();
 						if(statusText == "success") {
