@@ -5835,13 +5835,13 @@ $(document).ready(function(){
 
 			}
 			*/
-			$('#spinning-dialog').css('height','290px');
-			$('#pop-up-upload').css('height','250px');
 			$('#spinning-dialog').dialog('open');
+			$('#spinning-dialog').css('height','300px');
+			$('#pop-up-upload').css('height','260px');
 			$('#counter').show();
 			$('#counter').countdown({
               image: 'images/digits.png',
-              startTime: '00:60',
+              startTime: '00:99',
               timerEnd: function(){},
               format: 'mm:ss'
             });
@@ -5877,11 +5877,12 @@ $(document).ready(function(){
 							var regStatus2 = new RegExp("</STATUS>");
 							returnCode = responseText.substring(responseText.search(regStatus1)+8, responseText.search(regStatus2));
 							
-							if(returnID != null && returnID != "" ) {
+							if(returnID != null && returnID != "" && returnID.indexOf("SGR") > -1 ) {
 								//$(".newcard_receipt").append('<span>'+returnText+'</span><br />');
 								$('#FormRefID').val(returnID+"|"+returnCode);
 								$('#FormRefID_AIP').val(returnID);
 								//sendscode(returnText);
+    							//document.location.replace('cashone_form_thankyou_aip_avt.html?FormRefID='+$('#FormRefID').val()+'&selectedCard='+$('#selectedCard').val());
 								generateForm();
 								//display_new_credit_card_thanks_page();
 								//scroll to top

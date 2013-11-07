@@ -4335,13 +4335,13 @@ $(document).ready(function(){
 
 			}
 			*/
-			$('#spinning-dialog').css('height','290px');
-			$('#pop-up-upload').css('height','250px');
 			$('#spinning-dialog').dialog('open');
+			$('#spinning-dialog').css('height','300px');
+			$('#pop-up-upload').css('height','260px');
 			$('#counter').show();
 			$('#counter').countdown({
               image: 'images/digits.png',
-              startTime: '00:60',
+              startTime: '00:99',
               timerEnd: function(){},
               format: 'mm:ss'
             });
@@ -4381,11 +4381,12 @@ $(document).ready(function(){
 							var regStatus2 = new RegExp("</STATUS>");
 							returnCode = responseText.substring(responseText.search(regStatus1)+8, responseText.search(regStatus2));
 							
-							if(returnID != null && returnID != "" ) {
+							if(returnID != null && returnID != "" && returnID.indexOf("SGR") > -1 ) {
 								//$(".newcard_receipt").append('<span>'+returnID+'</span><br />');
 								$('#FormRefID').val(returnID+"|"+returnCode);
 								$('#FormRefID_AIP').val(returnID);
 								//sendscode(returnID);
+    							//document.location.replace('credit_card_form_thankyou_aip_avt.html?FormRefID='+$('#FormRefID').val()+'&selectedCard='+$('#selectedCard').val());
 								generateForm();
 								//document.location.replace("credit_card_form_thankyou_aip.html?returnCode="+returnCode+"&returnID="+returnID);
 								
