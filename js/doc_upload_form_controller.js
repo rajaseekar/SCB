@@ -207,18 +207,18 @@ $(document).ready(function(){
 							"https://apps1.standardchartered.com/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_fs.html",
 							"https://apps1.standardchartered.com/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_ss.html",
 
-							"http://localhost/singapore/OnlineSalesAIP/1credit_card_form_thankyou_aip.html",
-							"http://localhost/singapore/OnlineSalesAIP/1credit_card_form_thankyou_aip_f.html",
-							"http://localhost/singapore/OnlineSalesAIP/1credit_card_form_thankyou_aip_fs.html",
-							"http://localhost/singapore/OnlineSalesAIP/1credit_card_form_thankyou_aip_ss.html",
-							"http://localhost/singapore/OnlineSalesAIP/1cashone_form_thankyou_aip.html",
-							"http://localhost/singapore/OnlineSalesAIP/1cashone_form_thankyou_aip_f.html",
-							"http://localhost/singapore/OnlineSalesAIP/1cashone_form_thankyou_aip_fs.html",
-							"http://localhost/singapore/OnlineSalesAIP/1cashone_form_thankyou_aip_ss.html",
-							"http://localhost/singapore/OnlineSalesAIP/1ezycash_form_thankyou_aip.html",
-							"http://localhost/singapore/OnlineSalesAIP/1ezycash_form_thankyou_aip_f.html",
-							"http://localhost/singapore/OnlineSalesAIP/1ezycash_form_thankyou_aip_fs.html",
-							"http://localhost/singapore/OnlineSalesAIP/1ezycash_form_thankyou_aip_ss.html",
+							"http://localhost/singapore/OnlineSalesAIP/credit_card_form_thankyou_aip.html",
+							"http://localhost/singapore/OnlineSalesAIP/credit_card_form_thankyou_aip_f.html",
+							"http://localhost/singapore/OnlineSalesAIP/credit_card_form_thankyou_aip_fs.html",
+							"http://localhost/singapore/OnlineSalesAIP/credit_card_form_thankyou_aip_ss.html",
+							"http://localhost/singapore/OnlineSalesAIP/cashone_form_thankyou_aip.html",
+							"http://localhost/singapore/OnlineSalesAIP/cashone_form_thankyou_aip_f.html",
+							"http://localhost/singapore/OnlineSalesAIP/cashone_form_thankyou_aip_fs.html",
+							"http://localhost/singapore/OnlineSalesAIP/cashone_form_thankyou_aip_ss.html",
+							"http://localhost/singapore/OnlineSalesAIP/ezycash_form_thankyou_aip.html",
+							"http://localhost/singapore/OnlineSalesAIP/ezycash_form_thankyou_aip_f.html",
+							"http://localhost/singapore/OnlineSalesAIP/ezycash_form_thankyou_aip_fs.html",
+							"http://localhost/singapore/OnlineSalesAIP/ezycash_form_thankyou_aip_ss.html",
 
 							"https://apps.mykorn.com/public_website/singapore/OnlineSales/credit_card_form_thankyou_aip.html",
 							"https://apps.mykorn.com/public_website/singapore/OnlineSales/credit_card_form_thankyou_aip_f.html",
@@ -271,7 +271,7 @@ $(document).ready(function(){
 		for(var i=0; i < r_param.length; i++) {
 			var j = r_param[i].indexOf("FormRefID=");
 			if( j > -1) {
-				FormRefID = r_param[i].substring(j+10).split("|")[0].replace(/%20/g,"");
+				FormRefID = r_param[i].substring(j+10).split("|")[0].replace(/%20/g,"").replace(/-/g,"_");
 			}
 			j = r_param[i].indexOf("selectedCard=");
 			if( j > -1) {
@@ -339,16 +339,17 @@ $(document).ready(function(){
 
 		var formidList = new Array();
 		formidList = ["SGR472", "SGR473"];		
-		
-		if( FormRefID.split("-").length != 2) {
+//		formidList = ["SGR481", "SGR482"];			
+
+		if( FormRefID.split("_").length != 2) {
 			return false;
 		}
 
-		if( $.inArray( FormRefID.split("-")[0], formidList) < 0 ) {
+		if( $.inArray( FormRefID.split("_")[0], formidList) < 0 ) {
 			return false;
 		}		
 
-		if( /[0-9]/.test( FormRefID.split("-")[1] ) != true ) {
+		if( /^[0-9]+$/.test( FormRefID.split("_")[1] ) != true ) {
 			return false;
 		}		
 
@@ -365,6 +366,7 @@ $(document).ready(function(){
 			} else {
 				// before proceed to file upload logic, first clear all the previous records
 				$('.uploadfileredidgroup').val('');
+				$('.formidfield').val( $('#formId').val() );
 				$('#uploadForm_multifile').submit();
 			}
 			return false;
