@@ -246,15 +246,16 @@ function callback(obj){
 $(document).ready(function(){
 	display_none();
 	$('#form2_upload_file_list').val('');
-	$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="https://apps.mykorn.com/FormProcessor/ThankYouRedirect"></form></div>');
-	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="https://apps1.standardchartered.com/FormProcessor/ThankYouRedirect"></form></div>');
+	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="https://apps.mykorn.com/FormProcessor/ThankYouRedirect"></form></div>');
+	$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="https://apps1.standardchartered.com/FormProcessor/ThankYouRedirect"></form></div>');
 	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="http://10.20.218.168/FormProcessor/ThankYouRedirect"></form></div>');
 	//$('body').append('<div style="display: none;"><form id="hiddenForm" name="hiddenForm" method="post" action="/FormProcessor/ThankYouRedirect"></form></div>');
 	$('#hiddenForm').append('<input type="hidden" name="FormRefID" id="FormRefID">');
 	$('#hiddenForm').append('<input type="hidden" name="FormRefID_AIP" id="FormRefID_AIP">');
 	$('#hiddenForm').append('<input type="hidden" name="selectedCard" id="selectedCard">');
 	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR122">'); // prod
-	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR473">'); // AIP SIT
+	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR473">'); // AIP SIT
+	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR482">'); // AIP PROD
 	$('.formidfield').val( $('#formId').val() );
 	$('#hiddenForm').append('<input type="hidden" name="numberOfDocsUploaded" id="numberOfDocsUploaded">');
 	display_notes_page();
