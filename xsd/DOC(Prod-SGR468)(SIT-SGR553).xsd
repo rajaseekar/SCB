@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- common elements -->
+    <xs:element name="eform">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="model">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="instance" maxOccurs="2"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="FID" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="instance">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice>
+                    <xs:group ref="savemodel" id="savemodel"/>
+                    <xs:group ref="outputmodel" id="outputmodel"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="id">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="savemodel|outputmodel"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="savemodel">
+        <xs:sequence>
+            <xs:element name="sigfields">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="sigchar"/>
+                        <xs:element ref="signum"/>
+                        <xs:element ref="sigdate"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- end common elements -->
+    <!-- form definition fields -->
+    <xs:group name="outputmodel">
+        <xs:sequence>
+            <xs:element name="form2_refid">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="6"/>
+                        <xs:maxLength value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_product">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="2"/>
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="attchments" minOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="attachment" minOccurs="1" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- end form definition fields -->
+    <xs:element name="sigchar">
+        <!-- max 10 fields sigchar 1 - 10 -->
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sigchar1" id="form2_refid" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+        <!-- end max 10 fields sigchar 1 - 10 -->
+    </xs:element>
+    <xs:element name="signum">
+        <!-- max 6 fields signum 11 - 16 -->
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+        <!-- end max 6 fields signum 11 - 16 -->
+    </xs:element>
+    <xs:element name="sigdate">
+        <!-- max 4 fields signum 17 - 20 -->
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+        <!-- end max 4 fields signum 17 - 20 -->
+    </xs:element>
+    <xs:attributeGroup name="shortnames">
+        <xs:attribute name="form2_refid" fixed="Application reference number"/>
+        <xs:attribute name="form2_product" fixed="Product applied"/>
+    </xs:attributeGroup>
+</xs:schema>
