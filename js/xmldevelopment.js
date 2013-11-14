@@ -281,7 +281,8 @@ $(document).ready(function(){
 	$('#hiddenForm').append('<input type="hidden" name="FormRefID_AIP" id="FormRefID_AIP">');
 	$('#hiddenForm').append('<input type="hidden" name="selectedCard" id="selectedCard">');
 	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR49">'); // prod
-	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR472">'); // AIP SIT
+	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR472">'); // AIP SIT
+	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR582">'); // AIP SIT (PDPA)	
 	$('.formidfield').val( $('#formId').val() );
 	$('#hiddenForm').append('<input type="hidden" name="numberOfDocsUploaded" id="numberOfDocsUploaded">');
 	$('#hiddenForm').append('<input type="hidden" id="form2_product_select" name="form2_product_select">');
