@@ -50,7 +50,7 @@ $(document).ready(function(){
 	var fileName = uuid+$('#id').val();
 	$('#id').val('').val(fileName);
     
-    $('#thanks_left span').hide();
+//    $('#thanks_left span').hide();
     
     // check if doc upload number > 0
     var numberOfDocsUploaded = parseInt(jQuery.query.get("numberOfDocsUploaded"));
@@ -66,8 +66,14 @@ $(document).ready(function(){
     
 });
 </script>
-<style type="">
-.aip_accept, aip_refer, .aip_decline, .aip_timeout {display: inline;};
+<style type="text/css">
+.aip_accept, aip_refer, .aip_decline, .aip_timeout {display: inline;}
+#upload_doc_button.upload_doc_btn:hover {
+background:transparent url(images/upload_doc_now1.png) no-repeat scroll 0 0;
+}
+#upload_doc_button.upload_doc_btn {
+background:transparent url(images/upload_doc_now1.png) no-repeat scroll 0 -30px;
+}
 </style>
 </head>
 <body>
@@ -100,20 +106,26 @@ $(document).ready(function(){
             <div class="thanks_page">
  			    <!-- thank you page left column -->
             	<div id="thanks_left">
-		        <div class="aip_accept" style="display: none;">Your application for </div>
-		        <div class="aip_refer" style="display: none;">You have successfully applied for the </div>
-		        <div class="aip_decline" style="display: none;">You have successfully applied for the </div>
-		        <div class="aip_timeout" style="display: none;">You have successfully applied for the </div>
+		        <span class="aip_accept" style="display: none;">Your application for </span>
+		        <span class="aip_refer" style="display: none;">You have successfully applied for the </span>
+		        <span class="aip_decline" style="display: none;">You have successfully applied for the </span>
+		        <span class="aip_timeout" style="display: none;">You have successfully applied for the </span>
 
 				<strong>Ezycash<span class="aip_refer aip_decline aip_timeout" style="display: none;">.</span></strong>
 				
-        <div class="aip_accept" style="display: none;"> is successful and has been approved-in-principle.</div>
-        <div class="aip_refer" style="display: none;"> Your application will be reviewed and we are unable to provide you with an approval-in-principle at the moment.</div>
-        <div class="aip_decline" style="display: none;"> Your application will be reviewed and we are unable to provide you with approval-in-principle at the moment.</div>
-        <div class="aip_timeout" style="display: none;"> Our system is busy at the moment and we are unable to provide you with an approval-in-principle at the moment.</div>
+        <span class="aip_accept" style="display: none;"> is successful and has been approved-in-principle.</span>
+        <span class="aip_refer" style="display: none;"> Your application will be reviewed and we are unable to provide you with an approval-in-principle at the moment.</span>
+        <span class="aip_decline" style="display: none;"> Your application will be reviewed and we are unable to provide you with approval-in-principle at the moment.</span>
+        <span class="aip_timeout" style="display: none;"> Our system is unable to provide you with an approval-in-principal at the moment. <span style="font-size: 12px;">Approval-in-principal (AIP) will be available during these hrs: <br />Mon - Sat: 08 AM to 10 PM<br />Sun / PH: 2 PM - 10 PM</span></span>
         <p></p>
+		<p style="font-size:14px;line-height:18px;font-weight:bold;">Upload your documents now if you have not uploaded them earlier. This will help expedite the processing of your application.</p>
+		<div style="margin-bottom:10px;">
+			<a href="https://online.forms.standardchartered.com/public_website/singapore/OnlineSalesAIP/doc_upload_form_swf.html" target="_blank">
+				<div id="upload_doc_button" class="upload_doc_btn" style="height:30px;" ></div>
+			</a>
+		</div>							
         <div style="font-size: 10pt; line-height: 14pt;">
-            If you have not uploaded any documents, and wish to submit CPF statement online to support your application, please click on the link below.
+            If you are not uploading any documents, and wish to submit CPF statement online to support your application, please click on the link below.
             <p><a href="https://apps.standardchartered.com/forms/sg/cpf.jsp">https://apps.standardchartered.com/forms/sg/cpf.jsp</a></p>
             After submitting  your CPF statement,  please fax or email your  IC copy (Front and Back) to (65) 6305 1787. You can also submit your income documents via this fax number if you are not submitting CPF Statement online or did not upload any documents.
         </div> 
@@ -168,6 +180,7 @@ $(document).ready(function(){
                     </div>
             		<div id="thanks_right_bottom">
             		</div>
+			
             	</div>
  			    <!-- end thank you page right column -->
             </div><br>
