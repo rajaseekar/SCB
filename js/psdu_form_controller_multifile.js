@@ -1,14 +1,14 @@
 // Multi file upload for non-flash
-
+var userCancelled = false;
 function roomService() {
-	$("#doc_upload_message_box").html("");
+	offAlert();
 
 	if( MAX_DOC == MyuploadFilesCount) {
-		$("#doc_upload_message_box").html("You have already selected the maximum number of documents.");				
+		onAlert("You have already selected the maximum number of documents.");				
 	}	
 
 	if( MytotalUploadFileSize > totalUploadFileMaxSize ) {		
-		$("#doc_upload_message_box").html("Your documents exceed the allowed file size. Please check.");				
+		onAlert("Your documents exceed the allowed file size. Please check.");				
 	}				
 }
 
@@ -23,7 +23,7 @@ function showNextRoom() {
 		}
 	}	
 	if( roomNum == 99999 ) {
-		$("#doc_upload_message_box").html("You have already selected the maximum number of documents.");				
+		onAlert("You have already selected the maximum number of documents.");				
 	}	
 }
 
@@ -104,7 +104,7 @@ function buildMFObject( MF ) {
 		afterFileAppend: func_afterfileappend,
 		onFileRemove: function(element, value, master_element){ },
 		afterFileRemove: func_afterfileremove,
-		STRING: {  remove: removeString }
+		STRING: {  remove: removeString, denied: "Incorrect file type detected\n\nYour file $file is not supported. We are only able to accept the following formats: PDF, JPG, PNG, GIF and TIFF." }
 	};
 	return MFObject;
 }	
@@ -246,7 +246,7 @@ $(function(){
 			//console.log('Total file size: '+totalUploadFileSize);
 			if( totalUploadFileSize > totalUploadFileMaxSize ) {
 				$(this).swfupload('cancelUpload', file.id);
-				myAlert('Your selected files\' size is larger than the total files\' size 5 MB, please select a smaller size file and try again.');
+				alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
 			} else {
 
 				var n = CUR_UPLOAD;
@@ -280,7 +280,10 @@ $(function(){
 			$('.log', this).append('<li>File queue error - '+message+'</li>');
 			//console.log('fileQueueError',event, file, errorCode, message);
 			if( message == 'File size exceeds allowed limit.' ) {
-				myAlert('Your selected file\'s size is larger than 5 MB, please select a smaller size file and try again.');
+				alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+			}
+			if( message == 'File is not an allowed file type.') {
+				alert("Incorrect file type detected\n\nYour file "+file.name+" is not supported. We are only able to accept the following formats: PDF, JPG, PNG, GIF and TIFF.");
 			}
 		},
 		fileDialogStart: function(event){
@@ -368,7 +371,7 @@ $(function(){
 		},
 		uploadError: function(event, file, errorCode, message){
 			$('.log', this).append('<li>Upload error - '+message+'</li>');
-			//console.log('uploadError',event, file, errorCode, message);			
+			if( window.console && window.console.log) console.log('uploadError',event, file, errorCode, message);			
 			if( message == 'File Cancelled' ) {
 				if( uploadFilesCount > 0 ) {
 					uploadFilesCount--;
@@ -382,23 +385,14 @@ $(function(){
 				$(this).parent().find('.swf_filenamelist').empty().hide();
 				////$(this).css('height','20px').css('z-index','1').css('margin-left','0');
 			} else {
-				//$('#loader-image-container').empty().append('<span style="color: red;">File upload failed, please try again later. <a id="swf-closebtn" href="#">Close</a></span>');
-				//$('#swf-closebtn').click(function() { swfStopUpload() });
-				// replace close link on error with a pop up box
 
 				$('#spinning-dialog').dialog('close');
-				$('#error-dialog').dialog('open');
+				if( !userCancelled ) $('#error-dialog').dialog('open');
 				resetUiStyle();
-				// call GA
-				//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '5_DocUploadFlashFailed');
-				//$(".ui-dialog-titlebar").hide();
-				//$('#pop-up-upload-error').css('height','258px');
 
 				// so if upload stopped abnormally, we do the page reset 
 				$('.swf_upload_file').each(function() {
 					$(this).parent().find('.swf_filenamelist').empty().hide();
-					//$(this).css('height','20px').css('z-index','1').css('margin-left','0');
-					//$(this).parent().parent().parent().parent().css('border','1px solid #CCCCCC');
 					var currentSwf = $.swfupload.getInstance( $(this) );
 					currentSwf.cancelUpload( );		
 				});
@@ -514,17 +508,6 @@ $(function(){
 	
 });	
 
-function myAlert( mm, hh) {
-	var header = " ";
-	if( hh != "" && hh != undefined && hh != null) {
-		header = hh;
-	}	
-	$("#general-heading").html(header);
-	$("#general-message").html(mm);
-	$('#general-dialog').dialog('open');	
-}
-
-
 function swfFileRemover( n, fileId ) {
 	var currentSwf = $.swfupload.getInstance( $("#uploadForm_id_0"+n).find('.swf_upload_file') );
 	currentSwf.cancelUpload( fileId );	
@@ -534,8 +517,6 @@ function swfFileRemover( n, fileId ) {
 	$("#selected_document_docsubtype"+n).html("");
 	$("#selected_document_size"+n).html("");	
 	
-//	MytotalUploadFileSize=MytotalUploadFileSize - parseInt($("#selected_document_size"+n).attr("filesize"),10);
-//	MyuploadFilesCount--;	
 	roomService();					
 	if( $("#form2_doc_subtype").val().length > 0 && CUR_UPLOAD==99999) {
 		showNextRoom();
@@ -543,6 +524,7 @@ function swfFileRemover( n, fileId ) {
 }
 
 function swfStopUpload() {
+	userCancelled = true;
 	$('.swf_upload_file').each(function() {
 		$(this).swfupload('stopUpload');
 	});
@@ -580,27 +562,27 @@ $(function() {
         			if( errorcode == "EMF01" || errorcode == "EMF02" || errorcode == "EMF03" || errorcode == "EMF04" || errorcode == "EMF05") {
         				if( errorcode == "EMF01"  ) {
 							$('#spinning-dialog').dialog('close');									
-        	            	myAlert("File upload failed, please try again later");
+        	            	alert("File upload failed, please try again later");
         	            	noerror = false;
         	            	return false;
         	            } else if( errorcode == "EMF02"  ) {
-							$('#spinning-dialog').dialog('close');									
-        	            	myAlert("The file uploaded exceed the allowable limit. Please ensure the file size is less than 5 MB and try again");
+							$('#spinning-dialog').dialog('close');
+							alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
         	            	noerror = false;
         	            	return false;
         	            } else if( errorcode == "EMF03"  ) {
 							$('#spinning-dialog').dialog('close');									
-        	            	myAlert("File upload failed, please try again later");
+        	            	alert("File upload failed, please try again later");
         	            	noerror = false;
         	            	return false;
         	            } else if( errorcode == "EMF04"  ) {
 							$('#spinning-dialog').dialog('close');									
-        	            	myAlert("File upload failed, please try again later");
+        	            	alert("File upload failed, please try again later");
         	            	noerror = false;
         	            	return false;
         	            }else if( errorcode == "EMF05"  ) {
 							$('#spinning-dialog').dialog('close');									
-        	            	myAlert("File upload failed, please try again later");
+        	            	alert("File upload failed, please try again later");
         	            	noerror = false;
         	            	return false;
         	            }

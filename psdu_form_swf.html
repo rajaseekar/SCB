@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Standard Chartered Bank (Singapore) Limited</title>
+<title>Standard Chartered Bank</title>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-us" />
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="MSSmartTagsPreventParsing" content="true" />
-<meta name="description" content="Standard Chartered Bank (Singapore) Limited" />
-<meta name="keywords" content="Standard Chartered Bank (Singapore) Limited" />
-<meta name="author" content="Standard Chartered Bank (Singapore) Limited" />
+<meta name="description" content="Standard Chartered Bank" />
+<meta name="keywords" content="Standard Chartered Bank" />
+<meta name="author" content="Standard Chartered Bank" />
 <!--<link href="css/reset.css" rel="stylesheet" type="text/css" />
 <link href="css/default.css" rel="stylesheet" type="text/css" />
 <link href="css2011/default-2011.css" rel="stylesheet" type="text/css" />
@@ -59,15 +59,36 @@
 <script type="text/javascript" src="js/psdu_form_controller.js"></script>
 <script type="text/javascript" src="js/psdu_form_controller_multifile.js"></script>
 
-<script type="text/javascript" src="js/jquery.countdown.js" charset="utf-8"></script>
-
 <style type="text/css">
 html{display : none ; }
-.h4floatleft {color:#86e533;font-size:18px;}
+/*.h4floatleft {color:#86e533;font-size:18px;}*/
+.h4floatleft {color:#808080;font-size:18px;}
 .gray {color:#ccc; font-size:10px; clear:both; padding-left:10px;}
-.error_message_box { display:none; color:#F00; width:180px; border:2px solid #F00; clear:both; margin-left:10px; margin-top:2px; padding-left:2px;}
+.error_message_box { 
+	border: 1px solid #ff9e9e;
+	background-color: #ffffe0;
+	width:180px;
+	float:right;
+}
+.error_message {
+	display:block;
+	float: left;
+	background: url(images/error_left.gif) 0 5px no-repeat;
+	color: #ea5900;
+	font-weight: bold;
+	font-style: normal;
+	line-height: 20px;
+	padding: 9px 5px 9px 40px;
+	border: none!important;
+	width: 122px;
+	z-index: 10;
+	position: relative;
+	left: -10px;
+	top: 0;
+	margin-left:0px;
+}
 #login_page input {text-transform: uppercase;}
-#doc_upload_message_box { padding: 10px 0; clear:both; color:#F00;}
+#doc_upload_message_box { padding: 10px 2px; clear:both; color:#F00; font-weight:bold;}
 #doc_selection_table tr > td { padding:0 10px 0 0;}
 #selected_documents_table thead > tr > td {color:#FFF; background-color:#2474A8;}
 #selected_documents_table tr > td { padding:0 10px;}
@@ -76,6 +97,32 @@ html{display : none ; }
 #login_page, #main_content, #thanks_page { margin-left:10px;}
 .lbl_btn_upload_file { float:none; !important;margin: -15px 0 0 0;}
 .uploadforms {margin-top:-10px;}
+#pop-up-upload, #pop-up-upload-error {height:auto;}
+div.hastips {
+	text-decoration: none;
+	vertical-align: middle;
+}
+div.hastips:hover {
+	position: relative;
+}
+div.hastips span.tips {
+	display: none;
+}
+div.hastips:hover span.tips {
+	border: #c0c0c0 1px dotted;
+	padding: 5px 20px 5px 5px;
+	display: block;
+	text-align: left;
+	z-index: 100;
+	background: #f0f0f0 no-repeat 100% 5%; 
+	left: 0px;
+	margin: 10px;
+	width: 155px;
+	position: absolute;
+	top: 10px;
+	text-decoration: none;
+}
+
 </style>
 <script type="text/javascript">
 if( self == top ) {
@@ -89,22 +136,22 @@ if( self == top ) {
 <noscript><div style="width: 100%; height: 2200px;font-family: sans-serif; font-size: 22px; text-align: center;margin: 50px; padding: 20px; line-height: 30px;">Your browser does not support JavaScript, the form has been disabled.<br />Please enable the Javascript engine in your browser.</div></noscript>
 <div id="page_container">
 	<div id="header">
-		<div id="topbg"><a href="http://www.standardchartered.com.sg/en/index_web.html"><img src="images/scb_logo.gif" width="277" height="69" style="margin-top:24px" /></a></div>
+		<div id="topbg"><a href="http://www.standardchartered.com.my/en/index_web.html"><img src="images/scb_logo.gif" width="277" height="69" style="margin-top:24px" /></a></div>
 		<div id="topline"></div>
 	</div>
 	<div id="thanks_page" style="display:none;">
 		<div id="thanks_left" style="width:570px;height:200px;background:none;padding-left:10px;">
-		<h4 id="new_credit_card_step_4_page_first_tab" class="h4floatleft" style="clear:both;margin:0;float:none;">Post Submission Document Upload</h4>		
+		<!--h4 id="new_credit_card_step_4_page_first_tab" class="h4floatleft" style="clear:both;margin:0;float:none;">Post Submission Document Upload</h4-->		
 			<div style="height:10px;clear:both;padding:20px 0 0 50px;">
 				<div style="font-size:20px;color: #86c533;font-weight: bold;">Thank you for submitting your documents.</div>
-				<div style="font-size:14px;color:#aaa;font-weight:bold;line-height:18px;margin-left:2px;margin-top:10px;">We will get back to you shortly.  Or if you have further questions, please call our Customer Service Hotline at 1800 747 700.</div>
+				<div style="font-size:14px;color:#aaa;font-weight:bold;line-height:18px;margin-left:2px;margin-top:10px;">We will finalize your application as soon as possible and be in touch with you within the next 5 working days.</div>
 			</div>
 		</div>
 	</div>
 	<div id="login_page">
-		<h4 id="new_credit_card_step_4_page_first_tab" class="h4floatleft">Post Submission Document Upload</h4>
+		<h4 id="new_credit_card_step_4_page_first_tab" class="h4floatleft">SUBMIT YOUR SUPPORTING DOCUMENTS</h4>
 		<br style="clear:both;" />
-		<div style="border:1px solid #CCC; width:400px;padding:10px;">
+		<div style="border:1px solid #CCC; width:580px;padding:10px;float:left;margin-top:10px;">
 			<table width="100%" class="application_form">
 				<tr>
 					<td width="100">ID Type: <span class="mandatory"> *</span></td>
@@ -114,33 +161,64 @@ if( self == top ) {
 							<option value="NRIC">NRIC</option>
 							<option value="Passport">Passport</option>
 						</select>
-						<div id="lbl_id_type" class="error_message_box"></div>
+					</td>
+					<td>
+						<div id="lbl_id_type" class="error_message_box" style="display:none;">
+							<div class="error_message"></div>
+						</div>
 					</td>
 				</tr>
 
-				<tr class="tr_nric">
+				<tr class="tr_nric" style="display:none;">
 					<td>NRIC: <span class="mandatory"> *</span></td>
 					<td>
-						<input id="form2_nric_number" name="form2_nric_number" class="input_l_width alphanumericwithspec valid" style="float:left" maxlength="9">
-						<div class="gray">Example: S5534234E</div>
-						<div id="lbl_nric_number" class="error_message_box"></div>						
+						<div style="padding:0px;">
+							<input id="form2_nric_number1" name="form2_nric_number1" maxlength="6" size="5" style="float:left; padding-right:0;" />
+							<span style="float:left">&ensp;–</span>
+							<input id="form2_nric_number2" name="form2_nric_number2" maxlength="2" size="1" style="float:left; padding-right:0;" />
+							<span style="float:left">&ensp;–</span>
+							<input id="form2_nric_number3" name="form2_nric_number3" maxlength="4" size="3" style="float:left; padding-right:0;" />
+						</div>						
+						<div class="gray">Example: 950703-12-3456 </div>
+						<input type="hidden" name="form2_nric_number" id="form2_nric_number" value="" />										
+					<td>
+						<div id="lbl_nric_number" class="error_message_box" style="display:none;">
+							<div class="error_message"></div>						
+						</div>						
 					</td>
 				</tr>			
 				
-				<tr class="tr_passport">
+				<tr class="tr_passport" style="display:none;">
 					<td>Passport No.: <span class="mandatory"> *</span></td>
 					<td>
-						<input id="form2_passport_number" name="form2_passport_number" class="input_l_width alphanumericwithspec valid" style="float:left" maxlength="30">
-						<div id="lbl_passport_number" class="error_message_box"></div>						
+						<input id="form2_passport_number" name="form2_passport_number" class="input_l_width alphanumericwithspec valid" style="float:left;" maxlength="16"/>
+					</td>
+					<td>
+						<div id="lbl_passport_number" class="error_message_box" style="display:none;">
+							<div class="error_message"></div>						
+						</div>						
 					</td>
 				</tr>
 				
 				<tr>
 					<td>Reference No.: <span class="mandatory"> *</span></td>
 					<td>
-						<input id="form2_reference_number" name="form2_reference_number" class="input_l_width alphanumericwithspec valid" style="float:left" maxlength="30">
-						<div class="gray">Example: SGR49-123456</div>						
-						<div id="lbl_reference_number" class="error_message_box"></div>						
+						<div>
+							<div style="float:left;">
+								<input id="form2_reference_number" name="form2_reference_number" class="input_l_width alphanumericwithspec valid" style="width:165px;" maxlength="30"/>
+							</div>
+							<div class="hastips" style="float:left;width:25px;">							
+								<img src="images/icon_help.jpg" width="25" height="24" alt="" style="vertical-align:middle;" />							
+								<span class="tips">The Reference No. can be found in the Thank You email that would have been sent during your application submission.</span>
+							</div>
+						</div>
+						<div class="gray">Example: MYR219-123456</div>						
+					</td>
+					<td>
+						<div id="lbl_reference_number" class="error_message_box" style="display:none;">
+							<div class="error_message">
+							</div>
+						</div>						
 					</td>
 				</tr>
 			
@@ -154,227 +232,17 @@ if( self == top ) {
 			
 			</table>
 		</div>
+
+		<div style="border:3px solid #999; width:300px;padding:10px;float:right;margin-top:10px;">
+		This site allows you to upload your supporting documents to complete your application. Please enter the information requested to begin. 
+		<br/><br/>
+		As this is a secured site, all the provided details are encrypted to protect your privacy.	
+		
+		</div>
+
 	</div>
 	<div id="main_content" style="display:none;">
-		<h4 id="new_credit_card_step_4_page_first_tab" class="h4floatleft">Post Submission Document Upload</h4>
-		
-		<div id="notes_documents" style="height: 262px;">
-			<!-- notes document message -->
-			<div id="notes_document_message">
-				<div id="notes_document_message_padding">
-					<img src="images/requirement_document.gif"><br>Now you can conveniently<br>upload documents online!<br><span style="font-size: 12px;">Here is what you'll need:</span>
-				</div>
-			</div>
-			<!-- end notes document_message -->
-			<!-- short notes document lists -->
-			
-			<!-- end short notes document lists -->
-			<!-- notes document lists -->
-			<div id="notes_document_lists" class="document_list1">
-				<table id="notes_document_table_lists">
-					<tbody><tr id="notes_document_table_row" style="height: 140px;">
-						<td valign="top" width="50%" style="padding-right: 20px;">
-							<p style="font-weight: bold;">Singapore Citizens and Permanent Residents</p>
-							<ul id="short_notes_document_lists_left" class="document-listing" style="display: block;">
-								<li>
-									Copy of NRIC (front and back) 
-								</li>
-								<!--<li>
-									Copy of Passport
-								</li>-->
-								<li>
-									For salaried (any one from below)
-								</li>
-							</ul>
-							<div id="short_document-listing-link_left" class="document-listing-link" style="display: block;"><a>Show Details</a></div>
-							<ul id="notes_document_lists_left" class="document-listing" style="display: none;">
-								<li>
-									Copy of NRIC (front and back) 
-								</li>
-								<!--<li>
-									Copy of Passport
-								</li>-->
-								<li>
-									For salaried (any one from below)
-									<ul class="document-listing">
-										<li>
-										Copy of current or previous month's computerized pay slip (last 3 months payslips if you are a commission earner and not a salaried employee)
-										</li>
-										<li>
-										Copy of 6 months’ CPF contribution history statement (This is compulsory if you do not have any other credit facilities from any banks)
-										<br>Please click <a href="http://www.standardchartered.com.sg/online-form/cpf-statement/index.html" target="_blank">here</a> for a guide on how to retrieve your CPF Contribution History Statement
-										</li>
-										<li>
-										Copy of Income Tax Notice of Assessment (Reflecting at least 1 month’s income earned from current employer)
-										</li>
-									</ul>
-								</li>
-								<li>
-									For self-employed
-									<ul class="document-listing">
-										<li>
-										Copy of Income Tax Notice of Assessment (Minimum of 2 years in business is compulsory)
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<div id="document-listing-link_left" class="document-listing-link-hide" style="display: none;"><a>Hide</a></div>
-						</td>
-						<td id="document-listing_vbar_short" style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(85, 85, 85); display: table-cell;">&nbsp;</td>
-						<td id="document-listing_vbar_long" style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(85, 85, 85); display: none;">&nbsp;</td>
-						<td valign="top">
-							<p style="font-weight: bold;">Foreigners</p>
-							<ul id="short_notes_document_lists_right" class="document-listing" style="display: block;">
-								<li>
-									Copy of Passport
-								</li>
-								<li>
-									Copy of Employment Pass (front and back)
-								</li>
-								<li>
-									For salaried (any of the following)                                              
-								</li>
-							</ul>
-							<div id="short_document-listing-link_right" class="document-listing-link" style="display: block;"><a>Show Details</a></div>
-							<ul id="notes_document_lists_right" class="document-listing" style="display: none;">
-								<li>
-									Copy of Passport
-								</li>
-								<li>
-									Copy of Employment Pass (front and back)
-								</li>
-								<li>
-									For salaried (any one from below)
-									<ul class="document-listing">
-										<li>
-										Copy of current month's or previous month's computerized pay slip from current employer
-										</li>
-										<li>
-										Copy of Income Tax Notice of Assessment (Reflecting at least 1 month’s income earned from current employer)
-										</li>
-									</ul>
-								</li>
-								<li>
-									For self-employed
-									<ul class="document-listing">
-										<li>
-										Copy of Income Tax Notice of Assessment (Minimum of 2 years in business is compulsory)
-										</li>
-									</ul>
-								</li>
-								<li>
-									You must also provide any of the following documents as proof of your Singapore address
-									<ul class="document-listing">
-										<li>
-										Latest Utility bills (electricity, water, refuse collection), rates or tax bills
-										</li>
-										<li>
-										Latest Bank or Credit Card statements (including e-statement)
-										</li>
-										<li>
-										Copy of Rental agreements showing your address
-										</li>
-										<li>
-										Latest Mobile phone statements / pay TV statement
-										</li>
-										<li>
-										Letter from Employer stating current address
-										</li>
-										<li>
-										Government issued documents stating address (e.g. IRAS, CPF, ICA)
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<div id="document-listing-link_right" class="document-listing-link-hide" style="display: none;"><a>Hide</a></div>
-						</td>
-					</tr>
-					<tr>
-						<td id="documents-reference" colspan="3" style="display: none;">
-							<span style="font-size: 10px; font-style: italic;">* Must reflect at least 1 month’s income earned from current employer.</span>
-						</td>
-					</tr>
-				</tbody></table>
-			</div>
-
-			<div id="notes_document_lists" class="document_list2">
-				<table id="notes_document_table_lists">
-					<tbody><tr id="notes_document_table_row">
-						<td valign="top" width="50%" style="padding-right: 20px;">
-							<ul id="notes_document_lists_left" class="document-listing">
-							  <li>Copy of NRIC (front and back) </li>
-							  <li>
-							  Proof of Residence (any one from below)
-							<ul id="notes_document_lists_left" class="document-listing">
-								<li>
-									Utility Bill from SP Services (any one from the last 3 months)
-								</li>
-								<li>
-									Telco Bill from M1, Starhub, or Singtel (any one from the last 3 months)
-								</li>
-								<li>
-									Bank Statement from another licensed bank in Singapore (any one from the last 3 months)
-								</li>
-							</ul>
-							  </li>
-							</ul>
-							<p style="font-weight: bold;">Important Information:</p>
-							<ul id="notes_document_lists_left" class="document-listing">
-								<li>
-									NRIC and Proof of Residence MUST be uploaded as part of your application.
-								</li>
-								<li>
-									Please ensure that your documents are in either PDF, JPG, PNG, GIF or TIFF format. Total file size should not exceed 5MB.
-								</li>
-								<li>
-									You will need a valid <span style="color:red;">SingPass</span> to authorise CPF to release your statement online to Standard Chartered Bank as part of your application. If you do not have a SingPass, please visit https://www.singpass.gov.sg/sppubsvc/req1.html.
-								</li>
-							</ul>
-						</td>
-					</tr>	
-				</tbody></table>
-			</div>
-
-			<div id="notes_document_list" class="document_list3">
-				<table id="notes_document_table_lists">
-					<tbody><tr id="notes_document_table_row">
-						<td valign="top" width="50%" style="padding-right: 20px;">
-							<p style="font-weight: bold; padding-bottom: 0px;">Singapore Citizens and Permanent Residents</p>
-							<ul id="short_notes_document_lists_left" class="document-listing">
-								<li>
-									Copy of NRIC (front and back) 
-								</li>
-								<li>
-									CPF Authorisation
-								</li>
-							</ul>
-							<p style="font-weight: bold; padding-bottom: 0px;">Important Information:</p>
-							<ul id="notes_document_lists_left" class="document-listing">
-								<li>
-									You will need a valid <span style="color:red;">SingPass</span> to authorise CPF to release your statement online to Standard Chartered Bank as part of your application. If you do not have a SingPass, please visit https://www.singpass.gov.sg/sppubsvc/req1.html.
-								</li>
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td id="documents-reference" colspan="3" style="display: none;">
-							<span style="font-size: 10px; font-style: italic;">* Must reflect at least 1 month’s income earned from current employer.</span>
-						</td>
-					</tr>
-					<tr style="padding-top: 10px;">
-						<td colspan="3">
-							<div class="blue_box">
-							<strong>Don’t have the documents handy?</strong> You can still complete the online form and either fax or drop off the documents at any one of our branches at your convenience.
-							</div>
-						</td>
-					</tr>
-				</tbody></table>
-			</div>
-			<!-- end notes document lists -->
-			
-			
-			
-		</div>		
+		<h4 id="new_credit_card_step_4_page_first_tab" class="h4floatleft">UPLOAD YOUR SUPPORTING DOCUMENTS</h4>
 		<div id="doc_upload_message_box">
 		</div>
 
@@ -390,7 +258,7 @@ if( self == top ) {
 					</select>			
 				</td>
 				<td style="vertical-align:top;">
-					<select id="form2_doc_subtype" name="form2_doc_subtype">
+					<select id="form2_doc_subtype" name="form2_doc_subtype" style="width:430px;">
 						<option class="select" selected="selected" value="">Please select doc subtype</option>
 					</select>						
 				</td>
@@ -451,30 +319,249 @@ if( self == top ) {
 				</tr>				
 			</tbody>			
 		</table>		
-
 		<br style="clear:both;" />
-
 		<span class="float_right" id="form2_upload_next_back" style="margin-right:50px;">
-			<a href="javascript:void(0);" id="check_new_credit_card_4" class="btn_submit param1-check_new_credit_card_4 param2-content param3-id"><span>Upload</span></a>
-			<a href="javascript:void(0);" id="check_new_credit_card_4_swf" class="btn_submit param1-check_new_credit_card_4 param2-content param3-id" style="display: none;"><span>Upload</span></a>  
+			<a href="javascript:void(0);" id="check_new_credit_card_4" class="btn_submit param1-check_new_credit_card_4 param2-content param3-id" style="background: url(images/btn_upload_now.gif) no-repeat 0 -30px;width:132px;"><span>Upload now</span></a>
+			<a href="javascript:void(0);" id="check_new_credit_card_4_swf" class="btn_submit param1-check_new_credit_card_4 param2-content param3-id" style="display: none;background: url(images/btn_upload_now.gif) no-repeat 0 -30px;width:132px;"><span>Upload now</span></a>  
 		</span> 
-		<br clear="all" />
+		<br style="clear:both;" />
 		<div id="important_note">
-		<div>Important Notes:</div>
-				<br style="clear:both;" />		
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</div>		
-	</div>
+		<div><strong>Important Notes:</strong></div>
+			<br style="clear:both;" />	
+			<strong>File Requirements:</strong><br/>
+			<ul style="list-style-type:disc;">
+			<li style="margin-left:20px;">Total size of all files must not exceed 5MB</li>
+			<li style="margin-left:20px;">We accept PDF, JPG, PNG, GIF and TIFF formats</li>				
+			</ul>
+		</div>
+		<br style="clear:both;" />
+		<div id="notes_documents" style="height:auto;">
+			<!-- notes document message -->
+			<div id="notes_document_message">
+				<div id="notes_document_message_padding">
+					<img src="images/requirement_document.gif"><br>Now you can conveniently<br>upload documents online!<br><span style="font-size: 12px;">Here is what you'll need:</span>
+				</div>
+			</div>
+			<!-- end notes document_message -->
+			<!-- short notes document lists -->
+			
+			<!-- end short notes document lists -->
+			<!-- notes document lists -->
 
+					<div id="notes_document_lists" class="document_list1">
+						<table width="670" border="0" cellspacing="0" cellpadding="0" style="font-size:12px; border:1px solid #0072aa; font-family:Arial, Helvetica, sans-serif">
+						<tbody>
+							<tr>
+								<td width="33%" bgcolor="#0072aa" style="background-color:#0072aa; font-size:13px; color:#ffffff; border-right:1px solid #0072aa; border-bottom:1px solid #0072aa; padding:5px;"><strong>Salaried:</strong></td>
+								<td width="33%" bgcolor="#0072aa" style="background-color:#0072aa; font-size:13px; color:#ffffff; border-right:1px solid #0072aa; border-bottom:1px solid #0072aa; padding:5px;"><strong>Commission Earners:</strong></td>
+								<td width="34%" bgcolor="#0072aa" style="background-color:#0072aa; font-size:13px; color:#ffffff; border-bottom:1px solid #0072aa; padding:5px;"><strong>Self Employed: </strong></td>
+							</tr>
+							<tr>
+								<td valign="top" width="33%" style="border-right:1px solid #0072aa;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
+									<tbody>
+										<tr><td colspan="2" style="padding:5px;">Copy (Front &amp; Back) </td></tr>
+										<tr><td colspan="2" bgcolor="#b0e0f7" style="padding:5px;"><strong>Malaysian:</strong> NRIC</td></tr>
+										<tr><td colspan="2" bgcolor="#c2eeb9" style="padding:5px;"><strong>Foreigner:</strong> Valid Passport and employment pass </td></tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+										<tr><td colspan="2" align="center" style="font-size:16px; color:#333333;"><strong>AND</strong></td></tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+										<tr>					
+										<td colspan="2">
+											<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
+												<tbody>
+													<tr>
+														<td width="7%" valign="top">1.</td>
+														<td width="93%" valign="top">Latest 3 months Pay Slips</td>
+													</tr>
+													<tr>
+														<td width="7%" valign="top">&nbsp;</td>
+														<td width="93%" valign="top" style="font-size:14px; padding-left:86px; color:#ff0000;"><strong>+</strong></td>
+													</tr>
+													<tr>
+														<td width="7%" valign="top">&nbsp;</td>
+														<td width="93%" valign="top">Latest 3 months Bank Statement - reflecting salary crediting</td>
+													</tr>
+													<tr>
+														<td width="7%" valign="top">&nbsp;</td>
+														<td width="93%" valign="top" style="font-size:14px; padding-left:80px; color:#0072aa;"><strong>OR</strong></td>
+													</tr>
+													<tr>
+														<td width="7%" valign="top">2.</td>
+														<td width="93%" valign="top">Latest EPF Statement - reflecting latest 3 months EPF contribution</td>
+													</tr>
+												</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+									</tbody>
+									</table>
+								</td>
+								<td valign="top" width="33%" style="border-right:1px solid #0072aa;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
+									<tbody>
+										<tr><td colspan="2" style="padding:5px;">Copy (Front &amp; Back) </td></tr>
+										<tr><td colspan="2" bgcolor="#b0e0f7" style="padding:5px;"><strong>Malaysian:</strong> NRIC</td></tr>
+										<tr><td colspan="2" bgcolor="#c2eeb9" style="padding:5px;"><strong>Foreigner:</strong> Valid Passport and employment pass </td></tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+										<tr><td colspan="2" align="center" style="font-size:16px; color:#333333;"><strong>AND</strong></td></tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+										<tr>
+											<td colspan="2">
+												<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
+												<tbody>
+													<tr>
+														<td width="7%" valign="top">1.</td>
+														<td width="93%" valign="top">Latest 6 months pay slips</td>
+													</tr>
+													<tr>
+														<td width="7%" valign="top">&nbsp;</td>
+														<td width="93%" valign="top" style="font-size:14px; padding-left:86px; color:#ff0000;"><strong>+</strong></td>
+													</tr>
+													<tr>
+														<td width="7%" valign="top">&nbsp;</td>
+														<td width="93%" valign="top">Latest 6 months Bank Statement - reflecting salary crediting</td>
+													</tr>
+													<tr>
+														<td width="7%" valign="top">&nbsp;</td>
+														<td width="93%" valign="top" style="font-size:14px; padding-left:80px; color:#0072aa;"><strong>OR</strong></td>
+													</tr>
+													<tr>
+														<td width="7%" valign="top">2.</td>
+														<td width="93%" valign="top">Latest EPF Statement - reflecting latest 6 months EPF contribution</td>
+													</tr>
+												</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+									</tbody>
+									</table>
+								</td>
+								<td valign="top" width="34%" style="border-right:1px solid #0072aa;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
+									<tbody>
+										<tr><td colspan="2" style="padding:5px;">Copy (Front &amp; Back) </td></tr>
+										<tr><td colspan="2" bgcolor="#b0e0f7" style="padding:5px;"><strong>Malaysian:</strong> NRIC</td></tr>
+										<tr><td colspan="2" bgcolor="#c2eeb9" style="padding:5px;"><strong>Foreigner:</strong> Valid Passport and employment pass </td></tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+										<tr><td colspan="2" align="center" style="font-size:16px; color:#333333;"><strong>AND</strong></td></tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+										<tr>
+											<td colspan="2">
+												<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
+												<tbody>
+													<tr>
+														<td width="7%" valign="top">1.</td>
+														<td width="93%" valign="top">Latest Borang B/BE with LHDN Acknowledgement</td>
+													</tr>
+													<tr>
+														<td width="7%" valign="top">&nbsp;</td>
+														<td width="93%" valign="top" style="font-size:14px; padding-left:82px; color:#0072aa;"><strong>OR</strong></td>
+													</tr>
+													<tr>
+														<td width="7%" valign="top">2.</td>
+														<td width="93%" valign="top">Latest EPF Statement - reflecting latest 6 months EPF contribution</td>
+													</tr>
+												</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+									</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" bgcolor="#0072aa" style="background-color:#0072aa; color:#ffffff; font-size:13px; padding:5px;"><strong>For Supplementary Card Application:</strong></td>
+							</tr>
+							<tr>
+								<td colspan="3" style="padding:5px;">Copy (Front &amp; Back) </td>
+							</tr>
+							<tr>
+								<td colspan="3" style="padding:5px;"><strong>Malaysian:</strong> NRIC</td>
+							</tr>
+							<tr>
+								<td colspan="3" style="padding:5px;"><strong>Foreigner:</strong> Valid Passport and employment pass </td>
+							</tr>
+						</tbody>
+						</table>
+						<div style="clear:both; height:10px;"></div>    							
+					
+		            </div>			
+
+					<div id="notes_document_lists" class="document_list2">
+		            	<table id="notes_document_table_lists">
+		            		<tbody><tr>
+		            			<td valign="top" width="49%">
+		            				<p style="font-weight: bold;">For Malaysia Citizens</p>
+		            				<ul class="document-listing">
+		            					<li>
+		            						Copy of NRIC (front and back)
+		            					</li>
+                                        <li>
+                                            Income Documents
+                                        </li>
+		            				</ul>
+		            			</td>
+		            			<!--<td id="document-listing_vbar_short" style="border-left: 1px solid #555555;">&nbsp;</td>-->
+		            			<!--<td valign="top" width="49%">
+		            				<p style="font-weight: bold;">For Foreigners</p>
+		            				<ul class="document-listing">
+		            					<li>
+		            						Copy of Passport
+		            					</li>
+		            				</ul>
+		            			</td>-->
+		            		</tr>
+		            	</tbody></table>
+		            </div>			
+
+					<div id="notes_document_lists" class="document_list3">
+		            	<table id="notes_document_table_lists">
+		            		<tbody><tr>
+		            			<td valign="top" width="49%">
+		            				<p style="font-weight: bold;">For Malaysia Citizens</p>
+		            				<ul class="document-listing">
+		            					<li>
+		            						Copy of NRIC (front and back)
+		            					</li>
+                                        <li>
+                                            Income Documents
+                                        </li>
+		            				</ul>
+		            			</td>
+		            			<td id="document-listing_vbar_short" style="border-left: 1px solid #555555;">&nbsp;</td>
+		            			<td valign="top" width="49%">
+		            				<p style="font-weight: bold;">For Foreigners</p>
+		            				<ul class="document-listing">
+		            					<li>
+		            						Copy of Passport
+		            					</li>
+                                        <li>
+                                            Income Documents
+                                        </li>
+		            				</ul>
+		            			</td>
+		            		</tr>
+		            	</tbody></table>
+		            </div>			
+			
+			<!-- end notes document lists -->
+			
+		</div>		
+
+	</div>
 	<div id="footer">
 		<div class="padding">
-	  <p style="font-style:italic;color:#333333;font-size:11px;text-align:right;clear:both">This form is best viewed on IE 8.0, Firefox 4.0, Safari and Chrome.</p>
-		  <hr class="footer" />
-		  <div class="float_right"> <a href="http://www.standardchartered.com.sg/about-us/en/">About Us</a> | <a href="http://investors.standardchartered.com/">Investor Relations</a> | <a href="http://www.standardchartered.com/sustainability" target="_blank">Sustainability</a> | <a href="http://www.standardchartered.com/about-us/global-network/en/index.html" target="_blank">Worldwide Locations</a> </div>
-		  Copyright &copy; 2013 Standard Chartered Bank &nbsp;&nbsp;&nbsp; <a href="http://www.standardchartered.com.sg/terms-conditions/en/" target="_blank">Terms &amp; Conditions</a> | <a href="http://www.standardchartered.com.sg/data-protection-privacy-policy/en/" target="_blank">Data Protection &amp; Privacy Policy</a> </div>
-	</div>
+		<p style="font-style:italic;color:#333333;font-size:11px;text-align:right;clear:both">This form is best viewed on IE 8.0, Firefox 4.0, Safari and Chrome.</p>
+		<p style="font-style:italic;color:#333333;font-size:11px;text-align:right;clear:both">This online application form is secured by SSL Certificate.</p>
+		<hr class="footer" />
+		<div class="float_right"> <a href="http://www.standardchartered.com.my/home/aboutus.html">About Us</a> | <a href="http://investors.standardchartered.com/">Investor Relations</a> | <a href="http://www.standardchartered.com/sustainability" target="_blank">Sustainability</a> | <a href="http://www.standardchartered.com/about-us/global-network/en/index.html" target="_blank">Worldwide Locations</a> </div>
+		Copyright &copy; 2013 Standard Chartered Bank &nbsp;&nbsp;&nbsp; <a href="http://www.standardchartered.com.my/terms-conditions/en/" target="_blank">Terms &amp; Conditions</a> | <a href="http://www.standardchartered.com.my/data-protection-privacy-policy/en/" target="_blank">Data Protection &amp; Privacy Policy</a> </div>
+	</div>	
 </div>
-<!-- end page container -->
 
 <div id="tempReturn" style="display: none;"></div>
 <div id="dialog-confirm"></div>
@@ -489,7 +576,7 @@ if( self == top ) {
         <div class="loader">
             <img src="images/ajax-loader.gif" alt=""  />
         </div>
-        <div class="note-box" style="display:none;">
+        <div class="note-box">
             <h3>Did you know?</h3>
             <p id="note-box-message1" style="display:none;">Your card comes with access to special cardholder privileges, SMS and email alerts. You can find out more about this via our website.</p>
             <p id="note-box-message2" style="display:none;">You can use SMS and email alerts to keep yourself updated and reduce the chance of fraudulent activity on your loan account. You can find out more about this via our website.</p>			 

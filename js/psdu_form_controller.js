@@ -1,10 +1,9 @@
 var formidList = [  //PRD,    SIT
-					"SGR49", "SGR201",  // CC
-					"SGR122", "SGR201", // PL (CashOne & EzyCash)
-					"SGR314",			// Bonus$aver
-					"SGR291", "SGR289", // E$aver
-					"SGR481", "SGR472", // CC AIP
-					"SGR482", "SGR473"  // PL AIP PL (CashOne & EzyCash)
+					"MYR219", "MYR266", // CC
+					"MYR220", "MYR145", // CashOne
+					"MYR289",			// JustOne (same for PRD and SIT)
+					"MYR320", "MYR242", // C@S CC
+					"MYR321", "MYR241"  // C@S PL
 				];
 
 //////////////////////////////////////////////////////////
@@ -15,52 +14,47 @@ var formidList = [  //PRD,    SIT
 //	'1,2,3' = different variations                      //
 //////////////////////////////////////////////////////////				
 var formDocMap= [
-					"1101", "1101", // CC
-					"1101", "1101", // PL (CashOne & EzyCash)
-					"3200",			// Bonus$aver
-					"2300", "2300", // E$aver
-					"1101", "1101", // CC AIP
-					"1101", "1101"  // PL AIP PL (CashOne & EzyCash)
+					"1110", "1110", // CC
+					"1100", "1100", // CashOne
+					"1000",			// JustOne
+					"1110", "1110", // C@S CC
+					"1100", "1100"  // C@S PL
 				];
 
 var formProductMap = [
-					"Credit Card", "Credit Card/CashOne/EzyCash",  // CC
-					"CashOne/EzyCash", "Credit Card/CashOne/EzyCash", // PL (CashOne & EzyCash)
-					"Bonus$aver",									// BonusSaver
-					"E$aver", "E$aver",  // E$aver
-					"Credit Card", "Credit Card", // CC AIP
-					"CashOne/EzyCash", "CashOne/EzyCash"  // PL AIP PL (CashOne & EzyCash)
+					"Credit Card", "Credit Card",  	// CC
+					"CashOne", "CashOne", 			// CashOne
+					"JustOne",				 		// JustOne
+					"Credit Card", "Credit Card",  	// C@S CC
+					"CashOne", "CashOne" 			// C@S PL
 				];
 
 var formFileNet =  [  
-					"STP Credit Card Account Opening", "STP Credit Card Account Opening",  // CC
-					"STP CashOne", "STP CashOne", // PL (CashOne & EzyCash) **DUPLICATED**
-					"",			// Bonus$aver
-					"", "",  // E$aver
-					"STP Credit Card Account Opening", "STP Credit Card Account Opening", // CC AIP
-					"STP CashOne", "STP CashOne"  // PL AIP PL (CashOne & EzyCash)
+					"Credit Card|CC Account Opening", "Credit Card|CC Account Opening",  // CC
+					"Personal Loan|PL Account Opening", "Personal Loan|PL Account Opening", // CashOne
+					"",			// JustOne
+					"Credit Card|CC Account Opening", "Credit Card|CC Account Opening", // C@S CC
+					"Personal Loan|PL Account Opening", "Personal Loan|PL Account Opening"  // C@S PL
 				];
 
 var noteBoxMessage = [ 
-					"1", "0", 	// CC
-					"2", "0", 	// PL (CashOne & EzyCash)
-					"2",		// Bonus$aver
-					"0", "0",  	// E$aver
-					"1", "1", 	// CC AIP
-					"2", "2"  	// PL AIP PL (CashOne & EzyCash)
+					"1", "1", 		// CC
+					"2", "2", 		// CashOne
+					"2",			// JustOne
+					"1", "1", 		// C@S CC
+					"2", "2"  		// C@S PL
 				];				
 				
 var docRequirement = [ 
-					"1", "1", 	// CC
-					"1", "1", 	// PL (CashOne & EzyCash)
-					"3",		// Bonus$aver
-					"2", "2",   // E$aver
-					"1", "1", 	// CC AIP
-					"1", "1"  	// PL AIP PL (CashOne & EzyCash)
+					"1", "1", 		// CC
+					"2", "2", 		// CashOne
+					"3",			// JustOne
+					"3", "3", 		// C@S CC
+					"2", "2"  		// C@S PL
 				];								
 				
 var idleTime = 0;
-var timeoutUrl = "http://www.standardchartered.com.sg/";
+var timeoutUrl = "http://www.standardchartered.com.my/";
 var MyuploadFilesCount = 0;
 var MytotalUploadFileSize = 0;
 
@@ -71,6 +65,7 @@ function timerIncrement() {
     }
 }
 
+var FORM_NO = 0;
 var MAX_DOC = 20;
 var CUR_UPLOAD = 99999;
 var FILENET = false;
@@ -87,36 +82,8 @@ $(function() {
         	//$(this).css("text-decoration","none");
 		    $(".fileinputs_id .upload_file_over").hide();
 		    $(".fileinputs_id .upload_file").show();
-
         });
 });
-
-/*
-// Mask the input field
-var W3CDOM = (document.createElement && document.getElementsByTagName);
-
-function initFileUploads() {
-	if (!W3CDOM) return;
-	var fakeFileUpload = document.createElement('div');
-	fakeFileUpload.className = 'fakefile';
-	fakeFileUpload.appendChild(document.createElement('input'));
-	var image = document.createElement('img');
-	image.src='btn_next.gif';
-	fakeFileUpload.appendChild(image);
-	var x = document.getElementsByTagName('input');
-	for (var i=0;i<x.length;i++) {
-		if (x[i].type != 'file') continue;
-		if (x[i].parentNode.className != 'fileinputs') continue;
-		x[i].className = 'file hidden';
-		var clone = fakeFileUpload.cloneNode(true);
-		x[i].parentNode.appendChild(clone);
-		x[i].relatedElement = clone.getElementsByTagName('input')[0];
-		x[i].onchange = x[i].onmouseout = function () {
-			this.relatedElement.value = this.value;
-		}
-	}
-}
-*/
 
 function validFormID( FormRefID ) {
 	if( FormRefID.split("-").length != 2 && FormRefID.split("-").length != 3) {
@@ -140,7 +107,12 @@ function validFormID( FormRefID ) {
 		return false;
 	}			
 */	
+	$("#formId").val(FormRefID.split("-")[0]);
+	FORM_NO = pos;
+	return true;
+}	
 
+function setupForForm(pos) {	
 	populateDocType(pos);
 	$("#form2_product").val( formProductMap[pos] );
 	FILENET = formFileNet[pos];	
@@ -175,68 +147,77 @@ function validFormID( FormRefID ) {
 			$(".document_list3").remove();						
 			break;	
 	}
-	
-	$("#formId").val(FormRefID.split("-")[0]);
-	return true;
+
+}
+
+function inlineError( element, message ) {
+	if(message.length > 0) {
+		$(element + " > div.error_message").html(message);
+		$(element).show();
+	} else {
+		$(element + " > div.error_message").html("");
+		$(element).hide();	
+	}
 }
 
 function validateFields() {
 	var allValid=true;
 	if( $("#form2_id_type").val() == "" ) {
-		$("#lbl_id_type").html("ID Type is mandatory").show();
+		inlineError("#lbl_id_type","ID Type is mandatory. Please enter and try again.");
 		allValid=false;
 	} else {
-		$("#lbl_id_type").html("").hide();	
+		inlineError("#lbl_id_type","");		
 	}
 
 	if( $("#form2_id_type").val() == "NRIC" ) {
-		if( $("#form2_nric_number").val() == "" ) {
-			$("#lbl_nric_number").html("NRIC is mandatory").show();
+		if( $("#form2_nric_number1").val() == "" || $("#form2_nric_number2").val() == "" || $("#form2_nric_number3").val() == "") {
+			inlineError("#lbl_nric_number","NRIC is mandatory. Please enter and try again.");
 			allValid=false;
 		} else {
-			if( !isAlphanumericWithSpec($("#form2_nric_number").val()) ) {
-				$("#lbl_nric_number").html("Invalid characters in NRIC").show();
+			if( !isNumeric($("#form2_nric_number1").val()) || !isNumeric($("#form2_nric_number2").val()) || !isNumeric($("#form2_nric_number3").val())) {
+				inlineError("#lbl_nric_number","Invalid NRIC. Please enter and try again.");
 				allValid=false;
 			} else {
-				if(!ValidateNRIC($("#form2_nric_number").val())) {
-					$("#lbl_nric_number").html("Invalid NRIC").show();
+				if(!ValidateNRIC($("#form2_nric_number1").val(),$("#form2_nric_number2").val())) {
+					inlineError("#lbl_nric_number","Invalid NRIC. Please enter and try again.");
 					allValid=false;				
 				} else {
-					$("#lbl_nric_number").html("").hide();	
+					$("#form2_nric_number").val( $("form2_nric_number1").val()+$("form2_nric_number2").val()+$("form2_nric_number3").val());
+					inlineError("#lbl_nric_number","");		
 			}	}
 		}		
 	}
 	
 	if( $("#form2_id_type").val() == "Passport" ) {
 		if( $("#form2_passport_number").val() == "" ) {
-			$("#lbl_passport_number").html("Passport No. is mandatory").show();
+			inlineError("#lbl_passport_number","Passport No. is mandatory. Please enter and try again.");
 			allValid=false;
 		} else {
 			if( !isAlphanumericWithSpec($("#form2_passport_number").val()) ) {
-				$("#lbl_passport_number").html("Invalid characters in Passport No.").show();
+				inlineError("#lbl_passport_number","Invalid characters in Passport No.  Please enter and try again.");
 				allValid=false;
 			} else {
-				$("#lbl_passport_number").html("").hide();	
+				inlineError("#lbl_passport_number","");	
 			}	
 		}
 	}		
 	
 	if( $("#form2_reference_number").val() == "" ) {
-		$("#lbl_reference_number").html("Reference No. is mandatory").show();
+		inlineError("#lbl_reference_number","Reference No. is mandatory. Please enter and try again.");
 		allValid=false;
 	} else {
 		if( !isAlphanumericWithSpec($("#form2_reference_number").val()) ) {
-			$("#lbl_reference_number").html("Invalid characters in Reference No.").show();
+			inlineError("#lbl_reference_number","Invalid Reference No. Please enter and try again.");
 			allValid=false;
 		} else {
 			if (!validFormID($("#form2_reference_number").val() ) ) {
-				$("#lbl_reference_number").html("Invalid format of Reference No.").show();
+				inlineError("#lbl_reference_number","Invalid Reference No. Please enter and try again.");
 				allValid=false;			
 			} else {
-				$("#lbl_reference_number").html("").hide();	
+				inlineError("#lbl_reference_number","");	
 			}
 		}	
-	}	
+	}
 	
 	return allValid;
 }
@@ -248,15 +229,11 @@ function validateFileSelected() {
 function checkDocType( docRefId ) {
 	if( docRefId ) {
 		var docTypeId = docRefId.split('-')[2];
-		if( docTypeId == "NRIC" || docTypeId == "PPort" || docTypeId == "EPass") {
+		if( docTypeId == "NRICnew" || docTypeId == "PPort" || docTypeId == "SID" || docTypeId == "PWC") {
 			return "ID Document";
-		} else if ( docTypeId == "CPFHS" || docTypeId == "PSlip" || docTypeId == "ITNA" ||
-					docTypeId == "CPFSingpass" || docTypeId == "UtilityBill" || 
-					docTypeId == "TelcoBill" || docTypeId == "BankStatement" ) {
+		} else if ( docTypeId == "EAFORM" || docTypeId == "PSlip" || docTypeId == "EPFSTATEMENT" ||
+					docTypeId == "BORANG" || docTypeId == "ELETTER" ) {
 			return "Income Document";
-		} else if ( docTypeId == "FOR01_LUB" || docTypeId == "FOR01_LBS" || docTypeId == "FOR01_RA" || 
-					docTypeId == "FOR01_LMPS" || docTypeId == "FOR01_LESA" || docTypeId == "FOR01_GDSA" ) {
-			return "Address Document";					
 		}					
 	} else {
 		return "";
@@ -277,68 +254,51 @@ function isAlphanumericWithSpec(alphane){
 	return true;
 }
 
-function ValidateNRIC(strNRIC)
-{
-	var arrNumbers = new Array(2, 7, 6, 5, 4, 3, 2);
-	var arrUIN = new Array('J', 'Z', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A');
-	var arrFIN = new Array('X', 'W', 'U', 'T', 'R', 'Q', 'P', 'N', 'M', 'L', 'K');
-	var strPrefix = "", strDigit = "";
-	var blnValidNRIC = true;
-	var intTotal = 0, intMod = 0;
-	var intDigit = 0;
-	strNRIC = strNRIC.toUpperCase();
-	// Validate NRIC based on length
-	if (strNRIC.length != 9) {
-		blnValidNRIC = false;
-	} else {
-		// Validate NRIC based on algorithm
-		strPrefix = strNRIC.charAt(0);
-		if (strPrefix == 'S' || strPrefix == 'F') {
-			intTotal = 0; // total starts with 0 for prefixes S or F
-			for (var i = 0; i<7; i++){
-				strDigit = strNRIC.charAt(i + 1);
-				if (isNaN(intDigit)){
-					blnValidNRIC = false;
-					break;
-				} else {
-					intTotal += (Number(strDigit) * arrNumbers[i]);
-				}
-			}
-			if (blnValidNRIC) {
-				intMod = intTotal % 11;				
-				if (arrUIN[intMod] == strNRIC.charAt(8))
-					blnValidNRIC = true;
-				else
-					blnValidNRIC = false;
-			}
-		} else if (strPrefix == 'T' || strPrefix == 'G') {
-			intTotal = 4; // total starts with 4 for prefixes T or G
-			for (var i = 0; i < 7; i++)	{
-				strDigit = strNRIC.charAt(i + 1);
-				if (isNaN(intDigit)) {
-					blnValidNRIC = false;
-					break;
-				} else {
-					intTotal += (Number(strDigit) * arrNumbers[i]);
-				}
-			}			
-			if (blnValidNRIC){
-				intMod = intTotal % 11;
-				if (arrUIN[intMod] == strNRIC.charAt(8)){
-					blnValidNRIC = true;
-				} else {
-					blnValidNRIC = false;
-				}
-			}
-		}
-		else  {
-			// invalid prefix
-			blnValidNRIC = false;
-		}
+function ValidateNRIC(strNRIC1,strNRIC2) {
+	var validBP="01,21,22,23,24,02,25,26,27,03,28,29,04,30,05,31,59,06,32,33,07,34,35,08,36,37,38,39,09,40,10,41,42,43,44,11,45,46,12,47,48,49,13,50,51,52,53,14,54,55,56,57,15,58,"+
+				"16,82,60,61,62,63,64,65,66,67,68,71,74,75,76,77,78,79,83,84,85,86,87,88,89,90,91,92,93";
+			
+	if(strNRIC1.length != 6 || strNRIC2.length != 2) {
+		return false;
 	}
-	return blnValidNRIC;
+	if(validBP.indexOf(strNRIC2) < 0) {
+		return false;
+	}
+
+	var yy = parseInt(strNRIC1.substr(0,2),10);
+	var mm = parseInt(strNRIC1.substr(2,2),10);
+	var dd = parseInt(strNRIC1.substr(4,2),10);
+	
+	if( mm < 1 || mm > 12 ) {
+		return false;
+	}
+
+	if( dd < 1 || dd > 31) {
+		return false;
+	}
+	
+	var ddate = new Date( yy, (mm-1), dd);
+	
+	if( ddate.getMonth()+1 != mm || ddate.getDate() != dd ) {
+		return false;
+	}
+	
+	return true;
 }
 
+function isNumeric(alphane){
+	var numaric = alphane;
+	for(var j=0; j<numaric.length; j++)	{
+		  var alphaa = numaric.charAt(j);
+		  var hh = alphaa.charCodeAt(0);
+		  if((hh > 47 && hh<58) ) {
+		  }
+		  else	{
+			 return false;
+		  }
+	}
+	return true;
+}
 
 function generateLoginXml() {
 	var startXML=commonXML=endXML=finalXML='';
@@ -382,12 +342,12 @@ function generateXml() {
 	
 	hiddenXML=hiddenXML+"\t\t\t</attchments>\n";
 	
-	if(FILENET!="") {
+	if(FILENET!="" & FILENET.split("|").length == 2) {
 		// Filenet implementation
-		addXML=addXML+"\t\t\t<filenetProduct>Credit Card</filenetProduct>\n";
-		addXML=addXML+"\t\t\t<filenetSubProduct><![CDATA["+FILENET+"]]></filenetSubProduct>\n";		
-		addXML=addXML+"\t\t\t<filenetCity>SG</filenetCity>\n";
-		addXML=addXML+"\t\t\t<filenetCountry>SG</filenetCountry>\n";
+		addXML=addXML+"\t\t\t<filenetProduct><![CDATA["+FILENET.split("|")[0]+"]]></filenetProduct>\n";
+		addXML=addXML+"\t\t\t<filenetSubProduct><![CDATA["+FILENET.split("|")[1]+"]]></filenetSubProduct>\n";		
+		addXML=addXML+"\t\t\t<filenetCity>KL</filenetCity>\n";
+		addXML=addXML+"\t\t\t<filenetCountry>MY</filenetCountry>\n";
 		addXML=addXML+"\t\t\t<form2_name><![CDATA["+$("#form2_nric_passport").val()+"]]></form2_name>\n";
 		addXML=addXML+"\t\t\t<filenetIdNumber><![CDATA["+$("#form2_nric_passport").val()+"]]></filenetIdNumber>\n";
 	} else {
@@ -415,13 +375,7 @@ function populateDocType(pos) {
 	
 	switch( docMap.substr(0,1) ) {
 		case "1"  :
-			html = html + '<option value="ID_PROOF1">Proof of ID</option>';
-			break;
-		case "2"  :
-			html = html + '<option value="ID_PROOF2">Proof of ID</option>';
-			break;
-		case "3"  :
-			html = html + '<option value="ID_PROOF3">Proof of ID</option>';
+			html = html + '<option value="ID_PROOF">Proof of ID</option>';
 			break;
 		default:
 			break;		
@@ -429,13 +383,7 @@ function populateDocType(pos) {
 	
 	switch( docMap.substr(1,1) ) {
 		case "1"  :
-			html = html + '<option value="INCOME_PROOF1">Proof of income</option>';
-			break;
-		case "2"  :
-			html = html + '<option value="INCOME_PROOF2">Proof of income</option>';
-			break;
-		case "3"  :
-			html = html + '<option value="INCOME_PROOF3">Proof of income</option>';
+			html = html + '<option value="INCOME_PROOF">Proof of income</option>';
 			break;
 		default:
 			break;		
@@ -448,7 +396,7 @@ function populateDocType(pos) {
 		default:
 			break;		
 	}
-
+/*
 	switch( docMap.substr(3,1) ) {
 		case "1"  :
 			html = html + '<option value="ADDR_PROOF">Proof of residential address</option>';
@@ -456,81 +404,46 @@ function populateDocType(pos) {
 		default:
 			break;		
 	}
-	
+*/	
 	$("#form2_doc_type").html(html);										
 }
 
 function showDocOptions( option ) {
 	$("#form2_doc_subtype option").remove();
 	switch( $("#form2_doc_type").val() ) {
-		case "ID_PROOF1"  :
+		case "ID_PROOF"  :
 			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="id_proof1" value="NRIC">NRIC (front and back)</option>'+
-						'<option class="id_proof1" value="PPort">Passport</option>'+
-						'<option class="id_proof1" value="EPass">Employment Pass</option>';		
+						'<option class="id_proof" value="NRICnew">NRIC (front and back)</option>'+
+						'<option class="id_proof" value="SID">Service ID (Armed Forces)</option>'+												
+						'<option class="id_proof" value="PWC">Police Warrant Card</option>'+						
+						'<option class="id_proof" value="PPort">Passport</option>';
 			$("#form2_doc_subtype").html(html);		
 			break;						
 						
-		case "ID_PROOF2"  :
-			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="id_proof2" value="NRIC">NRIC (front and back)</option>';
-			$("#form2_doc_subtype").html(html);		
-			break;
-
-		case "ID_PROOF3"  :
-			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="id_proof2" value="NRIC">NRIC (front and back)</option>'+
-						'<option class="id_proof1" value="PPort">Passport</option>';						
-			$("#form2_doc_subtype").html(html);		
-			break;
-						
-		case "INCOME_PROOF1"  :
+		case "INCOME_PROOF"  :
 			var html =	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="income_proof1" value="PSlip">Computerised pay slip</option>'+
-						'<option class="income_proof1" value="CPFHS">CPF Contribution History Statement</option>'+
-						'<option class="income_proof1" value="ITNA">Income Tax Notice of Assessment</option>';					
-			$("#form2_doc_subtype").html(html);		
-			break;
-							
-		case "INCOME_PROOF2"  :
-			var html =	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-//						'<option class="income_proof2" value="CPFSingpass">CPF Authorisation through Singpass</option>'+
-//						'<option class="income_proof2" value="ITNA">Income Tax Notice of Assessment</option>'+
-						'<option class="income_proof2" value="PSlip">Computerised pay slip</option>';
-			$("#form2_doc_subtype").html(html);		
-			break;
-							
-		case "INCOME_PROOF3"  :
-			var html =	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="income_proof3" value="UtilityBill">Utility Bill</option>'+
-						'<option class="income_proof3" value="TelcoBill">Telco Bill</option>'+
-						'<option class="income_proof3" value="BankStatement">Bank Statement</option>';
+						'<option class="income_proof" value="PSLIP">Payslip/ePayslip with commission/fixed allowance</option>'+
+						'<option class="income_proof" value="EAFORM">EA Form</option>'+
+						'<option class="income_proof" value="EPFSTATEMENT">EPF Statement</option>'+
+						'<option class="income_proof" value="BORANG">Borang B / BE</option>'+
+						'<option class="income_proof" value="ELETTER">Employment Letter</option>';
 			$("#form2_doc_subtype").html(html);		
 			break;
 
 		case "SUPP_PROOF"  :
 			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="supp_proof" value="NRICSup">NRIC</option>'+
-						'<option class="supp_proof" value="PPortSup">Passport</option>';
+						'<option class="supp_proof" value="NRICnew">NRIC (front and back)</option>'+
+						'<option class="supp_proof" value="SID">Service ID (Armed Forces)</option>'+												
+						'<option class="supp_proof" value="PWC">Police Warrant Card</option>'+						
+						'<option class="supp_proof" value="PPort">Passport</option>';
 			$("#form2_doc_subtype").html(html);		
 			break;
-		
-		case "ADDR_PROOF"  :
-			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="addr_proof" value="FOR01_LUB">Latest Utility bills (electricity, water, refuse collection), rates or tax bills</option>'+
-						'<option class="addr_proof" value="FOR01_LBS">Latest Bank or Credit Card statements (including e-statement)</option>'+
-						'<option class="addr_proof" value="FOR01_RA">Copy of Rental agreements showing your address</option>'+
-						'<option class="addr_proof" value="FOR01_LMPS">Latest Mobile phone statements / pay TV statement</option>'+
-						'<option class="addr_proof" value="FOR01_LESA">Letter from Employer stating current address</option>'+
-						'<option class="addr_proof" value="FOR01_GDSA">Government issued documents stating address (e.g. IRAS, CPF, ICA)</option>';
-			$("#form2_doc_subtype").html(html);		
-			break;		
 			
 		default:
 			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>';
 			$("#form2_doc_subtype").html(html);				
 			break;				
-	}	
+	}
 }
 
 /************************** onload functions ***************************/
@@ -548,59 +461,6 @@ $(document).ready(function(){
 	$("#login_page input").blur( function() {
 		this.value = this.value.toUpperCase();
 	});
-
-	$('#short_document-listing-link_left').click(function() {
-		$(this).hide();
-		$('#short_notes_document_lists_left').hide();
-		$('#notes_document_lists_left').show();
-		$('#notes_documents').css('height','600px');
-		$('#notes_document_table_row').css('height','482px');
-		$('#document-listing-link_left').show();
-		$('#document-listing_vbar_short').hide();
-		$('#document-listing_vbar_long').show();
-		$('#documents-reference').show();
-
-	});
-	$('#short_document-listing-link_right').click(function() {
-		$(this).hide();
-		$('#short_notes_document_lists_right').hide();
-		$('#notes_document_lists_right').show();
-		$('#notes_documents').css('height','600px');
-		$('#notes_document_table_row').css('height','482px');
-		$('#document-listing-link_right').show();
-		$('#document-listing_vbar_short').hide();
-		$('#document-listing_vbar_long').show();
-		$('#documents-reference').show();
-		
-	});
-	$('#document-listing-link_left').click(function() {
-		$(this).hide();
-		$('#notes_document_lists_left').hide();
-		$('#short_notes_document_lists_left').show();
-		if( !$('#notes_document_lists_left').is(':visible') && !$('#notes_document_lists_right').is(':visible') ) {
-			$('#document-listing_vbar_long').hide();
-			$('#notes_documents').css('height','222px');
-			$('#notes_document_table_row').css('height','140px');
-			$('#document-listing_vbar_short').show();
-			$('#documents-reference').hide();
-		} 
-		$('#short_document-listing-link_left').show();
-		
-	});
-	$('#document-listing-link_right').click(function() {
-		$(this).hide();
-		$('#notes_document_lists_right').hide();
-		$('#short_notes_document_lists_right').show();
-		if( !$('#notes_document_lists_left').is(':visible') && !$('#notes_document_lists_right').is(':visible') ) {
-			$('#document-listing_vbar_long').hide();
-			$('#notes_documents').css('height','222px');
-			$('#notes_document_table_row').css('height','140px');
-			$('#document-listing_vbar_short').show();
-			$('#documents-reference').hide();
-		} 
-		$('#short_document-listing-link_right').show();
-		
-	});
 	
 	$("#form2_id_type").change( function() {
 		if( $("#form2_id_type").val() == "NRIC" ) {
@@ -617,15 +477,16 @@ $(document).ready(function(){
 			$(".tr_passport input").val("");						
 			$(".tr_nric input").val("");							
 		}
-		$("#lbl_nric_number").html("").hide();				
-		$("#lbl_passport_number").html("").hide();				
-		$("#lbl_id_type").html("").hide();						
+		inlineError("#lbl_nric_number","");
+		inlineError("#lbl_passport_number","");
+		inlineError("#lbl_id_type","");
 	});
 
 	showDocOptions();
 
 	$("#form2_doc_type").change( function() {
 		showDocOptions();
+		offAlert();
 		$("#form2_doc_subtype").val("");	
 		hideCurrentRoom();
 	});
@@ -642,6 +503,7 @@ $(document).ready(function(){
 	$("#check_new_credit_card_1").click(
 		function() {
 			if ( validateFields() ) {
+				setupForForm(FORM_NO);
 				if ( $("#form2_id_type").val() == "NRIC" ) {
 					$('#form2_nric_passport').val( $('#form2_nric_number').val() );
 				} else {
@@ -696,25 +558,25 @@ $(document).ready(function(){
 											$("#main_content").show();										
 											break;
 										case 'FAILURE' :
-											myAlert("We are not able to locate any records with the given details. Please check the details and try again.", "Sorry");
+											myAlert("We are not able to locate any records with the given information. Please check that you have entered the correct Identification details and / or application Reference No. and try again.", "Application not found");
 											break;
 										case 'EXPIRED' :
-											myAlert("Online documents submission is not available.  Please contact the bank.", "Your application has expired."  );
+											myAlert("We noticed your application was submitted more than 2 days ago. Our staff would be in contact with you to obtain the required supporting documents.", "Your application has expired."  );
 											break;
 										default:
-											myAlert("We are not able to locate any records with the given details. Please check the details and try again.", "Sorry");											
+											myAlert("We are currently experiencing network issues with the site. Please try again later. We sincerely apologised for any inconvenience caused.", "System issue encountered");											
 											break;
 									}
 									return false;
 								} else {
 									$('#login-dialog').dialog('close');								
-									myAlert("Form submission failed, please try again later","Sorry");
+									myAlert("We are currently experiencing network issues with the site. Please try again later. We sincerely apologised for any inconvenience caused.", "System issue encountered");
 									return false;
 								}
 								
 							} else {
 								$('#login-dialog').dialog('close');							
-								myAlert("System is busy, please try again later","Sorry");
+								myAlert("We are currently experiencing network issues with the site. Please try again later. We sincerely apologised for any inconvenience caused.", "System issue encountered");
 								return false;				
 							}
 						});		
@@ -726,15 +588,15 @@ $(document).ready(function(){
 		}
 	);	
 	
-	$("#check_new_credit_card_4").click(
-		function() {
+	$("#check_new_credit_card_4").click(function() {
+			userCancelled=false;
 			if( MytotalUploadFileSize > totalUploadFileMaxSize ) {		
-				$("#doc_upload_message_box").html("Your documents exceed the allowed file size. Please check.");				
+				onAlert("Your documents exceed the allowed file size. Please check.");				
 				return false;
 			}				
 		
 			if ( !validateFileSelected() ) {
-				myAlert("Please upload all the required documents.");
+				onAlert("Please upload all the required documents.");
 			} else {
 				if( MyuploadFilesCount != 0) {			
 					// before proceed to file upload logic, first clear all the previous records
@@ -746,7 +608,7 @@ $(document).ready(function(){
 						$('#uploadForm_multifile').submit();
 					}, 1000);
 				} else {
-					myAlert("Please select at least one document to upload.");
+					onAlert("Please select at least one document to upload.");
 				}
 			}
 			return false;
@@ -754,12 +616,13 @@ $(document).ready(function(){
 	);
 
 	$('#check_new_credit_card_4_swf').click(function(){
+		userCancelled=false;
 		if( MytotalUploadFileSize > totalUploadFileMaxSize ) {		
-			$("#doc_upload_message_box").html("Your documents exceed the allowed file size. Please check.");				
+			onAlert("Your documents exceed the allowed file size. Please check.");				
 			return false;
 		}					
 		if ( !validateFileSelected() ) {
-			myAlert("Please upload all the required documents.");
+			onAlert("Please upload all the required documents.");
 		} else {
 			if( MyuploadFilesCount != 0) {
 				$.scrollTo(0,500,{onAfter:function() {
@@ -781,7 +644,7 @@ $(document).ready(function(){
 					});
 				}});
 			} else {
-				myAlert("Please select at least one document to upload.");			
+				onAlert("Please select at least one document to upload.");			
 			}
 		}
 	});
@@ -796,28 +659,12 @@ $(document).ready(function(){
 	if( formrefid != "" ) {
 		$("#form2_reference_number").val(formrefid);	
 	}
-	
+
 });
 
 function submit_form() {
 	window.scrollTo(0,0);
 	resetUiStyle();
-/*	
-	$('#spinning-dialog .wrap-img h2').empty().append('Please wait and do not close your browser while we are processing your request.');
-	$('#spinning-dialog .wrap-img p').empty().append('This may take some time. Thank you for your patience.');
-	$('#spinning-dialog .buttons-pop').empty();
-	$('#spinning-dialog').css('height','290px');
-	$('#pop-up-upload').css('height','250px');
-	$('#spinning-dialog').dialog('open');
-	$('#counter').show();
-
-	$('#counter').countdown({
-	  image: 'images/digits.png',
-	  startTime: '00:60',
-	  timerEnd: function(){},
-	  format: 'mm:ss'
-	});
-*/			
 	window.onbeforeunload = null;
 	var formxml = generateXml();
 	formxml = formxml.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "");
@@ -861,14 +708,32 @@ function submit_form() {
 					
 					} else {
 						$('#spinning-dialog').dialog('close');													
-						myAlert("Form submission failed, please try again later","Sorry");
+						myAlert("We are currently experiencing network issues with the site. Please try again later. We sincerely apologised for any inconvenience caused.", "System issue encountered");
 					}
 					
 				} else {
 					$('#spinning-dialog').dialog('close');												
-					myAlert("System is busy, please try again later","Sorry");
+					myAlert("We are currently experiencing network issues with the site. Please try again later. We sincerely apologised for any inconvenience caused.", "System issue encountered");
 				}
 			});
 		}, 2000); // end of timer
 	});
+}
+
+function onAlert(mm) {
+	$("#doc_upload_message_box").html(mm).show();
+}
+
+function offAlert(mm) {
+	$("#doc_upload_message_box").html("").hide();
+}
+
+function myAlert( mm, hh) {
+	var header = " ";
+	if( hh != "" && hh != undefined && hh != null) {
+		header = hh;
+	}	
+	$("#general-heading").html(header);
+	$("#general-message").html(mm);
+	$('#general-dialog').dialog('open');	
 }
