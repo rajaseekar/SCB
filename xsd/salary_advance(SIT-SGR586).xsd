@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Common element start -->
+    <xs:element name="eform">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="model">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="instance" maxOccurs="2"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="FID" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="instance">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice>
+                    <xs:group ref="savemodel" id="savemodel"/>
+                    <xs:group ref="outputmodel" id="outputmodel"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="id">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="savemodel|outputmodel"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="savemodel">
+        <xs:sequence>
+            <xs:element name="sigfields">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="sigchar"/>
+                        <xs:element ref="signum"/>
+                        <xs:element ref="sigdate"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- Common element End -->
+    <!-- Form Definition Fields -->
+    <xs:group name="outputmodel">
+        <xs:sequence>
+            <!-- Personal Details -->
+            <xs:element name="form2_salutation">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_mobile">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_residential">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_office">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_email_address">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="70"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_usresident">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_uscitizen">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_greencard">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_birth_country">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_pdpa_q1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q2">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q3">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q4">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q5">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q6">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q7">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q8">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q9">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q10">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_date_of_birth">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_nationality">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_nric_number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_current_passport_number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>	
+            <xs:element name="form2_passport_number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_education_status">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_gender">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_marital_status">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_number_of_dependents">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="form2_block_number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_unit_number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_street_name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+             <xs:element name="form2_building_name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+           <xs:element name="form2_postal_code">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_length_of_stay_at_address_years">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_length_of_stay_at_address_months">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_type_of_residence">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_residential_ownership">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_overseas_address">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="1000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_overseas_contact_country_code">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_overseas_contact_area_code">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_overseas_contact_tel_no">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_name_of_employer">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_nature_of_employment">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_employer_block_number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_employer_unit_number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_employer_street_name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_employer_building_name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_employer_postal_code">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_occupation">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_job_title">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="100"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_years_in_service">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_months_in_service">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_annual_income">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_submit_cpf">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_mailing_address">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_mailing_block_number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_mailing_unit_number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_mailing_street_name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_mailing_building_name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_mailing_postal_code">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+			
+            <xs:element name="form2_os_fund_transfer">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="200"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_account_holder_name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_nric">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_account_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_account_card_number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_bank">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_transfer_amount">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_link_debit_card">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="200"/>					
+                    </xs:restriction>						
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_saving_current_account">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="40"/>					
+                    </xs:restriction>						
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_combined_statement">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="200"/>					
+                    </xs:restriction>						
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_ibanking">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="200"/>					
+                    </xs:restriction>						
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_os_go_green">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="200"/>					
+                    </xs:restriction>						
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_submissionType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="200"/>					
+                    </xs:restriction>						
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_doc_upload_yes">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="attchments" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="attachment" minOccurs="0" maxOccurs="9" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+		</xs:sequence>
+    </xs:group>
+    <xs:element name="sigchar">
+        <!-- Max 10 Fields SigChar 1 - 10 -->
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sigchar1" id="form2_name" type="xs:string"/>
+                <xs:element name="sigchar2" id="form2_nric_passport" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="signum">
+        <!-- Max 6 Fields SigNum 11 - 16-->
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sigdate">
+        <!-- Max 4 Fields SigNum 17 - 20-->
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="shortnames">
+        <xs:attribute name="form2_salutation" fixed="Salutation"/>
+        <xs:attribute name="form2_name" fixed="Full name"/>
+        <xs:attribute name="form2_mobile" fixed="Mobile Number"/>
+        <xs:attribute name="form2_residential" fixed="Telephone Number"/>
+        <xs:attribute name="form2_office" fixed="Office Number"/>
+        <xs:attribute name="form2_email_address" fixed="Email Address"/>
+        <!-- FATCA -->		
+        <xs:attribute name="form2_usresident" fixed="Is US Resident"/>		
+        <xs:attribute name="form2_uscitizen" fixed="Is US Citizen"/>		
+        <xs:attribute name="form2_greencard" fixed="Has US Permanent Resident Card (Green Card)"/>		
+        <xs:attribute name="form2_birth_country" fixed="Country of Birth"/>		
+        <!-- PDPA -->			
+        <xs:attribute name="form2_pdpa_q1" fixed="Answer to PDPA Question 1"/>
+        <xs:attribute name="form2_pdpa_q2" fixed="Answer to PDPA Question 2"/>
+        <xs:attribute name="form2_pdpa_q3" fixed="Answer to PDPA Question 3"/>
+        <xs:attribute name="form2_pdpa_q4" fixed="Answer to PDPA Question 4"/>
+        <xs:attribute name="form2_pdpa_q5" fixed="Answer to PDPA Question 5"/>
+        <xs:attribute name="form2_pdpa_q6" fixed="Answer to PDPA Question 6"/>
+        <xs:attribute name="form2_pdpa_q7" fixed="Answer to PDPA Question 7"/>
+        <xs:attribute name="form2_pdpa_q8" fixed="Answer to PDPA Question 8"/>
+        <xs:attribute name="form2_pdpa_q9" fixed="Answer to PDPA Question 9"/>
+        <xs:attribute name="form2_pdpa_q10" fixed="Answer to PDPA Question 10"/>
+        <xs:attribute name="form2_date_of_birth" fixed="Date Of Birth"/>
+		<xs:attribute name="form2_nationality" fixed="Nationality"/>
+        <xs:attribute name="form2_nric_number" fixed="NRIC Number"/>
+        <xs:attribute name="form2_current_passport_number" fixed="Current Passport Number"/>
+        <xs:attribute name="form2_passport_number" fixed="Passport Number"/>
+        <xs:attribute name="form2_education_status" fixed="Highest Education"/>		
+        <xs:attribute name="form2_gender" fixed="Gender"/>
+        <xs:attribute name="form2_marital_status" fixed="Marital Status"/>
+        <xs:attribute name="form2_number_of_dependents" fixed="Number Of Dependents"/>		
+        <xs:attribute name="form2_block_number" fixed="Residential: Block No."/>
+        <xs:attribute name="form2_unit_number" fixed="Residential: Unit No."/>
+        <xs:attribute name="form2_street_name" fixed="Residential: Street Name"/>
+        <xs:attribute name="form2_building_name" fixed="Residential: Building Name"/>
+        <xs:attribute name="form2_postal_code" fixed="Residential: Postal Code"/>		
+        <xs:attribute name="form2_length_of_stay_at_address_years" fixed="Years of Stay"/>
+        <xs:attribute name="form2_length_of_stay_at_address_months" fixed="Months of Stay"/>
+        <xs:attribute name="form2_type_of_residence" fixed="Residence Type"/>
+        <xs:attribute name="form2_residential_ownership" fixed="Ownership status"/>
+        <xs:attribute name="form2_overseas_address" fixed="Overseas Address"/>
+        <xs:attribute name="form2_overseas_contact_country_code" fixed="Overseas Contact No. Country Code"/>
+        <xs:attribute name="form2_overseas_contact_area_code" fixed="Overseas Contact No. Area Code"/>
+        <xs:attribute name="form2_overseas_contact_tel_no" fixed="Overseas Contact No."/>
+        <xs:attribute name="form2_name_of_employer" fixed="Employer Name"/>		
+        <xs:attribute name="form2_nature_of_employment" fixed="Nature of Employment"/>
+        <xs:attribute name="form2_employer_block_number" fixed="Employer: Block No."/>
+        <xs:attribute name="form2_employer_unit_number" fixed="Employer: Unit No."/>
+        <xs:attribute name="form2_employer_street_name" fixed="Employer: Street Name"/>
+        <xs:attribute name="form2_employer_building_name" fixed="Employer: Building Name"/>
+        <xs:attribute name="form2_employer_postal_code" fixed="Employer: Postal Code"/>	        
+        <xs:attribute name="form2_occupation" fixed="Business Type"/>
+        <xs:attribute name="form2_job_title" fixed="Job Title"/>
+        <xs:attribute name="form2_years_in_service" fixed="Years in Service"/>
+        <xs:attribute name="form2_months_in_service" fixed="Months in Service"/>
+        <xs:attribute name="form2_annual_income" fixed="Annual Income"/>
+        <xs:attribute name="form2_submit_cpf" fixed="Submitted CPF?"/>
+        <xs:attribute name="form2_mailing_block_number" fixed="Mailing: Block No."/>
+        <xs:attribute name="form2_mailing_unit_number" fixed="Mailing: Unit No."/>
+        <xs:attribute name="form2_mailing_street_name" fixed="Mailing: Street Name"/>
+        <xs:attribute name="form2_mailing_building_name" fixed="Mailing: Building Name"/>
+        <xs:attribute name="form2_mailing_postal_code" fixed="Mailing: Postal Code"/>	        
+
+        <xs:attribute name="form2_os_fund_transfer" fixed="Apply Funds Transfer"/>
+        <xs:attribute name="form2_os_account_holder_name" fixed="Account Holder Name"/>
+        <xs:attribute name="form2_os_nric" fixed="Account Holder NRIC "/>
+        <xs:attribute name="form2_os_account_type" fixed="Account Type"/>
+        <xs:attribute name="form2_os_account_card_number" fixed="Card Number"/>
+        <xs:attribute name="form2_os_bank" fixed="Bank Name"/>
+        <xs:attribute name="form2_os_transfer_amount" fixed="Transfer Amount"/>
+        <xs:attribute name="form2_os_link_debit_card" fixed="Link Debit Card"/>
+        <xs:attribute name="form2_os_saving_current_account" fixed="Saving / Current Account Number"/>
+        <xs:attribute name="form2_os_combined_statement" fixed="Apply Combined Statement"/>
+        <xs:attribute name="form2_os_ibanking" fixed="Apply iBanking and PhoneBanking"/>
+        <xs:attribute name="form2_os_go_green" fixed="Go Green with eStatement"/>
+        <xs:attribute name="form2_submissionType" fixed="Submission Type"/>		
+        <xs:attribute name="form2_doc_upload_yes" fixed="Has document upload"/>		
+    </xs:attributeGroup>
+</xs:schema>
