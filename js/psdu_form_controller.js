@@ -168,6 +168,8 @@ function inlineError( element, message ) {
 
 function validateFields() {
 	var allValid=true;
+	var allInput1=false;
+	var allInput2=false;	
 	if( $("#form2_id_type").val() == "" ) {
 		inlineError("#lbl_id_type","ID Type is mandatory. Please enter and try again.");
 		allValid=false;
@@ -180,16 +182,19 @@ function validateFields() {
 			inlineError("#lbl_nric_number","NRIC is mandatory. Please enter and try again.");
 			allValid=false;
 		} else {
+			allInput1=true;
+			inlineError("#lbl_nric_number","");	
 			if( !isAlphanumericWithSpec($("#form2_nric_number").val()) ) {
-				inlineError("#lbl_nric_number","Invalid NRIC. Please enter and try again.");
+				//inlineError("#lbl_nric_number","Invalid NRIC. Please enter and try again.");
 				allValid=false;
 			} else {
 				if(!ValidateNRIC($("#form2_nric_number").val())) {
-					inlineError("#lbl_nric_number","Invalid NRIC. Please enter and try again.");
+					//inlineError("#lbl_nric_number","Invalid NRIC. Please enter and try again.");
 					allValid=false;				
 				} else {
 					inlineError("#lbl_nric_number","");	
-			}	}
+				}	
+			}
 		}		
 	}
 	
@@ -198,8 +203,10 @@ function validateFields() {
 			inlineError("#lbl_passport_number","Passport No. is mandatory. Please enter and try again.");
 			allValid=false;
 		} else {
+			allInput1=true;		
+			inlineError("#lbl_passport_number","");	
 			if( !isAlphanumericWithSpec($("#form2_passport_number").val()) ) {
-				inlineError("#lbl_passport_number","Invalid characters in Passport No.  Please enter and try again.");
+				//inlineError("#lbl_passport_number","Invalid characters in Passport No.  Please enter and try again.");
 				allValid=false;
 			} else {
 				inlineError("#lbl_passport_number","");	
@@ -211,19 +218,23 @@ function validateFields() {
 		inlineError("#lbl_reference_number","Reference No. is mandatory. Please enter and try again.");
 		allValid=false;
 	} else {
+		allInput2=true;
+		inlineError("#lbl_reference_number","");	
 		if( !isAlphanumericWithSpec($("#form2_reference_number").val()) ) {
-			inlineError("#lbl_reference_number","Invalid Reference No. Please enter and try again.");
+			//inlineError("#lbl_reference_number","Invalid Reference No. Please enter and try again.");
 			allValid=false;
 		} else {
 			if (!validFormID($("#form2_reference_number").val() ) ) {
-				inlineError("#lbl_reference_number","Invalid Reference No. Please enter and try again.");
+				//inlineError("#lbl_reference_number","Invalid Reference No. Please enter and try again.");
 				allValid=false;			
 			} else {
 				inlineError("#lbl_reference_number","");	
 			}
 		}	
 	}
-	
+	if(!allValid && allInput1 && allInput2) {
+		myAlert("We are not able to locate any records with the given information. Please check that you have entered the correct Identification details and / or application Reference No. and try again.", "Application not found");	
+	}
 	return allValid;
 }
 
@@ -734,7 +745,7 @@ $(document).ready(function(){
 						$('#uploadForm_multifile').submit();
 					}, 1000);
 				} else {
-					onAlert("Please select at least one document to upload.");
+					onAlert("Please select a document to upload.");
 				}
 			}
 			return false;
@@ -770,7 +781,7 @@ $(document).ready(function(){
 					});
 				}});
 			} else {
-				onAlert("Please select at least one document to upload.");			
+				onAlert("Please select a document to upload.");			
 			}
 		}
 	});

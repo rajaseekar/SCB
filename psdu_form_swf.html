@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Standard Chartered Bank</title>
+<title>Standard Chartered Bank (Singapore) Limited</title>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-us" />
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="MSSmartTagsPreventParsing" content="true" />
-<meta name="description" content="Standard Chartered Bank" />
-<meta name="keywords" content="Standard Chartered Bank" />
-<meta name="author" content="Standard Chartered Bank" />
+<meta name="description" content="Standard Chartered Bank (Singapore) Limited" />
+<meta name="keywords" content="Standard Chartered Bank (Singapore) Limited" />
+<meta name="author" content="Standard Chartered Bank (Singapore) Limited" />
 <!--<link href="css/reset.css" rel="stylesheet" type="text/css" />
 <link href="css/default.css" rel="stylesheet" type="text/css" />
 <link href="css2011/default-2011.css" rel="stylesheet" type="text/css" />
@@ -136,7 +136,7 @@ if( self == top ) {
 <noscript><div style="width: 100%; height: 2200px;font-family: sans-serif; font-size: 22px; text-align: center;margin: 50px; padding: 20px; line-height: 30px;">Your browser does not support JavaScript, the form has been disabled.<br />Please enable the Javascript engine in your browser.</div></noscript>
 <div id="page_container">
 	<div id="header">
-		<div id="topbg"><a href="http://www.standardchartered.com.my/en/index_web.html"><img src="images/scb_logo.gif" width="277" height="69" style="margin-top:24px" /></a></div>
+		<div id="topbg"><a href="http://www.standardchartered.com.sg/en/index_web.html"><img src="images/scb_logo.gif" width="277" height="69" style="margin-top:24px" /></a></div>
 		<div id="topline"></div>
 	</div>
 	<div id="thanks_page" style="display:none;">
@@ -144,7 +144,10 @@ if( self == top ) {
 		<!--h4 id="new_credit_card_step_4_page_first_tab" class="h4floatleft" style="clear:both;margin:0;float:none;">Post Submission Document Upload</h4-->		
 			<div style="height:10px;clear:both;padding:20px 0 0 50px;">
 				<div style="font-size:20px;color: #86c533;font-weight: bold;">Thank you for submitting your documents.</div>
-				<div style="font-size:14px;color:#aaa;font-weight:bold;line-height:18px;margin-left:2px;margin-top:10px;">We will finalize your application as soon as possible and be in touch with you within the next 5 working days.</div>
+				<div style="font-size:14px;color:#aaa;font-weight:bold;line-height:18px;margin-left:2px;margin-top:10px;">
+				You have successfully uploaded your documents. <br/><br/>
+				We will finalize your application as soon as possible and be in touch with you within the next 5 working days.
+				</div>
 			</div>
 		</div>
 	</div>
@@ -172,15 +175,9 @@ if( self == top ) {
 				<tr class="tr_nric" style="display:none;">
 					<td>NRIC: <span class="mandatory"> *</span></td>
 					<td>
-						<div style="padding:0px;">
-							<input id="form2_nric_number1" name="form2_nric_number1" maxlength="6" size="5" style="float:left; padding-right:0;" />
-							<span style="float:left">&ensp;–</span>
-							<input id="form2_nric_number2" name="form2_nric_number2" maxlength="2" size="1" style="float:left; padding-right:0;" />
-							<span style="float:left">&ensp;–</span>
-							<input id="form2_nric_number3" name="form2_nric_number3" maxlength="4" size="3" style="float:left; padding-right:0;" />
-						</div>						
-						<div class="gray">Example: 950703-12-3456 </div>
-						<input type="hidden" name="form2_nric_number" id="form2_nric_number" value="" />										
+						<input id="form2_nric_number" name="form2_nric_number" class="input_l_width alphanumericwithspec valid" style="float:left;" maxlength="9"/>
+						<div class="gray">Example: S5534234E</div>
+					</td>
 					<td>
 						<div id="lbl_nric_number" class="error_message_box" style="display:none;">
 							<div class="error_message"></div>						
@@ -212,7 +209,7 @@ if( self == top ) {
 								<span class="tips">The Reference No. can be found in the Thank You email that would have been sent during your application submission.</span>
 							</div>
 						</div>
-						<div class="gray">Example: MYR219-123456</div>						
+						<div class="gray">Example: SGR49-123456</div>						
 					</td>
 					<td>
 						<div id="lbl_reference_number" class="error_message_box" style="display:none;">
@@ -223,7 +220,7 @@ if( self == top ) {
 				</tr>
 			
 				<tr>
-					<td colspan="2">
+					<td colspan="3">
 						<span class="float_right" id="form2_upload_next_back">
 							<a href="javascript:void(0);" id="check_new_credit_card_1" class="btn_next param1-check_new_credit_card_1 param2-content param3-id"><span>Next</span></a>
 						</span>				
@@ -347,220 +344,220 @@ if( self == top ) {
 			
 			<!-- end short notes document lists -->
 			<!-- notes document lists -->
+			<div id="notes_document_lists" class="document_list1">
+				<table id="notes_document_table_lists">
+					<tbody><tr id="notes_document_table_row" style="height: 140px;">
+						<td valign="top" width="50%" style="padding-right: 20px;">
+							<p style="font-weight: bold;">Singapore Citizens and Permanent Residents</p>
+							<ul id="short_notes_document_lists_left" class="document-listing" style="display: block;">
+								<li>
+									Copy of NRIC (front and back) 
+								</li>
+								<!--<li>
+									Copy of Passport
+								</li>-->
+								<li>
+									For salaried (any one from below)
+								</li>
+							</ul>
+							<div id="short_document-listing-link_left" class="document-listing-link" style="display: block;"><a>Show Details</a></div>
+							<ul id="notes_document_lists_left" class="document-listing" style="display: none;">
+								<li>
+									Copy of NRIC (front and back) 
+								</li>
+								<!--<li>
+									Copy of Passport
+								</li>-->
+								<li>
+									For salaried (any one from below)
+									<ul class="document-listing">
+										<li>
+										Copy of current or previous month's computerized pay slip (last 3 months payslips if you are a commission earner and not a salaried employee)
+										</li>
+										<li>
+										Copy of 6 months’ CPF contribution history statement (This is compulsory if you do not have any other credit facilities from any banks)
+										<br>Please click <a href="http://www.standardchartered.com.sg/online-form/cpf-statement/index.html" target="_blank">here</a> for a guide on how to retrieve your CPF Contribution History Statement
+										</li>
+										<li>
+										Copy of Income Tax Notice of Assessment (Reflecting at least 1 month’s income earned from current employer)
+										</li>
+									</ul>
+								</li>
+								<li>
+									For self-employed
+									<ul class="document-listing">
+										<li>
+										Copy of Income Tax Notice of Assessment (Minimum of 2 years in business is compulsory)
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div id="document-listing-link_left" class="document-listing-link-hide" style="display: none;"><a>Hide</a></div>
+						</td>
+						<td id="document-listing_vbar_short" style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(85, 85, 85); display: table-cell;">&nbsp;</td>
+						<td id="document-listing_vbar_long" style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(85, 85, 85); display: none;">&nbsp;</td>
+						<td valign="top">
+							<p style="font-weight: bold;">Foreigners</p>
+							<ul id="short_notes_document_lists_right" class="document-listing" style="display: block;">
+								<li>
+									Copy of Passport
+								</li>
+								<li>
+									Copy of Employment Pass (front and back)
+								</li>
+								<li>
+									For salaried (any of the following)                                              
+								</li>
+							</ul>
+							<div id="short_document-listing-link_right" class="document-listing-link" style="display: block;"><a>Show Details</a></div>
+							<ul id="notes_document_lists_right" class="document-listing" style="display: none;">
+								<li>
+									Copy of Passport
+								</li>
+								<li>
+									Copy of Employment Pass (front and back)
+								</li>
+								<li>
+									For salaried (any one from below)
+									<ul class="document-listing">
+										<li>
+										Copy of current month's or previous month's computerized pay slip from current employer
+										</li>
+										<li>
+										Copy of Income Tax Notice of Assessment (Reflecting at least 1 month’s income earned from current employer)
+										</li>
+									</ul>
+								</li>
+								<li>
+									For self-employed
+									<ul class="document-listing">
+										<li>
+										Copy of Income Tax Notice of Assessment (Minimum of 2 years in business is compulsory)
+										</li>
+									</ul>
+								</li>
+								<li>
+									You must also provide any of the following documents as proof of your Singapore address
+									<ul class="document-listing">
+										<li>
+										Latest Utility bills (electricity, water, refuse collection), rates or tax bills
+										</li>
+										<li>
+										Latest Bank or Credit Card statements (including e-statement)
+										</li>
+										<li>
+										Copy of Rental agreements showing your address
+										</li>
+										<li>
+										Latest Mobile phone statements / pay TV statement
+										</li>
+										<li>
+										Letter from Employer stating current address
+										</li>
+										<li>
+										Government issued documents stating address (e.g. IRAS, CPF, ICA)
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div id="document-listing-link_right" class="document-listing-link-hide" style="display: none;"><a>Hide</a></div>
+						</td>
+					</tr>
+					<tr>
+						<td id="documents-reference" colspan="3" style="display: none;">
+							<span style="font-size: 10px; font-style: italic;">* Must reflect at least 1 month’s income earned from current employer.</span>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
 
-					<div id="notes_document_lists" class="document_list1">
-						<table width="670" border="0" cellspacing="0" cellpadding="0" style="font-size:12px; border:1px solid #0072aa; font-family:Arial, Helvetica, sans-serif">
-						<tbody>
-							<tr>
-								<td width="33%" bgcolor="#0072aa" style="background-color:#0072aa; font-size:13px; color:#ffffff; border-right:1px solid #0072aa; border-bottom:1px solid #0072aa; padding:5px;"><strong>Salaried:</strong></td>
-								<td width="33%" bgcolor="#0072aa" style="background-color:#0072aa; font-size:13px; color:#ffffff; border-right:1px solid #0072aa; border-bottom:1px solid #0072aa; padding:5px;"><strong>Commission Earners:</strong></td>
-								<td width="34%" bgcolor="#0072aa" style="background-color:#0072aa; font-size:13px; color:#ffffff; border-bottom:1px solid #0072aa; padding:5px;"><strong>Self Employed: </strong></td>
-							</tr>
-							<tr>
-								<td valign="top" width="33%" style="border-right:1px solid #0072aa;">
-									<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
-									<tbody>
-										<tr><td colspan="2" style="padding:5px;">Copy (Front &amp; Back) </td></tr>
-										<tr><td colspan="2" bgcolor="#b0e0f7" style="padding:5px;"><strong>Malaysian:</strong> NRIC</td></tr>
-										<tr><td colspan="2" bgcolor="#c2eeb9" style="padding:5px;"><strong>Foreigner:</strong> Valid Passport and employment pass </td></tr>
-										<tr><td colspan="2">&nbsp;</td></tr>
-										<tr><td colspan="2" align="center" style="font-size:16px; color:#333333;"><strong>AND</strong></td></tr>
-										<tr><td colspan="2">&nbsp;</td></tr>
-										<tr>					
-										<td colspan="2">
-											<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
-												<tbody>
-													<tr>
-														<td width="7%" valign="top">1.</td>
-														<td width="93%" valign="top">Latest 3 months Pay Slips</td>
-													</tr>
-													<tr>
-														<td width="7%" valign="top">&nbsp;</td>
-														<td width="93%" valign="top" style="font-size:14px; padding-left:86px; color:#ff0000;"><strong>+</strong></td>
-													</tr>
-													<tr>
-														<td width="7%" valign="top">&nbsp;</td>
-														<td width="93%" valign="top">Latest 3 months Bank Statement - reflecting salary crediting</td>
-													</tr>
-													<tr>
-														<td width="7%" valign="top">&nbsp;</td>
-														<td width="93%" valign="top" style="font-size:14px; padding-left:80px; color:#0072aa;"><strong>OR</strong></td>
-													</tr>
-													<tr>
-														<td width="7%" valign="top">2.</td>
-														<td width="93%" valign="top">Latest EPF Statement - reflecting latest 3 months EPF contribution</td>
-													</tr>
-												</tbody>
-												</table>
-											</td>
-										</tr>
-										<tr><td colspan="2">&nbsp;</td></tr>
-									</tbody>
-									</table>
-								</td>
-								<td valign="top" width="33%" style="border-right:1px solid #0072aa;">
-									<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
-									<tbody>
-										<tr><td colspan="2" style="padding:5px;">Copy (Front &amp; Back) </td></tr>
-										<tr><td colspan="2" bgcolor="#b0e0f7" style="padding:5px;"><strong>Malaysian:</strong> NRIC</td></tr>
-										<tr><td colspan="2" bgcolor="#c2eeb9" style="padding:5px;"><strong>Foreigner:</strong> Valid Passport and employment pass </td></tr>
-										<tr><td colspan="2">&nbsp;</td></tr>
-										<tr><td colspan="2" align="center" style="font-size:16px; color:#333333;"><strong>AND</strong></td></tr>
-										<tr><td colspan="2">&nbsp;</td></tr>
-										<tr>
-											<td colspan="2">
-												<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
-												<tbody>
-													<tr>
-														<td width="7%" valign="top">1.</td>
-														<td width="93%" valign="top">Latest 6 months pay slips</td>
-													</tr>
-													<tr>
-														<td width="7%" valign="top">&nbsp;</td>
-														<td width="93%" valign="top" style="font-size:14px; padding-left:86px; color:#ff0000;"><strong>+</strong></td>
-													</tr>
-													<tr>
-														<td width="7%" valign="top">&nbsp;</td>
-														<td width="93%" valign="top">Latest 6 months Bank Statement - reflecting salary crediting</td>
-													</tr>
-													<tr>
-														<td width="7%" valign="top">&nbsp;</td>
-														<td width="93%" valign="top" style="font-size:14px; padding-left:80px; color:#0072aa;"><strong>OR</strong></td>
-													</tr>
-													<tr>
-														<td width="7%" valign="top">2.</td>
-														<td width="93%" valign="top">Latest EPF Statement - reflecting latest 6 months EPF contribution</td>
-													</tr>
-												</tbody>
-												</table>
-											</td>
-										</tr>
-										<tr><td colspan="2">&nbsp;</td></tr>
-									</tbody>
-									</table>
-								</td>
-								<td valign="top" width="34%" style="border-right:1px solid #0072aa;">
-									<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
-									<tbody>
-										<tr><td colspan="2" style="padding:5px;">Copy (Front &amp; Back) </td></tr>
-										<tr><td colspan="2" bgcolor="#b0e0f7" style="padding:5px;"><strong>Malaysian:</strong> NRIC</td></tr>
-										<tr><td colspan="2" bgcolor="#c2eeb9" style="padding:5px;"><strong>Foreigner:</strong> Valid Passport and employment pass </td></tr>
-										<tr><td colspan="2">&nbsp;</td></tr>
-										<tr><td colspan="2" align="center" style="font-size:16px; color:#333333;"><strong>AND</strong></td></tr>
-										<tr><td colspan="2">&nbsp;</td></tr>
-										<tr>
-											<td colspan="2">
-												<table width="100%" border="0" cellspacing="0" cellpadding="2" style="font-size:12px;">
-												<tbody>
-													<tr>
-														<td width="7%" valign="top">1.</td>
-														<td width="93%" valign="top">Latest Borang B/BE with LHDN Acknowledgement</td>
-													</tr>
-													<tr>
-														<td width="7%" valign="top">&nbsp;</td>
-														<td width="93%" valign="top" style="font-size:14px; padding-left:82px; color:#0072aa;"><strong>OR</strong></td>
-													</tr>
-													<tr>
-														<td width="7%" valign="top">2.</td>
-														<td width="93%" valign="top">Latest EPF Statement - reflecting latest 6 months EPF contribution</td>
-													</tr>
-												</tbody>
-												</table>
-											</td>
-										</tr>
-										<tr><td colspan="2">&nbsp;</td></tr>
-									</tbody>
-									</table>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="3" bgcolor="#0072aa" style="background-color:#0072aa; color:#ffffff; font-size:13px; padding:5px;"><strong>For Supplementary Card Application:</strong></td>
-							</tr>
-							<tr>
-								<td colspan="3" style="padding:5px;">Copy (Front &amp; Back) </td>
-							</tr>
-							<tr>
-								<td colspan="3" style="padding:5px;"><strong>Malaysian:</strong> NRIC</td>
-							</tr>
-							<tr>
-								<td colspan="3" style="padding:5px;"><strong>Foreigner:</strong> Valid Passport and employment pass </td>
-							</tr>
-						</tbody>
-						</table>
-						<div style="clear:both; height:10px;"></div>    							
-					
-		            </div>			
+			<div id="notes_document_lists" class="document_list2">
+				<table id="notes_document_table_lists">
+					<tbody><tr id="notes_document_table_row">
+						<td valign="top" width="50%" style="padding-right: 20px;">
+							<ul id="notes_document_lists_left" class="document-listing">
+							  <li>Copy of NRIC (front and back) </li>
+							  <li>
+							  Proof of Residence (any one from below)
+							<ul id="notes_document_lists_left" class="document-listing">
+								<li>
+									Utility Bill from SP Services (any one from the last 3 months)
+								</li>
+								<li>
+									Telco Bill from M1, Starhub, or Singtel (any one from the last 3 months)
+								</li>
+								<li>
+									Bank Statement from another licensed bank in Singapore (any one from the last 3 months)
+								</li>
+							</ul>
+							  </li>
+							</ul>
+							<p style="font-weight: bold;">Important Information:</p>
+							<ul id="notes_document_lists_left" class="document-listing">
+								<li>
+									NRIC and Proof of Residence MUST be uploaded as part of your application.
+								</li>
+								<li>
+									Please ensure that your documents are in either PDF, JPG, PNG, GIF or TIFF format. Total file size should not exceed 5MB.
+								</li>
+								<li>
+									You will need a valid <span style="color:red;">SingPass</span> to authorise CPF to release your statement online to Standard Chartered Bank as part of your application. If you do not have a SingPass, please visit https://www.singpass.gov.sg/sppubsvc/req1.html.
+								</li>
+							</ul>
+						</td>
+					</tr>	
+				</tbody></table>
+			</div>
 
-					<div id="notes_document_lists" class="document_list2">
-		            	<table id="notes_document_table_lists">
-		            		<tbody><tr>
-		            			<td valign="top" width="49%">
-		            				<p style="font-weight: bold;">For Malaysia Citizens</p>
-		            				<ul class="document-listing">
-		            					<li>
-		            						Copy of NRIC (front and back)
-		            					</li>
-                                        <li>
-                                            Income Documents
-                                        </li>
-		            				</ul>
-		            			</td>
-		            			<!--<td id="document-listing_vbar_short" style="border-left: 1px solid #555555;">&nbsp;</td>-->
-		            			<!--<td valign="top" width="49%">
-		            				<p style="font-weight: bold;">For Foreigners</p>
-		            				<ul class="document-listing">
-		            					<li>
-		            						Copy of Passport
-		            					</li>
-		            				</ul>
-		            			</td>-->
-		            		</tr>
-		            	</tbody></table>
-		            </div>			
-
-					<div id="notes_document_lists" class="document_list3">
-		            	<table id="notes_document_table_lists">
-		            		<tbody><tr>
-		            			<td valign="top" width="49%">
-		            				<p style="font-weight: bold;">For Malaysia Citizens</p>
-		            				<ul class="document-listing">
-		            					<li>
-		            						Copy of NRIC (front and back)
-		            					</li>
-                                        <li>
-                                            Income Documents
-                                        </li>
-		            				</ul>
-		            			</td>
-		            			<td id="document-listing_vbar_short" style="border-left: 1px solid #555555;">&nbsp;</td>
-		            			<td valign="top" width="49%">
-		            				<p style="font-weight: bold;">For Foreigners</p>
-		            				<ul class="document-listing">
-		            					<li>
-		            						Copy of Passport
-		            					</li>
-                                        <li>
-                                            Income Documents
-                                        </li>
-		            				</ul>
-		            			</td>
-		            		</tr>
-		            	</tbody></table>
-		            </div>			
-			
+			<div id="notes_document_list" class="document_list3">
+				<table id="notes_document_table_lists">
+					<tbody><tr id="notes_document_table_row">
+						<td valign="top" width="50%" style="padding-right: 20px;">
+							<p style="font-weight: bold; padding-bottom: 0px;">Singapore Citizens and Permanent Residents</p>
+							<ul id="short_notes_document_lists_left" class="document-listing">
+								<li>
+									Copy of NRIC (front and back) 
+								</li>
+								<li>
+									CPF Authorisation
+								</li>
+							</ul>
+							<p style="font-weight: bold; padding-bottom: 0px;">Important Information:</p>
+							<ul id="notes_document_lists_left" class="document-listing">
+								<li>
+									You will need a valid <span style="color:red;">SingPass</span> to authorise CPF to release your statement online to Standard Chartered Bank as part of your application. If you do not have a SingPass, please visit https://www.singpass.gov.sg/sppubsvc/req1.html.
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td id="documents-reference" colspan="3" style="display: none;">
+							<span style="font-size: 10px; font-style: italic;">* Must reflect at least 1 month’s income earned from current employer.</span>
+						</td>
+					</tr>
+					<tr style="padding-top: 10px;">
+						<td colspan="3">
+							<div class="blue_box">
+							<strong>Don’t have the documents handy?</strong> You can still complete the online form and either fax or drop off the documents at any one of our branches at your convenience.
+							</div>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
 			<!-- end notes document lists -->
+			
+			
 			
 		</div>		
 
 	</div>
 	<div id="footer">
 		<div class="padding">
-		<p style="font-style:italic;color:#333333;font-size:11px;text-align:right;clear:both">This form is best viewed on IE 8.0, Firefox 4.0, Safari and Chrome.</p>
-		<p style="font-style:italic;color:#333333;font-size:11px;text-align:right;clear:both">This online application form is secured by SSL Certificate.</p>
-		<hr class="footer" />
-		<div class="float_right"> <a href="http://www.standardchartered.com.my/home/aboutus.html">About Us</a> | <a href="http://investors.standardchartered.com/">Investor Relations</a> | <a href="http://www.standardchartered.com/sustainability" target="_blank">Sustainability</a> | <a href="http://www.standardchartered.com/about-us/global-network/en/index.html" target="_blank">Worldwide Locations</a> </div>
-		Copyright &copy; 2013 Standard Chartered Bank &nbsp;&nbsp;&nbsp; <a href="http://www.standardchartered.com.my/terms-conditions/en/" target="_blank">Terms &amp; Conditions</a> | <a href="http://www.standardchartered.com.my/data-protection-privacy-policy/en/" target="_blank">Data Protection &amp; Privacy Policy</a> </div>
-	</div>	
+	  <p style="font-style:italic;color:#333333;font-size:11px;text-align:right;clear:both">This form is best viewed on IE 8.0, Firefox 4.0, Safari and Chrome.</p>
+		  <hr class="footer" />
+		  <div class="float_right"> <a href="http://www.standardchartered.com.sg/about-us/en/">About Us</a> | <a href="http://investors.standardchartered.com/">Investor Relations</a> | <a href="http://www.standardchartered.com/sustainability" target="_blank">Sustainability</a> | <a href="http://www.standardchartered.com/about-us/global-network/en/index.html" target="_blank">Worldwide Locations</a> </div>
+		  Copyright &copy; 2013 Standard Chartered Bank &nbsp;&nbsp;&nbsp; <a href="http://www.standardchartered.com.sg/terms-conditions/en/" target="_blank">Terms &amp; Conditions</a> | <a href="http://www.standardchartered.com.sg/data-protection-privacy-policy/en/" target="_blank">Data Protection &amp; Privacy Policy</a> </div>
+	</div>
 </div>
 
 <div id="tempReturn" style="display: none;"></div>
