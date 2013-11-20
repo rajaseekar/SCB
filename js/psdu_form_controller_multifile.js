@@ -418,7 +418,7 @@ $(function(){
 			upload_url: ((window.location.hostname.toLowerCase().indexOf("localhost") > -1) ? "/uploadswf.php" : "/nfs-ofp/ofpservice.htm"),
 			
 			file_size_limit : "5120",
-			file_types : "*.jpg;*.gif;*.tif;*.pdf;*.png,*.jpeg",
+			file_types : "*.jpg;*.gif;*.tif;*.pdf;*.png;*.jpeg",
 			file_types_description : "All Files",
 			file_upload_limit : "0",
 			file_queue_limit : "1",
@@ -533,9 +533,9 @@ function swfStopUpload() {
 }
 
 function resetUiStyle() {
-//	$(".ui-dialog-titlebar").hide();
-//	$('.ui-widget-content').css('background','none repeat scroll 0 0 transparent');
-//	$('.ui-widget-content').css('border','0px solid #A6C9E2');
+	$(".ui-dialog-titlebar").hide();
+	$('.ui-widget-content').css('background','none repeat scroll 0 0 transparent');
+	$('.ui-widget-content').css('border','0px solid #A6C9E2');
 }
 
 (function($) {
@@ -603,11 +603,13 @@ $(function() {
         		} else {
             		$('#spinning-dialog').dialog('close');				
 					$("#error-dialog").dialog('open');
+					resetUiStyle();
 				}
         	} else {
-            		$('#spinning-dialog').dialog('close');			
-					$("#error-dialog").dialog('open');
-				}
+				$('#spinning-dialog').dialog('close');			
+				$("#error-dialog").dialog('open');
+				resetUiStyle();
+			}
         }
     });
 });

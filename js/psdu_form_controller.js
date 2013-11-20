@@ -204,7 +204,7 @@ function validateFields() {
 			allValid=false;
 		} else {
 			allInput1=true;		
-			inlineError("#lbl_passport_number","");	
+			inlineError("#lbl_passport_number","");
 			if( !isAlphanumericWithSpec($("#form2_passport_number").val()) ) {
 				//inlineError("#lbl_passport_number","Invalid characters in Passport No.  Please enter and try again.");
 				allValid=false;
@@ -620,7 +620,7 @@ $(document).ready(function(){
 	});
 
 	showDocOptions();
-
+	
 	$("#form2_doc_type").change( function() {
 		showDocOptions();
 		offAlert();
@@ -649,7 +649,7 @@ $(document).ready(function(){
 				$("#form2_refid").val( $("#form2_reference_number").val()  );
 				
 				$('#login-dialog').dialog('open');
-				
+				resetUiStyle();	
 				window.onbeforeunload = null;
 				var formxml = generateLoginXml();
 				formxml = formxml.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "");
@@ -858,11 +858,11 @@ function submit_form() {
 }
 
 function onAlert(mm) {
-	$("#doc_upload_message_box").html(mm).show();
+	$("#doc_upload_message_box").html(mm);
 }
 
 function offAlert(mm) {
-	$("#doc_upload_message_box").html("").hide();
+	$("#doc_upload_message_box").html("");
 }
 
 function myAlert( mm, hh) {
@@ -870,7 +870,9 @@ function myAlert( mm, hh) {
 	if( hh != "" && hh != undefined && hh != null) {
 		header = hh;
 	}	
+	resetUiStyle();	
 	$("#general-heading").html(header);
 	$("#general-message").html(mm);
 	$('#general-dialog').dialog('open');	
+	resetUiStyle();	
 }
