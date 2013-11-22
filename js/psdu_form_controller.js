@@ -698,22 +698,22 @@ $(document).ready(function(){
 											myAlert("We are not able to locate any records with the given information. Please check that you have entered the correct Identification details and / or application Reference No. and try again.", "Application not found");
 											break;
 										case 'EXPIRED' :
-											myAlert("We noticed your application was submitted more than 2 days ago. Our staff would be in contact with you to obtain the required supporting documents.", "Your application has expired."  );
+											myAlert("We noticed your application was submitted more than 2 months ago. Please submit another application online along with your supporting documents or approach any of our branches for assistance.", "Your application has expired."  );
 											break;
 										default:
-											myAlert("We are currently experiencing network issues with the site. Please try again later. We sincerely apologised for any inconvenience caused.", "System issue encountered");											
+											myAlert("We are currently experiencing network issues with the site. Please try again later while we work to resolve the issue. Your kind understanding is appreciated.", "System issue encountered");
 											break;
 									}
 									return false;
 								} else {
 									$('#login-dialog').dialog('close');								
-									myAlert("We are currently experiencing network issues with the site. Please try again later. We sincerely apologised for any inconvenience caused.", "System issue encountered");
+									myAlert("We are currently experiencing network issues with the site. Please try again later while we work to resolve the issue. Your kind understanding is appreciated.", "System issue encountered");
 									return false;
 								}
 								
 							} else {
 								$('#login-dialog').dialog('close');							
-								myAlert("We are currently experiencing network issues with the site. Please try again later. We sincerely apologised for any inconvenience caused.", "System issue encountered");
+								myAlert("We are currently experiencing network issues with the site. Please try again later while we work to resolve the issue. Your kind understanding is appreciated.", "System issue encountered");
 								return false;				
 							}
 						});		
@@ -845,12 +845,12 @@ function submit_form() {
 					
 					} else {
 						$('#spinning-dialog').dialog('close');													
-						myAlert("We are currently experiencing network issues with the site. Please try again later. We sincerely apologised for any inconvenience caused.", "System issue encountered");
+						myAlert("We are currently experiencing network issues with the site. Please try again later while we work to resolve the issue. Your kind understanding is appreciated.", "System issue encountered");
 					}
 					
 				} else {
 					$('#spinning-dialog').dialog('close');												
-					myAlert("We are currently experiencing network issues with the site. Please try again later. We sincerely apologised for any inconvenience caused.", "System issue encountered");
+					myAlert("We are currently experiencing network issues with the site. Please try again later while we work to resolve the issue. Your kind understanding is appreciated.", "System issue encountered");
 				}
 			});
 		}, 2000); // end of timer
