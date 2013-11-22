@@ -90,12 +90,14 @@ $(document).ready(function(){
     }
     
     // check if doc upload number > 0
+	/*
     var numberOfDocsUploaded = parseInt(jQuery.query.get("numberOfDocsUploaded"));
     if( numberOfDocsUploaded > 0 ) {
         $('#thanks_right').hide();
         $('#thanks_left').css('width','820px');
         $('#new_credit_card_thanks_page').css('background','transparent none repeat-x scroll 0 0');
     }
+	*/
     
     $('#print-pdf-button-2').click(function(){
         $('#print-pdf-form').submit();
@@ -220,6 +222,9 @@ background:transparent url(images/upload_doc_now1.png) no-repeat scroll 0 0;
 #upload_doc_button.upload_doc_btn {
 background:transparent url(images/upload_doc_now1.png) no-repeat scroll 0 -30px;
 }
+#new_credit_card_thanks_page {
+background: none;
+}
 </style>
 </head>
 <body>
@@ -244,11 +249,11 @@ background:transparent url(images/upload_doc_now1.png) no-repeat scroll 0 -30px;
             <div class="thanks_page">
                 <!-- thank you page left column -->
                 <div id="thanks_left">
-		        <span class="aip_accept" style="display: none;">Your application for </span>
-		        <span class="aip_refer" style="display: none;">You have successfully applied for the </span>
-		        <span class="aip_decline" style="display: none;">You have successfully applied for the </span>
-		        <span class="aip_timeout" style="display: none;">You have successfully applied for the </span>
- 
+					<span>Thank you for applying online</span><br /><br />
+			        <span class="aip_accept" style="display: none;">You have successfully  submitted  your application for a </span>
+			        <span class="aip_refer" style="display: none;">You have successfully  submitted  your application for a </span>
+			        <span class="aip_decline" style="display: none;">You have successfully  submitted  your application for a </span>
+			        <span class="aip_timeout" style="display: none;">You have successfully  submitted  your application for a </span> 
                     
         <!-- manhattan platinum card -->
         <span class="sc_mpc_text" style="display: none;">
@@ -306,12 +311,12 @@ background:transparent url(images/upload_doc_now1.png) no-repeat scroll 0 -30px;
         </span>
         <!-- end singpost card -->
 
-        <span class="aip_accept" style="display: none;"> is successful and has been approved-in-principle.</span>
-        <span class="aip_refer" style="display: none;"> Your application will be reviewed and we are unable to provide you with an approval-in-principle at the moment.</span>
-        <span class="aip_decline" style="display: none;"> Your application will be reviewed and we are unable to provide you with approval-in-principle at the moment.</span>
-        <span class="aip_timeout" style="display: none;"> Our system is unable to provide you with an approval-in-principal at the moment. <span style="font-size: 12px;">Approval-in-principal (AIP) will be available during these hrs: <br />Mon - Sat: 08 AM to 10 PM<br />Sun / PH: 2 PM - 10 PM</span></span>
-        <p></p>
-		<p style="font-size:14px;line-height:18px;font-weight:bold;">Upload your documents now if you have not uploaded them earlier. This will help expedite the processing of your application.</p>
+        <span class="aip_accept" style="display: none;"> and your application has been Approved-In-Principle. A formal  approval is still subject to the  Bank's final review and receipt of your full set of supporting documents (Please refer to the grey box on the right for what these are). This Approval-In-Principle is  valid only for 30 days  during which you must submit all supporting documents to the Bank for processing</span>
+        <span class="aip_refer" style="display: none;">   We are unable to provide you with an  Approval–In-Principle  at the moment. We will process your application and notify you of the outcome in due course.</span>
+        <span class="aip_decline" style="display: none;">  We are unable to provide you with an  Approval–In-Principle  at the moment. We will process your application and notify you of the outcome in due course.</span>
+        <span class="aip_timeout" style="display: none;">  We are unable to provide you with an  Approval–In-Principle  at the moment. We will process your application and notify you of the outcome in due course.</span>
+        <p></p><p></p>
+		<p style="font-size:14px;line-height:18px;font-weight:bold;">You can upload your documents  now if you have not uploaded them earlier.</p>
 		<div style="margin-bottom:10px;">
 			<a href="https://online.forms.standardchartered.com/public_website/singapore/OnlineSalesAIP/doc_upload_form_swf.html" target="_blank">
 				<div id="upload_doc_button" class="upload_doc_btn" style="height:30px;" ></div>
@@ -389,6 +394,11 @@ background:transparent url(images/upload_doc_now1.png) no-repeat scroll 0 -30px;
                     <div id="thanks_right_row3">
                         <p><strong>Email your supporting documents to</strong></p>
                         cards.documents@sc.com
+                    </div>
+						<div class="thanks_right_line"></div>
+					<div id="thanks_right_row4" style="padding: 10px 15px;">
+                        <p><strong>Approval-In-Principle(AIP)is available during these hours</strong></p>
+                        <span>Monday to Saturday: 8 am to 10 pm<br />Sundays and Public Holidays  : 2 pm to 10 pm</span>
                     </div>
                     <div id="thanks_right_bottom">
                     </div>
