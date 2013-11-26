@@ -2,7 +2,7 @@ var formidList = [  //PRD,    SIT
 					"SGR49", "SGR201",  // CC
 					"SGR122", "SGR201", // PL (CashOne & EzyCash)
 					"SGR314",			// Bonus$aver
-					"SGR291", "SGR289", // E$aver
+					"SGR289", "SGR291", // E$aver
 					"SGR481", "SGR472", // CC AIP
 					"SGR482", "SGR473"  // PL AIP PL (CashOne & EzyCash)
 				];
@@ -171,7 +171,7 @@ function validateFields() {
 	var allInput1=false;
 	var allInput2=false;	
 	if( $("#form2_id_type").val() == "" ) {
-		inlineError("#lbl_id_type","ID Type is mandatory. Please enter and try again.");
+		inlineError("#lbl_id_type","Residency status is mandatory. Please enter and try again.");
 		allValid=false;
 	} else {
 		inlineError("#lbl_id_type","");		
@@ -462,22 +462,22 @@ function showDocOptions( option ) {
 	switch( $("#form2_doc_type").val() ) {
 		case "ID_PROOF1"  :
 			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="id_proof1" value="NRIC">NRIC (front and back)</option>'+
-						'<option class="id_proof1" value="PPort">Passport</option>'+
-						'<option class="id_proof1" value="EPass">Employment Pass</option>';		
+						'<option class="id_proof1 local" value="NRIC">NRIC (front and back)</option>'+
+						'<option class="id_proof1 foreign" value="PPort">Passport</option>'+
+						'<option class="id_proof1 foreign" value="EPass">Employment Pass</option>';		
 			$("#form2_doc_subtype").html(html);		
 			break;						
 						
 		case "ID_PROOF2"  :
 			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="id_proof2" value="NRIC">NRIC (front and back)</option>';
+						'<option class="id_proof2 local" value="NRIC">NRIC (front and back)</option>';
 			$("#form2_doc_subtype").html(html);		
 			break;
 
 		case "ID_PROOF3"  :
 			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="id_proof2" value="NRIC">NRIC (front and back)</option>'+
-						'<option class="id_proof1" value="PPort">Passport</option>';						
+						'<option class="id_proof2 local" value="NRIC">NRIC (front and back)</option>'+
+						'<option class="id_proof1 foreign" value="PPort">Passport</option>';						
 			$("#form2_doc_subtype").html(html);		
 			break;
 						
@@ -528,6 +528,11 @@ function showDocOptions( option ) {
 			$("#form2_doc_subtype").html(html);				
 			break;				
 	}
+	if ( $("#form2_id_type").val() == "NRIC") {
+		$(".foreign").remove();
+	} else {
+		$(".local").remove();			
+	}				
 }
 
 /************************** onload functions ***************************/
@@ -698,7 +703,7 @@ $(document).ready(function(){
 											myAlert("We are not able to locate any records with the given information. Please check that you have entered the correct Identification details and / or application Reference No. and try again.", "Application not found");
 											break;
 										case 'EXPIRED' :
-											myAlert("We noticed your application was submitted more than 2 months ago. Please submit another application online along with your supporting documents or approach any of our branches for assistance.", "Your application has expired."  );
+											myAlert("We noticed your application was submitted more than two months ago. Please submit another application online along with your supporting documents or approach any of our branches for assistance.", "Your application has expired."  );
 											break;
 										default:
 											myAlert("We are currently experiencing network issues with the site. Please try again later while we work to resolve the issue. Your kind understanding is appreciated.", "System issue encountered");

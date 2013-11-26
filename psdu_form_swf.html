@@ -187,12 +187,13 @@ if( self == top ) {
 		<div style="border:1px solid #CCC; width:580px;padding:10px;float:left;margin-top:10px;">
 			<table width="100%" class="application_form">
 				<tr>
-					<td width="100">ID Type: <span class="mandatory"> *</span></td>
+					<td width="110">Residency status: <span class="mandatory"> *</span></td>
 					<td>
-						<select id="form2_id_type" name="form2_id_type">
+						<select id="form2_id_type" name="form2_id_type" style="width:230px;">
 							<option selected="selected" value="">Please Select</option>
-							<option value="NRIC">NRIC</option>
-							<option value="Passport">Passport</option>
+							<option value="NRIC">Singaporean</option>
+							<option value="NRIC">Singapore Permanent Resident</option>							
+							<option value="Passport">Foreigner</option>
 						</select>
 					</td>
 					<td>
@@ -648,10 +649,10 @@ if( self == top ) {
 <div id="error-dialog" style="padding: 0; display:none;">
 	<div id="pop-up-upload-error">
 	    <div class="wrap-img popuperror">
-	        <h2 class="red normalerror">Sorry, your documents could not be uploaded</h2>
+	        <h2 class="red normalerror">Upload error encountered</h2>
 	        <h2 class="red viruserror" style="display: none;">Sorry, your documents could not be uploaded due to a file virus</h2>
             <p>&nbsp;</p>
-            <p class="normalerror">There may be connectivity problems with uploading your documents. You can provide the documents to us either by fax or at a branch.</p>
+            <p class="normalerror">There was an unexpected upload error encountered while trying to upload your documents, do try again. If the issue persists, we request you to close the browser and re-launch the site, using the link from your email.</p>
             <p class="viruserror" style="display: none;">You can submit your documents via fax or at a branch. Alternatively, you can scan the files to identify and remove the virus and apply again.</p>
             <p>&nbsp;</p>
             <!--p>To continue without uploading the documents, click 'Next'.</p-->
