@@ -467,86 +467,6 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="form2_pdpa_q1">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minLength value="0"/>
-                        <xs:maxLength value="30"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="form2_pdpa_q2">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minLength value="0"/>
-                        <xs:maxLength value="30"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="form2_pdpa_q3">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minLength value="0"/>
-                        <xs:maxLength value="30"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="form2_pdpa_q4">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minLength value="0"/>
-                        <xs:maxLength value="30"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="form2_pdpa_q5">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minLength value="0"/>
-                        <xs:maxLength value="30"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="form2_pdpa_q6">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minLength value="0"/>
-                        <xs:maxLength value="30"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="form2_pdpa_q7">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minLength value="0"/>
-                        <xs:maxLength value="30"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="form2_pdpa_q8">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minLength value="0"/>
-                        <xs:maxLength value="30"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="form2_pdpa_q9">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minLength value="0"/>
-                        <xs:maxLength value="30"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="form2_pdpa_q10">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minLength value="0"/>
-                        <xs:maxLength value="30"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
             <xs:element name="promoCode">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -949,6 +869,86 @@
                 </xs:simpleType>
             </xs:element>
             <xs:element name="filenetIdNumber">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q2">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q3">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q4">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q5">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q6">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q7">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q8">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q9">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="form2_pdpa_q10">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:minLength value="0"/>
