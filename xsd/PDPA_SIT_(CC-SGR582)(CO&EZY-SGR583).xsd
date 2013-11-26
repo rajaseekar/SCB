@@ -1081,16 +1081,16 @@
         <xs:attribute name="clubType16" fixed="Club Type-16"/>
         <xs:attribute name="existingCust" fixed="Are you an existing SCB PC/PL?"/>
         <xs:attribute name="res-typeOfResidence" fixed="Type of Residence"/>
-        <xs:attribute name="form2_pdpa_q1" fixed="Answer to PDPA Question 1"/>
-        <xs:attribute name="form2_pdpa_q2" fixed="Answer to PDPA Question 2"/>
-        <xs:attribute name="form2_pdpa_q3" fixed="Answer to PDPA Question 3"/>
-        <xs:attribute name="form2_pdpa_q4" fixed="Answer to PDPA Question 4"/>
-        <xs:attribute name="form2_pdpa_q5" fixed="Answer to PDPA Question 5"/>
-        <xs:attribute name="form2_pdpa_q6" fixed="Answer to PDPA Question 6"/>
-        <xs:attribute name="form2_pdpa_q7" fixed="Answer to PDPA Question 7"/>
-        <xs:attribute name="form2_pdpa_q8" fixed="Answer to PDPA Question 8"/>
-        <xs:attribute name="form2_pdpa_q9" fixed="Answer to PDPA Question 9"/>
-        <xs:attribute name="form2_pdpa_q10" fixed="Answer to PDPA Question 10"/>
+        <xs:attribute name="form2_pdpa_q1" fixed="CALL - Banking Products"/>
+        <xs:attribute name="form2_pdpa_q2" fixed="SMS - Promo Offer"/>
+        <xs:attribute name="form2_pdpa_q3" fixed="SHARE- 3rd Party"/>
+        <xs:attribute name="form2_pdpa_q4" fixed="CALL - Insurance Promo"/>
+        <xs:attribute name="form2_pdpa_q5" fixed="CALL - Personal Loan Promo"/>
+        <xs:attribute name="form2_pdpa_q6" fixed="Dummy1"/>
+        <xs:attribute name="form2_pdpa_q7" fixed="Dummy2"/>
+        <xs:attribute name="form2_pdpa_q8" fixed="Dummy3"/>
+        <xs:attribute name="form2_pdpa_q9" fixed="Dummy4"/>
+        <xs:attribute name="form2_pdpa_q10" fixed="Dummy5"/>
         <xs:attribute name="filenetProduct" fixed="Filenet Product"/>
         <xs:attribute name="filenetSubProduct" fixed="Filenet Sub-Product"/>
         <xs:attribute name="filenetCity" fixed="Filenet City"/>
