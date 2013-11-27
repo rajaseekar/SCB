@@ -24,8 +24,8 @@ var formidList = [  //PRD,    SIT
 var formDocMap= [
 					"1101", "1101", // CC
 					"1101", "1101", // PL (CashOne & EzyCash)
-					"3200",			// Bonus$aver
-					"2300", "2300", // E$aver
+					"2200",			// Bonus$aver
+					"3002", "3002", // E$aver
 					"1101", "1101", // CC AIP
 					"1101", "1101"  // PL AIP PL (CashOne & EzyCash)
 				];
@@ -184,7 +184,7 @@ function validateFields() {
 		inlineError("#lbl_id_type","");		
 	}
 
-	if( $("#form2_id_type").val() == "NRIC" ) {
+	if( $("#form2_id_type").val() != "FOREIGNER" ) {
 		if( $("#form2_nric_number").val() == "" ) {
 			inlineError("#lbl_nric_number","NRIC is mandatory. Please enter and try again.");
 			allValid=false;
@@ -203,9 +203,7 @@ function validateFields() {
 				}	
 			}
 		}		
-	}
-	
-	if( $("#form2_id_type").val() == "Passport" ) {
+	} else {
 		if( $("#form2_passport_number").val() == "" ) {
 			inlineError("#lbl_passport_number","Passport No. is mandatory. Please enter and try again.");
 			allValid=false;
@@ -419,13 +417,17 @@ function populateDocType(pos) {
 	
 	switch( docMap.substr(0,1) ) {
 		case "1"  :
-			html = html + '<option value="ID_PROOF1">Proof of ID</option>';
+			html = html + '<option value="ID_PROOF1">Identification proof</option>';
 			break;
-		case "2"  :
-			html = html + '<option value="ID_PROOF2">Proof of ID</option>';
+		case "2"  :  // BonusSaver
+			if( $("#form2_id_type").val() != "FOREIGNER") {				
+				html = html + '<option value="ID_PROOF2">Identification proof</option>';
+			}
 			break;
-		case "3"  :
-			html = html + '<option value="ID_PROOF3">Proof of ID</option>';
+		case "3"  :  // eSaver
+			if( $("#form2_id_type").val() != "FOREIGNER") {		
+				html = html + '<option value="ID_PROOF3">Identification proof</option>'; 
+			}
 			break;
 		default:
 			break;		
@@ -435,11 +437,10 @@ function populateDocType(pos) {
 		case "1"  :
 			html = html + '<option value="INCOME_PROOF1">Proof of income</option>';
 			break;
-		case "2"  :
-			html = html + '<option value="INCOME_PROOF2">Proof of income</option>';
-			break;
-		case "3"  :
-			html = html + '<option value="INCOME_PROOF3">Proof of income</option>';
+		case "2"  :  // BonusSaver
+			if( $("#form2_id_type").val() != "FOREIGNER") {
+				html = html + '<option value="INCOME_PROOF2">Additional document</option>';
+			}
 			break;
 		default:
 			break;		
@@ -447,20 +448,26 @@ function populateDocType(pos) {
 
 	switch( docMap.substr(2,1) ) {
 		case "1"  :
-			html = html + '<option value="SUPP_PROOF">Proof of ID (supplementary card)</option>';
+			html = html + '<option value="SUPP_PROOF">ID proof of supplementary card</option>';
 			break;
 		default:
 			break;		
 	}
-
+alert
 	switch( docMap.substr(3,1) ) {
 		case "1"  :
-			html = html + '<option value="ADDR_PROOF">Proof of residential address</option>';
+			if( $("#form2_id_type").val() == "FOREIGNER") {		
+				html = html + '<option value="ADDR_PROOF1">Proof of residential address</option>';
+			}
 			break;
+		case "2"  :  // eSaver
+			if( $("#form2_id_type").val() != "FOREIGNER") {		
+				html = html + '<option value="ADDR_PROOF2">Proof of residency</option>';
+			}	
+			break;			
 		default:
 			break;		
 	}
-	
 	$("#form2_doc_type").html(html);										
 }
 
@@ -468,23 +475,33 @@ function showDocOptions( option ) {
 	$("#form2_doc_subtype option").remove();
 	switch( $("#form2_doc_type").val() ) {
 		case "ID_PROOF1"  :
-			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="id_proof1 local" value="NRIC">NRIC (front and back)</option>'+
-						'<option class="id_proof1 foreign" value="PPort">Passport</option>'+
-						'<option class="id_proof1 foreign" value="EPass">Employment Pass</option>';		
+			if( $("#form2_id_type").val() != "FOREIGNER") {		
+				var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
+							'<option class="id_proof1" value="NRIC">NRIC (front and back)</option>'+
+							'<option class="id_proof1" value="PPort">Passport</option>';
+			} else {
+				var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
+							'<option class="id_proof1" value="PPort">Passport</option>'+
+							'<option class="id_proof1" value="EPass">Employment Pass</option>';	
+			}
 			$("#form2_doc_subtype").html(html);		
 			break;						
-						
-		case "ID_PROOF2"  :
-			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="id_proof2 local" value="NRIC">NRIC (front and back)</option>';
+
+		case "ID_PROOF2"  : // BonusSaver
+			if( $("#form2_id_type").val() == "SINGAPOREAN") {				
+				var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
+							'<option class="id_proof2" value="NRIC">NRIC (front and back)</option>';
+			} else {
+				var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
+							'<option class="id_proof2" value="NRIC">NRIC (front and back)</option>' +
+							'<option class="id_proof2" value="PPort">Passport</option>';
+			}
 			$("#form2_doc_subtype").html(html);		
 			break;
 
-		case "ID_PROOF3"  :
+		case "ID_PROOF3"  : // eSaver
 			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="id_proof2 local" value="NRIC">NRIC (front and back)</option>'+
-						'<option class="id_proof1 foreign" value="PPort">Passport</option>';						
+						'<option class="id_proof3" value="NRIC">NRIC (front and back)</option>';
 			$("#form2_doc_subtype").html(html);		
 			break;
 						
@@ -496,22 +513,12 @@ function showDocOptions( option ) {
 			$("#form2_doc_subtype").html(html);		
 			break;
 							
-		case "INCOME_PROOF2"  :
+		case "INCOME_PROOF2"  : // BonusSaver
 			var html =	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-//						'<option class="income_proof2" value="CPFSingpass">CPF Authorisation through Singpass</option>'+
-//						'<option class="income_proof2" value="ITNA">Income Tax Notice of Assessment</option>'+
 						'<option class="income_proof2" value="PSlip">Computerised pay slip</option>';
 			$("#form2_doc_subtype").html(html);		
 			break;
 							
-		case "INCOME_PROOF3"  :
-			var html =	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
-						'<option class="income_proof3" value="UtilityBill">Utility Bill</option>'+
-						'<option class="income_proof3" value="TelcoBill">Telco Bill</option>'+
-						'<option class="income_proof3" value="BankStatement">Bank Statement</option>';
-			$("#form2_doc_subtype").html(html);		
-			break;
-
 		case "SUPP_PROOF"  :
 			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
 						'<option class="supp_proof" value="NRICSup">NRIC</option>'+
@@ -519,7 +526,7 @@ function showDocOptions( option ) {
 			$("#form2_doc_subtype").html(html);		
 			break;
 		
-		case "ADDR_PROOF"  :
+		case "ADDR_PROOF1"  :
 			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
 						'<option class="addr_proof" value="FOR01_LUB">Latest Utility bills (electricity, water, refuse collection), rates or tax bills</option>'+
 						'<option class="addr_proof" value="FOR01_LBS">Latest Bank or Credit Card statements (including e-statement)</option>'+
@@ -529,17 +536,20 @@ function showDocOptions( option ) {
 						'<option class="addr_proof" value="FOR01_GDSA">Government issued documents stating address (e.g. IRAS, CPF, ICA)</option>';
 			$("#form2_doc_subtype").html(html);		
 			break;		
+
+		case "ADDR_PROOF2"  :
+			var html =	'<option class="select" selected="selected" value="">Please select doc subtype</option>'+
+						'<option class="income_proof3" value="UtilityBill">Utility Bill</option>'+
+						'<option class="income_proof3" value="TelcoBill">Telco Bill</option>'+
+						'<option class="income_proof3" value="BankStatement">Bank Statement</option>';
+			$("#form2_doc_subtype").html(html);		
+			break;
 			
 		default:
 			var html = 	'<option class="select" selected="selected" value="">Please select doc subtype</option>';
 			$("#form2_doc_subtype").html(html);				
 			break;				
 	}
-	if ( $("#form2_id_type").val() == "NRIC") {
-		$(".foreign").remove();
-	} else {
-		$(".local").remove();			
-	}				
 }
 
 /************************** onload functions ***************************/
@@ -612,11 +622,11 @@ $(document).ready(function(){
 	});
 	
 	$("#form2_id_type").change( function() {
-		if( $("#form2_id_type").val() == "NRIC" ) {
+		if( $("#form2_id_type").val() == "SINGAPOREAN" || $("#form2_id_type").val() == "SINGAPORE-PR") {
 			$(".tr_passport").hide();
 			$(".tr_passport input").val("");			
 			$(".tr_nric").show();			
-		} else if ( $("#form2_id_type").val() == "Passport" ) {
+		} else if ( $("#form2_id_type").val() == "FOREIGNER" ) {
 			$(".tr_passport").show();
 			$(".tr_nric").hide();			
 			$(".tr_nric input").val("");						
@@ -653,7 +663,7 @@ $(document).ready(function(){
 		function() {
 			if ( validateFields() ) {
 				setupForForm(FORM_NO);
-				if ( $("#form2_id_type").val() == "NRIC" ) {
+				if ( $("#form2_id_type").val() != "FOREIGNER" ) {
 					$('#form2_nric_passport').val( $('#form2_nric_number').val() );
 				} else {
 					$('#form2_nric_passport').val( $('#form2_passport_number').val() );			
@@ -800,7 +810,7 @@ $(document).ready(function(){
 	
 	if (window.location.hostname.toLowerCase().indexOf("localhost") > -1) {
 		$("#uploadForm_multifile").attr("action","/upload.php");
-		$("#form2_id_type").val("NRIC");
+		$("#form2_id_type").val("SINGAPOREAN");
 		$("#form2_nric_number").val("S0000003E");
 	}	
 
