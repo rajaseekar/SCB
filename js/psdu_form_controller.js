@@ -1,3 +1,10 @@
+$.fn.ajaxSubmit.debug = true;
+
+$(document).ajaxError(function(ev,xhr,o,err) {
+	$('#spinning-dialog, #login-dialog').dialog('close');												
+	myAlert("We are currently experiencing network issues with the site. Please try again later while we work to resolve the issue. Your kind understanding is appreciated.", "System issue encountered");
+});
+
 var formidList = [  //PRD,    SIT
 					"SGR49", "SGR201",  // CC
 					"SGR122", "SGR201", // PL (CashOne & EzyCash)
