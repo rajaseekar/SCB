@@ -1457,17 +1457,6 @@ function generateXml() {
 
 	commonXML=commonXML+"\t\t\t<agencyNo><![CDATA["+loan_amount_required.toUpperCase()+"]]></agencyNo>\n";
 	
-	for(var i=1, form2_pdpa; i < 11; i++) {
-		form2_pdpa="<Blank>";
-		if( "YesNo".indexOf($("input[name='form2_pdpa_q"+i+"']:checked").val()) >= 0 ) {
-			form2_pdpa=$("input[name='form2_pdpa_q"+i+"']:checked").val().substr(0,1);
-		}
-		if( $.trim($("#pre_form2_pdpa_q"+i).parent().prev().html()) == "" ) {
-			form2_pdpa="";
-		}
-		commonXML=commonXML+"\t\t\t<form2_pdpa_q"+i+"><![CDATA["+form2_pdpa+"]]></form2_pdpa_q"+i+">\n";
-	}		
-	
 	var hiddenXML = '';
 	hiddenXML=hiddenXML+"\t\t\t<acqCode>SP</acqCode>\n";
 
@@ -1601,6 +1590,16 @@ function generateXml() {
 	addXML=addXML+"\t\t\t<filenetCountry>SG</filenetCountry>\n";
 	addXML=addXML+"\t\t\t<form2_name><![CDATA["+clientFullName+"]]></form2_name>\n";
 	addXML=addXML+"\t\t\t<filenetIdNumber><![CDATA["+identityNumber+"]]></filenetIdNumber>\n";
+	for(var i=1, form2_pdpa; i < 11; i++) {
+		form2_pdpa="<Blank>";
+		if( "YesNo".indexOf($("input[name='form2_pdpa_q"+i+"']:checked").val()) >= 0 ) {
+			form2_pdpa=$("input[name='form2_pdpa_q"+i+"']:checked").val().substr(0,1);
+		}
+		if( $.trim($("#pre_form2_pdpa_q"+i).parent().prev().html()) == "" ) {
+			form2_pdpa="";
+		}
+		addXML=addXML+"\t\t\t<form2_pdpa_q"+i+"><![CDATA["+form2_pdpa+"]]></form2_pdpa_q"+i+">\n";
+	}		
 	
 	endXML=endXML+"\t\t</instance>\n";
 	endXML=endXML+"\t</model>\n";
