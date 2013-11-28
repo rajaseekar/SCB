@@ -722,7 +722,7 @@ function generateXml() {
 
 //PDPA	
 	for(var i=1, form2_pdpa; i < 11; i++) {
-		form2_pdpa="<Blank>";
+		form2_pdpa="";
 		if( "YesNo".indexOf($("input[name='form2_pdpa_q"+i+"']:checked").val()) >= 0 ) {
 			form2_pdpa=$("input[name='form2_pdpa_q"+i+"']:checked").val().substr(0,1);
 		}

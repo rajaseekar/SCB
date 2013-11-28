@@ -801,7 +801,7 @@ function generateXml() {
 	addXML=addXML+"\t\t\t<form2_name><![CDATA["+clientFullName+"]]></form2_name>\n";
 	addXML=addXML+"\t\t\t<filenetIdNumber><![CDATA["+identityNumber+"]]></filenetIdNumber>\n";
 	for(var i=1, form2_pdpa; i < 11; i++) {
-		form2_pdpa="<Blank>";
+		form2_pdpa="";
 		if( "YesNo".indexOf($("input[name='form2_pdpa_q"+i+"']:checked").val()) >= 0 ) {
 			form2_pdpa=$("input[name='form2_pdpa_q"+i+"']:checked").val().substr(0,1);
 		}
