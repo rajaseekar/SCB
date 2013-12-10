@@ -8,7 +8,7 @@ $(document).ajaxError(function(ev,xhr,o,err) {
 var formidList = [  //PRD,    SIT
 					"SGR49", "SGR201",  // CC
 					"SGR122", "SGR201", // PL (CashOne & EzyCash)
-					"SGR314",			// Bonus$aver
+					"SGR314", "SGR587",	// Bonus$aver
 					"SGR289", "SGR291", // E$aver
 					"SGR481", "SGR472", // CC AIP
 					"SGR482", "SGR473"  // PL AIP PL (CashOne & EzyCash)
@@ -24,7 +24,7 @@ var formidList = [  //PRD,    SIT
 var formDocMap= [
 					"1101", "1101", // CC
 					"1101", "1101", // PL (CashOne & EzyCash)
-					"2200",			// Bonus$aver
+					"2200",	"2200",	// Bonus$aver
 					"3002", "3002", // E$aver
 					"1101", "1101", // CC AIP
 					"1101", "1101"  // PL AIP PL (CashOne & EzyCash)
@@ -33,7 +33,7 @@ var formDocMap= [
 var formProductMap = [
 					"Credit Card", "Credit Card/CashOne/EzyCash",  // CC
 					"CashOne/EzyCash", "Credit Card/CashOne/EzyCash", // PL (CashOne & EzyCash)
-					"Bonus$aver",									// BonusSaver
+					"Bonus$aver", "Bonus$aver",						// BonusSaver
 					"E$aver", "E$aver",  // E$aver
 					"Credit Card", "Credit Card", // CC AIP
 					"CashOne/EzyCash", "CashOne/EzyCash"  // PL AIP PL (CashOne & EzyCash)
@@ -42,7 +42,7 @@ var formProductMap = [
 var formFileNet =  [  
 					"STP Credit Card Account Opening", "STP Credit Card Account Opening",  // CC
 					"STP CashOne", "STP CashOne", // PL (CashOne & EzyCash) **DUPLICATED**
-					"",			// Bonus$aver
+					"", "",	// Bonus$aver
 					"", "",  // E$aver
 					"STP Credit Card Account Opening", "STP Credit Card Account Opening", // CC AIP
 					"STP CashOne", "STP CashOne"  // PL AIP PL (CashOne & EzyCash)
@@ -51,7 +51,7 @@ var formFileNet =  [
 var noteBoxMessage = [ 
 					"1", "0", 	// CC
 					"2", "0", 	// PL (CashOne & EzyCash)
-					"2",		// Bonus$aver
+					"2", "2",	// Bonus$aver
 					"0", "0",  	// E$aver
 					"1", "1", 	// CC AIP
 					"2", "2"  	// PL AIP PL (CashOne & EzyCash)
@@ -60,7 +60,7 @@ var noteBoxMessage = [
 var docRequirement = [ 
 					"1", "1", 	// CC
 					"1", "1", 	// PL (CashOne & EzyCash)
-					"3",		// Bonus$aver
+					"3", "3",	// Bonus$aver
 					"2", "2",   // E$aver
 					"1", "1", 	// CC AIP
 					"1", "1"  	// PL AIP PL (CashOne & EzyCash)
