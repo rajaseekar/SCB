@@ -2052,7 +2052,7 @@ $("#spinning-dialog").dialog("open");
 $("#spinning-dialog").css("height","300px");
 $("#pop-up-upload").css("height","260px");
 $("#counter").show();
-$("#counter").countdown({image:"images/digits.png",startTime:"00:99",timerEnd:function(){},format:"mm:ss"});
+$("#counter").countdown({image:"images/digits.png",startTime:"00:60",timerEnd:function(){},format:"mm:ss"});
 window.onbeforeunload=null;
 var formxml=generateXml();
 formxml=formxml.replace('<?xml version="1.0" encoding="UTF-8"?>\n',"");
