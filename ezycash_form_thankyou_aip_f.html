@@ -45,7 +45,7 @@ $(document).ready(function(){
     }
     
     $("#pre_form2_refid").empty().append(FormRefID);
-    
+    $("#psdu_link").attr("href", $("#psdu_link").attr("href") + FormRefID);
     uuid = jQuery.query.get("uuid");
 	var fileName = uuid+$('#id').val();
 	$('#id').val('').val(fileName);
@@ -120,7 +120,7 @@ background:transparent url(images/upload_doc_now1.png) no-repeat scroll 0 -30px;
         <p></p>
 		<p style="font-size:14px;line-height:18px;font-weight:bold;">Upload your documents now if you have not uploaded them earlier. This will help expedite the processing of your application.</p>
 		<div style="margin-bottom:10px;">
-			<a href="https://online.forms.standardchartered.com/public_website/singapore/OnlineSalesAIP/doc_upload_form_swf.html" target="_blank">
+			<a id="psdu_link" href="https://10.20.166.74:3400/public_website/singapore/OnlineSalesAIP/psdu_form_swf.html?formRefID=" target="_blank">
 				<div id="upload_doc_button" class="upload_doc_btn" style="height:30px;" ></div>
 			</a>
 		</div>							
