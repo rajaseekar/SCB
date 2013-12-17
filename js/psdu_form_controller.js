@@ -722,6 +722,10 @@ $(document).ready(function(){
 										case 'EXPIRED' :
 											myAlert("We noticed your application was submitted more than two months ago. Please submit another application online along with your supporting documents or approach any of our branches for assistance.", "Your application has expired."  );
 											break;
+										case 'MAXIMUM NUMBER OF UPLOAD REACHED' :
+											myAlert("You have reached the maximum number of upload, please fax or email your documents to xxxx. For further enquiries please call xxxxx","");
+											break;
+											
 										default:
 											myAlert("We are currently experiencing network issues with the site. Please try again later while we work to resolve the issue. Your kind understanding is appreciated.", "System issue encountered");
 											break;
