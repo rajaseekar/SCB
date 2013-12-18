@@ -723,7 +723,7 @@ $(document).ready(function(){
 											myAlert("We noticed your application was submitted more than two months ago. Please submit another application online along with your supporting documents or approach any of our branches for assistance.", "Your application has expired."  );
 											break;
 										case 'MAXIMUM NUMBER OF UPLOAD REACHED' :
-											myAlert("You have reached the maximum number of upload, please fax or email your documents to xxxx. For further enquiries please call xxxxx","");
+											myAlert("maximum number of upload reached, please  fax or email your  documents to XXXX.","");
 											break;
 											
 										default:
