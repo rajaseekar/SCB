@@ -818,7 +818,7 @@ $(document).ready(function(){
 		$("#form2_nric_number").val("S0000003E");
 	}	
 
-	var formrefid = jQuery.query.get("formRefID");
+	var formrefid = $.trim(jQuery.query.get("formRefID"));
 	if( formrefid != "" && formrefid != true && formrefid != undefined && formrefid != null ) {
 		$("#form2_reference_number").val(formrefid);	
 	}
