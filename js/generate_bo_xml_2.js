@@ -809,7 +809,22 @@ function generateXml() {
 			form2_pdpa="";
 		}
 		addXML=addXML+"\t\t\t<form2_pdpa_q"+i+"><![CDATA["+form2_pdpa+"]]></form2_pdpa_q"+i+">\n";
-	}		
+	}
+	// Dummy empty fields for APPS batch run for PDPA
+	addXML=addXML+"\t\t\t<REF-HOME-PH></REF-HOME-PH>\n";
+	addXML=addXML+"\t\t\t<SUP-NATION></SUP-NATION>\n";
+	addXML=addXML+"\t\t\t<SUP-RACE></SUP-RACE>\n";
+	addXML=addXML+"\t\t\t<SUP-MOBILE-PH></SUP-MOBILE-PH>\n";
+	addXML=addXML+"\t\t\t<P-DUMMY-1></P-DUMMY-1>\n";
+	addXML=addXML+"\t\t\t<P-DUMMY-2></P-DUMMY-2>\n";
+	addXML=addXML+"\t\t\t<P-DUMMY-3></P-DUMMY-3>\n";
+	addXML=addXML+"\t\t\t<P-DUMMY-4></P-DUMMY-4>\n";
+	addXML=addXML+"\t\t\t<P-DUMMY-5></P-DUMMY-5>\n";
+	addXML=addXML+"\t\t\t<S-DUMMY-1></S-DUMMY-1>\n";
+	addXML=addXML+"\t\t\t<S-DUMMY-2></S-DUMMY-2>\n";
+	addXML=addXML+"\t\t\t<S-DUMMY-3></S-DUMMY-3>\n";
+	addXML=addXML+"\t\t\t<S-DUMMY-4></S-DUMMY-4>\n";
+	addXML=addXML+"\t\t\t<S-DUMMY-5></S-DUMMY-5>\n";	
 	endXML=endXML+"\t\t</instance>\n";
 	endXML=endXML+"\t</model>\n";
 	endXML=endXML+"</eform>\n";
