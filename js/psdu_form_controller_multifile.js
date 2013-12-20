@@ -41,6 +41,7 @@ function buildMFObject( MF ) {
 			var s = (ss/1024/1024).toFixed(2)+"mb";
 			if( ss < (1024 * 1024) ) {	s = (ss/1024).toFixed(2)+"kb";	}		
 		} else {
+
 			var ss = 0.1;
 			var s = "-";
 		}
@@ -48,7 +49,8 @@ function buildMFObject( MF ) {
 		uploadFilesCount++;
 		MyuploadFilesCount++;
 		totalUploadFileSize = totalUploadFileSize+ss;
-		MytotalUploadFileSize = MytotalUploadFileSize+ss;		
+		MytotalUploadFileSize = MytotalUploadFileSize+ss;
+		
 		$("#tr_selected_document"+MF).show();
 		$("#selected_document_doctype"+MF).html( $("#form2_doc_type option:selected").text() );
 		$("#selected_document_docsubtype"+MF).html( $("#form2_doc_subtype option:selected").text() );
@@ -65,6 +67,12 @@ function buildMFObject( MF ) {
 		$('#uploadForm_id_0'+MF+' .nricpassportnumberfield').val("").val( $('#form2_nric_passport').val() );
 		$('#form2_upload_id_0'+MF).val("").val(option_text_select);
 		$("#uploadForm_id_0"+MF+" .swf_upload_file").css("margin-left","-10000px").css("margin-top","-30px").css("z-index","-1");		
+		
+		if( MytotalUploadFileSize > totalUploadFileMaxSize ) {			
+			alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+			$("#remove_doc"+MF).click();
+		}
+		
 		roomService();
 		$('#form2_doc_type').val("");				
 		showDocOptions();

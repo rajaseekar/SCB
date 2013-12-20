@@ -178,7 +178,7 @@ function validateFields() {
 	var allInput1=false;
 	var allInput2=false;	
 	if( $("#form2_id_type").val() == "" ) {
-		inlineError("#lbl_id_type","Residency status is mandatory. Please enter and try again.");
+		inlineError("#lbl_id_type","The Residency status is mandatory. Please enter and try again.");
 		allValid=false;
 	} else {
 		inlineError("#lbl_id_type","");		
@@ -186,7 +186,7 @@ function validateFields() {
 
 	if( $("#form2_id_type").val() != "FOREIGNER" ) {
 		if( $("#form2_nric_number").val() == "" ) {
-			inlineError("#lbl_nric_number","NRIC is mandatory. Please enter and try again.");
+			inlineError("#lbl_nric_number","The NRIC is mandatory. Please enter and try again.");
 			allValid=false;
 		} else {
 			allInput1=true;
@@ -205,7 +205,7 @@ function validateFields() {
 		}		
 	} else {
 		if( $("#form2_passport_number").val() == "" ) {
-			inlineError("#lbl_passport_number","Passport No. is mandatory. Please enter and try again.");
+			inlineError("#lbl_passport_number","The Passport No. is mandatory. Please enter and try again.");
 			allValid=false;
 		} else {
 			allInput1=true;		
@@ -220,7 +220,7 @@ function validateFields() {
 	}		
 	
 	if( $("#form2_reference_number").val() == "" ) {
-		inlineError("#lbl_reference_number","Reference No. is mandatory. Please enter and try again.");
+		inlineError("#lbl_reference_number","The Reference No. is mandatory. Please enter and try again.");
 		allValid=false;
 	} else {
 		allInput2=true;
@@ -765,7 +765,8 @@ $(document).ready(function(){
 					// before proceed to file upload logic, first clear all the previous records
 					$('.uploadfileredidgroup').val('');
 					$('.formidfield').val( $('#formId').val() );				
-            		$('#spinning-dialog').dialog('open');					
+            		$('#spinning-dialog').dialog('open');			
+					$("#cancelUploadButton").hide();
 					resetUiStyle();
 					setTimeout( function() {
 						$('#uploadForm_multifile').submit();
