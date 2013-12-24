@@ -453,7 +453,6 @@ function populateDocType(pos) {
 		default:
 			break;		
 	}
-alert
 	switch( docMap.substr(3,1) ) {
 		case "1"  :
 			if( $("#form2_id_type").val() == "FOREIGNER") {		
