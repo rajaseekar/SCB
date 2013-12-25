@@ -5,13 +5,13 @@ $(document).ajaxError(function(ev,xhr,o,err) {
 	myAlert("We are currently experiencing network issues with the site. Please try again later while we work to resolve the issue. Your kind understanding is appreciated.", "System issue encountered");
 });
 
-var formidList = [  //PRD,    SIT
+var formidList = [  //PRD,    SIT,      OAT
 					"SGR49", "SGR201",  // CC
 					"SGR122", "SGR201", // PL (CashOne & EzyCash)
 					"SGR314", "SGR587",	// Bonus$aver
-					"SGR289", "SGR291", // E$aver
-					"SGR481", "SGR472", // CC AIP
-					"SGR482", "SGR473"  // PL AIP PL (CashOne & EzyCash)
+					"SGR289", "SGR291", "SGR588", // E$aver
+					"SGR481", "SGR472", "SGR589", // CC AIP
+					"SGR482", "SGR473", "SGR590"  // PL AIP PL (CashOne & EzyCash)
 				];
 
 //////////////////////////////////////////////////////////
@@ -25,45 +25,45 @@ var formDocMap= [
 					"1101", "1101", // CC
 					"1101", "1101", // PL (CashOne & EzyCash)
 					"2200",	"2200",	// Bonus$aver
-					"3002", "3002", // E$aver
-					"1101", "1101", // CC AIP
-					"1101", "1101"  // PL AIP PL (CashOne & EzyCash)
+					"3002", "3002", "3002", // E$aver
+					"1101", "1101", "1101", // CC AIP
+					"1101", "1101", "1101"  // PL AIP PL (CashOne & EzyCash)
 				];
 
 var formProductMap = [
 					"Credit Card", "Credit Card/CashOne/EzyCash",  // CC
 					"CashOne/EzyCash", "Credit Card/CashOne/EzyCash", // PL (CashOne & EzyCash)
 					"Bonus$aver", "Bonus$aver",						// BonusSaver
-					"E$aver", "E$aver",  // E$aver
-					"Credit Card", "Credit Card", // CC AIP
-					"CashOne/EzyCash", "CashOne/EzyCash"  // PL AIP PL (CashOne & EzyCash)
+					"E$aver", "E$aver", "E$aver", // E$aver
+					"Credit Card", "Credit Card", "Credit Card",// CC AIP
+					"CashOne/EzyCash", "CashOne/EzyCash", "CashOne/EzyCash"  // PL AIP PL (CashOne & EzyCash)
 				];
 
 var formFileNet =  [  
 					"STP Credit Card Account Opening", "STP Credit Card Account Opening",  // CC
 					"STP CashOne", "STP CashOne", // PL (CashOne & EzyCash) **DUPLICATED**
 					"", "",	// Bonus$aver
-					"", "",  // E$aver
-					"STP Credit Card Account Opening", "STP Credit Card Account Opening", // CC AIP
-					"STP CashOne", "STP CashOne"  // PL AIP PL (CashOne & EzyCash)
+					"", "", "", // E$aver
+					"STP Credit Card Account Opening", "STP Credit Card Account Opening", "STP Credit Card Account Opening",// CC AIP
+					"STP CashOne", "STP CashOne", "STP CashOne"  // PL AIP PL (CashOne & EzyCash)
 				];
 
 var noteBoxMessage = [ 
 					"1", "0", 	// CC
 					"2", "0", 	// PL (CashOne & EzyCash)
 					"2", "2",	// Bonus$aver
-					"0", "0",  	// E$aver
-					"1", "1", 	// CC AIP
-					"2", "2"  	// PL AIP PL (CashOne & EzyCash)
+					"0", "0", "0", 	// E$aver
+					"1", "1", "1", 	// CC AIP
+					"2", "2", "2"  	// PL AIP PL (CashOne & EzyCash)
 				];				
 				
 var docRequirement = [ 
 					"1", "1", 	// CC
 					"1", "1", 	// PL (CashOne & EzyCash)
 					"3", "3",	// Bonus$aver
-					"2", "2",   // E$aver
-					"1", "1", 	// CC AIP
-					"1", "1"  	// PL AIP PL (CashOne & EzyCash)
+					"2", "2", "2",   // E$aver
+					"1", "1", "1", 	// CC AIP
+					"1", "1", "1"  	// PL AIP PL (CashOne & EzyCash)
 				];								
 				
 var idleTime = 0;
@@ -178,7 +178,7 @@ function validateFields() {
 	var allInput1=false;
 	var allInput2=false;	
 	if( $("#form2_id_type").val() == "" ) {
-		inlineError("#lbl_id_type","The Residency status is mandatory. Please enter and try again.");
+		inlineError("#lbl_id_type","The Residency status field is mandatory. Please enter and try again.");
 		allValid=false;
 	} else {
 		inlineError("#lbl_id_type","");		
@@ -186,7 +186,7 @@ function validateFields() {
 
 	if( $("#form2_id_type").val() != "FOREIGNER" ) {
 		if( $("#form2_nric_number").val() == "" ) {
-			inlineError("#lbl_nric_number","The NRIC is mandatory. Please enter and try again.");
+			inlineError("#lbl_nric_number","The NRIC field is mandatory. Please enter and try again.");
 			allValid=false;
 		} else {
 			allInput1=true;
@@ -205,7 +205,7 @@ function validateFields() {
 		}		
 	} else {
 		if( $("#form2_passport_number").val() == "" ) {
-			inlineError("#lbl_passport_number","The Passport No. is mandatory. Please enter and try again.");
+			inlineError("#lbl_passport_number","The Passport No. field is mandatory. Please enter and try again.");
 			allValid=false;
 		} else {
 			allInput1=true;		
@@ -220,7 +220,7 @@ function validateFields() {
 	}		
 	
 	if( $("#form2_reference_number").val() == "" ) {
-		inlineError("#lbl_reference_number","The Reference No. is mandatory. Please enter and try again.");
+		inlineError("#lbl_reference_number","The Reference No. field is mandatory. Please enter and try again.");
 		allValid=false;
 	} else {
 		allInput2=true;
