@@ -65,6 +65,25 @@ var docRequirement = [
 					"1", "1", "1", 	// CC AIP
 					"1", "1", "1"  	// PL AIP PL (CashOne & EzyCash)
 				];								
+
+var formEmail = [
+					"cards.documents@sc.com", "cards.documents@sc.com", // CC
+					"cards.documents@sc.com", "cards.documents@sc.com", // PL (CashOne & EzyCash)
+					"cards.documents@sc.com", "cards.documents@sc.com", // BonusSaver
+					"cards.documents@sc.com", "cards.documents@sc.com", "cards.documents@sc.com", // eSaver
+					"cards.documents@sc.com", "cards.documents@sc.com", "cards.documents@sc.com", // CC AIP
+					"cards.documents@sc.com", "cards.documents@sc.com", "cards.documents@sc.com" // PL AIP PL (CashOne & EzyCash)
+				];				
+
+var formFax = [
+					"+65 63051783", "+65 63051783", // CC
+					"+65 63051787", "+65 63051787", // PL (CashOne & EzyCash)
+					"+65 63051783", "+65 63051783", // BonusSaver
+					"+65 63051783", "+65 63051783", "+65 63051783", // eSaver
+					"+65 63051783", "+65 63051783", "+65 63051783", // CC AIP
+					"+65 63051787", "+65 63051787", "+65 63051787" // PL AIP PL (CashOne & EzyCash)
+				];				
+
 				
 var idleTime = 0;
 var timeoutUrl = "http://www.standardchartered.com.sg/";
@@ -81,7 +100,9 @@ function timerIncrement() {
 var FORM_NO = 0;
 var MAX_DOC = 20;
 var CUR_UPLOAD = 99999;
-var FILENET = false;
+var FILENET = "";
+var FORM_EMAIL = "";
+var FORM_FAX = "";
 
 // mouse over effect for upload file button
 $(function() {
@@ -129,6 +150,8 @@ function setupForForm(pos) {
 	populateDocType(pos);
 	$("#form2_product").val( formProductMap[pos] );
 	FILENET = formFileNet[pos];	
+	FORM_EMAIL = formEmail[pos];
+	FORM_FAX = formFax[pos];
 	
 	switch(noteBoxMessage[pos]) {
 		case "1" :
@@ -722,7 +745,7 @@ $(document).ready(function(){
 											myAlert("We noticed your application was submitted more than two months ago. Please submit another application online along with your supporting documents or approach any of our branches for assistance.", "Your application has expired."  );
 											break;
 										case 'MAXIMUM NUMBER OF UPLOAD REACHED' :
-											myAlert("maximum number of upload reached, please  fax or email your  documents to XXXX.","");
+											myAlert("maximum number of upload reached, please fax "+FORM_FAX+" or email your documents to "+FORM_EMAIL+".","");
 											break;
 											
 										default:
