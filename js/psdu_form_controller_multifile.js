@@ -125,7 +125,7 @@ function buildSelectedDocTable() {
 	Html=Html+'<tr id="tr_selected_document'+i+'" style="display:none;">'+
 				'<td id="selected_document_doctype'+i+'"></td>'+
 				'<td id="selected_document_docsubtype'+i+'"></td>'+
-				'<td style="margin-right:10px; text-align:right;" id="selected_document_size'+i+'"></td>'+
+				'<td class="sizeDetectable" style="margin-right:10px; text-align:right;" id="selected_document_size'+i+'"></td>'+
 				'<td id="selected_document_remove'+i+'"><div id="form2_uploadid_0'+i+'_lista"></div><a id="remove_doc'+i+'" class="remove_doc" href="javascript:void(0);">Remove</a></td>'+
 				'</tr>';
 	}
@@ -241,7 +241,7 @@ $(function(){
 			$('#check_new_credit_card_4').remove();
 			$('#check_new_credit_card_4_swf').show();
 			$(".uploadforms").css("margin-top","0");			
-
+	
 		},
 			
 		swfuploadLoaded: function(event){
@@ -552,12 +552,15 @@ function resetUiStyle() {
 $.fn.ajaxSubmit.debug = true;
 
 $(document).ajaxError(function(ev,xhr,o,err) {
-    if (window.console && window.console.log) console.log(err);
+	$('#spinning-dialog, #login-dialog').dialog('close');												
+	$('#error-dialog').dialog('open');
+	resetUiStyle();
 });
 
 $(function() {
     $('#uploadForm_multifile').ajaxForm({
     	iframe: true,
+		timeout: 3000,		
         beforeSubmit: function(a,f,o) {
             o.dataType = "html";
             $('#uploadOutput_id_01').html('Submitting...');

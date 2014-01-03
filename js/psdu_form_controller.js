@@ -736,7 +736,11 @@ $(document).ready(function(){
 									switch ( returnCode ) {
 										case 'SUCCESS' :
 											$("#login_page").hide();			
-											$("#main_content").show();										
+											$("#main_content").show();		
+											if ( !("FormData" in window) && $('input:file').length > 0 ) {	
+												$("#selected_documents_table td.sizeDetectable").hide();
+												$("#selected_documents_table td.docSubtype").attr("width","500");
+											}												
 											break;
 										case 'FAILURE' :
 											myAlert("We are not able to locate any records with the given information. Please check that you have entered the correct Identification details and / or application Reference No. and try again.", "Application not found");
@@ -845,7 +849,7 @@ $(document).ready(function(){
 	if( formrefid != "" && formrefid != true && formrefid != undefined && formrefid != null ) {
 		$("#form2_reference_number").val(formrefid);	
 	}
-
+	
 });
 
 function submit_form() {
