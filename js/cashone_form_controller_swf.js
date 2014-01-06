@@ -5841,7 +5841,7 @@ $(document).ready(function(){
 			$('#counter').show();
 			$('#counter').countdown({
               image: 'images/digits.png',
-              startTime: '00:99',
+              startTime: '00:60',
               timerEnd: function(){},
               format: 'mm:ss'
             });
