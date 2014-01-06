@@ -1,7 +1,7 @@
 $.fn.ajaxSubmit.debug = true;
 
 $(document).ajaxError(function(ev,xhr,o,err) {
-	$('#spinning-dialog, #login-dialog').dialog('close');												
+	$('#spinning-dialog, #login-dialog, #error-dialog').dialog('close');												
 	myAlert("We are currently experiencing network issues with the site. Please try again later while we work to resolve the issue. Your kind understanding is appreciated.", "System issue encountered");
 });
 

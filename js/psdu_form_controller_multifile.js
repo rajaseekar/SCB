@@ -549,13 +549,6 @@ function resetUiStyle() {
 }
 
 (function($) {
-$.fn.ajaxSubmit.debug = true;
-
-$(document).ajaxError(function(ev,xhr,o,err) {
-	$('#spinning-dialog, #login-dialog').dialog('close');												
-	$('#error-dialog').dialog('open');
-	resetUiStyle();
-});
 
 $(function() {
     $('#uploadForm_multifile').ajaxForm({
@@ -564,6 +557,12 @@ $(function() {
         beforeSubmit: function(a,f,o) {
             o.dataType = "html";
             $('#uploadOutput_id_01').html('Submitting...');
+			$.fn.ajaxSubmit.debug = true;
+			$(document).ajaxError(function(ev,xhr,o,err) {
+				$('#spinning-dialog, #login-dialog').dialog('close');												
+				$('#error-dialog').dialog('open');
+				resetUiStyle();
+			});
         },
         success: function(data) {
         	var noerror = true;
