@@ -65,7 +65,7 @@ function buildMFObject( MF ) {
 		$('#form2_upload_id_0'+MF).val("").val(option_text_select);
 		$("#uploadForm_id_0"+MF+" .swf_upload_file").css("margin-left","-10000px").css("margin-top","-30px").css("z-index","-1");		
 		if( MytotalUploadFileSize > totalUploadFileMaxSize ) {			
-			alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+			alert('File size exceeded\n\nWe are only able to upload 10MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
 			window.setTimeout( function() {
 				$('#form2_doc_type').val("");				
 				showDocOptions();
@@ -213,7 +213,7 @@ $(function(){
 // File upload by Flash plugin
 
 var totalUploadFileSize = 0;
-var totalUploadFileMaxSize = 5125000;
+var totalUploadFileMaxSize = 10250000;
 var totalUploadedFileProgress = 0;
 var totalUploadedFileSize = 0;
 var uploadFilesCount = 0;
@@ -256,7 +256,7 @@ $(function(){
 			//console.log('Total file size: '+totalUploadFileSize);
 			if( totalUploadFileSize > totalUploadFileMaxSize ) {
 				$(this).swfupload('cancelUpload', file.id);
-				alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+				alert('File size exceeded\n\nWe are only able to upload 10MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
 			} else {
 
 				var n = CUR_UPLOAD;
@@ -290,7 +290,7 @@ $(function(){
 			$('.log', this).append('<li>File queue error - '+message+'</li>');
 			//console.log('fileQueueError',event, file, errorCode, message);
 			if( message == 'File size exceeds allowed limit.' ) {
-				alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+				alert('File size exceeded\n\nWe are only able to upload 10MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
 			}
 			if( message == 'File is not an allowed file type.') {
 				alert("Incorrect file type detected\n\nYour file "+file.name+" is not supported. We are only able to accept the following formats: PDF, JPG, PNG, GIF and TIFF.");
@@ -427,7 +427,7 @@ $(function(){
 
 			upload_url: ((window.location.hostname.toLowerCase().indexOf("localhost") > -1) ? "/uploadswf.php" : "/nfs-ofp/ofpservice.htm"),
 			
-			file_size_limit : "5120",
+			file_size_limit : "10240",
 			file_types : "*.jpg;*.gif;*.tif;*.pdf;*.png;*.jpeg",
 			file_types_description : "All Files",
 			file_upload_limit : "0",
@@ -579,7 +579,7 @@ $(function() {
         	            	return false;
         	            } else if( errorcode == "EMF02"  ) {
 							$('#spinning-dialog').dialog('close');
-							alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+							alert('File size exceeded\n\nWe are only able to upload 10MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
         	            	noerror = false;
         	            	return false;
         	            } else if( errorcode == "EMF03"  ) {
