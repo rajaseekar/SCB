@@ -119,6 +119,21 @@ $(function() {
         });
 });
 
+function isIE9() {
+	var IE9 = false;
+	if (navigator.appName == "Microsoft Internet Explorer") {
+		var ua = navigator.userAgent;
+		var re = new RegExp("MSIE ([0-9]{1,}[.0-9]{0,})");
+		if (re.exec(ua) != null) {
+			ieVersion = parseInt(RegExp.$1);
+		}
+		if(ieVersion == 9) {
+			IE9 = true;
+		}
+	}
+	return IE9;
+}
+
 function validFormID( FormRefID ) {
 	if( FormRefID.split("-").length != 2 && FormRefID.split("-").length != 3) {
 		return false;
@@ -692,6 +707,9 @@ $(document).ready(function(){
 				}
 				$("#form2_refid").val( $("#form2_reference_number").val()  );
 				
+				// Disable all flash plugins for SG				
+				$("object[type='application/x-shockwave-flash']").remove();				
+				
 				$('#login-dialog').dialog('open');
 				resetUiStyle();	
 				window.onbeforeunload = null;
@@ -849,7 +867,6 @@ $(document).ready(function(){
 	if( formrefid != "" && formrefid != true && formrefid != undefined && formrefid != null ) {
 		$("#form2_reference_number").val(formrefid);	
 	}
-	
 });
 
 function submit_form() {

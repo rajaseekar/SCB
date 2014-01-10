@@ -63,8 +63,18 @@ function buildMFObject( MF ) {
 		$('#uploadForm_id_0'+MF+' .documentnamefield').val("").val( $('#form2_doc_subtype option:selected').val() );
 		$('#uploadForm_id_0'+MF+' .nricpassportnumberfield').val("").val( $('#form2_nric_passport').val() );
 		$('#form2_upload_id_0'+MF).val("").val(option_text_select);
-		$("#uploadForm_id_0"+MF+" .swf_upload_file").css("margin-left","-10000px").css("margin-top","-30px").css("z-index","-1");		
-		if( MytotalUploadFileSize > totalUploadFileMaxSize ) {			
+		$("#uploadForm_id_0"+MF+" .swf_upload_file").css("margin-left","-10000px").css("margin-top","-30px").css("z-index","-1");
+		
+		if( ss > 5125000 ) {
+			alert('File size exceeded\n\nWe are only able to upload 5MB for each file.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+			window.setTimeout( function() {
+				$('#form2_doc_type').val("");				
+				showDocOptions();
+				CUR_UPLOAD=99999;
+				$('#form2_doc_subtype').val("");			
+				$("#remove_doc"+MF).click();
+			}, 50);		
+		} else if( MytotalUploadFileSize > totalUploadFileMaxSize ) {			
 			alert('File size exceeded\n\nWe are only able to upload 10MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
 			window.setTimeout( function() {
 				$('#form2_doc_type').val("");				
@@ -234,12 +244,20 @@ $(function(){
 	var listeners = {
 		swfuploadPreLoad: function(event){
 			//console.log('Swf Pre Load');
+			
+// Disable flash plugin for SG			
+/*			
 			$('.lbl_btn_upload_file').remove();
 			$('input:file').remove();
 			//$('.MultiFile-wrap, .upload_file_over').remove();
 			
 			$('#check_new_credit_card_4').remove();
 			$('#check_new_credit_card_4_swf').show();
+*/			
+			$('#check_new_credit_card_4_swf').remove();
+			$('#check_new_credit_card_4').show();			
+// Disable flash plugin for SG		
+			
 			$(".uploadforms").css("margin-top","0");			
 	
 		},
