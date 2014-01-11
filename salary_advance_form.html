@@ -86,7 +86,9 @@
 		#pre_form2_os_preview_container table tr td div {
 			font-weight: bold;
 		}
-		
+		#pre_form2_mailing_preview_container table tr td div {
+			font-weight: bold;
+		}		
 		div.hastips {
 			text-decoration: none;
 			vertical-align: middle;
@@ -1046,7 +1048,19 @@
 															<tr>
 																<td width="200" style="text-align:right;">Home Address<br/>[Singapore Address Only]</td>
 																<td colspan="2"></td>															
-															</tr>														
+															</tr>
+															<tr>
+																<td width="200" style="text-align:right;">Postal code (No P.O. Box) <span class="mandatory">*</span></td>
+																<td>
+																	<div style="float:left;">
+																		<input id="form2_postal_code" name="form2_postal_code" maxlength="6" style="width:50px;" class="postcodeSG"/>
+																	</div>
+																	<div>
+																		<a id="form2_postal_code_findbutton" href="javascript:void(0);" class="btn_find_address" style="text-align: center;"><span>Find address</span></a>
+																	</div>																
+																</td>
+																<td class="column3"></td>
+															</tr>
 															<tr>
 																<td width="200" style="text-align:right;">Block / House no. <span class="mandatory">*</span></td>
 																<td class="column2"><input id="form2_block_number" name="form2_block_number" maxlength="8" class="input_h_width"/></td>
@@ -1069,18 +1083,6 @@
 															<tr>
 																<td width="200" style="text-align:right;">Building</td>
 																<td><input id="form2_building_name" name="form2_building_name" maxlength="40" class="input_l_width" /></td>
-																<td class="column3"></td>
-															</tr>
-															<tr>
-																<td width="200" style="text-align:right;">Postal code (No P.O. Box) <span class="mandatory">*</span></td>
-																<td>
-																	<div style="float:left;">
-																		<input id="form2_postal_code" name="form2_postal_code" maxlength="6" style="width:50px;" class="postcodeSG"/>
-																	</div>
-																	<div>
-																		<a id="form2_postal_code_findbutton" href="javascript:void(0);" class="btn_find_address" style="text-align: center;"><span>Find address</span></a>
-																	</div>																
-																</td>
 																<td class="column3"></td>
 															</tr>
 															<tr>
@@ -1194,6 +1196,18 @@
 																<td colspan="2"></td>
 															</tr>
 															<tr>
+																<td width="200" style="text-align:right;">Postal code (No P.O.Box) <span class="mandatory">*</span></td>
+																<td class="column2-nowidth">
+																	<div style="float:left;">
+																		<input id="form2_employer_postal_code" maxlength="6" name="form2_employer_postal_code" class="postcodeSG" style="width:50px;"/>
+																	</div>
+																	<div>
+																		<a id="form2_employer_postal_code_findbutton" href="javascript:void(0);" class="btn_find_address" style="text-align: center;"><span>Find address</span></a>
+																	</div>
+																</td>
+																<td class="column3"></td>																
+															</tr>															
+															<tr>
 																<td width="200" style="text-align:right;">Block / House no. <span class="mandatory">*</span></td>
 																<td class="column2"><input id="form2_employer_block_number" name="form2_employer_block_number" maxlength="8" class="input_h_width" /></td>
 																<td class="column3"></td>
@@ -1214,18 +1228,6 @@
 																<td width="200" style="text-align:right;">Building</td>
 																<td><input id="form2_employer_building_name" name="form2_employer_building_name" maxlength="40" class="input_l_width" /></td>
 																<td class="column3"></td>
-															</tr>
-															<tr>
-																<td width="200" style="text-align:right;">Postal code (No P.O.Box) <span class="mandatory">*</span></td>
-																<td class="column2-nowidth">
-																	<div style="float:left;">
-																		<input id="form2_employer_postal_code" maxlength="6" name="form2_employer_postal_code" class="postcodeSG" style="width:50px;"/>
-																	</div>
-																	<div>
-																		<a id="form2_employer_postal_code_findbutton" href="javascript:void(0);" class="btn_find_address" style="text-align: center;"><span>Find address</span></a>
-																	</div>
-																</td>
-																<td class="column3"></td>																
 															</tr>
 															<tr>
 																<td width="200" style="text-align:right;">Business type <span class="mandatory">*</span></td>
@@ -1335,7 +1337,7 @@
 																</td>
 																<td class="column3"></td>
 															</tr>
-															<tr>
+															<tr style="display:none;">
 																<td width="200" style="text-align:right;">Submit CPF Online  <span class="mandatory">*</span></td>
 																<td class="column2">
 																	<input id="form2_submit_cpf_no" name="form2_submit_cpf" type="radio" value="No" checked="checked" />
@@ -1378,7 +1380,19 @@
 															<tr>
 																<td width="200" style="text-align:right;">Mailing Address<br/>[Singapore Address Only]</td>
 																<td colspan="2"></td>
-															</tr>																	
+															</tr>
+															<tr>
+																<td width="200" style="text-align:right;">Postal code (No P.O.Box) <span class="mandatory">*</span></td>
+																<td class="column2-nowidth">
+																	<div style="float:left;">
+																		<input id="form2_mailing_postal_code" name="form2_mailing_postal_code" maxlength="6" class="postcodeSG" style="width:50px;"/>
+																	</div>
+																	<div>
+																		<a id="form2_mailing_postal_code_findbutton" href="javascript:void(0);" class="btn_find_address" style="text-align: center;"><span>Find address</span></a>
+																	</div>
+																</td>
+																<td class="column3"></td>																																
+															</tr>															
 															<tr>
 																<td width="200" style="text-align:right;">Block / House no. <span class="mandatory">*</span></td>
 																<td class="column2"><input id="form2_mailing_block_number" name="form2_mailing_block_number" maxlength="8" class="input_h_width" /></td>
@@ -1400,18 +1414,6 @@
 																<td width="200" style="text-align:right;">Building</td>
 																<td><input id="form2_mailing_building_name" name="form2_mailing_building_name" maxlength="40" class="input_l_width" /></td>
 																<td class="column3"></td>
-															</tr>
-															<tr>
-																<td width="200" style="text-align:right;">Postal code (No P.O.Box) <span class="mandatory">*</span></td>
-																<td class="column2-nowidth">
-																	<div style="float:left;">
-																		<input id="form2_mailing_postal_code" name="form2_mailing_postal_code" maxlength="6" class="postcodeSG" style="width:50px;"/>
-																	</div>
-																	<div>
-																		<a id="form2_mailing_postal_code_findbutton" href="javascript:void(0);" class="btn_find_address" style="text-align: center;"><span>Find address</span></a>
-																	</div>
-																</td>
-																<td class="column3"></td>																																
 															</tr>
 														</table>
 													</div>
@@ -1872,7 +1874,13 @@
 														<tr>
 															<td width="200" style="text-align:right;">Home address</td>														
 															<td></td>
-														</tr>													
+														</tr>
+														<tr>
+															<td width="200" style="text-align:right;">Postal code:</td>
+															<td>
+																<div id="pre_form2_postal_code"></div>
+															</td>
+														</tr>														
 														<tr>
 															<td width="200" style="text-align:right;">Block / House no.:</td>
 															<td>
@@ -1895,12 +1903,6 @@
 															<td width="200" style="text-align:right;">Building:</td>
 															<td>
 																<div id="pre_form2_building_name"></div>
-															</td>
-														</tr>
-														<tr>
-															<td width="200" style="text-align:right;">Postal code:</td>
-															<td>
-																<div id="pre_form2_postal_code"></div>
 															</td>
 														</tr>
 														<tr>
@@ -1984,7 +1986,13 @@
 														<tr>
 															<td width="200" style="text-align:right;">Current company address</td>														
 															<td></td>														
-														</tr>																										
+														</tr>
+														<tr>
+															<td width="200" style="text-align:right;">Postal code:</td>
+															<td>
+																<div id="pre_form2_employer_postal_code"></div>
+															</td>
+														</tr>
 														<tr>
 															<td width="200" style="text-align:right;">Block / House no.:</td>
 															<td>
@@ -2007,12 +2015,6 @@
 															<td width="200" style="text-align:right;">Building:</td>
 															<td>
 																<div id="pre_form2_employer_building_name"></div>
-															</td>
-														</tr>
-														<tr>
-															<td width="200" style="text-align:right;">Postal code:</td>
-															<td>
-																<div id="pre_form2_employer_postal_code"></div>
 															</td>
 														</tr>
 														<tr>
@@ -2039,7 +2041,7 @@
 																<div id="pre_form2_annual_income"></div>
 															</td>
 														</tr>
-														<tr>
+														<tr style="display:none;">
 															<td width="200" style="text-align:right;">Submitted CPF online: </td>
 															<td>
 																<div id="pre_form2_submit_cpf"></div>
@@ -2074,7 +2076,13 @@
 														<tr>
 															<td width="200" style="text-align:right;">My billing/mailing address</td>
 															<td></td>																												
-														</tr>																										
+														</tr>
+														<tr>
+															<td width="200" style="text-align:right;">Postal code:</td>
+															<td>
+																<div id="pre_form2_mailing_postal_code"></div>
+															</td>
+														</tr>						
 														<tr>
 															<td width="200" style="text-align:right;">Block / House no.:</td>
 															<td>
@@ -2097,12 +2105,6 @@
 															<td width="200" style="text-align:right;">Building:</td>
 															<td>
 																<div id="pre_form2_mailing_building_name"></div>
-															</td>
-														</tr>						
-														<tr>
-															<td width="200" style="text-align:right;">Postal code:</td>
-															<td>
-																<div id="pre_form2_mailing_postal_code"></div>
 															</td>
 														</tr>						
 													</table>											
@@ -2225,12 +2227,12 @@
 															<label for="form2_submissionType_Print">I will print the completed form myself, then sign and mail it to Standard Chartered.</label>
 														</td>
 													</tr>
-													<tr style="background:none !important;">
+													<!--tr style="background:none !important;">
 														<td style="padding:5px 20px;">
 															<input id="form2_submissionType_Mail" name="form2_submissionType" type="radio" value="M" />
 															<label for="form2_submissionType_Mail">Please send me my completed form. I will sign and mail it back to Standard Chartered.</label>
 														</td>
-													</tr>													
+													</tr-->
 											</table>
 										</div>
 										<br />

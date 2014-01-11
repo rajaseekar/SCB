@@ -778,7 +778,8 @@ function generateXml() {
 	commonXML=commonXML+"\t\t\t<form2_years_in_service><![CDATA["+$('#form2_years_in_service').val()+"]]></form2_years_in_service>\n";
 	commonXML=commonXML+"\t\t\t<form2_months_in_service><![CDATA["+$('#form2_months_in_service').val()+"]]></form2_months_in_service>\n";
 	commonXML=commonXML+"\t\t\t<form2_annual_income><![CDATA["+$('#form2_annual_income').val()+"]]></form2_annual_income>\n";
-	commonXML=commonXML+"\t\t\t<form2_submit_cpf><![CDATA["+$('input[name=form2_submit_cpf]:checked').val()+"]]></form2_submit_cpf>\n";
+//	commonXML=commonXML+"\t\t\t<form2_submit_cpf><![CDATA["+$('input[name=form2_submit_cpf]:checked').val()+"]]></form2_submit_cpf>\n";
+	commonXML=commonXML+"\t\t\t<form2_submit_cpf><![CDATA[N/A]]></form2_submit_cpf>\n";
 
 	commonXML=commonXML+"\t\t\t<form2_mailing_address><![CDATA["+$('input[name=form2_mailing_address]:checked').val()+"]]></form2_mailing_address>\n";
 
@@ -949,7 +950,7 @@ $(document).ready(function(){
         idleTime = 0;
     });	
 	setInterval("timerIncrement()", 1000); // 1 second
-	
+/*	
 	$("#cpf-dialog").dialog({
         bgiframe: true,
         width: 500,
@@ -978,7 +979,7 @@ $(document).ready(function(){
 			}
 		}
 	});
-	
+*/	
 	$('form input.help, form textarea.help').formtips({ 
         tippedClass: 'tipped'
     });
@@ -1454,7 +1455,7 @@ $(document).ready(function(){
 
 	// --- address info
 			form2_block_number: { required: true, minlength: 1, maxlength: 8, alphanumericwith2spec: true },
-			form2_unit_number: { maxlength: 8, validUNIT: true },
+			form2_unit_number: { maxlength: 8 /*, validUNIT: true*/ },
 			form2_street_name: { required: true, minlength: 2, maxlength: 30, alphanumericwith2spec: true },
 			form2_building_name: { maxlength: 30, alphanumericwith2spec: true },
 			form2_postal_code: { required: true, minlength: 6, maxlength: 6, numberonly: true },
@@ -1548,7 +1549,7 @@ $(document).ready(function(){
 	
 	/************************** step 3 ***************************/
 
-	
+/*	
 	$("input[name='form2_submit_cpf']").click(
 		function() {
 			if ($("input[name='form2_submit_cpf']:checked").val() == "Yes"){
@@ -1560,7 +1561,7 @@ $(document).ready(function(){
 			resizeSlider();
 		}
 	);
-	
+*/	
 	$("input[name='form2_mailing_address']").click(
 		function() {
 			if ($("input[name='form2_mailing_address']:checked").val() == "Other") {
@@ -1582,7 +1583,7 @@ $(document).ready(function(){
 			form2_name_of_employer: { required: true, minlength: 2, maxlength: 30, alphanumericwith2spec: true },		
 			form2_nature_of_employment: { required: true, minlength: 1 },
 			form2_employer_block_number: { required: true, minlength: 1, maxlength: 8, alphanumericwith2spec: true },
-			form2_employer_unit_number: { maxlength: 8, validUNIT: true },
+			form2_employer_unit_number: { maxlength: 8 /*, validUNIT: true*/ },
 			form2_employer_street_name: { required: true, minlength: 2, maxlength: 30, alphanumericwith2spec: true },
 			form2_employer_building_name: { maxlength: 30, alphanumericwith2spec: true },
 			form2_employer_postal_code: { required: true, minlength: 6 , maxlength: 6, numberonly: true },
@@ -1592,7 +1593,7 @@ $(document).ready(function(){
 			form2_months_in_service: { required: true, numberonly: true, maxlength: 2, min: 0, max: 12},
 			form2_annual_income: { required: true, number: true, min: 0, maxlength: 15 },
 			form2_mailing_block_number: { required: "#form2_mailing_block_number:visible", minlength: 1, maxlength: 8, alphanumericwith2spec: true },
-			form2_mailing_unit_number: { maxlength: 8, validUNIT: true },
+			form2_mailing_unit_number: { maxlength: 8 /*, validUNIT: true*/ },
 			form2_mailing_street_name: { required: "#form2_mailing_street_name:visible", minlength: 2, maxlength: 30, alphanumericwith2spec: true },
 			form2_mailing_building_name: { maxlength: 30, alphanumericwith2spec: true },
 			form2_mailing_postal_code: { required: "#form2_mailing_postal_code:visible", minlength: 5 , maxlength: 6, numberonly: true }			
@@ -2385,7 +2386,7 @@ $(document).ready(function(){
 		$("#pre_form2_years_in_service").html($("#form2_years_in_service").val() + " year(s) ");
 		$("#pre_form2_months_in_service").html($("#form2_months_in_service").val() + " month(s) ");
 		$("#pre_form2_annual_income").html($("#form2_annual_income").val());
-		$("#pre_form2_submit_cpf").html($("input[name='form2_submit_cpf']:checked").val());
+//		$("#pre_form2_submit_cpf").html($("input[name='form2_submit_cpf']:checked").val());
 
 		if( $("input[name='form2_mailing_address']:checked").val() == "Home" ) {
 			$("#pre_form2_mailing_block_number").html($("#form2_block_number").val());
@@ -2429,14 +2430,14 @@ $(document).ready(function(){
 			$("#pre_form2_pdpa_q"+i).html(form2_pdpa);	
 		}			
 	}
-	
+/*	
 	// CPF Link Validation
 	$("a#cpflink").click(function(){
        $("#cpfLinkClicked").val("true");
        window.open('https://www.cpf.gov.sg/elink/usr/login.asp?loan_code=CRC&stmt_type=15con&bank_id=stdcat10','disWindow','WIDTH=750,HEIGHT=500,toolbar=yes,directories=no,status=yes,scrollbars=yes,resize=no,menubar=no,top=30,left=30');
       });
 	// end Link Validation
-
+*/
 	
 	// form validation
 	$("#form_new_customer_credit_cards_submit").validate({

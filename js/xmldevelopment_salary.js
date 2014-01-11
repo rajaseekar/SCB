@@ -60,7 +60,8 @@ function generateForm() {
 	
 // Bank Info
 	$("#selectedCard").val( $("input[name='form2_submissionType']:checked").val() );
-
+	$("#form2_submit_cpf_text").val( "N/A" );
+	
 	$('#hiddenForm').append('<input type="hidden" id="selectedForms" name="selectedForms" value="sgadvance" >');
 	setTimeout(function(){
 		document.hiddenForm.submit();
