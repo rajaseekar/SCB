@@ -320,7 +320,8 @@ $(function(){
 });
 
 $(function(){
-	$('.swf_upload_file').each(function(){
+
+	$('NOFLASH.swf_upload_file').each(function(){
 		$(this).swfupload({
 			upload_url: "/nfs-ofp-foa/ofpservice.htm",
 			file_size_limit : "5120",
