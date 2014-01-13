@@ -3989,6 +3989,9 @@ $(document).ready(function(){
 		  // We're at the bottom!
 			$('#form2_declaration_help').hide();
 			$('#form2_declaration_control').show();
+			if( jQuery.query.get("TGRType")+"" == "URR" ){
+                $("#form2_declaration_control_2").show();	
+			}
 			resizeSlider();
 		}
 	});
@@ -4313,10 +4316,12 @@ $(document).ready(function(){
 	// form validation
 	$("#form_new_customer_credit_cards_submit").validate({
   		rules: {
-			form2_declaration: { required: true, minlength: 1}
+			form2_declaration: { required: true, minlength: 1},
+			form2_declaration_2: { required: function(element) { return $('#selectedCard').val() == "SG_PVC_TGR" && jQuery.query.get("TGRType")+"" == "URR" }, minlength: 1}
   		},		
 		messages: {
-  			form2_declaration: { required: "Please read and agree to the terms and conditions before submitting the application." }
+  			form2_declaration: { required: "Please read and agree to the terms and conditions before submitting the application." },
+  			form2_declaration_2: { required: "Please read and agree to the Upfront Rewards Plan terms and conditions before submitting the application." }
 		},
 		onfocusout: false,
 		onkeyup: false,
@@ -4327,6 +4332,8 @@ $(document).ready(function(){
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "form2_declaration")
        			error.insertAfter("#lbl_form2_declaration");
+ 			else if (element.attr("name") == "form2_declaration_2")
+       			error.insertAfter("#lbl_form2_declaration_2");
  			else
                 error.appendTo( element.parent().next() );
    		}
@@ -4386,9 +4393,9 @@ $(document).ready(function(){
 
 			}
 			*/
-			$('#spinning-dialog').css('height','290px');
-			$('#pop-up-upload').css('height','250px');
 			$('#spinning-dialog').dialog('open');
+			$('#spinning-dialog').css('height','300px');
+			$('#pop-up-upload').css('height','260px');
 			$('#counter').show();
 			$('#counter').countdown({
               image: 'images/digits.png',
@@ -4438,11 +4445,12 @@ $(document).ready(function(){
 							var regStatus2 = new RegExp("</STATUS>");
 							returnCode = responseText.substring(responseText.search(regStatus1)+8, responseText.search(regStatus2));
 							
-							if(returnID != null && returnID != "" ) {
+							if(returnID != null && returnID != "" && returnID.indexOf("SGR") > -1 ) {
 								//$(".newcard_receipt").append('<span>'+returnID+'</span><br />');
 								$('#FormRefID').val(returnID+"|"+returnCode);
 								$('#FormRefID_AIP').val(returnID);
 								//sendscode(returnID);
+    							//document.location.replace('credit_card_form_thankyou_aip_avt.html?FormRefID='+$('#FormRefID').val()+'&selectedCard='+$('#selectedCard').val());
 								generateForm();
 								//document.location.replace("credit_card_form_thankyou_aip.html?returnCode="+returnCode+"&returnID="+returnID);
 								
