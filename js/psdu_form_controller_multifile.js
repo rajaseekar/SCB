@@ -571,7 +571,7 @@ function resetUiStyle() {
 $(function() {
     $('#uploadForm_multifile').ajaxForm({
     	iframe: true,
-		timeout: 3000,		
+		timeout: 60000,		
         beforeSubmit: function(a,f,o) {
             o.dataType = "html";
             $('#uploadOutput_id_01').html('Submitting...');
