@@ -30,9 +30,9 @@ $(document).ready(function(){
     var FormRefID;
     var selectedCard;
     
-    FormRefID = jQuery.query.get("FormRefID");
+    FormRefID = $.trim(jQuery.query.get("FormRefID"));
     selectedCard = jQuery.query.get("selectedCard");
-
+	$("#pre_form2_refrence").html(FormRefID);
     //console.log('2 FormRefID: '+FormRefID);
     //console.log('2 selectedCard: '+selectedCard);
     
