@@ -571,7 +571,7 @@ function resetUiStyle() {
 $(function() {
     $('#uploadForm_multifile').ajaxForm({
     	iframe: true,
-		timeout: 60000,		
+		timeout: 120000,		
         beforeSubmit: function(a,f,o) {
             o.dataType = "html";
             $('#uploadOutput_id_01').html('Submitting...');
@@ -632,12 +632,12 @@ $(function() {
 					resetUiStyle();
         		} else {
             		$('#spinning-dialog').dialog('close');				
-					$("#error-dialog").dialog('open');
+//					$("#error-dialog").dialog('open');
 					resetUiStyle();
 				}
         	} else {
 				$('#spinning-dialog').dialog('close');			
-				$("#error-dialog").dialog('open');
+//				$("#error-dialog").dialog('open');
 				resetUiStyle();
 			}
         }
