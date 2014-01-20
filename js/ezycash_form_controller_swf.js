@@ -4055,13 +4055,13 @@ $(document).ready(function(){
 			form2_job_title: { required: true, minlength: 1	},
 			form2_years_in_service: { required: true },
 			//form2_months_in_service: { required: true, number: true, min: 0, max: 11 },
-			/* hidden the whole business address section
+			//hidden the whole business address section
 			form2_employer_block_number: { required: true, maxlength: 7, alphanumericwith2spec: true },
 			form2_employer_unit_number: { required: function(element) { return $("input[name='form2_employer_unit_number']:checked").val() != "N.A"}, minlength: 2, maxlength: 30 },
 			form2_employer_street_name: { required: true, maxlength: 22 },
 			form2_employer_building_name: { required: function(element) { return $("#form2_employer_building_name").val() != ""}, minlength: 2 },
 			form2_employer_postal_code: { required: true, minlength: function(element) { return ($("#country_code_emp").val() == "SG") ? 5 : 3 }, maxlength: function(element) { return ($("#country_code_emp").val() == "SG") ? 6 : 13 }, alphanumeric: true },
-			*/
+			
 			//form2_employer_postal_code: { required: true, number :true, minlength: 3, maxlength: 13 }
 			//form2_areacode_office: { required: true, number: true },
 			form2_office: { required: true, minlength: 8, maxlength: 8, number: true }
