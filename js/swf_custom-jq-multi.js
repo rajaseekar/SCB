@@ -323,7 +323,7 @@ $(function(){
 
 	$('NOFLASH.swf_upload_file').each(function(){
 		$(this).swfupload({
-			upload_url: "/nfs-ofp-foa/ofpservice.htm",
+			upload_url: "/nfs-ofp/ofpservice.htm",
 			file_size_limit : "5120",
 			file_types : "*.jpg;*.gif;*.tif;*.pdf;*.png",
 			file_types_description : "All Files",

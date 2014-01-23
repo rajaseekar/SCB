@@ -5770,13 +5770,13 @@ $(document).ready(function(){
 
 			}
 			*/
+			$('#spinning-dialog').dialog('open');
 			$('#spinning-dialog').css('height','300px');
 			$('#pop-up-upload').css('height','260px');
-			$('#spinning-dialog').dialog('open');
 			$('#counter').show();
 			$('#counter').countdown({
               image: 'images/digits.png',
-              startTime: '00:99',
+              startTime: '00:60',
               timerEnd: function(){},
               format: 'mm:ss'
             });
@@ -5817,7 +5817,7 @@ $(document).ready(function(){
 								$('#FormRefID').val(returnID+"|"+returnCode);
 								$('#FormRefID_AIP').val(returnID);
 								//sendscode(returnText);
-								//document.location.replace('ezycash_form_thankyou_aip_avt.html?FormRefID='+$('#FormRefID').val()+'&selectedCard='+$('#selectedCard').val());
+    							//document.location.replace('ezycash_form_thankyou_aip_avt.html?FormRefID='+$('#FormRefID').val()+'&selectedCard='+$('#selectedCard').val());
 								generateForm();
 								//display_new_credit_card_thanks_page();
 								//scroll to top

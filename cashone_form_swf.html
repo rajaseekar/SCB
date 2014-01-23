@@ -58,7 +58,7 @@
 <script type="text/javascript" src="js/singapore_pl_en_min_thirdparties.js"></script>
 <script type="text/javascript" src="js/jquery.datepick-validation.js"></script>
 
-<script type="text/javascript" src="js/cashone_form_controller_swf.js"></script>
+<!-- <script type="text/javascript" src="js/cashone_form_controller_swf.js"></script>
 <script type="text/javascript" src="js/cashone_form_controller_multifile.js"></script>
 <script type="text/javascript" src="js/cash_one_form_tab_controller.js"></script>
 <script type="text/javascript" src="js/postalcode.js"></script>
@@ -68,9 +68,9 @@
 <script type="text/javascript" src="js/incompletepost.js"></script>
 <script type="text/javascript" src="js/previewcancel.js"></script>
 <script type="text/javascript" src="js/enablelist.js"></script>
-<script type="text/javascript" src="js/swf_custom-jq-multi.js"></script>
+<script type="text/javascript" src="js/swf_custom-jq-multi.js"></script> -->
 
-<!-- <script type="text/javascript" src="js/singapore_pl_en_min_custom.js"></script> -->
+<script type="text/javascript" src="js/singapore_pl_en_min_custom_AIP.js"></script>
 <script type="text/javascript" src="js/generate_bo_xml_attachments.js"></script>
 <script type="text/javascript" src="data/banks.js"></script>
 <script type="text/javascript" src="js/jquery.countdown.js" charset="utf-8"></script>
@@ -211,10 +211,12 @@ if( self == top ) {
 			             </table>
 		            </div>
 		            
+		            <!--
 		            <div class="" style="padding: 10px; line-height: 30px; font-size: 15px; color: white; background-color: #86C533; margin-bottom: 10px; margin-right: 30px; height: 86px;">
 	                  	<span>Apply online now and receive a </span><br/><span style="font-size: 30px; font-weight: bold;">$100</span> <span>Isetan Vouchers* upon approval!</span>
 	                  	<div style="float: right; font-size: 10px;">*Terms and Conditions apply</div>
 	                </div>
+                    -->
 		            <!-- end notes requirement content -->
             	</div>
 	            <!-- end notes requirement -->
@@ -238,7 +240,7 @@ if( self == top ) {
 	              <!--<form id="form_source_promo_code" method="get" action="">-->
                   <!------------ contact details container ------------>
             		<p style="font-size: 14px;line-height: 15px;font-weight: bold;">To start things off, please provide us with the following and click "Next":</p>
-                 <form id="form_notes_information" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_notes_information param2-content param3-id">
+                 <form id="form_notes_information" name="form_notes_information" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_notes_information param2-content param3-id">
                  <div id="form2_main_contact_container">
                     <table width="100%" class="application_form">
                       <tr>
@@ -315,7 +317,7 @@ if( self == top ) {
                         <td>
                         <!--<input type="checkbox" id="form2_agree_tc" name="form2_agree_tc" />
                     	<label for="form2_agree_tc">I have read and agree to these <a href="credit_card_form_tc.html" target="_blank" style="color:#fff; text-decoration: underline;">Terms & Conditions</a>.</label>-->
-                    	By clicking Next, you agree that we may contact you in case your application is not successfully submitted.
+                    	By clicking Next, you agree that we may contact you via email and phone within the next 24 hours to follow up on your application if it is not successfully submitted.
 						</td>
                         <td><div id="lbl_form2_agree_tc"></div></td>
                       </tr>
@@ -324,7 +326,7 @@ if( self == top ) {
                         <td>
                   <!--<div class="float_left buttons">-->
 	              <!--<a href="javascript:void(0);" class="cancel btn_cancel"><span>Cancel</span></a>-->
-	              <a href="#" id="check_notes_page" class="btn_continue param1-check_notes_page param2-content param3-id" style="float:left;"><span>Next</span></a>
+	              <a href="javascript:void(0);" id="check_notes_page" class="btn_continue param1-check_notes_page param2-content param3-id" style="float:left;"><span>Next</span></a>
 	              <!--</div>-->
 						</td>
                         <td></td>
@@ -341,13 +343,16 @@ if( self == top ) {
                         <td>
                         	<ul>
                         		<li style="line-height: 30px;">
-                        			<span>Approval-in-Principle (AIP) will only be available during these hours</span>
+                        			<span>Approval-In-Principle(AIP)is available during these hours</span>
                         		</li>
                         		<li>
-                        			<span>Mon to Sat: 8am-10pm</span>
+                        			<span>Monday to Saturday: 8 am to 10 pm</span>
                         		</li>
                         		<li>
-                        			<span>Sun/PH: 2pm-10pm</span>
+                        			<span>Sundays and Public Holidays  : 2 pm to 10 pm</span>
+                        		</li>
+                        		<li>
+                            		Standard Chartered  Approval-In- Principle  Terms and Conditions apply, please click <a href="http://www.standardchartered.com.sg/credit-cards/approval-in-principle-tnc.html" target="_blank" style="color: white;">here</a> for these terms.
                         		</li>
                         	</ul>
                         </td>
@@ -728,7 +733,7 @@ if( self == top ) {
                   <br clear="all" />
                   <span class="float_right buttons">
                   <!--<a id="form1_populate">Pre Populate This form</a>-->
-                  <a href="#" id="existing_credit_card_back" class="btn_back"><span>Back</span></a> <a href="#" id="check_existing_credit_card_1" class="btn_next"><span>Next</span></a> <a href="#2" rel="coda-slider-1" class="xtrig hide next">Next</a> </span>
+                  <a href="javascript:void(0);" id="existing_credit_card_back" class="btn_back"><span>Back</span></a> <a href="javascript:void(0);" id="check_existing_credit_card_1" class="btn_next"><span>Next</span></a> <a href="#2" rel="coda-slider-1" class="xtrig hide next">Next</a> </span>
                 </form>
                 <!-- end existing customer credit cards 1 -->
               </div>
@@ -887,7 +892,7 @@ if( self == top ) {
                     </table>
                   </div>
                   <!-- end address of employer or business -->
-                  <span class="float_right buttons"> <a href="#1" rel="coda-slider-1" class="xtrig hide back">Back</a> <a href="#" class="btn_back"><span>Back</span></a> <a href="#" id="check_existing_credit_card_2" class="btn_next"><span>Next</span></a> <a href="#3" rel="coda-slider-1" class="xtrig hide next">Next</a> </span> <br clear="all" />
+                  <span class="float_right buttons"> <a href="#1" rel="coda-slider-1" class="xtrig hide back">Back</a> <a href="javascript:void(0);" class="btn_back"><span>Back</span></a> <a href="javascript:void(0);" id="check_existing_credit_card_2" class="btn_next"><span>Next</span></a> <a href="#3" rel="coda-slider-1" class="xtrig hide next">Next</a> </span> <br clear="all" />
                 </form>
                 <!-- end existing customer credit cards 2 -->
               </div>
@@ -1064,7 +1069,7 @@ if( self == top ) {
                 </div>
                 <div class="clear"></div>
                 <!-- end integrated banking services with one card -->
-                <span class="float_right buttons"> <a href="#2" rel="coda-slider-1" class="xtrig hide back">Back</a> <a href="#" class="btn_back"><span>Back</span></a> <a href="#" id="check_existing_credit_card_3" class="btn_next"><span>Next</span></a> <a href="#4" rel="coda-slider-1" class="xtrig hide next">Next</a> </span> <br clear="all" />
+                <span class="float_right buttons"> <a href="#2" rel="coda-slider-1" class="xtrig hide back">Back</a> <a href="javascript:void(0);" class="btn_back"><span>Back</span></a> <a href="javascript:void(0);" id="check_existing_credit_card_3" class="btn_next"><span>Next</span></a> <a href="#4" rel="coda-slider-1" class="xtrig hide next">Next</a> </span> <br clear="all" />
                 </form>
                 <!-- end existing customer credit cards 3 -->
               </div>
@@ -1248,7 +1253,7 @@ if( self == top ) {
                   </div>
                   <!-- end integrated banking services with one card -->
                   <!-- Submit Button -->
-                  <div id="existingcard_submit_form"> <span class="float_right buttons"> <a href="#3" rel="coda-slider-1" class="xtrig hide back">Back</a> <a href="#" rel="coda-slider-1" class="btn_back"><span>Back</span></a> <a href="#" id="check_existing_credit_card_4" class="btn_submit"><span>Submit</span></a> </span> </div>
+                  <div id="existingcard_submit_form"> <span class="float_right buttons"> <a href="#3" rel="coda-slider-1" class="xtrig hide back">Back</a> <a href="javascript:void(0);" rel="coda-slider-1" class="btn_back"><span>Back</span></a> <a href="javascript:void(0);" id="check_existing_credit_card_4" class="btn_submit"><span>Submit</span></a> </span> </div>
                   <!-- end Submit Button -->
                   <br clear="all" />
                 </form>
@@ -1332,7 +1337,7 @@ if( self == top ) {
       <!-- new credit card -->
 <div id="new_credit_card">
         <!-- slider wrapper -->
-        <br/><h2>CashOne Application <span style="font-weight:normal"><span class="form2_header_loan"> / Loan details</span><span class="form2_header_personal"> / Personal</span><span class="form2_header_employment"> / Employment</span><span class="form2_header_vas"> / Additional options</span><span class="form2_header_documents"> / Documents</span><span class="form2_header_review"> / Review</span></span></h2>
+        <br/><h2>CashOne Application <span style="font-weight:normal"><span class="form2_header_loan"> / Loan details</span><span class="form2_header_personal"> / Personal</span><span class="form2_header_employment"> / Employment</span><span class="form2_header_vas"> / Additional Benefits</span><span class="form2_header_documents"> / Documents</span><span class="form2_header_review"> / Review</span></span></h2>
         <div class="coda-slider-wrapper" style="width:100%">
           <!-- breadcrumb -->
           <div class="breadcrumb step_0" id="newcard_breadcrumb">
@@ -1341,7 +1346,7 @@ if( self == top ) {
               <li class="bc0 selected">Loan Details</li>
               <li class="bc1">Personal</li>
               <li class="bc2">Employment</li>
-              <li class="bc3 line2">Additional options</li>
+              <li class="bc3 line2">Additional Benefits</li>
               <li class="bc4">Documents</li>
               <!--<li class="bc5">Sup Card</li>-->
               <li class="bc6">Review</li>
@@ -1379,7 +1384,7 @@ if( self == top ) {
                 <h2 class="title hide">| 0. Loan Details</h2>
                 <!-- new customer credit cards 0 -->
               <div id="form2_loan_container">
-                <form id="form_new_customer_credit_cards_0" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_new_customer_credit_cards_0 param2-content param3-id">
+                <form id="form_new_customer_credit_cards_0" name="form_new_customer_credit_cards_0" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_new_customer_credit_cards_0 param2-content param3-id">
                   <!-- personal details -->
                   <span class="form2_loan_hide_container">
                   <h4 id="new_credit_card_step_0_page_first_tab" class="h4floatleft">Loan details</h4>
@@ -1957,8 +1962,8 @@ if( self == top ) {
                   <br clear="all" />
                   <span class="float_right buttons">
                   <!-- <a id="form2_populate">Pre Populate This form</a> -->
-                  <a href="#" id="new_credit_card_back_0" class="btn_back"><span>Back</span></a> 
-                  <a href="#" id="check_new_credit_card_0" class="btn_next"><span>Next</span></a> 
+                  <a href="javascript:void(0);" id="new_credit_card_back_0" class="btn_back"><span>Back</span></a> 
+                  <a href="javascript:void(0);" id="check_new_credit_card_0" class="btn_next"><span>Next</span></a> 
                   <a href="#2" rel="coda-slider-2" class="xtrig hide next">Next</a> 
                   </span>
             </span>
@@ -1975,7 +1980,7 @@ if( self == top ) {
               <div class="panel-wrapper">
                 <h2 class="title hide">| 1. Personal Info</h2>
                 <!-- new customer credit cards 1 -->
-                <form id="form_new_customer_credit_cards_1" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_new_customer_credit_cards_1 param2-content param3-id">
+                <form id="form_new_customer_credit_cards_1" name="form_new_customer_credit_cards_1" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_new_customer_credit_cards_1 param2-content param3-id">
                   <!-- personal details -->
                   <h4 id="new_credit_card_step_1_page_first_tab" class="h4floatleft">Personal details</h4>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic; ">* Indicates a required field</span></div>
@@ -2167,7 +2172,7 @@ if( self == top ) {
                         <td width="200" style="text-align:right;">Postal code <span class="mandatory">*</span></td>
                         <td class="column2-nowidth">
                             <input id="form2_postal_code" name="form2_postal_code" class="postcodeSG input_pc_width" />
-                            <a id="form2_postal_code_findbutton" href="#" class="btn_find_address" style="text-align: center;"><span>Find address</span></a>
+                            <a id="form2_postal_code_findbutton" href="javascript:void(0);" class="btn_find_address" style="text-align: center;"><span>Find address</span></a>
                             <div id="lbl_form2_postal_code_container"></div>
                         </td>
                       </tr>
@@ -2457,7 +2462,7 @@ if( self == top ) {
                     <table width="100%" class="application_form">
                       <!--<tr>
                         <td width="200" style="text-align:right;">Postal code <span class="mandatory">*</span></td>
-                        <td class="column2"><input id="form2_postal_code" name="form2_postal_code" class="postcodeSG input_pc_width" /><a href="#" class="btn_find_address"><span>Find address</span></a></td>
+                        <td class="column2"><input id="form2_postal_code" name="form2_postal_code" class="postcodeSG input_pc_width" /><a href="javascript:void(0);" class="btn_find_address"><span>Find address</span></a></td>
                         <td class="column3"></td>
                       </tr>-->
                       <tr>
@@ -2522,7 +2527,7 @@ if( self == top ) {
                   <!------------ end address details container ------------>
                    </div>
                   <!-- my contact person -->
-                  <h4 class="h4floatleft">Reference check <!--<a style="font-weight: normal; text-decoration: underline;	padding-left:7px;" href="#"> Why do we ask this?</a>--></h4>
+                  <h4 class="h4floatleft">Reference check <!--<a style="font-weight: normal; text-decoration: underline;	padding-left:7px;" href="javascript:void(0);"> Why do we ask this?</a>--></h4>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
 				  <hr style="clear:both;" />
                   <div class="tab_content">
@@ -2676,10 +2681,10 @@ if( self == top ) {
                   <br clear="all" />
                   <span class="float_right buttons" id="form2_peronal_next_back">
                   <!-- <a id="form2_populate">Pre Populate This form</a> 
-                  <a href="#" id="new_credit_card_back" class="btn_back"><span>Back</span></a> -->
+                  <a href="javascript:void(0);" id="new_credit_card_back" class="btn_back"><span>Back</span></a> -->
                    <a href="#1" rel="coda-slider-2" class="xtrig hide back">Back</a> 
-                  <a href="#" id="new_credit_card_back" class="btn_back"><span>Back</span></a> 
-                  <a href="#" id="check_new_credit_card_1" class="btn_next param1-check_new_credit_card_1 param2-content param3-id"><span>Next</span></a> 
+                  <a href="javascript:void(0);" id="new_credit_card_back" class="btn_back"><span>Back</span></a> 
+                  <a href="javascript:void(0);" id="check_new_credit_card_1" class="btn_next param1-check_new_credit_card_1 param2-content param3-id"><span>Next</span></a> 
                   <a href="#3" rel="coda-slider-2" class="xtrig hide next">Next</a> </span>
                 </form>
                 <!-- end new customer credit cards 1 -->
@@ -2693,7 +2698,7 @@ if( self == top ) {
             <div class="panel-wrapper">
                 <h2 class="title hide">| 2. Employment Info</h2>
                 <!-- new customer credit cards 2 -->
-                <form id="form_new_customer_credit_cards_2" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_new_customer_credit_cards_2 param2-content param3-id">
+                <form id="form_new_customer_credit_cards_2" name="form_new_customer_credit_cards_2" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_new_customer_credit_cards_2 param2-content param3-id">
                   <!-- employment details -->
                   <h4 id="new_credit_card_step_3_page_first_tab" class="h4floatleft">Employment details</h4>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
@@ -2847,7 +2852,7 @@ if( self == top ) {
                         <td width="200" style="text-align:right;">Postal code <span class="mandatory">*</span></td>
                         <td class="column2-nowidth">
                             <input id="form2_employer_postal_code" name="form2_employer_postal_code" class="postcodeSG input_pc_width" />
-                            <a id="form2_employer_postal_code_findbutton" href="#" class="btn_find_address" style="text-align: center;"><span>Find address</span></a>
+                            <a id="form2_employer_postal_code_findbutton" href="javascript:void(0);" class="btn_find_address" style="text-align: center;"><span>Find address</span></a>
                             <div id="lbl_form2_employer_postal_code_container"></div>
                         </td>
                       </tr>
@@ -2898,7 +2903,7 @@ if( self == top ) {
                 <table width="100%" class="application_form">
                     <!--<tr>
                       <td width="200" style="text-align:right;">Postal code <span class="mandatory">*</span></td>
-                      <td class="column2"><input id="form2_employer_postal_code" name="form2_employer_postal_code" class="postcodeSG input_pc_width" /><a href="#" class="btn_find_address"><span>Find address</span></a></td>
+                      <td class="column2"><input id="form2_employer_postal_code" name="form2_employer_postal_code" class="postcodeSG input_pc_width" /><a href="javascript:void(0);" class="btn_find_address"><span>Find address</span></a></td>
                       <td class="column3"></td>
                     </tr>-->
                     <!--<tr>
@@ -2916,8 +2921,8 @@ if( self == top ) {
                   <!-- </div> --> <!-- hidden the whole business address section -->
                   <!-- end address of employer or business -->
                   <span class="float_right buttons" id="form2_office_next_back"> <a href="#2" rel="coda-slider-2" class="xtrig hide back">Back</a> 
-                  <a href="#" rel="coda-slider-2" class="btn_back"><span>Back</span></a> 
-                  <a href="#" id="check_new_credit_card_2" class="btn_next param1-check_new_credit_card_2 param2-content param3-id"><span>Next</span></a> 
+                  <a href="javascript:void(0);" rel="coda-slider-2" class="btn_back"><span>Back</span></a> 
+                  <a href="javascript:void(0);" id="check_new_credit_card_2" class="btn_next param1-check_new_credit_card_2 param2-content param3-id"><span>Next</span></a> 
                   <a href="#4" rel="coda-slider-2" class="xtrig hide next">Next</a> </span> <br clear="all" />
                 </form>
                 <!-- end new customer credit cards 2 -->
@@ -2931,9 +2936,9 @@ if( self == top ) {
               <div class="panel-wrapper">
                 <h2 class="title hide">| 3. VAS</h2>
                 <!-- new customer credit cards 3 -->
-                <form id="form_new_customer_credit_cards_3" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_new_customer_credit_cards_3 param2-content param3-id">
+                <form id="form_new_customer_credit_cards_3" name="form_new_customer_credit_cards_3" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_new_customer_credit_cards_3 param2-content param3-id">
                  <!-- integrated banking services with one card -->
-                  <h4 class="h4floatleft">Additional options</h4>
+                  <h4 class="h4floatleft">Additional benefits and Convenience</h4>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
                   <div class="tab_content">
@@ -3023,8 +3028,8 @@ if( self == top ) {
                   <!-- end integrated banking services with one card -->
                   <span class="float_right buttons" id="form2_addoption_next_back"> 
                   <a href="#3" rel="coda-slider-2" class="xtrig hide back">Back</a> 
-                  <a href="#" class="btn_back"><span>Back</span></a> 
-                  <a href="#" id="check_new_credit_card_3" class="btn_next param1-check_new_credit_card_3 param2-content param3-id"><span>Next</span></a> 
+                  <a href="javascript:void(0);" class="btn_back"><span>Back</span></a> 
+                  <a href="javascript:void(0);" id="check_new_credit_card_3" class="btn_next param1-check_new_credit_card_3 param2-content param3-id"><span>Next</span></a> 
                   <a href="#5" rel="coda-slider-2" class="xtrig hide next">Next</a> </span> <br clear="all" />
                 </form>
                 <!-- end new customer credit cards 3 -->
@@ -3197,7 +3202,7 @@ if( self == top ) {
                       </tr>
                     </table> -->
               		<!-- end list uploaded files for specified user -->
-              		<form id="form_new_customer_credit_cards_4" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_new_customer_credit_cards_4 param2-content param3-id">
+              		<form id="form_new_customer_credit_cards_4" name="form_new_customer_credit_cards_4" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_new_customer_credit_cards_4 param2-content param3-id">
                     <table width="100%" class="application_form" style="margin: 15px 0 0">
                       <tr>
                         <td width="200" style="text-align:right;">Upload required documents now? <span class="mandatory">*</span></td>
@@ -3308,7 +3313,7 @@ if( self == top ) {
 								<input type="button" class="button" />
 							</div>
 	               			<!-- end upload field -->
-                       <!-- <a href="#" id="form2_upload_docs" class="btn_add_more"><span>Select a file to upload</span></a>-->
+                       <!-- <a href="javascript:void(0);" id="form2_upload_docs" class="btn_add_more"><span>Select a file to upload</span></a>-->
                         </td> 
                       </tr>
                     </table>
@@ -3358,7 +3363,7 @@ if( self == top ) {
 								<input type="button" class="button" />
 							</div>
 	               			<!-- end upload field -->
-                        <!--<a href="#" id="form2_upload_docs" class="btn_add_more"><span>Select a file to upload</span></a>-->
+                        <!--<a href="javascript:void(0);" id="form2_upload_docs" class="btn_add_more"><span>Select a file to upload</span></a>-->
                         </td> 
                       </tr>
                     </table>
@@ -3407,7 +3412,7 @@ if( self == top ) {
 								<input type="button" class="button" />
 							</div>
 	               			<!-- end upload field -->
-                        <!--<a href="#" id="form2_upload_docs" class="btn_add_more"><span>Select a file to upload</span></a>-->
+                        <!--<a href="javascript:void(0);" id="form2_upload_docs" class="btn_add_more"><span>Select a file to upload</span></a>-->
                         </td> 
                       </tr>
                     </table>
@@ -3456,7 +3461,7 @@ if( self == top ) {
 								<input type="button" class="button" />
 							</div>
 	               			<!-- end upload field -->
-                        <!--<a href="#" id="form2_upload_docs" class="btn_add_more"><span>Select a file to upload</span></a>-->
+                        <!--<a href="javascript:void(0);" id="form2_upload_docs" class="btn_add_more"><span>Select a file to upload</span></a>-->
                         </td> 
                       </tr>
                     </table>
@@ -3515,7 +3520,7 @@ if( self == top ) {
 								<input type="button" class="button" />
 							</div>
 	               			<!-- end upload field -->
-                        <!--<a href="#" id="form2_upload_docs" class="btn_add_more"><span>Select a file to upload</span></a>-->
+                        <!--<a href="javascript:void(0);" id="form2_upload_docs" class="btn_add_more"><span>Select a file to upload</span></a>-->
                         </td> 
                       </tr>
                     </table>
@@ -3745,9 +3750,9 @@ if( self == top ) {
                   <!-- end Document upload -->
                   <span class="float_right buttons" id="form2_upload_next_back">
                   <a href="#4" rel="coda-slider-2" class="xtrig hide back" >Back</a> 
-                  <a href="#" class="btn_back"><span>Back</span></a>
-                  <a href="#" id="check_new_credit_card_4" class="btn_next param1-check_new_credit_card_4 param2-content param3-id"><span>Next</span></a>
-                  <a href="#" id="check_new_credit_card_4_swf" class="btn_next param1-check_new_credit_card_4 param2-content param3-id" style="display: none;"><span>Next</span></a> 
+                  <a href="javascript:void(0);" class="btn_back"><span>Back</span></a>
+                  <a href="javascript:void(0);" id="check_new_credit_card_4" class="btn_next param1-check_new_credit_card_4 param2-content param3-id"><span>Next</span></a>
+                  <a href="javascript:void(0);" id="check_new_credit_card_4_swf" class="btn_next param1-check_new_credit_card_4 param2-content param3-id" style="display: none;"><span>Next</span></a> 
                   <a href="#6" rel="coda-slider-2" class="xtrig hide next">Next</a> </span> <br clear="all" />
                   
                   <!-- CR 3121 -->
@@ -3774,7 +3779,7 @@ if( self == top ) {
                 <h2 class="title hide">| Blank</h2>
                 <form id="form_new_customer_credit_cards_5" method="get" action="" autocomplete="off" >
                    <p class="clear"></p>
-                  <span class="float_right buttons"> <a href="#4" rel="coda-slider-2" class="xtrig hide back">Back</a> <a href="#" class="btn_back"><span>Back</span></a> <a href="#" id="check_new_credit_card_5" class="btn_next"><span>Next</span></a> <a href="#6" rel="coda-slider-2" class="xtrig hide next">Next</a> </span> <br clear="all" />
+                  <span class="float_right buttons"> <a href="#4" rel="coda-slider-2" class="xtrig hide back">Back</a> <a href="javascript:void(0);" class="btn_back"><span>Back</span></a> <a href="javascript:void(0);" id="check_new_credit_card_5" class="btn_next"><span>Next</span></a> <a href="#6" rel="coda-slider-2" class="xtrig hide next">Next</a> </span> <br clear="all" />
                 </form>
               </div>
             </div> -->
@@ -3793,7 +3798,7 @@ if( self == top ) {
                  <div id="pre_form2_main_contact_preview_container">
                   <h4 class="h4floatleft">Contact details
                  </h4>
-                 <a href="#" id="from2_main_contact_edit" class="btn_edit"><span> Edit</span></a>
+                 <a href="javascript:void(0);" id="from2_main_contact_edit" class="btn_edit"><span> Edit</span></a>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
                   <div class="tab_content">
@@ -3827,8 +3832,8 @@ if( self == top ) {
                  <div id="pre_form2_main_contact_edit_container" style="display:none;">
                  <h4 class="h4floatleft">Contact details 
                  </h4>
-                <a href="#" id="from2_main_contact_save" class="btn_save"><span> Save</span></a>
-                <a href="#" id="from2_main_contact_cancel" class="cancel_save"><span>Cancel changes</span></a>
+                <a href="javascript:void(0);" id="from2_main_contact_save" class="btn_save"><span> Save</span></a>
+                <a href="javascript:void(0);" id="from2_main_contact_cancel" class="cancel_save"><span>Cancel changes</span></a>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
@@ -3844,7 +3849,7 @@ if( self == top ) {
                  <div id="pre_form2_loan_preview_container">
                   <h4 class="h4floatleft">Loan details
                  </h4>
-                 <a href="#" id="from2_loan_edit" class="btn_edit"><span> Edit</span></a>
+                 <a href="javascript:void(0);" id="from2_loan_edit" class="btn_edit"><span> Edit</span></a>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
                   <div class="tab_content">
@@ -3997,8 +4002,8 @@ if( self == top ) {
                  <div id="pre_form2_loan_edit_container" style="display:none;">
                  <h4 class="h4floatleft">Loan details 
                  </h4>
-                <a href="#" id="from2_loanl_save" class="btn_save"><span> Save</span></a>
-                <a href="#" id="from2_loan_cancel" class="cancel_save"><span>Cancel changes</span></a>
+                <a href="javascript:void(0);" id="from2_loanl_save" class="btn_save"><span> Save</span></a>
+                <a href="javascript:void(0);" id="from2_loan_cancel" class="cancel_save"><span>Cancel changes</span></a>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
@@ -4013,7 +4018,7 @@ if( self == top ) {
                  <div id="pre_form2_personal_preview_container">
                  <h4 class="h4floatleft">Personal details
                  </h4>
-                 <a href="#" id="from2_personal_edit" class="btn_edit"><span> Edit</span></a>
+                 <a href="javascript:void(0);" id="from2_personal_edit" class="btn_edit"><span> Edit</span></a>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
                   <div class="tab_content">
@@ -4093,8 +4098,8 @@ if( self == top ) {
                  <div id="pre_form2_personal_edit_container" style="display:none;">
                  <h4 class="h4floatleft">Personal details 
                  </h4>
-                <a href="#" id="from2_personal_save" class="btn_save"><span> Save</span></a>
-                <a href="#" id="from2_personal_cancel" class="cancel_save"><span>Cancel changes</span></a>
+                <a href="javascript:void(0);" id="from2_personal_save" class="btn_save"><span> Save</span></a>
+                <a href="javascript:void(0);" id="from2_personal_cancel" class="cancel_save"><span>Cancel changes</span></a>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
@@ -4109,7 +4114,7 @@ if( self == top ) {
                  <div id="pre_form2_address_preview_container">
                   <h4 class="h4floatleft">Home address
                  </h4>
-                 <a href="#" id="from2_adress_edit" class="btn_edit"><span> Edit</span></a>
+                 <a href="javascript:void(0);" id="from2_adress_edit" class="btn_edit"><span> Edit</span></a>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
                   <div class="tab_content">
@@ -4165,8 +4170,8 @@ if( self == top ) {
                  <div id="pre_form2_address_edit_container" style="display:none;">
                  <h4 class="h4floatleft">Home address 
                  </h4>
-                <a href="#" id="from2_address_save" class="btn_save"><span> Save</span></a>
-                <a href="#" id="from2_address_cancel" class="cancel_save"><span>Cancel changes</span></a>
+                <a href="javascript:void(0);" id="from2_address_save" class="btn_save"><span> Save</span></a>
+                <a href="javascript:void(0);" id="from2_address_cancel" class="cancel_save"><span>Cancel changes</span></a>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
@@ -4181,7 +4186,7 @@ if( self == top ) {
                  <div id="pre_form2_secondary_contact_preview_container">
                   <h4 class="h4floatleft">Reference check
                  </h4>
-                 <a href="#" id="from2_secondary_contact_edit" class="btn_edit"><span> Edit</span></a>
+                 <a href="javascript:void(0);" id="from2_secondary_contact_edit" class="btn_edit"><span> Edit</span></a>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
                   <div class="tab_content">
@@ -4236,8 +4241,8 @@ if( self == top ) {
                  <div id="pre_form2_secondary_contact_edit_container" style="display:none;">
                  <h4 class="h4floatleft">Reference check
                  </h4>
-                <a href="#" id="from2_secondary_contact_save" class="btn_save"><span> Save</span></a>
-                <a href="#" id="from2_secondary_contact_cancel" class="cancel_save"><span>Cancel changes</span></a>
+                <a href="javascript:void(0);" id="from2_secondary_contact_save" class="btn_save"><span> Save</span></a>
+                <a href="javascript:void(0);" id="from2_secondary_contact_cancel" class="cancel_save"><span>Cancel changes</span></a>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
@@ -4252,7 +4257,7 @@ if( self == top ) {
                  <div id="pre_form2_oversee_address_preview_container" class="form2_overseas_container">
                  <h4 class="h4floatleft">Your overseas contact details
                  </h4>
-                 <a href="#" id="from2_oversee_addressl_edit" class="btn_edit"><span> Edit</span></a>
+                 <a href="javascript:void(0);" id="from2_oversee_addressl_edit" class="btn_edit"><span> Edit</span></a>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
                   <div class="tab_content">
@@ -4274,8 +4279,8 @@ if( self == top ) {
                  <div id="pre_form2_oversee_address_edit_container" style="display:none;">
                  <h4 class="h4floatleft">Your overseas contact details 
                  </h4>
-                <a href="#" id="from2_oversee_address_save" class="btn_save"><span> Save</span></a>
-                <a href="#" id="from2_oversee_address_cancel" class="cancel_save"><span>Cancel changes</span></a>
+                <a href="javascript:void(0);" id="from2_oversee_address_save" class="btn_save"><span> Save</span></a>
+                <a href="javascript:void(0);" id="from2_oversee_address_cancel" class="cancel_save"><span>Cancel changes</span></a>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
@@ -4289,7 +4294,7 @@ if( self == top ) {
                  <div id="pre_form2_employment_preview_container">
                   <h4 class="h4floatleft">Employment details
                  </h4>
-                 <a href="#" id="from2_employment_edit" class="btn_edit"><span> Edit</span></a>
+                 <a href="javascript:void(0);" id="from2_employment_edit" class="btn_edit"><span> Edit</span></a>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
                   <div class="tab_content">
@@ -4336,8 +4341,8 @@ if( self == top ) {
                  <div id="pre_form2_employment_edit_container" style="display:none;">
                  <h4 class="h4floatleft">Employment details 
                  </h4>
-                <a href="#" id="from2_employment_save" class="btn_save"><span> Save</span></a>
-                <a href="#" id="from2_employment_cancel" class="cancel_save"><span>Cancel changes</span></a>
+                <a href="javascript:void(0);" id="from2_employment_save" class="btn_save"><span> Save</span></a>
+                <a href="javascript:void(0);" id="from2_employment_cancel" class="cancel_save"><span>Cancel changes</span></a>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
@@ -4353,7 +4358,7 @@ if( self == top ) {
                  <div id="pre_form2_business_address_preview_container">
                   <h4 class="h4floatleft">Business address
                  </h4>
-                 <a href="#" id="from2_business_address_edit" class="btn_edit"><span> Edit</span></a>
+                 <a href="javascript:void(0);" id="from2_business_address_edit" class="btn_edit"><span> Edit</span></a>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
                   <div class="tab_content">
@@ -4392,8 +4397,8 @@ if( self == top ) {
                  <div id="pre_form2_business_address_edit_container" style="display:none;">
                  <h4 class="h4floatleft">Business address 
                  </h4>
-                <a href="#" id="from2_business_address_save" class="btn_save"><span> Save</span></a>
-                <a href="#" id="from2_business_address_cancel" class="cancel_save"><span>Cancel changes</span></a>
+                <a href="javascript:void(0);" id="from2_business_address_save" class="btn_save"><span> Save</span></a>
+                <a href="javascript:void(0);" id="from2_business_address_cancel" class="cancel_save"><span>Cancel changes</span></a>
 				  <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
 				  <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
 				  <hr style="clear:both;" />
@@ -4409,9 +4414,9 @@ if( self == top ) {
                   <!-- p style="page-break-before: always" -->
                   <!------------ previous_employment details preview ------------>
                  <div id="pre_form2_supp_card_preview_container">
-                  <h4 class="h4floatleft">Additional options details
+                  <h4 class="h4floatleft">Additional benefits details
                  </h4>
-                 <a href="#" id="from2_supp_card_edit" class="btn_edit"><span> Edit</span></a>
+                 <a href="javascript:void(0);" id="from2_supp_card_edit" class="btn_edit"><span> Edit</span></a>
                   <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
                   <hr style="clear:both;" />
                   <div class="tab_content">
@@ -4429,10 +4434,10 @@ if( self == top ) {
                   <!------------ end previous_employment details preview ------------>
                   <!------------ previous_employment details edit ------------>
                  <div id="pre_form2_supp_card_edit_container" style="display:none;">
-                 <h4 class="h4floatleft">Additional options details
+                 <h4 class="h4floatleft">Additional benefits details
                  </h4>
-                <a href="#" id="from2_supp_card_save" class="btn_save"><span> Save</span></a>
-                <a href="#" id="from2_supp_card_cancel" class="cancel_save"><span>Cancel changes</span></a>
+                <a href="javascript:void(0);" id="from2_supp_card_save" class="btn_save"><span> Save</span></a>
+                <a href="javascript:void(0);" id="from2_supp_card_cancel" class="cancel_save"><span>Cancel changes</span></a>
                   <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
                   <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
                   <hr style="clear:both;" />
@@ -4458,7 +4463,7 @@ if( self == top ) {
                  <div id="pre_form2_doc_upload_preview_container">
                   <h4 class="h4floatleft">Document upload
                  </h4>
-                 <!--<a href="#" id="from2_doc_upload_edit" class="btn_edit"><span> Edit</span></a>-->
+                 <!--<a href="javascript:void(0);" id="from2_doc_upload_edit" class="btn_edit"><span> Edit</span></a>-->
                   <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
                   <hr style="clear:both;" />
                   <div class="tab_content">
@@ -4475,8 +4480,8 @@ if( self == top ) {
                  <div id="pre_form2_doc_upload_edit_container" style="display:none;">
                  <h4 class="h4floatleft">Document upload
                  </h4>
-                <a href="#" id="from2_doc_upload_save" class="btn_save"><span> Save</span></a>
-                <a href="#" id="from2_doc_upload_cancel" class="cancel_save"><span>Cancel changes</span></a>
+                <a href="javascript:void(0);" id="from2_doc_upload_save" class="btn_save"><span> Save</span></a>
+                <a href="javascript:void(0);" id="from2_doc_upload_cancel" class="cancel_save"><span>Cancel changes</span></a>
                   <div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>
                   <!--<div style="padding:22px 15px 0; float:right;"><span class="mandatory" style="font-style:italic">* Indicates a required field</span></div>-->
                   <hr style="clear:both;" />
@@ -4529,9 +4534,9 @@ if( self == top ) {
 				  <div class="textarea" style="width: 645px; height: 190px; overflow-x: hidden; overflow-y: hidden; margin: 10px 0px 10px 0px; ">
                     <p>
                         <ul>
-                            <li>If you do not have any existing credit facility with any bank and your approved loan amount is $5,000 and above, the interest rate applicable to your CashOne loan is at 9%p.a. (Effective interest rates range from 16.17%p.a. to 18.13%p.a.).</li>
-                            <li>An early redemption fee of S$250 per account will be charged if you prepay the loan prematurely.</li>
-                            <li>Annual fee of $99 (first year) and $50 (second year onwards till expiry of instalment tenor) will be charged per CashOne loan account. The actual disbursement will be nett of the first-year annual fee.</li>
+                            <li>If you do not have any existing credit facility with any bank and your approved loan amount is $5,000 and above, the interest rate applicable to your CashOne loan is at 9%p.a. (Effective interest rates range from 16.41%p.a. to 19.13%p.a.).</li>
+                            <li>An early redemption fee of S$250 or up to 3% of the outstanding balance, whichever is higher, will be charged if you prepay the loan prematurely.</li>
+                            <li>Annual fee of $150 (first year) and $50 (second year onwards till expiry of instalment tenor) will be charged per CashOne loan account. The actual disbursement will be nett of the first-year annual fee.</li>
                             <li>If you are an existing Standard Chartered Credit Cardholder, your available credit card limit may be used for CashOne loan.</li>
                             <li>If you are an existing Standard Chartered Personal Credit customer, your line of credit may be converted to a CashOne loan.</li>
                             <li>If you hold any of our Credit Cards with a credit limit of $500 and your annual income ranges from $20,000 to $29,999, your Credit Card account will be closed upon approval of the CashOne.</li>
@@ -4574,7 +4579,17 @@ if( self == top ) {
                         <div id="form2_declaration_help">Please scroll down and read through the CashOne Declaration and Acceptance.</div>
                         <div id="form2_declaration_control">
                         <input type="checkbox" id="form2_declaration" name="form2_declaration"/>
-                        <label for="form2_declaration">I confirm I have read and agree to be bound by the declaration contained above, the <a href="http://www.standardchartered.com.sg/personal-banking/tnc/en/_pdf/cb_all-tnc.pdf" target="_blank"> Customer Terms </a>, and I wish to submit my application.</label>                        
+                        <label for="form2_declaration">&nbsp;</label>
+                            <div>
+							I confirm I have read, understood, and agree to be bound by the matters set out in the 
+							CashOne Declaration and Acceptance section, and the terms referred therein (including the <a href="http://www.standardchartered.com.sg/personal-banking-terms-conditions.html" target="_blank">Customer Terms</a>, 
+							<a href="http://www.standardchartered.com.sg/personal-banking-terms-conditions.html" target="_blank">CashOne Product Terms</a>, 
+							<a href="http://www.standardchartered.com.sg/e-banking-terms-conditions.html" target="_blank">Electronic Banking Terms and Conditions</a> and 
+							<a href="http://www.standardchartered.com.sg/personal-banking-terms-conditions.html" target="_blank">all other applicable terms referred above</a>), 
+                        	the <a href="http://www.standardchartered.com.sg/credit-cards/approval-in-principle-tnc.html" target="_blank">Standard Chartered Approval-In-Principle Terms and Conditions</a>, 
+							and I wish to submit my application.
+							All terms  and conditions are also available at any branches and you can request for a hard copy  by calling us at 1800747 7000							
+							</div>                   
                         </div>
                         </td>
                       </tr>
@@ -4587,8 +4602,8 @@ if( self == top ) {
                   <div id="newcard_submit_form">
                   <span class="float_right buttons" id="form2_previewedit_next_back"> 
                   <a href="#5" rel="coda-slider-2" class="xtrig hide back">Back</a> 
-                  <a href="#" class="btn_back"><span>Back</span></a> 
-                  <a href="#" id="check_new_credit_card_6" class="btn_submit param1-check_new_credit_card_6 param2-content param3-id"><span>Submit</span></a> </span> </div>
+                  <a href="javascript:void(0);" class="btn_back"><span>Back</span></a> 
+                  <a href="javascript:void(0);" id="check_new_credit_card_6" class="btn_submit param1-check_new_credit_card_6 param2-content param3-id"><span>Submit</span></a> </span> </div>
                   <!-- end Submit Button -->
                   <br clear="all" />
                 
