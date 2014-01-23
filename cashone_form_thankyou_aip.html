@@ -45,7 +45,7 @@ $(document).ready(function(){
     }
     
     $("#pre_form2_refid").empty().append(FormRefID);
-    $("#psdu_link").attr("href", $("#psdu_link").attr("href") + FormRefID);
+    $("#psdu_link").attr("href", $("#psdu_link").attr("href") + $.trim(FormRefID));
     uuid = jQuery.query.get("uuid");
 	var fileName = uuid+$('#id').val();
 	$('#id').val('').val(fileName);
@@ -125,8 +125,8 @@ background: none;
         <span class="aip_timeout" style="display: none;">  We are unable to provide you with an  Approval–In-Principle  at the moment. We will process your application and notify you of the outcome in due course.</span>
         <p></p><p></p>
 		<p style="font-size:14px;line-height:18px;font-weight:bold;">You can upload your documents  now if you have not uploaded them earlier.</p>
-		<div style="margin-bottom:10px;">
-			<a href="https://online.forms.standardchartered.com/public_website/singapore/OnlineSalesAIP/doc_upload_form_swf.html" target="_blank">
+		<div style="margin-bottom:10px;width:166px;">
+			<a id="psdu_link" href="https://online.forms.standardchartered.com/public_website/singapore/OnlineSalesAIP/psdu_form_swf.html?formRefID=" target="_blank">
 				<div id="upload_doc_button" class="upload_doc_btn" style="height:30px;" ></div>
 			</a>
 		</div>								
