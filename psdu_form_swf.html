@@ -176,7 +176,6 @@ if( self == top ) {
 				<div style="font-size:20px;color: #86c533;font-weight: bold;">Thank you for submitting your documents.</div>
 				<div style="font-size:14px;color:#aaa;font-weight:bold;line-height:18px;margin-left:2px;margin-top:10px;">
 				You have successfully uploaded your documents. <br/><br/>
-				We will finalize your application as soon as possible and you will hear from us within the next 5 working days.
 				</div>
 			</div>
 		</div>
@@ -206,7 +205,7 @@ if( self == top ) {
 				<tr class="tr_nric" style="display:none;">
 					<td>NRIC: <span class="mandatory"> *</span></td>
 					<td>
-						<input id="form2_nric_number" name="form2_nric_number" class="input_l_width alphanumericwithspec valid" style="float:left;" maxlength="9"/>
+						<input id="form2_nric_number" name="form2_nric_number" class="input_l_width alphanumericwithspec valid" style="float:left;" maxlength="9" autocomplete="off"/>
 						<div class="gray">Example: S5534234E</div>
 					</td>
 					<td>
@@ -219,7 +218,7 @@ if( self == top ) {
 				<tr class="tr_passport" style="display:none;">
 					<td>Passport No.: <span class="mandatory"> *</span></td>
 					<td>
-						<input id="form2_passport_number" name="form2_passport_number" class="input_l_width alphanumericwithspec valid" style="float:left;" maxlength="16"/>
+						<input id="form2_passport_number" name="form2_passport_number" class="input_l_width alphanumericwithspec valid" style="float:left;" maxlength="16" autocomplete="off"/>
 					</td>
 					<td>
 						<div id="lbl_passport_number" class="error_message_box" style="display:none;">
@@ -233,7 +232,7 @@ if( self == top ) {
 					<td>
 						<div>
 							<div style="float:left;">
-								<input id="form2_reference_number" name="form2_reference_number" class="input_l_width alphanumericwithspec valid" style="width:165px;" maxlength="30"/>
+								<input id="form2_reference_number" name="form2_reference_number" class="input_l_width alphanumericwithspec valid" style="width:165px;" maxlength="30" autocomplete="off"/>
 							</div>
 							<div class="hastips" style="float:left;width:25px;">							
 								<img src="images/icon_help.jpg" width="25" height="24" alt="" style="vertical-align:middle;" />							
@@ -327,8 +326,8 @@ if( self == top ) {
 			<thead>
 				<tr>
 					<td width="200">Doc Type</td>
-					<td width="400">Doc Subtype</td>
-					<td width="100">Size</td>
+					<td class="docSubtype" width="400">Doc Subtype</td>
+					<td class="sizeDetectable" width="100">Size</td>
 					<td width="100">&nbsp;</td>
 				</tr>
 			</thead>
@@ -336,13 +335,13 @@ if( self == top ) {
 				<tr id="tr_selected_document1" style="display:none;">
 					<td id="selected_document_doctype1"></td>
 					<td id="selected_document_docsubtype1"></td>
-					<td style="margin-right:10px; text-align:right;" id="selected_document_size1"></td>
+					<td class="sizeDetectable" style="margin-right:10px; text-align:right;" id="selected_document_size1"></td>
 					<td id="selected_document_remove1"><div id="form2_uploadid_01_lista"></div><a id="remove_doc1" class="remove_doc" href="javascript:void(0);">Remove</a></td>
 				</tr>	
 				<tr>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
-					<td>&nbsp;</td>
+					<td class="sizeDetectable">&nbsp;</td>
 					<td>&nbsp;</td>
 				</tr>				
 			</tbody>			
@@ -358,7 +357,7 @@ if( self == top ) {
 			<br style="clear:both;" />	
 			<strong>File Requirements:</strong><br/>
 			<ul style="list-style-type:disc;">
-			<li style="margin-left:20px;">Total size of all files must not exceed 5MB</li>
+			<li style="margin-left:20px;">Total size of all files must not exceed 10MB</li>
 			<li style="margin-left:20px;">We accept PDF, JPG, PNG, GIF and TIFF formats</li>				
 			</ul>
 		</div>
@@ -529,7 +528,7 @@ if( self == top ) {
 									NRIC and Proof of Residence MUST be uploaded as part of your application.
 								</li>
 								<li>
-									Please ensure that your documents are in either PDF, JPG, PNG, GIF or TIFF format. Total file size should not exceed 5MB.
+									Please ensure that your documents are in either PDF, JPG, PNG, GIF or TIFF format. Total file size should not exceed 10MB.
 								</li>
 								<li>
 									You will need a valid <span style="color:red;">SingPass</span> to authorise CPF to release your statement online to Standard Chartered Bank as part of your application. If you do not have a SingPass, please visit https://www.singpass.gov.sg/sppubsvc/req1.html.
@@ -612,7 +611,7 @@ if( self == top ) {
 		
         <div style="clear: both;"></div>
         <div class="buttons-pop">
-            <span><img id="cancelUploadButton" src="images/cancel-upload-button.jpg" width="124" height="28"/></span>
+            <span><img id="cancelUploadButton" src="images/cancel-upload-button.jpg" width="124" height="28" style="display:none;"/></span>
         </div>
         <div id="counter" style="display: none; width: 220px; margin-left: auto; margin-right: auto;"></div>
     </div>

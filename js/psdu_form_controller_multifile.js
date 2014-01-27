@@ -44,11 +44,10 @@ function buildMFObject( MF ) {
 			var ss = 0.1;
 			var s = "-";
 		}
-
 		uploadFilesCount++;
 		MyuploadFilesCount++;
 		totalUploadFileSize = totalUploadFileSize+ss;
-		MytotalUploadFileSize = MytotalUploadFileSize+ss;		
+		MytotalUploadFileSize = MytotalUploadFileSize+ss;
 		$("#tr_selected_document"+MF).show();
 		$("#selected_document_doctype"+MF).html( $("#form2_doc_type option:selected").text() );
 		$("#selected_document_docsubtype"+MF).html( $("#form2_doc_subtype option:selected").text() );
@@ -64,12 +63,33 @@ function buildMFObject( MF ) {
 		$('#uploadForm_id_0'+MF+' .documentnamefield').val("").val( $('#form2_doc_subtype option:selected').val() );
 		$('#uploadForm_id_0'+MF+' .nricpassportnumberfield').val("").val( $('#form2_nric_passport').val() );
 		$('#form2_upload_id_0'+MF).val("").val(option_text_select);
-		$("#uploadForm_id_0"+MF+" .swf_upload_file").css("margin-left","-10000px").css("margin-top","-30px").css("z-index","-1");		
-		roomService();
-		$('#form2_doc_type').val("");				
-		showDocOptions();
-		CUR_UPLOAD=99999;
-		$('#form2_doc_subtype').val("");
+		$("#uploadForm_id_0"+MF+" .swf_upload_file").css("margin-left","-10000px").css("margin-top","-30px").css("z-index","-1");
+		
+		if( ss > 5125000 ) {
+			alert('File size exceeded\n\nWe are only able to upload 5MB for each file.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+			window.setTimeout( function() {
+				$('#form2_doc_type').val("");				
+				showDocOptions();
+				CUR_UPLOAD=99999;
+				$('#form2_doc_subtype').val("");			
+				$("#remove_doc"+MF).click();
+			}, 50);		
+		} else if( MytotalUploadFileSize > totalUploadFileMaxSize ) {			
+			alert('File size exceeded\n\nWe are only able to upload 10MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+			window.setTimeout( function() {
+				$('#form2_doc_type').val("");				
+				showDocOptions();
+				CUR_UPLOAD=99999;
+				$('#form2_doc_subtype').val("");			
+				$("#remove_doc"+MF).click();
+			}, 50);
+		} else {
+			roomService();
+			$('#form2_doc_type').val("");				
+			showDocOptions();
+			CUR_UPLOAD=99999;
+			$('#form2_doc_subtype').val("");			
+		}				
 	};
 	var func_afterfileremove = function(element, value, master_element){
 		$("#uploadForm_id_0"+MF+" .fileinputs").show();
@@ -92,7 +112,7 @@ function buildMFObject( MF ) {
 		uploadFilesCount--;
 		MyuploadFilesCount--;
 		totalUploadFileSize=totalUploadFileSize - parseInt($("#selected_document_size"+MF).attr("filesize"),10);		
-		MytotalUploadFileSize=totalUploadFileSize - parseInt($("#selected_document_size"+MF).attr("filesize"),10);		
+		MytotalUploadFileSize=MytotalUploadFileSize - parseInt($("#selected_document_size"+MF).attr("filesize"),10);		
 		roomService();
 	 };
 	 
@@ -115,7 +135,7 @@ function buildSelectedDocTable() {
 	Html=Html+'<tr id="tr_selected_document'+i+'" style="display:none;">'+
 				'<td id="selected_document_doctype'+i+'"></td>'+
 				'<td id="selected_document_docsubtype'+i+'"></td>'+
-				'<td style="margin-right:10px; text-align:right;" id="selected_document_size'+i+'"></td>'+
+				'<td class="sizeDetectable" style="margin-right:10px; text-align:right;" id="selected_document_size'+i+'"></td>'+
 				'<td id="selected_document_remove'+i+'"><div id="form2_uploadid_0'+i+'_lista"></div><a id="remove_doc'+i+'" class="remove_doc" href="javascript:void(0);">Remove</a></td>'+
 				'</tr>';
 	}
@@ -203,7 +223,7 @@ $(function(){
 // File upload by Flash plugin
 
 var totalUploadFileSize = 0;
-var totalUploadFileMaxSize = 5125000;
+var totalUploadFileMaxSize = 10250000;
 var totalUploadedFileProgress = 0;
 var totalUploadedFileSize = 0;
 var uploadFilesCount = 0;
@@ -224,14 +244,22 @@ $(function(){
 	var listeners = {
 		swfuploadPreLoad: function(event){
 			//console.log('Swf Pre Load');
+			
+// Disable flash plugin for SG			
+/*			
 			$('.lbl_btn_upload_file').remove();
 			$('input:file').remove();
 			//$('.MultiFile-wrap, .upload_file_over').remove();
 			
 			$('#check_new_credit_card_4').remove();
 			$('#check_new_credit_card_4_swf').show();
+*/			
+			$('#check_new_credit_card_4_swf').remove();
+			$('#check_new_credit_card_4').show();			
+// Disable flash plugin for SG		
+			
 			$(".uploadforms").css("margin-top","0");			
-
+	
 		},
 			
 		swfuploadLoaded: function(event){
@@ -246,7 +274,7 @@ $(function(){
 			//console.log('Total file size: '+totalUploadFileSize);
 			if( totalUploadFileSize > totalUploadFileMaxSize ) {
 				$(this).swfupload('cancelUpload', file.id);
-				alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+				alert('File size exceeded\n\nWe are only able to upload 10MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
 			} else {
 
 				var n = CUR_UPLOAD;
@@ -280,7 +308,7 @@ $(function(){
 			$('.log', this).append('<li>File queue error - '+message+'</li>');
 			//console.log('fileQueueError',event, file, errorCode, message);
 			if( message == 'File size exceeds allowed limit.' ) {
-				alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+				alert('File size exceeded\n\nWe are only able to upload 10MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
 			}
 			if( message == 'File is not an allowed file type.') {
 				alert("Incorrect file type detected\n\nYour file "+file.name+" is not supported. We are only able to accept the following formats: PDF, JPG, PNG, GIF and TIFF.");
@@ -417,7 +445,7 @@ $(function(){
 
 			upload_url: ((window.location.hostname.toLowerCase().indexOf("localhost") > -1) ? "/uploadswf.php" : "/nfs-ofp/ofpservice.htm"),
 			
-			file_size_limit : "5120",
+			file_size_limit : "10240",
 			file_types : "*.jpg;*.gif;*.tif;*.pdf;*.png;*.jpeg",
 			file_types_description : "All Files",
 			file_upload_limit : "0",
@@ -539,18 +567,20 @@ function resetUiStyle() {
 }
 
 (function($) {
-$.fn.ajaxSubmit.debug = true;
-
-$(document).ajaxError(function(ev,xhr,o,err) {
-    if (window.console && window.console.log) console.log(err);
-});
 
 $(function() {
     $('#uploadForm_multifile').ajaxForm({
     	iframe: true,
+		timeout: 120000,		
         beforeSubmit: function(a,f,o) {
             o.dataType = "html";
             $('#uploadOutput_id_01').html('Submitting...');
+			$.fn.ajaxSubmit.debug = true;
+			$(document).ajaxError(function(ev,xhr,o,err) {
+				$('#spinning-dialog, #login-dialog').dialog('close');												
+				$('#error-dialog').dialog('open');
+				resetUiStyle();
+			});
         },
         success: function(data) {
         	var noerror = true;
@@ -567,7 +597,7 @@ $(function() {
         	            	return false;
         	            } else if( errorcode == "EMF02"  ) {
 							$('#spinning-dialog').dialog('close');
-							alert('File size exceeded\n\nWe are only able to upload 5MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
+							alert('File size exceeded\n\nWe are only able to upload 10MB at any one time.\nPlease review your document file size before trying again. You can also try to rescan at a lower resolution, or upload the next file by using this site again.','Sorry!');
         	            	noerror = false;
         	            	return false;
         	            } else if( errorcode == "EMF03"  ) {
@@ -602,12 +632,12 @@ $(function() {
 					resetUiStyle();
         		} else {
             		$('#spinning-dialog').dialog('close');				
-					$("#error-dialog").dialog('open');
+//					$("#error-dialog").dialog('open');
 					resetUiStyle();
 				}
         	} else {
 				$('#spinning-dialog').dialog('close');			
-				$("#error-dialog").dialog('open');
+//				$("#error-dialog").dialog('open');
 				resetUiStyle();
 			}
         }

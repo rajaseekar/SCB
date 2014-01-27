@@ -1760,9 +1760,9 @@ $(document).ready(function(){
 		}
 		
 	});
-	$('#form2_upload_address_01').change(function() {
-		if( $('#form2_upload_address_01selectedfile').val() != '' ) {
-			$('#form2_upload_address_01selectedfile').val('').val( $('#form2_upload_address_01 option:selected').text() );
+	$('#form2_upload_for_01').change(function() {
+		if( $('#form2_upload_for_01selectedfile').val() != '' ) {
+			$('#form2_upload_for_01selectedfile').val('').val( $('#form2_upload_for_01 option:selected').text() );
 		}
 	});
 	
@@ -5841,7 +5841,7 @@ $(document).ready(function(){
 			$('#counter').show();
 			$('#counter').countdown({
               image: 'images/digits.png',
-              startTime: '00:99',
+              startTime: '00:60',
               timerEnd: function(){},
               format: 'mm:ss'
             });
