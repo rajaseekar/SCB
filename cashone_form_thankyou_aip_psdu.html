@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Standard Chartered Bank (Singapore) Limited</title>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta name="description" content="Standard Chartered Bank (Singapore) Limited" />
+<meta name="keywords" content="Standard Chartered Bank (Singapore) Limited" />
+<meta name="author" content="Standard Chartered Bank (Singapore) Limited" />
+<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+<link href="css2011/default-2011.css" rel="stylesheet" type="text/css" />
+<link href="css/default-cc.css" rel="stylesheet" type="text/css" />
+<link href="css2011/default-cashone-2011.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 6]>
+<link href="css2011/default-ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if IE 7]>
+<link href="css2011/default-ie7.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-query-string.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var loopcheck;
+    var uuid;
+    var FormRefID;
+    var selectedCard;
+    
+    returnString = jQuery.query.get("FormRefID"); // AIP
+    FormRefID = returnString.split("|")[0];  // AIP
+    returnCode = returnString.split("|")[1];  // AIP
+    selectedCard = jQuery.query.get("selectedCard");
+
+    if(returnCode == "ACCEPT") {
+    	$(".aip_accept").show();
+    } else if(returnCode == "REFER") {
+    	$(".aip_refer").show();
+    } else if(returnCode == "DECLINE") {
+    	$(".aip_decline").show();
+    } else if(returnCode == "TIMEOUT") {
+    	$(".aip_timeout").show();
+    }
+    
+    $("#pre_form2_refid").empty().append(FormRefID);
+    $("#psdu_link").attr("href", $("#psdu_link").attr("href") + $.trim(FormRefID));
+    uuid = jQuery.query.get("uuid");
+	var fileName = uuid+$('#id').val();
+	$('#id').val('').val(fileName);
+    
+//    $('#thanks_left span').hide();
+    
+    // check if doc upload number > 0
+	/* no need to hide right hand bar, AIP time table
+    var numberOfDocsUploaded = parseInt(jQuery.query.get("numberOfDocsUploaded"));
+    if( numberOfDocsUploaded > 0 ) {
+        $('#thanks_right').hide();
+        $('#thanks_left').css('width','820px');
+        $('#new_credit_card_thanks_page').css('background','transparent none repeat-x scroll 0 0');
+    }
+	*/
+    
+    $('#print-pdf-button-2').click(function(){
+        $('#print-pdf-form').submit();
+    });
+    
+});
+</script>
+<style type="text/css">
+.aip_accept, aip_refer, .aip_decline, .aip_timeout {display: inline;}
+#upload_doc_button.upload_doc_btn:hover {
+background:transparent url(images/upload_doc_now1.png) no-repeat scroll 0 0;
+}
+#upload_doc_button.upload_doc_btn {
+background:transparent url(images/upload_doc_now1.png) no-repeat scroll 0 -30px;
+}
+#new_credit_card_thanks_page {
+background: none;
+}
+</style>
+</head>
+<body>
+<noscript><div style="width: 100%; height: 2200px;font-family: sans-serif; font-size: 22px; text-align: center;margin: 50px; padding: 20px; line-height: 30px;">Your browser does not support JavaScript, the form has been disabled.<br />Please enable the Javascript engine in your browser.</div></noscript>
+<!-- page container -->
+<div id="page_container">
+  <!-- header -->
+  <div id="header">
+    <div id="topbg"><a href="http://www.standardchartered.com.sg/en/index_web.html"><img src="images/scb_logo.gif" width="277" height="69" style="margin-top:24px" /></a></div>
+<!--    <div id="sbclogo"></div>-->
+    <div id="topline"></div>
+  </div>
+  <!-- end header -->
+  <!-- content -->
+  <div id="content">
+    <!-- content padding -->
+    <div class="content_padding">
+      <!-- landing page -->
+      <!-- end landing page -->
+      <!-- notes page -->
+      <!-- end notes page -->
+      <!-- existing credit card thanks page -->
+      <!-- end existing credit card thanks page -->
+      <!-- existing credit card -->
+      <!-- end existing credit card -->
+      <!-- new credit card thanks page -->
+	<div id="new_credit_card_thanks_page">
+            <!-- div class="form_new_print_button float_right" style=""> <a href="javascript:doprint('cc_new');" class="btn_print"><span>Print</span></a> </div -->
+            <!--        <h1>Thank you for your Standard Chartered Card application!</h1>-->
+            <div class="thanks_page">
+ 			    <!-- thank you page left column -->
+            	<div id="thanks_left">
+				<span>Thank you for applying online</span><br /><br />
+		        <span class="aip_accept" style="display: none;">You have successfully  submitted  your application for the </span>
+		        <span class="aip_refer" style="display: none;">You have successfully  submitted  your application for the </span>
+		        <span class="aip_decline" style="display: none;">You have successfully  submitted  your application for the </span>
+		        <span class="aip_timeout" style="display: none;">You have successfully  submitted  your application for the </span>
+		        
+		        <strong>CashOne<span class="aip_refer aip_decline aip_timeout" style="display: none;">.</span></strong>
+		        
+        <span class="aip_accept" style="display: none;"> and your application has been Approved-In-Principle. A formal  approval is still subject to the  Bank's final review and receipt of your full set of supporting documents (Please refer to the grey box on the right for what these are). This Approval-In-Principle is  valid only for 30 days  during which you must submit all supporting documents to the Bank for processing</span>
+        <span class="aip_refer" style="display: none;">   We are unable to provide you with an  Approval–In-Principle  at the moment. We will process your application and notify you of the outcome in due course.</span>
+        <span class="aip_decline" style="display: none;">  We are unable to provide you with an  Approval–In-Principle  at the moment. We will process your application and notify you of the outcome in due course.</span>
+        <span class="aip_timeout" style="display: none;">  We are unable to provide you with an  Approval–In-Principle  at the moment. We will process your application and notify you of the outcome in due course.</span>
+        <p></p><p></p>
+		<p style="font-size:14px;line-height:18px;font-weight:bold;">You can upload your documents  now if you have not uploaded them earlier.</p>
+		<div style="margin-bottom:10px;width:166px;">
+			<a id="psdu_link" href="https://online.forms.standardchartered.com/public_website/singapore/OnlineSalesAIP/psdu_form_swf.html?formRefID=" target="_blank">
+				<div id="upload_doc_button" class="upload_doc_btn" style="height:30px;" ></div>
+			</a>
+		</div>								
+        <div style="font-size: 10pt; line-height: 14pt;">
+            If you are not uploading any documents, and wish to submit CPF statement online to support your application, please click on the link below.
+            <p><a href="https://apps.standardchartered.com/forms/sg/cpf.jsp">https://apps.standardchartered.com/forms/sg/cpf.jsp</a></p>
+            After submitting  your CPF statement,  please fax or email your  IC copy (Front and Back) to (65) 6305 1787. You can also submit your income documents via this fax number if you are not submitting CPF Statement online or did not upload any documents.
+        </div> 
+        <!-- end manhattan platinum card -->
+            		<div style="font-size:10pt; margin-bottom: 20px;"><br />Your reference number for the application is 
+                    <div class="newcard_receipt_off" id="pre_form2_refid" style="display:inline; font-weight:bold;"></div>
+                    <form id="print-pdf-form" method="post" action="/FormProcessor/loadFile" target="_blank">
+	                    <input type="hidden" id="id" name="id" value="sgplenaip.pdf"/>
+	                    <input type="hidden" id="whatFile" name="whatFile" value="PDF"/>
+	                    <input type="hidden" id="callback" name="callback" value="callback"/>
+	                    <div id="print-pdf-button-2"><a id="print-pdf-button_a">Save application as PDF</a></div>
+						<div style="height: 100px; font-size:10pt;">For security reasons, please <div style="text-decoration: underline; display: inline;">clear your browser’s cache</div>. 
+    	                    For more information, you can refer to the <a href="http://www.standardchartered.com.sg/help-centre/faqs-ways-to-bank.html" target="_blank">security tips</a>.
+    	               </div>
+                    </div>
+	                </form>
+
+	                
+	                <iframe src="https://www.surveygizmo.com/s3/1139629/osnpssgpl" style="width:350px; height:250px; border: 0 solid black; overflow-x: hidden; overflow-y: hidden; background-color: white; padding: 0; margin: 0;" frameBorder="0"></iframe>
+	                
+         	</div>
+  			    <!-- end thank you page left column -->
+ 			    <!-- thank you page right column -->
+  	         	<div id="thanks_right">
+            		<div id="thanks_right_top">
+            			<p><strong>What happens next?</strong></p>
+            			If you have not uploaded your documents with the application, please provide us with the following documents at the earliest possible:
+            			<ul class="document-listing">
+            				<li>
+                            Copy of NRIC (Front & Back) or <br />Passport 
+                            </li>
+                            <li>
+                            Copy of current month's or previous month's computerized pay slip from current employer (last 3 months payslips if you are a commission earner and not an employee) or 
+                            </li>
+                            <li>
+                            Copy of 6 months&#146; CPF contribution history statement (This is compulsory if you do not have any other credit facilities from any banks) or
+                            </li>
+                            <li>
+                            Copy of Income Tax Notice of Assessment (Reflecting at least 1 month&#146;s income earned from current employer)
+                            </li>
+            			</ul>
+            		</div>
+            		<div id="thanks_right_row1">
+             			<p><strong>Bring the documents to a branch</strong></p>
+            			<a href="http://www.standardchartered.com.sg/branch-directory/en/" target="_blank">Find the closest branch</a>
+           			</div>
+             		<div class="thanks_right_line"></div>
+	           		<div id="thanks_right_row2">
+              			<p><strong>Fax the documents to us at</strong></p>
+            			+65 6305 1787
+	           		</div>
+	           		<div class="thanks_right_line"></div>
+                    <div id="thanks_right_row3">
+                        <p><strong>Email your supporting documents to</strong></p>
+                        cards.documents@sc.com
+                    </div>
+						<div class="thanks_right_line"></div>
+					<div id="thanks_right_row4" style="padding: 10px 15px;">
+                        <p><strong>Approval-In-Principle(AIP)is available during these hours</strong></p>
+                        <span>Monday to Saturday: 8 am to 10 pm<br />Sundays and Public Holidays  : 2 pm to 10 pm</span>
+                    </div>
+            		<div id="thanks_right_bottom">
+            		</div>
+			
+            	</div>
+ 			    <!-- end thank you page right column -->
+            </div><br>
+            <br>
+            <div style="clear: both;"></div>
+            <!-- footer -->
+            <div id="footer">
+                <!-- footer padding -->
+                <div class="padding">
+                <p style="font-style:italic;color:#333333;font-size:11px;text-align:right;clear:both">This form is best viewed on IE 8.0, Firefox 4.0, Safari and Chrome.</p>
+                  <hr class="footer" />
+                  <!-- alternate footer -->
+                  <div class="float_right"> <a href="http://www.standardchartered.com.sg/about-us/en/">About Us</a> | <a href="http://investors.standardchartered.com/">Investor Relations</a> | <a href="http://www.standardchartered.com/sustainability" target="_blank">Sustainability</a> | <a href="http://www.standardchartered.com/about-us/global-network/en/index.html" target="_blank">Worldwide Locations</a> </div>
+                  <!-- end alternate footer -->
+                  Copyright &copy; 2013 Standard Chartered Bank &nbsp;&nbsp;&nbsp; <a href="http://www.standardchartered.com.sg/terms-conditions/en/" target="_blank">Terms &amp; Conditions</a> | <a href="http://www.standardchartered.com.sg/data-protection-privacy-policy/en/" target="_blank">Data Protection &amp; Privacy Policy</a> </div>
+                <!-- end footer padding -->
+            </div>
+            <!-- end footer -->
+        </div>
+      <!-- end new credit card thanks page -->
+      <!-- new credit card -->
+      <!-- end new credit card -->
+    </div>
+    <!-- end content padding -->
+  </div>
+  <!-- end content -->
+
+</div>
+<!-- end page container -->
+
+<div id="tempReturn" style="display: none;"></div>
+<div id="dialog-confirm"></div>
+<script type="text/javascript" src="js/thankyou_page_c2c_tracker_cashone.js"></script>
+
+<!-- Zac request on 14 Jun 2012 -->
+<!-- Google Code for SCB Brand Campaigns - Applications Conversion Page
+-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1015185862;
+var google_conversion_language = "en";
+var google_conversion_format = "2";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "nNPnCIqPiAMQxoOK5AM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript"  
+src="https://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt=""  
+src="https://www.googleadservices.com/pagead/conversion/1015185862/?valu
+e=0&amp;label=nNPnCIqPiAMQxoOK5AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- Zac request on 14 Jun 2012 -->
+
+<!-- Patrick Kelly request on 27 Dec 2012 -->
+<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: SG | CashOne Thank You Page
+URL of the webpage where the tag is expected to be placed: https://apps1.standardchartered.com/public_website/singapore/OnlineSales/cashone_form_thankyou.html
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 12/24/2012
+-->
+<script type="text/javascript">
+var FormRefID = jQuery.query.get("FormRefID");
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://3451801.fls.doubleclick.net/activityi;src=3451801;type=casho494;cat=casho284;u1=['+FormRefID+'	];ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://3451801.fls.doubleclick.net/activityi;src=3451801;type=casho494;cat=casho284;u1=[refid	];ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+<!-- Patrick Kelly request on 27 Dec 2012 -->
+
+<!-- Adobe Digital Marketing Suite Tag Management code
+Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+More info available at http://www.adobe.com -->
+<script type="text/javascript" src="../_tracking/s_code.js"></script>
+<!-- End Adobe Digital Marketing Suite Tag Management code -->
+
+</body>
+</html>

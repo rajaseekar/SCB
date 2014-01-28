@@ -119,19 +119,14 @@ $(function() {
         });
 });
 
-function isIE9() {
-	var IE9 = false;
+function isIE9_IE10() {
 	if (navigator.appName == "Microsoft Internet Explorer") {
 		var ua = navigator.userAgent;
-		var re = new RegExp("MSIE ([0-9]{1,}[.0-9]{0,})");
-		if (re.exec(ua) != null) {
-			ieVersion = parseInt(RegExp.$1);
-		}
-		if(ieVersion == 9) {
-			IE9 = true;
+		if(ua.indexOf("MSIE 9") > -1 || ua.indexOf("MSIE 10") > -1) {
+			return true;
 		}
 	}
-	return IE9;
+	return false;
 }
 
 function validFormID( FormRefID ) {
