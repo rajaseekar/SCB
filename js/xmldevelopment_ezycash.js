@@ -1,19 +1,19 @@
 function generateForm() {
 		if ($("input[name='form2_nature_of_employment']:checked").val() == "Salaried"){
 			if ($("input[name='form2_nationality']:checked").val() == "Singaporean" ) {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip.html">');
+	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_psdu.html">');
 			} else if ( $("input[name='form2_nationality']:checked").val() == "Singapore Permanent Resident" ) {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip.html">');
+	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_psdu.html">');
  			} else {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_f.html">');
+	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_f_psdu.html">');
 			}
 		} else {
 			if ($("input[name='form2_nationality']:checked").val() == "Singaporean" ) {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_ss.html">');
+	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_ss_psdu.html">');
 			} else if ( $("input[name='form2_nationality']:checked").val() == "Singapore Permanent Resident" ) {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_ss.html">');
+	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_ss_psdu.html">');
 			} else {
-	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_fs.html">');
+	$('#hiddenForm').append('<input type="hidden" name="thankYouPage" id="thankYouPage" value="/public_website/singapore/OnlineSales/ezycash_form_thankyou_aip_fs_psdu.html">');
 			}
 		}
 	$('#hiddenForm').append('<input type="hidden" name="formXSD" value="FALSE">');
@@ -255,7 +255,8 @@ $(document).ready(function(){
 	$('#hiddenForm').append('<input type="hidden" name="selectedCard" id="selectedCard">');
 	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR122">'); // prod
 	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR473">'); // AIP SIT
-	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR482">'); // AIP PROD
+	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR482">'); // AIP PROD
+	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR488">'); // AIP PROD UVT
 	$('.formidfield').val( $('#formId').val() );
 	$('#hiddenForm').append('<input type="hidden" name="numberOfDocsUploaded" id="numberOfDocsUploaded">');
 	display_notes_page();
