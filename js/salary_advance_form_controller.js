@@ -823,8 +823,8 @@ function generateXml() {
 		commonXML=commonXML+"\t\t\t<form2_os_saving_current_account></form2_os_saving_current_account>\n";		
 	}
 
-	commonXML=commonXML+"\t\t\t<form2_os_combined_statement><![CDATA[I want to apply for the Combined Statement Service]]></form2_os_combined_statement>\n";	
-	commonXML=commonXML+"\t\t\t<form2_os_ibanking><![CDATA[I want to apply for Standard Chartered Internet Banking and Phone Banking]]></form2_os_ibanking>\n";	
+	commonXML=commonXML+"\t\t\t<form2_os_combined_statement><![CDATA[I will get a consolidated statement]]></form2_os_combined_statement>\n";	
+	commonXML=commonXML+"\t\t\t<form2_os_ibanking><![CDATA[I will get Standard Chartered Internet Banking and Phone Banking]]></form2_os_ibanking>\n";	
 
 	if ($("input[name='form2_os_go_green']").is(":checked")) {	
 		commonXML=commonXML+"\t\t\t<form2_os_go_green><![CDATA[I wish to Go Green with eStatement and do not wish to receive paper statements]]></form2_os_go_green>\n";	
@@ -1805,17 +1805,20 @@ $(document).ready(function(){
 		}	
 	);
 
-	var form2_os_combined_statement = "I want to apply for the Combined Statement Service.";
-	var form2_os_ibanking = "I want to apply for Standard Chartered Internet Banking and Phone Banking.";
-
+	var form2_os_combined_statement = "You will get a consolidated statement.";
+	var form2_os_ibanking = "You will get Standard Chartered Internet Banking and Phone Banking.";
+	
+	$(".form2_os_go_green_div").hide();
 	var form2_os_go_green = "";
 	$("input[name='form2_os_go_green']").click(
 		function() {
 			if ($("input[name='form2_os_go_green']").is(":checked")) {
 				form2_os_go_green = "I wish to Go Green with eStatement and do not wish to receive paper statements.";
+				$(".form2_os_go_green_div").show();				
 			} 
 			else {
 				form2_os_go_green = "";
+				$(".form2_os_go_green_div").hide();
 				$(this).blur();
 			}
 			resizeSlider();			
