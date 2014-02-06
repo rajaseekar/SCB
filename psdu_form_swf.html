@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Standard Chartered Bank (Singapore) Limited</title>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta name="description" content="Standard Chartered Bank (Singapore) Limited" />
+<meta name="keywords" content="Standard Chartered Bank (Singapore) Limited" />
+<meta name="author" content="Standard Chartered Bank (Singapore) Limited" />
+<!--<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+<link href="css2011/default-2011.css" rel="stylesheet" type="text/css" />
+<link href="css/default-cc.css" rel="stylesheet" type="text/css" />
+<link href="css2011/default-listeffect.css" rel="stylesheet" type="text/css" />
+<link href="css2011/default-swfupload.css" rel="stylesheet" type="text/css" />
+<link href="css2011/popup-progress.css" rel="stylesheet" type="text/css" />-->
+
+<link href="css2011/singapore_cc_en_min_css.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 6]>
+<link href="css2011/default-ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if IE 7]>
+<link href="css2011/default-ie7.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="css/custom-theme-glass-blueAndGreen/jquery-ui-1.7.2.custom.css"/>
+<!-- jquery core -->
+<!--[if IE 6]><link href="css2011/popup-progress-ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+<!--[if IE 7]><link href="css2011/popup-progress-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->    
+    
+<!--<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="js/coda_slider.js"></script>-->
+
+<!--<script type="text/javascript" src="js/datepicker.js"></script>
+<script type="text/javascript" src="js2011/jquery.validate.1.7.js"></script>
+<script type="text/javascript" src="js2011/additional-methods.js"></script>
+<script type="text/javascript" src="js/populate.js"></script>
+<script type="text/javascript" src="js/custom_input.js"></script>
+<script type="text/javascript" src="js/highlight.js"></script>
+<script type="text/javascript" src="js/jquery-query-string.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
+<script type="text/javascript" src="js/jquery.metadata.js"></script>
+<script type="text/javascript" src="js/jquery.MultiFile.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.formtips.1.2.1.crack.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery.popupWindow.js"></script>
+<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
+<script type="text/javascript" src="js/lib/swfupload/swfupload.js"></script>
+<script type="text/javascript" src="js/lib/swfupload/plugins/swfupload.queue.js"></script>
+<script type="text/javascript" src="js/lib/swfupload/plugins/swfupload.swfobject.js"></script>
+<script type="text/javascript" src="js/lib/swfupload/jquery.swfupload.js"></script>-->
+<script type="text/javascript" src="js/singapore_doc_en_min_thirdparties.js"></script>
+
+<!-- controller to trigger jQuery functions -->
+<script type="text/javascript" src="js/psdu_form_controller.js"></script>
+<script type="text/javascript" src="js/psdu_form_controller_multifile.js"></script>
+
+<style type="text/css">
+html{display : none ; }
+/*.h4floatleft {color:#86e533;font-size:18px;}*/
+.h4floatleft {color:#808080;font-size:18px;}
+.gray {color:#ccc; font-size:10px; clear:both; padding-left:10px;}
+.error_message_box { 
+	border: 1px solid #ff9e9e;
+	background-color: #ffffe0;
+	width:180px;
+	float:right;
+}
+.error_message {
+	display:block;
+	float: left;
+	background: url(images/error_left.gif) 0 5px no-repeat;
+	color: #ea5900;
+	font-weight: bold;
+	font-style: normal;
+	line-height: 20px;
+	padding: 9px 5px 9px 40px;
+	border: none!important;
+	width: 122px;
+	z-index: 10;
+	position: relative;
+	left: -10px;
+	top: 0;
+	margin-left:0px;
+}
+#login_page input {text-transform: uppercase;}
+#doc_upload_message_box { padding: 10px 2px; clear:both; color:#F00; font-weight:bold;}
+#doc_selection_table tr > td { padding:0 10px 0 0;}
+#selected_documents_table thead > tr > td {color:#FFF; background-color:#2474A8;}
+#selected_documents_table tr > td { padding:0 10px;}
+.remove_doc {float:left; color:#005d9a; font-size: 9pt; margin-left:10px;}
+.MultiFile-title, .MultiFile-label {display:none;}
+#login_page, #main_content, #thanks_page { margin-left:10px;}
+.lbl_btn_upload_file { float:none !important;margin: -15px 0 0 0;}
+.uploadforms {margin-top:-10px;}
+
+#pop-up-upload, #pop-up-upload-error, #pop-up-general, #pop-up-login {height:auto;}
+
+div.hastips {
+	text-decoration: none;
+	vertical-align: middle;
+}
+div.hastips:hover {
+	position: relative;
+}
+div.hastips span.tips {
+	display: none;
+}
+div.hastips:hover span.tips {
+	border: #c0c0c0 1px dotted;
+	padding: 5px 20px 5px 5px;
+	display: block;
+	text-align: left;
+	z-index: 100;
+	background: #f0f0f0 no-repeat 100% 5%; 
+	left: 0px;
+	margin: 10px;
+	width: 155px;
+	position: absolute;
+	top: 10px;
+	text-decoration: none;
+}
+#general-dialog .buttons-pop, #pop-up-login .buttons-pop {
+	cursor: pointer;
+	bottom: 12px;
+	height: 30px;
+	_bottom: 10px;
+	display: block;
+	position: absolute;
+	width: 429px;
+}
+#pop-up-general, #pop-up-login {
+	height: 207px;
+	_height: 208px;
+	position: absolute;
+	left: 50%;
+	z-index: 10;
+	margin: -3px 0 0 -232px;
+	padding: 18px 16px 16px 16px;
+	width: 427px;
+	border: 1px solid #e1e0df;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	background: url("images/bg-popup.jpg") 0 bottom repeat-x #F2F2F2;
+}
+
+#pop-up-general h2.green, #pop-up-login h2.green {
+	color: #94C533;
+}
+
+</style>
+<script type="text/javascript">
+if( self == top ) {
+    document.documentElement.style.display = 'block' ;
+} else {
+    top.location = self.location ;
+}
+</script>
+</head>
+<body>
+<noscript><div style="width: 100%; height: 2200px;font-family: sans-serif; font-size: 22px; text-align: center;margin: 50px; padding: 20px; line-height: 30px;">Your browser does not support JavaScript, the form has been disabled.<br />Please enable the Javascript engine in your browser.</div></noscript>
+<div id="page_container">
+	<div id="header">
+		<div id="topbg"><a href="http://www.standardchartered.com.sg/en/index_web.html"><img src="images/scb_logo.gif" width="277" height="69" style="margin-top:24px" /></a></div>
+		<div id="topline"></div>
+	</div>
+	<div id="thanks_page" style="display:none;">
+		<div id="thanks_left" style="width:570px;height:200px;background:none;padding-left:10px;">
+		<!--h4 id="new_credit_card_step_4_page_first_tab" class="h4floatleft" style="clear:both;margin:0;float:none;">Post Submission Document Upload</h4-->		
+			<div style="height:10px;clear:both;padding:20px 0 0 50px;">
+				<div style="font-size:20px;color: #86c533;font-weight: bold;">Thank you for submitting your documents.</div>
+				<div style="font-size:14px;color:#aaa;font-weight:bold;line-height:18px;margin-left:2px;margin-top:10px;">
+				You have successfully uploaded your documents. <br/><br/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="login_page">
+		<h4 id="new_credit_card_step_4_page_first_tab" class="h4floatleft">SUBMIT YOUR SUPPORTING DOCUMENTS</h4>
+		<br style="clear:both;" />
+		<div style="border:1px solid #CCC; width:580px;padding:10px;float:left;margin-top:10px;">
+			<table width="100%" class="application_form">
+				<tr>
+					<td width="110">Residency status: <span class="mandatory"> *</span></td>
+					<td>
+						<select id="form2_id_type" name="form2_id_type" style="width:230px;">
+							<option selected="selected" value="">Please Select</option>
+							<option value="SINGAPOREAN">Singaporean</option>
+							<option value="SINGAPORE-PR">Singapore Permanent Resident</option>							
+							<option value="FOREIGNER">Foreigner</option>
+						</select>
+					</td>
+					<td>
+						<div id="lbl_id_type" class="error_message_box" style="display:none;">
+							<div class="error_message"></div>
+						</div>
+					</td>
+				</tr>
+
+				<tr class="tr_nric" style="display:none;">
+					<td>NRIC: <span class="mandatory"> *</span></td>
+					<td>
+						<input id="form2_nric_number" name="form2_nric_number" class="input_l_width alphanumericwithspec valid" style="float:left;" maxlength="9" autocomplete="off"/>
+						<div class="gray">Example: S5534234E</div>
+					</td>
+					<td>
+						<div id="lbl_nric_number" class="error_message_box" style="display:none;">
+							<div class="error_message"></div>						
+						</div>						
+					</td>
+				</tr>			
+				
+				<tr class="tr_passport" style="display:none;">
+					<td>Passport No.: <span class="mandatory"> *</span></td>
+					<td>
+						<input id="form2_passport_number" name="form2_passport_number" class="input_l_width alphanumericwithspec valid" style="float:left;" maxlength="16" autocomplete="off"/>
+					</td>
+					<td>
+						<div id="lbl_passport_number" class="error_message_box" style="display:none;">
+							<div class="error_message"></div>						
+						</div>						
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Reference No.: <span class="mandatory"> *</span></td>
+					<td>
+						<div>
+							<div style="float:left;">
+								<input id="form2_reference_number" name="form2_reference_number" class="input_l_width alphanumericwithspec valid" style="width:165px;" maxlength="30" autocomplete="off"/>
+							</div>
+							<div class="hastips" style="float:left;width:25px;">							
+								<img src="images/icon_help.jpg" width="25" height="24" alt="" style="vertical-align:middle;" />							
+								<span class="tips">The Reference No. can be found in the Thank You email that would have been sent during your application submission.</span>
+							</div>
+						</div>
+						<div class="gray">Example: SGR49-123456</div>						
+					</td>
+					<td>
+						<div id="lbl_reference_number" class="error_message_box" style="display:none;">
+							<div class="error_message">
+							</div>
+						</div>						
+					</td>
+				</tr>
+			
+				<tr>
+					<td colspan="3">
+						<span class="float_right" id="form2_upload_next_back">
+							<a href="javascript:void(0);" id="check_new_credit_card_1" class="btn_next param1-check_new_credit_card_1 param2-content param3-id"><span>Next</span></a>
+						</span>				
+					</td>
+				</tr>
+			
+			</table>
+		</div>
+
+		<div style="border:3px solid #999; width:300px;padding:10px;float:right;margin-top:10px;">
+		This site allows you to upload your supporting documents to complete your application. Please enter the information requested to begin. 
+		<br/><br/>
+		As this is a secured site, all the provided details are encrypted to protect your privacy.	
+		
+		</div>
+
+	</div>
+	<div id="main_content" style="display:none;">
+		<h4 id="new_credit_card_step_4_page_first_tab" class="h4floatleft">UPLOAD YOUR SUPPORTING DOCUMENTS</h4>
+		<div id="doc_upload_message_box">
+		</div>
+
+		<table id="doc_selection_table" style="border:none !important;">
+			<tr>
+				<td style="vertical-align:top;">
+					<select id="form2_doc_type" name="form2_doc_type">
+						<option selected="selected" value="">Please select doc type</option>
+						<option value="ID_PROOF">Proof of ID</option>
+						<option value="INCOME_PROOF">Proof of income</option>
+						<option value="SUPP_PROOF">Proof of ID (supplementary card)</option>
+						<option value="ADDR_PROOF">Proof of residential address</option>
+					</select>			
+				</td>
+				<td style="vertical-align:top;">
+					<select id="form2_doc_subtype" name="form2_doc_subtype" style="width:430px;">
+						<option class="select" selected="selected" value="">Please select doc subtype</option>
+					</select>						
+				</td>
+				<td style="vertical-align:top;">
+					<form enctype="multipart/form-data" method="POST" action="/nfs-ofp/ofpservice.htm" id="uploadForm_multifile" class="uploadForm" autocomplete="off">							
+					<input type="hidden" id="uploadForm_multifile_status" name="uploadForm_multifile_status" />		
+<!--
+					<div class="uploadforms" id="uploadForm_id_01" >
+						<div style="display:none !important;">
+							<div id="form2_uploadid_01_list" class="swf_filenamelist" style="display:none;"></div>
+						</div>
+						<div class="swf_upload_file fileinputs btn_upload_file fileinputs_id" style="margin-left:-10000px;margin-top:0px;z-index:-1;">
+							<input type="file" class="file" id="form2_uploadid_01" name="form2_uploadid_01" style="width:150px; margin-left:0px;"/>															
+							<label for="form2_uploadid_01" class="lbl_btn_upload_file">
+								<span class="form2_uploadid_01_a_file">
+									<span class="upload_file">Select a file to upload</span>
+									<span class="upload_file_over" style="text-decoration:underline; display:none;">Select a file to upload</span>
+								</span>
+							</label>
+							<input type="button" class="button">
+						</div>
+						<input type="hidden" class="formidfield" name="formid">
+						<input type="hidden" class="nricpassportnumberfield" name="nricpassportnumber">
+						<input type="hidden" class="documentnamefield" name="documentname">
+						<input type="hidden" id="uploadfile0refid" name="uploadfile1refid" value="" class="uploadfileredidgroup">
+						<input type="hidden" id="uploadOutputStatus_id_01" name="uploadOutputStatus_id_01">
+						<input type="hidden" id="form2_upload_id_01selectedfile" name="form2_upload_id_01selectedfile" class="selectedfile" value="">
+						<div id="uploadOutput_id_01" style="display: none;" class="errorMessageContainer_upload"></div>
+					</div>
+-->
+					</form>
+				</td>
+			</tr>	
+		</table>
+
+		<br style="clear:both;" />
+		<table id="selected_documents_table" border="1">
+			<thead>
+				<tr>
+					<td width="200">Doc Type</td>
+					<td class="docSubtype" width="400">Doc Subtype</td>
+					<td class="sizeDetectable" width="100">Size</td>
+					<td width="100">&nbsp;</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="tr_selected_document1" style="display:none;">
+					<td id="selected_document_doctype1"></td>
+					<td id="selected_document_docsubtype1"></td>
+					<td class="sizeDetectable" style="margin-right:10px; text-align:right;" id="selected_document_size1"></td>
+					<td id="selected_document_remove1"><div id="form2_uploadid_01_lista"></div><a id="remove_doc1" class="remove_doc" href="javascript:void(0);">Remove</a></td>
+				</tr>	
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td class="sizeDetectable">&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>				
+			</tbody>			
+		</table>		
+		<br style="clear:both;" />
+		<span class="float_right" id="form2_upload_next_back" style="margin-right:50px;">
+			<a href="javascript:void(0);" id="check_new_credit_card_4" class="btn_submit param1-check_new_credit_card_4 param2-content param3-id" style="background: url(images/btn_upload_now.gif) no-repeat 0 -30px;width:132px;"><span>Upload now</span></a>
+			<a href="javascript:void(0);" id="check_new_credit_card_4_swf" class="btn_submit param1-check_new_credit_card_4 param2-content param3-id" style="display: none;background: url(images/btn_upload_now.gif) no-repeat 0 -30px;width:132px;"><span>Upload now</span></a>  
+		</span> 
+		<br style="clear:both;" />
+		<div id="important_note">
+		<div><strong>Important Notes:</strong></div>
+			<br style="clear:both;" />	
+			<strong>File Requirements:</strong><br/>
+			<ul style="list-style-type:disc;">
+			<li style="margin-left:20px;">Total size of all files must not exceed 10MB</li>
+			<li style="margin-left:20px;">We accept PDF, JPG, PNG, GIF and TIFF formats</li>				
+			</ul>
+		</div>
+		<br style="clear:both;" />
+		<div id="notes_documents" style="height:auto;">
+			<!-- notes document message -->
+			<div id="notes_document_message">
+				<div id="notes_document_message_padding">
+					<img src="images/requirement_document.gif"><br>Now you can conveniently<br>upload documents online!<br><span style="font-size: 12px;">Here is what you'll need:</span>
+				</div>
+			</div>
+			<!-- end notes document_message -->
+			<!-- short notes document lists -->
+			
+			<!-- end short notes document lists -->
+			<!-- notes document lists -->
+			<div id="notes_document_lists" class="document_list1">
+				<table id="notes_document_table_lists">
+					<tbody><tr id="notes_document_table_row" style="height: 140px;">
+						<td valign="top" width="50%" style="padding-right: 20px;">
+							<p style="font-weight: bold;">Singapore Citizens and Permanent Residents</p>
+							<ul id="short_notes_document_lists_left" class="document-listing" style="display: block;">
+								<li>
+									Copy of NRIC (front and back) 
+								</li>
+								<!--<li>
+									Copy of Passport
+								</li>-->
+								<li>
+									For salaried (any one from below)
+								</li>
+							</ul>
+							<div id="short_document-listing-link_left" class="document-listing-link" style="display: block;"><a>Show Details</a></div>
+							<ul id="notes_document_lists_left" class="document-listing" style="display: none;">
+								<li>
+									Copy of NRIC (front and back) 
+								</li>
+								<!--<li>
+									Copy of Passport
+								</li>-->
+								<li>
+									For salaried (any one from below)
+									<ul class="document-listing">
+										<li>
+										Copy of current or previous month's computerized pay slip (last 3 months payslips if you are a commission earner and not a salaried employee)
+										</li>
+										<li>
+										Copy of 6 months’ CPF contribution history statement (This is compulsory if you do not have any other credit facilities from any banks)
+										<br>Please click <a href="http://www.standardchartered.com.sg/online-form/cpf-statement/index.html" target="_blank">here</a> for a guide on how to retrieve your CPF Contribution History Statement
+										</li>
+										<li>
+										Copy of Income Tax Notice of Assessment (Reflecting at least 1 month’s income earned from current employer)
+										</li>
+									</ul>
+								</li>
+								<li>
+									For self-employed
+									<ul class="document-listing">
+										<li>
+										Copy of Income Tax Notice of Assessment (Minimum of 2 years in business is compulsory)
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div id="document-listing-link_left" class="document-listing-link-hide" style="display: none;"><a>Hide</a></div>
+						</td>
+						<td id="document-listing_vbar_short" style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(85, 85, 85); display: table-cell;">&nbsp;</td>
+						<td id="document-listing_vbar_long" style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(85, 85, 85); display: none;">&nbsp;</td>
+						<td valign="top">
+							<p style="font-weight: bold;">Foreigners</p>
+							<ul id="short_notes_document_lists_right" class="document-listing" style="display: block;">
+								<li>
+									Copy of Passport
+								</li>
+								<li>
+									Copy of Employment Pass (front and back)
+								</li>
+								<li>
+									For salaried (any of the following)                                              
+								</li>
+							</ul>
+							<div id="short_document-listing-link_right" class="document-listing-link" style="display: block;"><a>Show Details</a></div>
+							<ul id="notes_document_lists_right" class="document-listing" style="display: none;">
+								<li>
+									Copy of Passport
+								</li>
+								<li>
+									Copy of Employment Pass (front and back)
+								</li>
+								<li>
+									For salaried (any one from below)
+									<ul class="document-listing">
+										<li>
+										Copy of current month's or previous month's computerized pay slip from current employer
+										</li>
+										<li>
+										Copy of Income Tax Notice of Assessment (Reflecting at least 1 month’s income earned from current employer)
+										</li>
+									</ul>
+								</li>
+								<li>
+									For self-employed
+									<ul class="document-listing">
+										<li>
+										Copy of Income Tax Notice of Assessment (Minimum of 2 years in business is compulsory)
+										</li>
+									</ul>
+								</li>
+								<li>
+									You must also provide any of the following documents as proof of your Singapore address
+									<ul class="document-listing">
+										<li>
+										Latest Utility bills (electricity, water, refuse collection), rates or tax bills
+										</li>
+										<li>
+										Latest Bank or Credit Card statements (including e-statement)
+										</li>
+										<li>
+										Copy of Rental agreements showing your address
+										</li>
+										<li>
+										Latest Mobile phone statements / pay TV statement
+										</li>
+										<li>
+										Letter from Employer stating current address
+										</li>
+										<li>
+										Government issued documents stating address (e.g. IRAS, CPF, ICA)
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<div id="document-listing-link_right" class="document-listing-link-hide" style="display: none;"><a>Hide</a></div>
+						</td>
+					</tr>
+					<tr>
+						<td id="documents-reference" colspan="3" style="display: none;">
+							<span style="font-size: 10px; font-style: italic;">* Must reflect at least 1 month’s income earned from current employer.</span>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div id="notes_document_lists" class="document_list2">
+				<table id="notes_document_table_lists">
+					<tbody><tr id="notes_document_table_row">
+						<td valign="top" width="50%" style="padding-right: 20px;">
+							<ul id="notes_document_lists_left" class="document-listing">
+							  <li>Copy of NRIC (front and back) </li>
+							  <li>
+							  Proof of Residence (any one from below)
+							<ul id="notes_document_lists_left" class="document-listing">
+								<li>
+									Utility Bill from SP Services (any one from the last 3 months)
+								</li>
+								<li>
+									Telco Bill from M1, Starhub, or Singtel (any one from the last 3 months)
+								</li>
+								<li>
+									Bank Statement from another licensed bank in Singapore (any one from the last 3 months)
+								</li>
+							</ul>
+							  </li>
+							</ul>
+							<p style="font-weight: bold;">Important Information:</p>
+							<ul id="notes_document_lists_left" class="document-listing">
+								<li>
+									NRIC and Proof of Residence MUST be uploaded as part of your application.
+								</li>
+								<li>
+									Please ensure that your documents are in either PDF, JPG, PNG, GIF or TIFF format. Total file size should not exceed 10MB.
+								</li>
+								<li>
+									You will need a valid <span style="color:red;">SingPass</span> to authorise CPF to release your statement online to Standard Chartered Bank as part of your application. If you do not have a SingPass, please visit https://www.singpass.gov.sg/sppubsvc/req1.html.
+								</li>
+							</ul>
+						</td>
+					</tr>	
+				</tbody></table>
+			</div>
+
+			<div id="notes_document_list" class="document_list3">
+				<table id="notes_document_table_lists">
+					<tbody><tr id="notes_document_table_row">
+						<td valign="top" width="50%" style="padding-right: 20px;">
+							<p style="font-weight: bold; padding-bottom: 0px;">Singapore Citizens and Permanent Residents</p>
+							<ul id="short_notes_document_lists_left" class="document-listing">
+								<li>
+									Copy of NRIC (front and back) 
+								</li>
+								<li>
+									CPF Authorisation
+								</li>
+							</ul>
+							<p style="font-weight: bold; padding-bottom: 0px;">Important Information:</p>
+							<ul id="notes_document_lists_left" class="document-listing">
+								<li>
+									You will need a valid <span style="color:red;">SingPass</span> to authorise CPF to release your statement online to Standard Chartered Bank as part of your application. If you do not have a SingPass, please visit https://www.singpass.gov.sg/sppubsvc/req1.html.
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td id="documents-reference" colspan="3" style="display: none;">
+							<span style="font-size: 10px; font-style: italic;">* Must reflect at least 1 month’s income earned from current employer.</span>
+						</td>
+					</tr>
+					<tr style="padding-top: 10px;">
+						<td colspan="3">
+							<div class="blue_box">
+							<strong>Don’t have the documents handy?</strong> You can still complete the online form and either fax or drop off the documents at any one of our branches at your convenience.
+							</div>
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			<!-- end notes document lists -->
+			
+			
+			
+		</div>		
+
+	</div>
+	<div id="footer">
+		<div class="padding">
+	  <p style="font-style:italic;color:#333333;font-size:11px;text-align:right;clear:both">This form is best viewed on IE 8.0, Firefox 4.0, Safari and Chrome.</p>
+		  <hr class="footer" />
+		  <div class="float_right"> <a href="http://www.standardchartered.com.sg/about-us/en/">About Us</a> | <a href="http://investors.standardchartered.com/">Investor Relations</a> | <a href="http://www.standardchartered.com/sustainability" target="_blank">Sustainability</a> | <a href="http://www.standardchartered.com/about-us/global-network/en/index.html" target="_blank">Worldwide Locations</a> </div>
+		  Copyright &copy; 2013 Standard Chartered Bank &nbsp;&nbsp;&nbsp; <a href="http://www.standardchartered.com.sg/terms-conditions/en/" target="_blank">Terms &amp; Conditions</a> | <a href="http://www.standardchartered.com.sg/data-protection-privacy-policy/en/" target="_blank">Data Protection &amp; Privacy Policy</a> </div>
+	</div>
+</div>
+
+<div id="tempReturn" style="display: none;"></div>
+<div id="dialog-confirm"></div>
+<div style="display: none;"><form id="cancelForm" name="cancelForm"></form></div>
+<div id="spinning-dialog" style="padding: 0; display:none;">
+    <div id="pop-up-upload">
+        <div class="wrap-img">
+            <h2>Please wait, we are uploading your documents...</h2>
+            <p>This may take some time if the document size is too large or if too many users are uploading documents at the same time. Thank you for your patience.</p>
+            <div class="clear"></div>
+        </div>
+        <div class="loader">
+            <img src="images/ajax-loader.gif" alt=""  />
+        </div>
+        <div class="note-box">
+            <h3>Did you know?</h3>
+            <p id="note-box-message1" style="display:none;">Your card comes with access to special cardholder privileges, SMS and email alerts. You can find out more about this via our website.</p>
+            <p id="note-box-message2" style="display:none;">You can use SMS and email alerts to keep yourself updated and reduce the chance of fraudulent activity on your loan account. You can find out more about this via our website.</p>			 
+        </div>
+		
+        <div style="clear: both;"></div>
+        <div class="buttons-pop">
+            <span><img id="cancelUploadButton" src="images/cancel-upload-button.jpg" width="124" height="28" style="display:none;"/></span>
+        </div>
+        <div id="counter" style="display: none; width: 220px; margin-left: auto; margin-right: auto;"></div>
+    </div>
+</div>
+<div id="login-dialog" style="padding: 10px; display:none;">
+    <div id="pop-up-login">
+        <div class="wrap-img">
+            <h2>Please wait, we are verifying your information...</h2>
+            <p>This may take some time if the system is busy or network is slow. Thank you for your patience.</p>
+            <div class="clear"></div>
+        </div>
+        <div class="loader">
+            <img src="images/ajax-loader.gif" alt=""  />
+        </div>
+        <div style="clear: both;"></div>
+        <div class="buttons-pop" style="display:none;">
+            <span><img id="cancelLoginButton" src="images/cancel-upload-button.jpg" width="124" height="28"/></span>
+        </div>
+    </div>
+</div>
+<div id="completed-dialog" style="padding: 0; display:none;">
+    <div id="pop-up-upload-completed">
+        <div class="wrap-img">
+            <h2 class="green">Documents uploaded</h2>
+            <p>Your documents have been successfully uploaded.</p>
+            <div class="clear"></div>
+        </div>
+    
+        <div class="buttons-pop padding-top-pop button-right">
+            <p><img id="completedUploadButton" src="images/btn_okk.jpg" width="58" height="25"/></p>
+        </div>
+    </div>
+</div>
+<div id="error-dialog" style="padding: 0; display:none;">
+	<div id="pop-up-upload-error">
+	    <div class="wrap-img popuperror">
+	        <h2 class="red normalerror">Upload error encountered</h2>
+	        <h2 class="red viruserror" style="display: none;">Sorry, your documents could not be uploaded due to a file virus</h2>
+            <p>&nbsp;</p>
+            <p class="normalerror">There was an unexpected upload error encountered while trying to upload your documents, do try again. If the issue persists, we request you to close the browser and re-launch the site, using the link from your email.</p>
+            <p class="viruserror" style="display: none;">You can submit your documents via fax or at a branch. Alternatively, you can scan the files to identify and remove the virus and apply again.</p>
+            <p>&nbsp;</p>
+            <!--p>To continue without uploading the documents, click 'Next'.</p-->
+            <p>&nbsp;</p>
+            <p>To retry uploading your documents, click 'Try Again'.</p>
+            <!--p class="viruserror" style="display: none;">To re-apply later, click 'Try Again'.</p-->
+	        <div class="clear"></div>
+	    </div>
+	    <div class="buttons-pop button-right ">
+	        <span class="left">
+	           <img id="errorTryButton" class="normalerror" src="images/try-againbutton.jpg" width="86" height="28"/>
+	           <!--img id="errorTryButton" class="viruserror" src="images/try-againbutton.jpg" width="86" height="28" style="display:none;"/-->
+	        </span>
+	        <!--p><img id="errorNextButton" src="images/nex-button.jpg" width="71" height="27"/></p-->
+	    </div>
+	</div>
+</div>
+
+<div id="general-dialog" style="padding: 0 10px 0 10px; display:none;">
+	<div id="pop-up-general" style="height:auto !important;">
+        <div class="wrap-img" style="padding-bottom:40px;">
+            <div style="height:30px;"><h2 class="green"><span id="general-heading">Documents uploaded</span></h2></div>
+            <div id="general-message" style="height:50px;">Your documents have been successfully uploaded.</div>
+            <div class="clear"></div>
+        </div>
+    
+        <div class="buttons-pop button-right" style="height:30px;">
+            <p><img id="generalButton" src="images/btn_okk.jpg" width="58" height="25"/></p>
+        </div>	
+	</div>
+</div>
+
+<div style="display:none;">
+	<form id="hiddenForm" name="hiddenForm">
+		<input type="hidden" name="form2_refid" id="form2_refid" value="" />
+		<input type="hidden" name="form2_product" id="form2_product" value="" />
+		<input type="hidden" name="form2_nric_passport" id="form2_nric_passport" value="" />		
+		<input type="hidden" name="form2_fullrefid" id="form2_fullrefid" value="" />
+		<input type="hidden" name="formId" id="formId" value=""/>				
+	</form>
+</div>	
+</body>
+</html>
