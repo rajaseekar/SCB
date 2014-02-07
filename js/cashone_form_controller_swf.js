@@ -2486,7 +2486,7 @@ $(document).ready(function(){
 				display_new_credit_card_page();
 				$("#form2_name_on_card").attr("value",($("input[name=form2_first_name]").val() + " " + $("input[name=form2_name]").val()));
 				// Send Leads Function
-				//sendLeads();
+				sendLeads();
 			}
 			return false;
 
