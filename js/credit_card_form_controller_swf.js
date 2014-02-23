@@ -4407,6 +4407,7 @@ $(document).ready(function(){
 			window.onbeforeunload = null;
 			//$("#form2_xml").hide();
 			//$("#new_credit_card").hide();
+			onCompleted();
 			var formxml = generateXml();
 			formxml = formxml.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "");
 			formxmlArr = formxml.split("<eform FID=\""+$('#formId').val()+"\">");
