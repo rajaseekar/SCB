@@ -2860,57 +2860,57 @@ $(document).ready(function(){
                 $('#upsell40k').hide();
 				if ( loan_tenure == 12 ) {
 					if( requested_amount_input <= 4999 ) {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 27.56;
 					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 19.34;
 					} else {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 16.01;
 					}
 				} else if ( loan_tenure == 24 ) {
 					if( requested_amount_input <= 4999 ) {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 23.14;
 					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 17.76;
 					} else {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 15.35;
 					}
 				} else if ( loan_tenure == 36 ) {
 					if( requested_amount_input <= 4999 ) {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 22.99;
 					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 16.63;
 					} else {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 14.39;
 					}
 				} else if ( loan_tenure == 48 ) {
 					if( requested_amount_input <= 4999 ) {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 21.80;
 					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 16.08;
 					} else {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 14.06;
 					}
 				} else if ( loan_tenure == 60 ) {
 					if( requested_amount_input <= 4999 ) {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 20.92;
 					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 15.16;
 					} else {
-						interest_rate = 5.98;
+						interest_rate = 5.68;
 						effective_rate = 12.75;
 					}
 				}
