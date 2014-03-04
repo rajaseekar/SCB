@@ -1461,7 +1461,7 @@ $(document).ready(function(){
 				display_new_credit_card_page();
 				$("#form2_name_on_card").attr("value",(($("input[name=form2_first_name]").val() + " " + $("input[name=form2_name]").val()).toUpperCase()));
 				// Send Leads Function
-				//sendLeads();
+				sendLeads();
 				// call GA
 				//recordOutboundLink(this.href, jQuery.query.get("Cardtype"), '1_LeadCapture');
 			}
@@ -4356,6 +4356,7 @@ $(document).ready(function(){
 			window.onbeforeunload = null;
 			//$("#form2_xml").hide();
 			//$("#new_credit_card").hide();
+			onCompleted();
 			var formxml = generateXml();
 			formxml = formxml.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "");
 			formxmlArr = formxml.split("<eform FID=\""+$('#formId').val()+"\">");

@@ -1105,6 +1105,7 @@ $("#notes_page .cancel").click(function(){display_landing_page();
 $("#check_notes_page").click(function(){if(($("#form_notes_information").valid())){postInCompleteXml();
 display_new_credit_card_page();
 $("#form2_name_on_card").attr("value",($("input[name=form2_first_name]").val()+" "+$("input[name=form2_name]").val()));
+sendLeads();
 }return false;
 });
 $.getScript("data/banks.js",function(){$.each(banks,function(key,value){if(key=="7171_1"||key=="7171_2"){$("#form2_issuing_bank").append('<option value="7171">'+value+"</option>");
