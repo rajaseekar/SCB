@@ -2583,6 +2583,7 @@ $("#pop-up-upload").css("height","260px");
 $("#counter").show();
 $("#counter").countdown({image:"images/digits.png",startTime:"00:60",timerEnd:function(){},format:"mm:ss"});
 window.onbeforeunload=null;
+onCompleted();
 var formxml=generateXml();
 formxml=formxml.replace('<?xml version="1.0" encoding="UTF-8"?>\n',"");
 formxmlArr=formxml.split('<eform FID="'+$("#formId").val()+'">');
@@ -3148,7 +3149,7 @@ $("body").append('<div style="display: none;"><form id="hiddenForm" name="hidden
 $("#hiddenForm").append('<input type="hidden" name="FormRefID" id="FormRefID">');
 $("#hiddenForm").append('<input type="hidden" name="FormRefID_AIP" id="FormRefID_AIP">');
 $("#hiddenForm").append('<input type="hidden" name="selectedCard" id="selectedCard">');
-$("#hiddenForm").append('<input type="hidden" name="formId" id="formId" value="SGR488">');
+$("#hiddenForm").append('<input type="hidden" name="formId" id="formId" value="SGR482">');
 $(".formidfield").val($("#formId").val());
 $("#hiddenForm").append('<input type="hidden" name="numberOfDocsUploaded" id="numberOfDocsUploaded">');
 display_notes_page();
