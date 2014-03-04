@@ -1779,7 +1779,7 @@ $(document).ready(function(){
         closeOnEscape: false,
         open: function(event, ui) { 
         	$(".ui-icon-closethick, .ui-dialog-titlebar-close").hide();
-        	if( parseInt($('#form2_loan_my_income').val()) >= 40000) {
+        	if( parseInt($('#form2_loan_my_income').val()) >= 40000  && jQuery.query.get("promoCode")+"" != "9481" ) {
         		$('#upsell40k').show();
         	} else {
         		$('#upsell40k').hide();
@@ -2849,68 +2849,130 @@ $(document).ready(function(){
 	});
 	
 	// interest rate calculation
+	var promo = jQuery.query.get("promoCode")+"";
 	$('#form2_loan_tenure').change(function() {
 		var requested_amount_input = $('#form2_loan_amount_required').val();
 		if( (requested_amount_input.length != 0 || requested_amount_input != "") && $(this).val() != "" ) {
 			var loan_tenure = parseInt( $(this).val() );
 			var interest_rate = 0;
 			var effective_rate = 0;
-			if ( loan_tenure == 12 ) {
-				if( requested_amount_input <= 4999 ) {
-					interest_rate = 9.80;
-					effective_rate = 27.56;
-				} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-					interest_rate = 8.58;
-					effective_rate = 19.34;
-				} else {
-					interest_rate = 7.80;
-					effective_rate = 16.01;
+            if( promo != "" && promo == "9481" ) {
+                $('#upsell40k').hide();
+				if ( loan_tenure == 12 ) {
+					if( requested_amount_input <= 4999 ) {
+						interest_rate = 5.98;
+						effective_rate = 27.56;
+					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+						interest_rate = 5.98;
+						effective_rate = 19.34;
+					} else {
+						interest_rate = 5.98;
+						effective_rate = 16.01;
+					}
+				} else if ( loan_tenure == 24 ) {
+					if( requested_amount_input <= 4999 ) {
+						interest_rate = 5.98;
+						effective_rate = 23.14;
+					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+						interest_rate = 5.98;
+						effective_rate = 17.76;
+					} else {
+						interest_rate = 5.98;
+						effective_rate = 15.35;
+					}
+				} else if ( loan_tenure == 36 ) {
+					if( requested_amount_input <= 4999 ) {
+						interest_rate = 5.98;
+						effective_rate = 22.99;
+					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+						interest_rate = 5.98;
+						effective_rate = 16.63;
+					} else {
+						interest_rate = 5.98;
+						effective_rate = 14.39;
+					}
+				} else if ( loan_tenure == 48 ) {
+					if( requested_amount_input <= 4999 ) {
+						interest_rate = 5.98;
+						effective_rate = 21.80;
+					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+						interest_rate = 5.98;
+						effective_rate = 16.08;
+					} else {
+						interest_rate = 5.98;
+						effective_rate = 14.06;
+					}
+				} else if ( loan_tenure == 60 ) {
+					if( requested_amount_input <= 4999 ) {
+						interest_rate = 5.98;
+						effective_rate = 20.92;
+					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+						interest_rate = 5.98;
+						effective_rate = 15.16;
+					} else {
+						interest_rate = 5.98;
+						effective_rate = 12.75;
+					}
 				}
-			} else if ( loan_tenure == 24 ) {
-				if( requested_amount_input <= 4999 ) {
-					interest_rate = 9.80;
-					effective_rate = 23.14;
-				} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-					interest_rate = 8.58;
-					effective_rate = 17.76;
-				} else {
-					interest_rate = 7.80;
-					effective_rate = 15.35;
-				}
-			} else if ( loan_tenure == 36 ) {
-				if( requested_amount_input <= 4999 ) {
-					interest_rate = 10.80;
-					effective_rate = 22.99;
-				} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-					interest_rate = 8.38;
-					effective_rate = 16.63;
-				} else {
-					interest_rate = 7.50;
-					effective_rate = 14.39;
-				}
-			} else if ( loan_tenure == 48 ) {
-				if( requested_amount_input <= 4999 ) {
-					interest_rate = 10.80;
-					effective_rate = 21.80;
-				} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-					interest_rate = 8.38;
-					effective_rate = 16.08;
-				} else {
-					interest_rate = 7.50;
-					effective_rate = 14.06;
-				}
-			} else if ( loan_tenure == 60 ) {
-				if( requested_amount_input <= 4999 ) {
-					interest_rate = 10.80;
-					effective_rate = 20.92;
-				} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-					interest_rate = 8.08;
-					effective_rate = 15.16;
-				} else {
-					interest_rate = 6.88;
-					effective_rate = 12.75;
-				}
-			}
+			} else {
+                if ( loan_tenure == 12 ) {
+                    if( requested_amount_input <= 4999 ) {
+                        interest_rate = 9.80;
+                        effective_rate = 27.56;
+                    } else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+                        interest_rate = 8.58;
+                        effective_rate = 19.34;
+                    } else {
+                        interest_rate = 7.80;
+                        effective_rate = 16.01;
+                    }
+                } else if ( loan_tenure == 24 ) {
+                    if( requested_amount_input <= 4999 ) {
+                        interest_rate = 9.80;
+                        effective_rate = 23.14;
+                    } else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+                        interest_rate = 8.58;
+                        effective_rate = 17.76;
+                    } else {
+                        interest_rate = 7.80;
+                        effective_rate = 15.35;
+                    }
+                } else if ( loan_tenure == 36 ) {
+                    if( requested_amount_input <= 4999 ) {
+                        interest_rate = 10.80;
+                        effective_rate = 22.99;
+                    } else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+                        interest_rate = 8.38;
+                        effective_rate = 16.63;
+                    } else {
+                        interest_rate = 7.50;
+                        effective_rate = 14.39;
+                    }
+                } else if ( loan_tenure == 48 ) {
+                    if( requested_amount_input <= 4999 ) {
+                        interest_rate = 10.80;
+                        effective_rate = 21.80;
+                    } else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+                        interest_rate = 8.38;
+                        effective_rate = 16.08;
+                    } else {
+                        interest_rate = 7.50;
+                        effective_rate = 14.06;
+                    }
+                } else if ( loan_tenure == 60 ) {
+                    if( requested_amount_input <= 4999 ) {
+                        interest_rate = 10.80;
+                        effective_rate = 20.92;
+                    } else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+                        interest_rate = 8.08;
+                        effective_rate = 15.16;
+                    } else {
+                        interest_rate = 6.88;
+                        effective_rate = 12.75;
+                    }
+                }
+            }
+			
 			//console.log( requested_amount_input +' '+ interest_rate + ' ' + interest_rate / 100 + ' ' + loan_tenure / 12 + ' ' + loan_tenure);
 			//console.log( ( parseFloat(requested_amount_input) * (parseFloat(interest_rate) / 100) * ( parseFloat(loan_tenure) / 12 ) + parseFloat(requested_amount_input) ) / parseFloat(loan_tenure) );
 			
