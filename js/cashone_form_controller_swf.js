@@ -2983,7 +2983,7 @@ $(document).ready(function(){
 	$("#form_new_customer_credit_cards_0").validate({
   		rules: {
 			form2_loan_customer: {required: function(element) { return $("input[name='form2_loan_customer']:checked").val() == undefined}},
-			form2_loan_my_income: {required: true, number: true, min: 20000},
+			form2_loan_my_income: {required: true, digits: true, min: 20000},
 			form2_deposit_bank_acc_type: {required: true},
 			//form2_loan_amount_required: {required: true, number: true, min: 1000, maxloanamount: function(element) { return max_loan_amount_value }},
 			form2_loan_amount_required: {required: true, number: true, min: 1000, max: 200000},
@@ -3000,7 +3000,7 @@ $(document).ready(function(){
   		},		
 		messages: {
   			form2_loan_customer: {required: 'Please declare if you are an exisiting Standard Chartered Bank Customer'},
-			form2_loan_my_income: {required: 'Please enter your annual income', min: 'Minimum income requirement is $20000 for Singaporeans/PR and $60000 for foreigners.'},
+			form2_loan_my_income: {required: 'Please enter your annual income', digits: 'Please enter digits only without comas, decimals or special characters. Minimum annual income requirement is SGD 20000 for Singaporeans/PR & SGD 60000 for  Foreigners.', min: 'Please enter digits only without comas, decimals or special characters. Minimum annual income requirement is SGD 20000 for Singaporeans/PR & SGD 60000 for  Foreigners.'},
 			form2_deposit_bank_acc_type: {required: 'Please select your disbursement bank'},
 			form2_loan_amount_required: {required: 'Please enter your requested loan amount', min: 'Please enter a value of 1,000 or more', max: 'Please enter a value less than 200,000'},
 			form2_loan_tenure: {required: 'Please select your loan tenure'},
@@ -4809,7 +4809,7 @@ $(document).ready(function(){
         },
   		rules: {
 			form2_loan_customer: {required: function(element) { return $("input[name='form2_loan_customer']:checked").val() == undefined}},
-			form2_loan_my_income: {required: true, number: true, min: 20000},
+			form2_loan_my_income: {required: true, digits: true, min: 20000},
 			form2_deposit_bank_acc_type: {required: true},
 			//form2_loan_amount_required: {required: true, number: true, min: 1000, maxloanamount: function(element) { return max_loan_amount_value }},
 			form2_loan_amount_required: {required: true, number: true, min: 1000, max: 200000},
@@ -4899,7 +4899,7 @@ $(document).ready(function(){
   		},		
 		messages: {
   			form2_loan_customer: {required: 'Please declare if you are an exisiting Standard Chartered Bank Customer'},
-			form2_loan_my_income: {required: 'Please enter your annual income', min: 'Minimum income requirement is $20000 for Singaporeans/PR and $60000 for foreigners.'},
+			form2_loan_my_income: {required: 'Please enter your annual income', digits: 'Please enter digits only without comas, decimals or special characters. Minimum annual income requirement is SGD 20000 for Singaporeans/PR & SGD 60000 for  Foreigners.', min: 'Please enter digits only without comas, decimals or special characters. Minimum annual income requirement is SGD 20000 for Singaporeans/PR & SGD 60000 for  Foreigners.'},
 			form2_deposit_bank_acc_type: {required: 'Please select your disbursement bank'},
 			form2_loan_amount_required: {required: 'Please enter your requested loan amount', min: 'Please enter a value of 1,000 or more', max: 'Please enter a value less than 200,000'},
 			form2_loan_tenure: {required: 'Please select your loan tenure'},
