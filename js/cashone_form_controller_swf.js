@@ -1804,7 +1804,7 @@ $(document).ready(function(){
         closeOnEscape: false,
         open: function(event, ui) { 
         	$(".ui-icon-closethick, .ui-dialog-titlebar-close").hide();
-        	if( parseInt($('#form2_loan_my_income').val()) >= 40000) {
+        	if( parseInt($('#form2_loan_my_income').val()) >= 40000  && jQuery.query.get("promoCode")+"" != "9481" ) {
         		$('#upsell40k').show();
         	} else {
         		$('#upsell40k').hide();
@@ -2511,7 +2511,7 @@ $(document).ready(function(){
 				display_new_credit_card_page();
 				$("#form2_name_on_card").attr("value",($("input[name=form2_first_name]").val() + " " + $("input[name=form2_name]").val()));
 				// Send Leads Function
-				//sendLeads();
+				sendLeads();
 			}
 			return false;
 
@@ -2846,15 +2846,15 @@ $(document).ready(function(){
 		requested_amount = parseFloat(requested_amount);
 		requested_amount = Math.round(requested_amount)
 		requested_amount = parseFloat( requested_amount );
-		var insurance_fee = 150;
+		var insurance_fee = 199;
 		if( requested_amount > 0 ) {
 			var disburse_loan_amount = requested_amount - insurance_fee;
 			if( requested_amount != '' ) {
 				var tmpvalue = ""+disburse_loan_amount;
 				tmpvalue = tmpvalue.split('.')[0];
 				tmpvalue = insertThousand(tmpvalue+'');
-				$("#cal_disburse_loan_amount").empty().append( "$"+tmpvalue+"<br>Nett off first-year annual fee of $150" );
-				$("#pre_cal_disburse_loan_amount").empty().append( "$"+tmpvalue+"<br>Nett off first-year annual fee of $150" );
+				$("#cal_disburse_loan_amount").empty().append( "$"+tmpvalue+"<br>Nett off first-year annual fee of $199" );
+				$("#pre_cal_disburse_loan_amount").empty().append( "$"+tmpvalue+"<br>Nett off first-year annual fee of $199" );
 			}
 		} else {
 			$("#cal_disburse_loan_amount").empty().append( "Calculation is based on your loan amount and tenor selected." );
@@ -2874,68 +2874,130 @@ $(document).ready(function(){
 	});
 	
 	// interest rate calculation
+	var promo = jQuery.query.get("promoCode")+"";
 	$('#form2_loan_tenure').change(function() {
 		var requested_amount_input = $('#form2_loan_amount_required').val();
 		if( (requested_amount_input.length != 0 || requested_amount_input != "") && $(this).val() != "" ) {
 			var loan_tenure = parseInt( $(this).val() );
 			var interest_rate = 0;
 			var effective_rate = 0;
-			if ( loan_tenure == 12 ) {
-				if( requested_amount_input <= 4999 ) {
-					interest_rate = 9.80;
-					effective_rate = 22.47;
-				} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-					interest_rate = 8.58;
-					effective_rate = 17.39;
-				} else {
-					interest_rate = 7.80;
-					effective_rate = 15.05;
+            if( promo != "" && promo == "9481" ) {
+                $('#upsell40k').hide();
+				if ( loan_tenure == 12 ) {
+					if( requested_amount_input <= 4999 ) {
+						interest_rate = 5.68;
+						effective_rate = 27.56;
+					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+						interest_rate = 5.68;
+						effective_rate = 19.34;
+					} else {
+						interest_rate = 5.68;
+						effective_rate = 16.01;
+					}
+				} else if ( loan_tenure == 24 ) {
+					if( requested_amount_input <= 4999 ) {
+						interest_rate = 5.68;
+						effective_rate = 23.14;
+					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+						interest_rate = 5.68;
+						effective_rate = 17.76;
+					} else {
+						interest_rate = 5.68;
+						effective_rate = 15.35;
+					}
+				} else if ( loan_tenure == 36 ) {
+					if( requested_amount_input <= 4999 ) {
+						interest_rate = 5.68;
+						effective_rate = 22.99;
+					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+						interest_rate = 5.68;
+						effective_rate = 16.63;
+					} else {
+						interest_rate = 5.68;
+						effective_rate = 14.39;
+					}
+				} else if ( loan_tenure == 48 ) {
+					if( requested_amount_input <= 4999 ) {
+						interest_rate = 5.68;
+						effective_rate = 21.80;
+					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+						interest_rate = 5.68;
+						effective_rate = 16.08;
+					} else {
+						interest_rate = 5.68;
+						effective_rate = 14.06;
+					}
+				} else if ( loan_tenure == 60 ) {
+					if( requested_amount_input <= 4999 ) {
+						interest_rate = 5.68;
+						effective_rate = 20.92;
+					} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+						interest_rate = 5.68;
+						effective_rate = 15.16;
+					} else {
+						interest_rate = 5.68;
+						effective_rate = 12.75;
+					}
 				}
-			} else if ( loan_tenure == 24 ) {
-				if( requested_amount_input <= 4999 ) {
-					interest_rate = 9.80;
-					effective_rate = 20.41;
-				} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-					interest_rate = 8.58;
-					effective_rate = 16.71;
-				} else {
-					interest_rate = 7.80;
-					effective_rate = 14.83;
-				}
-			} else if ( loan_tenure == 36 ) {
-				if( requested_amount_input <= 4999 ) {
-					interest_rate = 10.80;
-					effective_rate = 21.07;
-				} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-					interest_rate = 8.38;
-					effective_rate = 15.90;
-				} else {
-					interest_rate = 7.50;
-					effective_rate = 14.04;
-				}
-			} else if ( loan_tenure == 48 ) {
-				if( requested_amount_input <= 4999 ) {
-					interest_rate = 10.80;
-					effective_rate = 20.30;
-				} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-					interest_rate = 8.38;
-					effective_rate = 15.52;
-				} else {
-					interest_rate = 7.50;
-					effective_rate = 13.78;
-				}
-			} else if ( loan_tenure == 60 ) {
-				if( requested_amount_input <= 4999 ) {
-					interest_rate = 10.80;
-					effective_rate = 19.68;
-				} else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
-					interest_rate = 8.08;
-					effective_rate = 14.70;
-				} else {
-					interest_rate = 7.20;
-					effective_rate = 13.05;
-				}
-			}
+			} else {
+                if ( loan_tenure == 12 ) {
+                    if( requested_amount_input <= 4999 ) {
+                        interest_rate = 9.80;
+                        effective_rate = 27.56;
+                    } else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+                        interest_rate = 8.58;
+                        effective_rate = 19.34;
+                    } else {
+                        interest_rate = 7.80;
+                        effective_rate = 16.01;
+                    }
+                } else if ( loan_tenure == 24 ) {
+                    if( requested_amount_input <= 4999 ) {
+                        interest_rate = 9.80;
+                        effective_rate = 23.14;
+                    } else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+                        interest_rate = 8.58;
+                        effective_rate = 17.76;
+                    } else {
+                        interest_rate = 7.80;
+                        effective_rate = 15.35;
+                    }
+                } else if ( loan_tenure == 36 ) {
+                    if( requested_amount_input <= 4999 ) {
+                        interest_rate = 10.80;
+                        effective_rate = 22.99;
+                    } else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+                        interest_rate = 8.38;
+                        effective_rate = 16.63;
+                    } else {
+                        interest_rate = 7.50;
+                        effective_rate = 14.39;
+                    }
+                } else if ( loan_tenure == 48 ) {
+                    if( requested_amount_input <= 4999 ) {
+                        interest_rate = 10.80;
+                        effective_rate = 21.80;
+                    } else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+                        interest_rate = 8.38;
+                        effective_rate = 16.08;
+                    } else {
+                        interest_rate = 7.50;
+                        effective_rate = 14.06;
+                    }
+                } else if ( loan_tenure == 60 ) {
+                    if( requested_amount_input <= 4999 ) {
+                        interest_rate = 10.80;
+                        effective_rate = 20.92;
+                    } else if ( requested_amount_input >= 5000 && requested_amount_input <= 14999 ) {
+                        interest_rate = 8.08;
+                        effective_rate = 15.16;
+                    } else {
+                        interest_rate = 6.88;
+                        effective_rate = 12.75;
+                    }
+                }
+            }
+			
 			//console.log( requested_amount_input +' '+ interest_rate + ' ' + interest_rate / 100 + ' ' + loan_tenure / 12 + ' ' + loan_tenure);
 			//console.log( ( parseFloat(requested_amount_input) * (parseFloat(interest_rate) / 100) * ( parseFloat(loan_tenure) / 12 ) + parseFloat(requested_amount_input) ) / parseFloat(loan_tenure) );
 			
@@ -3008,7 +3070,7 @@ $(document).ready(function(){
 	$("#form_new_customer_credit_cards_0").validate({
   		rules: {
 			form2_loan_customer: {required: function(element) { return $("input[name='form2_loan_customer']:checked").val() == undefined}},
-			form2_loan_my_income: {required: true, number: true, min: 20000},
+			form2_loan_my_income: {required: true, digits: true, min: 20000},
 			form2_deposit_bank_acc_type: {required: true},
 			//form2_loan_amount_required: {required: true, number: true, min: 1000, maxloanamount: function(element) { return max_loan_amount_value }},
 			form2_loan_amount_required: {required: true, number: true, min: 1000, max: 200000},
@@ -3025,7 +3087,7 @@ $(document).ready(function(){
   		},		
 		messages: {
   			form2_loan_customer: {required: 'Please declare if you are an exisiting Standard Chartered Bank Customer'},
-			form2_loan_my_income: {required: 'Please enter your annual income', min: 'Minimum income requirement is $20000 for Singaporeans/PR and $60000 for foreigners.'},
+			form2_loan_my_income: {required: 'Please enter your annual income', digits: 'Please enter digits only without comas, decimals or special characters. Minimum annual income requirement is SGD 20000 for Singaporeans/PR & SGD 60000 for  Foreigners.', min: 'Please enter digits only without comas, decimals or special characters. Minimum annual income requirement is SGD 20000 for Singaporeans/PR & SGD 60000 for  Foreigners.'},
 			form2_deposit_bank_acc_type: {required: 'Please select your disbursement bank'},
 			form2_loan_amount_required: {required: 'Please enter your requested loan amount', min: 'Please enter a value of 1,000 or more', max: 'Please enter a value less than 200,000'},
 			form2_loan_tenure: {required: 'Please select your loan tenure'},
@@ -4834,7 +4896,7 @@ $(document).ready(function(){
         },
   		rules: {
 			form2_loan_customer: {required: function(element) { return $("input[name='form2_loan_customer']:checked").val() == undefined}},
-			form2_loan_my_income: {required: true, number: true, min: 20000},
+			form2_loan_my_income: {required: true, digits: true, min: 20000},
 			form2_deposit_bank_acc_type: {required: true},
 			//form2_loan_amount_required: {required: true, number: true, min: 1000, maxloanamount: function(element) { return max_loan_amount_value }},
 			form2_loan_amount_required: {required: true, number: true, min: 1000, max: 200000},
@@ -4924,7 +4986,7 @@ $(document).ready(function(){
   		},		
 		messages: {
   			form2_loan_customer: {required: 'Please declare if you are an exisiting Standard Chartered Bank Customer'},
-			form2_loan_my_income: {required: 'Please enter your annual income', min: 'Minimum income requirement is $20000 for Singaporeans/PR and $60000 for foreigners.'},
+			form2_loan_my_income: {required: 'Please enter your annual income', digits: 'Please enter digits only without comas, decimals or special characters. Minimum annual income requirement is SGD 20000 for Singaporeans/PR & SGD 60000 for  Foreigners.', min: 'Please enter digits only without comas, decimals or special characters. Minimum annual income requirement is SGD 20000 for Singaporeans/PR & SGD 60000 for  Foreigners.'},
 			form2_deposit_bank_acc_type: {required: 'Please select your disbursement bank'},
 			form2_loan_amount_required: {required: 'Please enter your requested loan amount', min: 'Please enter a value of 1,000 or more', max: 'Please enter a value less than 200,000'},
 			form2_loan_tenure: {required: 'Please select your loan tenure'},

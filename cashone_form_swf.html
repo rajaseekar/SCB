@@ -58,7 +58,7 @@
 <script type="text/javascript" src="js/singapore_pl_en_min_thirdparties.js"></script>
 <script type="text/javascript" src="js/jquery.datepick-validation.js"></script>
 
-<script type="text/javascript" src="js/cashone_form_controller_swf.js"></script>
+<!-- <script type="text/javascript" src="js/cashone_form_controller_swf.js"></script>
 <script type="text/javascript" src="js/cashone_form_controller_multifile.js"></script>
 <script type="text/javascript" src="js/cash_one_form_tab_controller.js"></script>
 <script type="text/javascript" src="js/postalcode.js"></script>
@@ -68,16 +68,16 @@
 <script type="text/javascript" src="js/incompletepost.js"></script>
 <script type="text/javascript" src="js/previewcancel.js"></script>
 <script type="text/javascript" src="js/enablelist.js"></script>
-<script type="text/javascript" src="js/swf_custom-jq-multi.js"></script>
+<script type="text/javascript" src="js/swf_custom-jq-multi.js"></script> -->
 
-<!--script type="text/javascript" src="js/singapore_pl_en_min_custom_AIP.js"></script-->
-<!--script type="text/javascript" src="js/singapore_pl_en_min_custom_AIP_psdu.js"></script-->
+<script type="text/javascript" src="js/singapore_pl_en_min_custom_AIP_psdu.js"></script>
 <script type="text/javascript" src="js/generate_bo_xml_attachments.js"></script>
 <script type="text/javascript" src="data/banks.js"></script>
 <script type="text/javascript" src="js/jquery.countdown.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/testmode_card.js" charset="utf-8"></script>
 <!-- <script src="js/lib/alterian/submission-exit.js"></script> -->
-<!-- <script src="js/form-exit-sg-PL.js"></script> -->
-<script type="text/javascript" src="js/testmode_card.js"></script>
+<script src="js/form-exit-sg-PL.js"></script>
+
 <style>
 html{display : none; }
 #dialog-upsell p {padding-top: 10px;}
@@ -95,7 +95,7 @@ if( self == top ) {
 <noscript><div style="width: 100%; height: 2200px;font-family: sans-serif; font-size: 22px; text-align: center;margin: 50px; padding: 20px; line-height: 30px;">Your browser does not support JavaScript, the form has been disabled.<br />Please enable the Javascript engine in your browser.</div></noscript>
 <!-- Hidden iFrame -->
 <div style="display:none">
-    <iframe src="./index.html" style="width:0; height:0; border:0" frameborder="0" scrolling="0" name="LeadsFrame" id="LeadsFrame"></iframe>
+    <iframe src="./blank.html" style="width:0; height:0; border:0" frameborder="0" scrolling="0" name="LeadsFrame" id="LeadsFrame"></iframe>
 </div>
 <!-- END Hidden iFrame -->
 <!-- page container -->
@@ -317,7 +317,7 @@ if( self == top ) {
                         <td>
                         <!--<input type="checkbox" id="form2_agree_tc" name="form2_agree_tc" />
                     	<label for="form2_agree_tc">I have read and agree to these <a href="credit_card_form_tc.html" target="_blank" style="color:#fff; text-decoration: underline;">Terms & Conditions</a>.</label>-->
-                    	By clicking Next, you agree that we may contact you via email and phone within the next 24 hours to follow up on your application if it is not successfully submitted.
+						If this application is not completed or successfully completed, Standard Chartered (or party appointed on its behalf) may try to contact you via e-mail and telephone (if your number is not registered with the relevant national Do-Not-Call register) to assist you with completing the application.  By clicking “Next” you consent to Standard Chartered using your information indicated above to do so.
 						</td>
                         <td><div id="lbl_form2_agree_tc"></div></td>
                       </tr>
@@ -402,14 +402,16 @@ if( self == top ) {
 		            						For salaried (any one from below)
 				            				<ul class="document-listing">
 				            					<li>
-				            					Copy of current or previous month's computerized pay slip (last 3 months payslips if you are a commission earner and not a salaried employee)
+				            					Latest payslip + Latest Income Tax Notice of Assessment
+				            					</li>
+												<li style="list-style-type: none;">
+													<b>OR</b>
 				            					</li>
 				            					<li>
-				            					Copy of 6 months&#146; CPF contribution history statement (This is compulsory if you do not have any other credit facilities from any banks)
-				            					<br  />Please click <a href="http://www.standardchartered.com.sg/online-form/cpf-statement/index.html" target="_blank">here</a> for a guide on how to retrieve your CPF Contribution History Statement
+				            					Latest 6 months CPF statement
 				            					</li>
 				            					<li>
-				            					Copy of Income Tax Notice of Assessment (Reflecting at least 1 month&#146;s income earned from current employer)
+												Latest payslip
 				            					</li>
 				            				</ul>
 		            					</li>
@@ -417,7 +419,24 @@ if( self == top ) {
 		            						For self-employed
 				            				<ul class="document-listing">
 				            					<li>
-				            					Copy of Income Tax Notice of Assessment (Minimum of 2 years in business is compulsory)
+				            					Copy of  latest  Income Tax Notice of Assessment
+				            					</li>
+				            				</ul>
+		            					</li>
+										<li>
+		            						For commission earner (any one from below)
+				            				<ul class="document-listing">
+				            					<li>
+				            					Latest 3 months payslip + latest Income Tax Notice of Assessment
+				            					</li>
+												<li>
+				            					Latest 6 months CPF statement
+				            					</li>
+												<li>
+				            					Latest 3 months payslip
+				            					</li>
+												<li>
+				            					Copy of  latest  Income Tax Notice of Assessment ( For 100% commission earner)
 				            					</li>
 				            				</ul>
 		            					</li>
@@ -1469,7 +1488,7 @@ if( self == top ) {
                         <tr>
                         	<td width="200" style="text-align:right;">
                                  Instalment per month:</td>
-                             <td><span id="cal_instalment_per_month"></span></td>
+                             <td><span id="cal_instalment_per_month"></span> <a href="http://www.standardchartered.com.sg/personal-banking/personal-loans/cash-one/en/#tab-4" target="_blank" style="float: right;">Illustrations on Effective rate</a></td>
                         </tr>
                         <!--<tr>
                         	<td width="200" style="text-align:right;">
@@ -1485,11 +1504,11 @@ if( self == top ) {
                                 </span>
                             </td>
                             <td><span style="font-size: 11px; color: red;">
-                                This is for information only. The final approved product(s), loan amount and interest rate are subject to the Bank's approval.
+                                The information set out under this section does not constitute as an actual approval of the requested/disbursed loan amount.
                                 </span>
                             </td>
                          </tr>
-                         <tr>
+                         <tr style="display: none;">
                             <td valign="top" style="width: 3px;"><span style="font-size: 10px; color: red;">
                                 ^
                                 </span>
@@ -4022,7 +4041,7 @@ if( self == top ) {
                         <tr>
                         	<td width="200" style="text-align:right;">
                                  Instalment per month:</td>
-                             <td><span id="pre_cal_instalment_per_month"></span></td>
+                             <td><span id="pre_cal_instalment_per_month"></span> <a href="http://www.standardchartered.com.sg/personal-banking/personal-loans/cash-one/en/#tab-4" target="_blank" style="float: right;">Illustrations on Effective rate</a></td>
                         </tr>
                         <!--<tr>
                         	<td width="200" style="text-align:right;">
@@ -4038,11 +4057,11 @@ if( self == top ) {
                                 </span>
                             </td>
                             <td><span style="font-size: 10px; color: red;">
-                                This is for information only. The final approved product(s), loan amount and interest rate are subject to the Bank's approval.
+                                The information set out under this section does not constitute as an actual approval of the requested/disbursed loan amount.
                                 </span>
                             </td>
                          </tr>
-                         <tr>
+                         <tr style="display: none;">
                             <td valign="top" style="width: 3px;"><span style="font-size: 10px; color: red;">
                                 ^
                                 </span>
@@ -4738,15 +4757,16 @@ if( self == top ) {
 		        <form id="form_new_customer_credit_cards_submit" method="get" action="" style="display: block; page-break-after:always; page-break-before:always;" autocomplete="off" >
 				  <h4>Important things to note</h4>
 				  <hr style="clear:both;" />
-				  <div class="textarea" style="width: 645px; height: 190px; overflow-x: hidden; overflow-y: hidden; margin: 10px 0px 10px 0px; ">
+				  <div class="textarea" style="width: 645px; height: 290px; overflow-x: hidden; overflow-y: hidden; margin: 10px 0px 10px 0px; ">
                     <p>
                         <ul>
-                            <li>If you do not have any existing credit facility with any bank and your approved loan amount is $5,000 and above, the interest rate applicable to your CashOne loan is at 9%p.a. (Effective interest rates range from 16.41%p.a. to 19.13%p.a.).</li>
-                            <li>An early redemption fee of S$250 or up to 3% of the outstanding balance, whichever is higher, will be charged if you prepay the loan prematurely.</li>
-                            <li>Annual fee of $150 (first year) and $50 (second year onwards till expiry of instalment tenor) will be charged per CashOne loan account. The actual disbursement will be nett of the first-year annual fee.</li>
-                            <li>If you are an existing Standard Chartered Credit Cardholder, your available credit card limit may be used for CashOne loan.</li>
-                            <li>If you are an existing Standard Chartered Personal Credit customer, your line of credit may be converted to a CashOne loan.</li>
-                            <li>If you hold any of our Credit Cards with a credit limit of $500 and your annual income ranges from $20,000 to $29,999, your Credit Card account will be closed upon approval of the CashOne.</li>
+                            <li>A default interest of 4% p.a. (or any other rate as we may stipulate from time to time at our discretion) will be added to the original EIR on the entire outstanding balance on your CashOne account, if full payment is not received by the payment due date twice within any consecutive 6 months period.</li>
+                            <li>An early redemption fee of S$250 or up to 3% of the outstanding balance, whichever is higher, will be charged if you choose to close the account or redeem the loan before the date of maturity. Please note that failure to submit account closure form to effect early redemption of account will result in monthly interest continue to be charged even if payment has been made to your CashOne account.</li>
+                            <li>Annual fee of $199 (first year) and $50 (second year onwards till expiry of instalment tenor) will be charged per CashOne loan account. The first year annual fee of $199 will be deducted upfront from the approved loan amount. </li>
+                            <li>A conversion fee of $50 per change will be charged for any changes in instalment tenor or repayment aspect of CashOne.</li>
+                            <li>If you are an existing Standard Chartered Credit Cardholder, your available credit card limit may be used for CashOne loan. </li>
+                            <li>If you are an existing Standard Chartered Personal Credit customer, your line of credit account may be converted to a CashOne loan. </li>
+                            <li>If you hold any of our Credit Cards with a credit limit of $500 and your annual income ranges from $20,000 to $29,999, your Credit Card account will be closed upon approval of the CashOne. </li>
                         </ul>
                     </p>
                   </div>
@@ -4757,25 +4777,21 @@ if( self == top ) {
                       <p>By signing or submitting this application:</p>
                       <p>
                           <ul>
-							<li >you represent and warrant that all information (including any documents) you have given to us in connection with the application is correct, complete and not misleading. (If this is not the case you may be personally liable.);</li>
-							<li >you authorize us to verify any of the information you have given to us or your credit standing from anyone we may consider appropriate (such as your employer or an authority or credit reference agency);</li>
-							<li >you acknowledge that we may decline your application without giving you any reason for doing so. If this happens, no contractual relationship arises between us and you and you consent to us retaining all supporting documents submitted by you for the processing of this application, regardless of whether this application is approved or not;</li>
-							<li >you confirm and agree that we may give any information in connection with this application (including your personal information) to any service provider (whether located in or outside of Singapore) for the purposes of providing any service to you in connection with this application (including data processing);</li>
-							<li >you consent to each of Standard Chartered PLC and its subsidiaries and affiliates (including each branch or representative office) (“Standard Chartered Group”) its officers, employees, agents and advisers disclosing information relating to you (including details of the accounts, products or any security interest) to our head office and any other member of the Standard Chartered Group in any jurisdiction (“permitted parties”); professional advisers, service providers or independent contractors to, or agents of, the permitted parties, such as debt collection agencies, data processing firms and correspondents who are under a duty of confidentiality to the permitted parties; any actual or potential participant or sub-participant in relation to any of our obligations under our banking agreement between us, or assignee, novatee or transferee (or any officer, employee, agent or adviser of any of them); any credit reference agency, rating agency, business alliance partner, insurer or insurance broker of, or direct or indirect provider of credit protection to, or any permitted parties; any court, tribunal or authority (including an authority investigating an offence) with jurisdiction over the permitted parties; a merchant or a member of Visa International or MasterCard International where the disclosure is in connection with use of a card; any authorised person or any security provider; anyone we consider necessary in order to provide you with services in connection with an account;</li>
-							<li >you have read and understood our Customer Terms, our Personal Loan / Personal Line of Credit / Overdraft Terms, our Current/Cheque/Savings Account and Time Deposit Terms, our Credit Card terms and the applicable documents referred to in Part A of our Customer Terms forming our banking agreement which are also available at any of our branches or on our website at www.standardchartered.com.sg and you agree to be bound by them. You acknowledge that you are bound by any variation we make to these documents, in accordance with our banking agreement;</li>
-							<li >In particular, you understand that by entering into our banking agreement you give indemnities, authorisations, consents and waivers and agree to limitations on our liability;</li>
-							<li >you consent to us contacting you at the address, email address and phone numbers you have provided to us, to give you information on other products and services that we, or our strategic partners, may offer;</li>
-							<!--<li >you understand that you must insure the CashOne Personal Loan with an insurer of our choice (“insurer”), by applying for the required insurance from the insurer, you declare that you are below 60 years old, in good health and free from physical impairment or deformity, you have not been hospitalized or suffered from any physical defects, injuries or impairments in the last 12 months (if not, please provide details on a separate sheet);</li>-->
-							<!--<li >you understand that suicide, unlawful acts, attempted violation of law, war activities, racing, pre-existing condition, professional sport and private flying activities are not covered under the insurance;</li>-->
-							<li >you consent to us sending at your sole risk, by ordinary mail or other means we deem appropriate, any credit card, all information regarding your account, personal identification number, all statements of accounts, cheques, drafts issued in disbursement of any loan and any other communications or correspondences or documents addressed to you (collectively “personal information”) in accordance to your addresses on our records.</li>
-							<li >You agree that any risks (eg, non-receipt or disclosure to any unauthorised third party) arising from the sending of the personal information will be fully borne by you and that we will not be held responsible in any way for any losses that may be suffered by you as a result of the non-receipt or disclosure of the same to any unauthorised third party;</li>
-							<li >you agree that at your sole risk, we are authorised but not obliged, to receive any instruction given by or over telephone, mobile telephone, telex, facsimile transmission, telegraph, cable, computer, email or any other electronic equipments, short message services (SMS) from mobile telephone (collectively “Oral Instructions”) from or purporting to be from you without separate verification by us as to the genuineness of the Oral Instructions;</li>
-							<li >if applicable, you apply for electronic banking services to be made available to you and acknowledge that your use of the electronic banking services is governed by the Customer Terms; you confi rm that you are not undischarged bankrupt and that there has not been any statutory demand served on you at the time of this application;</li>
-							<li >you authorise us to debit any of your accounts maintained with us either singly or jointly with any other person for any arrears, outstanding fees, monthly repayment, accrued interest and all other monies due and payable to us without any further reference to you;</li>
-							<li >you understand and agree that you will be liable for all payments and charges on your credit card account;</li>
-							<li >you ask for a Visa/MasterCard credit card account to be opened for you and Standard Chartered Credit Card (“Card”) to be issued to you, and that we renew and replace them until termination;</li>
-							<li >If you request for ATM access, you agree that signing or the using of the Card as an ATM card will indicate your acknowledgement and acceptance of our banking agreement;</li>
-							<li >you apply for a CashOne Personal Loan and you understand and agree that we reserve the discretion at any time to approve further disbursement up to maximum amount allowed under prevailing guidelines or approve fresh disbursements where the CashOne Personal Loan has been partially drawndown or repaid partially or wholly.</li>
+                            <li>you have declared and confirmed that there is no change in your income or employment details; </li>
+                            <li>you have read and understood the features and details of CashOne set out in earlier sections, and our CashOne Product Terms, Customer Terms, our Personal Loan / Personal Line of Credit / Overdraft Terms, Current/Cheque/Savings Account and Time Deposit Terms, Credit Card terms, Electronic Banking Terms and Conditions, and the applicable documents referred to in Part A of our Customer Terms forming our banking agreement which are also available at any of our branches or on our website at www.standardchartered.com.sg and you agree to be bound by them. You acknowledge that you are bound by any variation we make to these documents, in accordance with our banking agreement. In particular, you understand that by entering into our banking agreement you give indemnities, authorisations, consents and waivers and agree to limitations on our liability;</li>
+                            <li>you understand and agree that you are applying for a CashOne Personal Loan and you understand and agree that we reserve the discretion at any time to approve further disbursement up to maximum amount allowed under prevailing guidelines or approve fresh disbursements where the CashOne Personal Loan has been partially drawdown or repaid partially or wholly;</li>
+                            <li>you understand and agree that by applying for a CashOne loan, you are also applying for a Standard Chartered Platinum Visa Credit Card if your annual income is S$30,000 and above and you understand and agree that (a) you have read and understood the features and details of the Standard Chartered Platinum Visa Credit Card set out in earlier sections, and our Customer Terms, Credit Card Terms, and the applicable documents referred to in Part A of our Customer Terms forming our banking agreement which are also available at any of our branches or on our website and you agree to be bound by them and any variation we make to these documents, in accordance with our banking agreement, (b) you understand and agree that you will be liable for all payments and charges on your credit card account, and (c) such card will be renewed and replaced until termination of the card;</li>
+                            <li>you represent and warrant that all information (including any documents) you have given to us in connection with the application is correct, complete and not misleading. (If this is not the case you may be personally liable.); </li>
+                            <li>you authorize us to verify any of the information you have given to us or your credit standing from anyone we may consider appropriate (such as your employer or an authority or credit reference agency); </li>
+                            <li>you acknowledge that we may decline your application without giving you any reason for doing so. If this happens, no contractual relationship arises between us and you and you consent to us retaining all supporting documents submitted by you for the processing of this application, regardless of whether this application is approved or not; </li>
+                            <li>you confirm and agree that we may give any information in connection with this application (including your personal information) to any service provider (whether located in or outside of Singapore) for the purposes of providing any service to you in connection with this application (including data processing); </li>
+                            <li>you consent to each of Standard Chartered PLC and its subsidiaries and affiliates (including each branch or representative office) (“Standard Chartered Group”) its officers, employees, agents and advisers disclosing information relating to you (including details of the accounts, products or any security interest) to our head office and any other member of the Standard Chartered Group in any jurisdiction (“permitted parties”); professional advisers, service providers or independent contractors to, or agents of, the permitted parties, such as debt collection agencies, data processing firms and correspondents who are under a duty of confidentiality to the permitted parties; any actual or potential participant or sub-participant in relation to any of our obligations under our banking agreement between us, or assignee, novatee or transferee (or any officer, employee, agent or adviser of any of them); any credit reference agency, rating agency, business alliance partner, insurer or insurance broker of, or direct or indirect provider of credit protection to, or any permitted parties; any court, tribunal or authority (including an authority investigating an offence) with jurisdiction over the permitted parties; a merchant or a member of Visa International or MasterCard International where the disclosure is in connection with use of a card; any authorised person or any security provider; anyone we consider necessary in order to provide you with services in connection with an account; </li>
+                            <li>you consent to us contacting you at the address, email address and phone numbers you have provided to us, to give you information on other products and services that we, or our strategic partners, may offer; </li>
+                            <li>you consent to us sending at your sole risk, by ordinary mail or other means we deem appropriate, any credit card, all information regarding your account, personal identification number, all statements of accounts, cheques, drafts issued in disbursement of any loan and any other communications or correspondences or documents addressed to you (collectively “personal information”) in accordance to your addresses on our records. </li>
+                            <li>you agree that any risks (e.g., non-receipt or disclosure to any unauthorised third party) arising from the sending of the personal information will be fully borne by you and that we will not be held responsible in any way for any losses that may be suffered by you as a result of the non-receipt or disclosure of the same to any unauthorised third party; </li>
+                            <li>you agree that at your sole risk, we are authorised but not obliged, to receive any instruction given by or over telephone, mobile telephone, telex, facsimile transmission, telegraph, cable, computer, email or any other electronic equipments, short message services (SMS) from mobile telephone (collectively “Oral Instructions”) from or purporting to be from you without separate verification by us as to the genuineness of the Oral Instructions; </li>
+                            <li>if applicable, you apply for electronic banking services to be made available to you and acknowledge that your use of the electronic banking services is governed by the Customer Terms; you confirm that you are not an undischarged bankrupt and that there has not been any statutory demand served on you at the time of this application; </li>
+                            <li>you authorise us to debit any of your accounts maintained with us either singly or jointly with any other person for any arrears, outstanding fees, monthly repayment, accrued interest and all other monies due and payable to us without any further reference to you; </li>
                           </ul>
                       </p>                  
                     </div>
@@ -4924,10 +4940,13 @@ if( self == top ) {
         			<td>Loan amount</td><td>Tenure</td><td>Gift</td>
         		</tr>
         		<tr>
-        			<td>$13,000 to $29,999</td><td>36 months & above</td><td>Samsung Galaxy Tab 2 (7.0")</td>
+        			<td>$30,000 &amp; above</td><td>36 months &amp; above</td><td>Canon EOS DSLR Camera  1100D Kit (EF S18-55 IS II) worth $799</td>
+        		</tr>
+				<tr>
+        			<td>$13,000 to $29,999</td><td>36 months &amp; above</td><td>Canon Selphy CP910 Compact Photo Printer worth $179</td>
         		</tr>
         		<tr>
-        			<td>$30,000 & above</td><td>36 months & above</td><td>Sony BRAVIA 40" LED TV</td>
+        			<td>$5,000 to $12,999</td><td>36 months &amp; above</td><td>American Tourister DC Superlite II Spinner 66cm Expandable worth $120</td>
         		</tr>
         	</table>
         	<div>Plus online applicants get additional $100 lsetan Vouchers upon approval!</div>
