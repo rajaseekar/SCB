@@ -832,7 +832,8 @@ function generateXml() {
 	// check which card is selected and generate it's product number
 	//var online50Found = $("#form2_promotionCode").val().match(/online50/gi);
 	var online50Found = $("#form2_promotionCode").val().match(/online50/gi);
-	var URType = jQuery.query.get("URType");
+	var URType = jQuery.query.get("URType")+"";
+    var GType = jQuery.query.get("GType")+"";
 	if ($("#card_1").attr("checked")) {
 		if( online50Found != null || get80id != '' ) {
 			card1_XML=startXML+"\t\t\t<prodType>00201</prodType>\n"+commonXML+"\t\t\t<promoCode>9131</promoCode>\n"+hiddenXML+addXML+endXML;
@@ -845,6 +846,15 @@ function generateXml() {
 			finalXML=finalXML+card1_XML;
 		} else if( URType == "PVCU0006" ) {
 			card1_XML=startXML+"\t\t\t<prodType>00201</prodType>\n"+commonXML+"\t\t\t<promoCode>1102</promoCode>\n"+hiddenXML+addXML+endXML;
+			finalXML=finalXML+card1_XML;
+		} else if( GType == "5301" ) {
+			card1_XML=startXML+"\t\t\t<prodType>10001</prodType>\n"+commonXML+"\t\t\t<promoCode>5301</promoCode>\n"+hiddenXML+addXML+endXML;
+			finalXML=finalXML+card1_XML;
+		} else if( GType == "5303" ) {
+			card1_XML=startXML+"\t\t\t<prodType>10001</prodType>\n"+commonXML+"\t\t\t<promoCode>5303</promoCode>\n"+hiddenXML+addXML+endXML;
+			finalXML=finalXML+card1_XML;
+		} else if( GType == "5166" ) {
+			card1_XML=startXML+"\t\t\t<prodType>10001</prodType>\n"+commonXML+"\t\t\t<promoCode>5166</promoCode>\n"+hiddenXML+addXML+endXML;
 			finalXML=finalXML+card1_XML;
 		} else {
 			card1_XML=startXML+"\t\t\t<prodType>00201</prodType>\n"+commonXML+"\t\t\t<promoCode>9131</promoCode>\n"+hiddenXML+addXML+endXML;
@@ -868,6 +878,15 @@ function generateXml() {
 			finalXML=finalXML+card1_XML;
 		} else if( URType == "PMCU0006" ) {
 			card1_XML=startXML+"\t\t\t<prodType>10001</prodType>\n"+commonXML+"\t\t\t<promoCode>1102</promoCode>\n"+hiddenXML+addXML+endXML;
+			finalXML=finalXML+card1_XML;
+		} else if( GType == "5301" ) {
+			card1_XML=startXML+"\t\t\t<prodType>10001</prodType>\n"+commonXML+"\t\t\t<promoCode>5301</promoCode>\n"+hiddenXML+addXML+endXML;
+			finalXML=finalXML+card1_XML;
+		} else if( GType == "5303" ) {
+			card1_XML=startXML+"\t\t\t<prodType>10001</prodType>\n"+commonXML+"\t\t\t<promoCode>5303</promoCode>\n"+hiddenXML+addXML+endXML;
+			finalXML=finalXML+card1_XML;
+		} else if( GType == "5166" ) {
+			card1_XML=startXML+"\t\t\t<prodType>10001</prodType>\n"+commonXML+"\t\t\t<promoCode>5166</promoCode>\n"+hiddenXML+addXML+endXML;
 			finalXML=finalXML+card1_XML;
 		} else {
 			card2_XML=startXML+"\t\t\t<prodType>10001</prodType>\n"+commonXML+"\t\t\t<promoCode>9131</promoCode>\n"+hiddenXML+addXML+endXML;

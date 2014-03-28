@@ -3981,6 +3981,11 @@ $(document).ready(function(){
 		  // We're at the bottom!
 			$('#form2_declaration_help').hide();
 			$('#form2_declaration_control').show();
+			if( jQuery.query.get("GType")+"" != "" ) {
+				$('#form2_declaration_control_3').show();
+			} else {
+				$('#form2_declaration_control_3').hide();
+			}
 			resizeSlider();
 		}
 	});
@@ -4317,11 +4322,13 @@ $(document).ready(function(){
 	$("#form_new_customer_credit_cards_submit").validate({
   		rules: {
 			form2_declaration: { required: true, minlength: 1},
-			form2_declaration_2: { required: function(element) { return $('#selectedCard').val() == "SG_PVC_TGR" && jQuery.query.get("TGRType")+"" == "URR" }, minlength: 1}
+			form2_declaration_2: { required: function(element) { return $('#selectedCard').val() == "SG_PVC_TGR" && jQuery.query.get("TGRType")+"" == "URR" }, minlength: 1},
+            form2_declaration_3: { required: function(element) { return jQuery.query.get("GType")+"" != "" }, minlength: 1}
   		},		
 		messages: {
   			form2_declaration: { required: "Please read and agree to the terms and conditions before submitting the application." },
-  			form2_declaration_2: { required: "Please read and agree to the Upfront Rewards Plan terms and conditions before submitting the application." }
+  			form2_declaration_2: { required: "Please read and agree to the Upfront Rewards Plan terms and conditions before submitting the application." },
+            form2_declaration_3: { required: "Please read and agree to the Sign-Up Gift and CashBack Promotion terms and conditions before submitting the application." }
 		},
 		onfocusout: false,
 		onkeyup: false,
@@ -4334,6 +4341,8 @@ $(document).ready(function(){
        			error.insertAfter("#lbl_form2_declaration");
  			else if (element.attr("name") == "form2_declaration_2")
        			error.insertAfter("#lbl_form2_declaration_2");
+ 			else if (element.attr("name") == "form2_declaration_3")
+       			error.insertAfter("#lbl_form2_declaration_3");
  			else
                 error.appendTo( element.parent().next() );
    		}

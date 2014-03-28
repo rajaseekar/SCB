@@ -58,7 +58,8 @@
 <script type="text/javascript" src="js/jquery.datepick-validation.js"></script>
 
 <!-- controller to trigger jQuery functions -->
-<!-- <script type="text/javascript" src="js/credit_card_form_controller_swf.js"></script> 
+<!--
+<script type="text/javascript" src="js/credit_card_form_controller_swf.js"></script> 
 <script type="text/javascript" src="js/credit_card_form_controller_multifile.js"></script>
 <script type="text/javascript" src="js/generate_bo_xml_2.js"></script>
 <script type="text/javascript" src="js/credit_card_form_tab_controller.js"></script>
@@ -70,7 +71,8 @@
 <script type="text/javascript" src="js/previewcancel.js"></script>
 <script type="text/javascript" src="js/enablelist.js"></script>
 <script type="text/javascript" src="js/reflection.js"></script>
-<script type="text/javascript" src="js/swf_custom-jq-multi.js"></script> -->
+<script type="text/javascript" src="js/swf_custom-jq-multi.js"></script> 
+-->
 
 <script type="text/javascript" src="js/singapore_cc_en_min_custom_AIP_psdu.js"></script>
 <script type="text/javascript" src="js/generate_bo_xml_attachments.js"></script>
@@ -3912,12 +3914,13 @@ if( self == top ) {
 	                        <label for="form2_declaration" style="height: 40px;">&nbsp;</label>
 	                        <div id="normal_declaration">
 	                        	I confirm I have read, understood, and agree to be bound by the matters set out in the Credit Card Declaration and Acceptance section, and the terms referred therein 
-	                        	(including the <a href="http://www.standardchartered.com.sg/personal-banking/tnc/en/" target="_blank">Customer Terms</a>, <a href="http://www.standardchartered.com.sg/_pdf/credit_card_terms.pdf" target="_blank">Credit Card terms</a>, 
-	                        	<a href="http://www.standardchartered.com.sg/terms-conditions/e-banking-tnc/en/index.html" target="_blank">Electronic Banking Terms and Conditions</a> 
+	                        	(including the <a href="http://www.standardchartered.com.sg/personal-banking/tnc/en/" target="_blank">Customer Terms</a>, <a href="http://www.standardchartered.com.sg/_pdf/credit_card_terms.pdf" target="_blank">Credit Card Terms</a>, 
+	                        	<a href="http://www.standardchartered.com.sg/terms-conditions/e-banking-tnc/en/index.html" target="_blank">Electronic Banking Terms and Conditions</a>,
+                                Platinum Credit Cards Sign-Up Gift and CashBack Promotion Terms and Conditions 
 	                        	and <a href="http://www.standardchartered.com.sg/personal-banking/tnc/en/" target="_blank">all other applicable terms referred above</a>), 
 	                        	the <a href="http://www.standardchartered.com.sg/credit-cards/approval-in-principle-tnc.html" target="_blank">Standard Chartered Approval-In-Principle Terms and Conditions</a>, 
 	                        	and I wish to submit my application. 
-	                        	All terms and conditions are also available at any branch and you can request for a hard copy by calling us at 1800 747 7000.
+	                        	All terms and conditions are also available at any branch and I can request for a hard copy by calling the Bank at 1800 747 7000.
 	                        </div>
 	                        <div id="singpost_declaration" style="display: none;">
 	                        	I confirm I have read, understood, and agree to be bound by the matters set out in the Credit Card Declaration and Acceptance section, and the terms referred therein 
@@ -3947,6 +3950,13 @@ if( self == top ) {
 	                            By selecting the Upfront Rewards Plan, I understand and agree that a $100 fee will be charged to my card if: (i) I do not fulfil the minimum spend requirement; or (ii) if I request the cancellation of my card or the conversion of my rewards plan to the Future Rewards Plan before I fulfil the minimum spend requirement.
 	                        </div>                   
                         </div>
+                        <div id="form2_declaration_control_3" style="display: none; padding-top: 20px;">
+	                        <input type="checkbox" id="form2_declaration_3" name="form2_declaration_3"/>
+	                        <label for="form2_declaration_3" style="height: 40px;">&nbsp;</label>
+	                        <div id="gift_declaration_3">
+	                            By submitting this application, I understand and agree that to be eligible for a gift under the Platinum Credit Cards Sign-Up Gift and CashBack Promotion, I must not have terminated any credit card with the Bank within the 6 months prior to this application and I must meet the minimum spend criteria of $200 in retail transactions within 30 days of card approval. I also understand that if the new card account is terminated within 6 months of card approval, the full retail price of the gift (after deducting any admin fee paid) will be charged to the card account.
+	                        </div>                   
+                        </div>
                         </td>
                       </tr>
                     </table>
@@ -3954,6 +3964,7 @@ if( self == top ) {
                 </form>
                 <div id="lbl_form2_declaration"></div>
                 <div id="lbl_form2_declaration_2"></div>
+                <div id="lbl_form2_declaration_3"></div>
                 <br clear="all" />
                   <!-- Submit Button -->
                   <div id="newcard_submit_form"> 
