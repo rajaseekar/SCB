@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eform xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="PDPA_SIT_(CC-SGR582)(COEZY-SGR583).xsd" FID="SGR481">
+    <model>
+        <instance id="savemodel">
+            <sigfields>
+                <sigchar>
+                    <sigchar1>TEST TES TEST</sigchar1>
+                    <sigchar2>S1234567D</sigchar2>
+                </sigchar>
+                <signum/>
+                <sigdate/>
+            </sigfields>
+        </instance>
+        <instance id="outputmodel">
+            <prodType>00201</prodType>
+            <per-title>1</per-title>
+            <per-fullName><![CDATA[TEST TES TEST]]></per-fullName>
+            <per-embName><![CDATA[TEST TES TEST]]></per-embName>
+            <per-identityType><![CDATA[01]]></per-identityType>
+            <per-identityNumber><![CDATA[S1234567D]]></per-identityNumber>
+            <per-dateOfBirth><![CDATA[12121980]]></per-dateOfBirth>
+            <per-sex><![CDATA[1]]></per-sex>
+            <per-ethnicGroup>NSG</per-ethnicGroup>
+            <per-maritalSt><![CDATA[1]]></per-maritalSt>
+            <per-noDep>0</per-noDep>
+            <per-education><![CDATA[1]]></per-education>
+            <per-mobph>0</per-mobph>
+            <res-homeAddrs><![CDATA[88 JALAN CHEMPAKA KUNING]]></res-homeAddrs>
+            <res-homeAddrs1><![CDATA[]]></res-homeAddrs1>
+            <res-homeAddrs2><![CDATA[-]]></res-homeAddrs2>
+            <res-homeAddrs3><![CDATA[SINGAPORE]]></res-homeAddrs3>
+            <res-zipcode><![CDATA[0489123]]></res-zipcode>
+            <res-timeaddreYrs><![CDATA[1]]></res-timeaddreYrs>
+            <res-timeaddreMons>1</res-timeaddreMons>
+            <res-accom><![CDATA[1]]></res-accom>
+            <emp-selfEmp><![CDATA[0]]></emp-selfEmp>
+            <emp-company><![CDATA[SCB]]></emp-company>
+            <emp-position><![CDATA[14]]></emp-position>
+            <emp-serviceYears><![CDATA[1]]></emp-serviceYears>
+            <emp-serviceMonths>1</emp-serviceMonths>
+            <emp-incomeAnnual>900000</emp-incomeAnnual>
+            <emp-officeAddress><![CDATA[88 JALAN CHEMPAKA KUNING]]></emp-officeAddress>
+            <emp-officeAddress1><![CDATA[]]></emp-officeAddress1>
+            <emp-officeAddress2><![CDATA[-]]></emp-officeAddress2>
+            <emp-officeAddress3><![CDATA[SINGAPORE]]></emp-officeAddress3>
+            <emp-officeZipCode><![CDATA[0489123]]></emp-officeZipCode>
+            <con-billAddress><![CDATA[1]]></con-billAddress>
+            <con-homePhone><![CDATA[90129301]]></con-homePhone>
+            <con-officePhone><![CDATA[90139109]]></con-officePhone>
+            <con-mobilePhone><![CDATA[90129301]]></con-mobilePhone>
+            <con-email><![CDATA[TE@TE.COM]]></con-email>
+            <con-refRel><![CDATA[F]]></con-refRel>
+            <sup-title>1</sup-title>
+            <sup-fullName></sup-fullName>
+            <sup-embName></sup-embName>
+            <sup-identityType></sup-identityType>
+            <sup-identityNumber></sup-identityNumber>
+            <sup-dateOfBirth>00000000</sup-dateOfBirth>
+            <sup-sex>1</sup-sex>
+            <sup-relationship></sup-relationship>
+            <sup-homeAdd></sup-homeAdd>
+            <sup-homeAdd1></sup-homeAdd1>
+            <sup-homeAdd2></sup-homeAdd2>
+            <sup-homeAdd3></sup-homeAdd3>
+            <sup-ZipCode></sup-ZipCode>
+            <sup-hasSupCard></sup-hasSupCard>
+            <agencyNo></agencyNo>
+            <promoCode>9131</promoCode>
+            <acqCode>SP</acqCode>
+            <subChanCode>IB03</subChanCode>
+            <sourcingId>1889559</sourcingId>
+            <staffId></staffId>
+            <attchments>
+                <attachment type=''></attachment>
+                <attachment type=''></attachment>
+                <attachment type=''></attachment>
+                <attachment type=''></attachment>
+                <attachment type=''></attachment>
+                <attachment type=''></attachment>
+                <attachment type=''></attachment>
+                <attachment type=''></attachment>
+            </attchments>
+            <per-previousPassportNumber></per-previousPassportNumber>
+            <res-overseaAddress></res-overseaAddress>
+            <res-overseaContactNumber></res-overseaContactNumber>
+            <emp-occupation><![CDATA[33]]></emp-occupation>
+            <con-refName><![CDATA[TEST]]></con-refName>
+            <con-refContactNumber><![CDATA[65123163]]></con-refContactNumber>
+            <loan-amountRequired></loan-amountRequired>
+            <loan-tenure></loan-tenure>
+            <loan-depositBankAcc></loan-depositBankAcc>
+            <loan-issuingBank></loan-issuingBank>
+            <loan-issuingBankBranchCode></loan-issuingBankBranchCode>
+            <loan-accHolderName></loan-accHolderName>
+            <loan-accHolderNricPassport></loan-accHolderNricPassport>
+            <staffContactNo></staffContactNo>
+            <referralId></referralId>
+            <closingId>1889559</closingId>
+            <prodType2></prodType2>
+            <prodType3></prodType3>
+            <prodType4></prodType4>
+            <prodType5></prodType5>
+            <clubType1></clubType1>
+            <clubType2></clubType2>
+            <clubType3></clubType3>
+            <clubType4></clubType4>
+            <clubType5></clubType5>
+            <clubType6></clubType6>
+            <clubType7></clubType7>
+            <clubType8></clubType8>
+            <clubType9></clubType9>
+            <clubType10></clubType10>
+            <clubType11></clubType11>
+            <clubType12></clubType12>
+            <clubType13></clubType13>
+            <clubType14></clubType14>
+            <clubType15></clubType15>
+            <clubType16></clubType16>
+            <inscode></inscode>
+            <existingCust></existingCust>
+            <res-typeOfResidence></res-typeOfResidence>
+            <filenetProduct>Credit Card</filenetProduct>
+            <filenetSubProduct>STP Credit Card Account Opening</filenetSubProduct>
+            <filenetCity>SG</filenetCity>
+            <filenetCountry>SG</filenetCountry>
+            <form2_name><![CDATA[TEST TES TEST]]></form2_name>
+            <filenetIdNumber><![CDATA[S1234567D]]></filenetIdNumber>
+            <form2_pdpa_q1><![CDATA[]]></form2_pdpa_q1>
+            <form2_pdpa_q2><![CDATA[]]></form2_pdpa_q2>
+            <form2_pdpa_q3><![CDATA[]]></form2_pdpa_q3>
+            <form2_pdpa_q4><![CDATA[]]></form2_pdpa_q4>
+            <form2_pdpa_q5><![CDATA[]]></form2_pdpa_q5>
+            <form2_pdpa_q6><![CDATA[]]></form2_pdpa_q6>
+            <form2_pdpa_q7><![CDATA[]]></form2_pdpa_q7>
+            <form2_pdpa_q8><![CDATA[]]></form2_pdpa_q8>
+            <form2_pdpa_q9><![CDATA[]]></form2_pdpa_q9>
+            <form2_pdpa_q10><![CDATA[]]></form2_pdpa_q10>
+            <REF-HOME-PH></REF-HOME-PH>
+            <SUP-NATION></SUP-NATION>
+            <SUP-RACE></SUP-RACE>
+            <SUP-MOBILE-PH></SUP-MOBILE-PH>
+            <P-DUMMY-1></P-DUMMY-1>
+            <P-DUMMY-2></P-DUMMY-2>
+            <P-DUMMY-3></P-DUMMY-3>
+            <P-DUMMY-4></P-DUMMY-4>
+            <P-DUMMY-5></P-DUMMY-5>
+            <S-DUMMY-1></S-DUMMY-1>
+            <S-DUMMY-2></S-DUMMY-2>
+            <S-DUMMY-3></S-DUMMY-3>
+            <S-DUMMY-4></S-DUMMY-4>
+            <S-DUMMY-5></S-DUMMY-5>
+            <form2_pcl_question><![CDATA[]]></form2_pcl_question>
+            <form2_pcl_amount><![CDATA[]]></form2_pcl_amount>
+        </instance>
+    </model>
+</eform>
