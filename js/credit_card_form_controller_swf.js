@@ -1942,6 +1942,20 @@ $(document).ready(function(){
 		$("#form_new_customer_credit_cards_1").validate().element("#form2_postal_code");
 		$("#form_new_customer_credit_cards").validate().element("#form2_postal_code");
 	});
+
+	
+	$(".pcl_amount").hide();
+	
+	$("#form2_pcl_question_bank").click( function() {
+		$("tr.pcl_question div.error_box").remove();	
+		$(".pcl_amount").hide();
+		$("#form2_pcl_amount").val("");
+	});
+
+	$("#form2_pcl_question_cust").click( function() {
+		$("tr.pcl_question div.error_box").remove();	
+		$(".pcl_amount").show();
+	});
 	
 	// form validation
 	$("#form_new_customer_credit_cards_1").validate({
@@ -1951,6 +1965,9 @@ $(document).ready(function(){
             form2_13: "form2_overseas_contact_country_code form2_overseas_contact_area_code form2_overseas_contact_tel_no"
         },
   		rules: {
+			form2_pcl_question: { required: function(element) {return ($("input[name='form2_pcl_question']:visible").length > 0) && $("input[name='form2_pcl_question']:checked").val() == undefined} },
+			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 0, max: 999999999, number: true, maxlength:9, minlength: 1},
+		
 			form2_name_on_card: { required: true, minlength: 5, maxlength: 19 },
 			form2_nric_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Foreigner" }, minlength: 9, maxlength: 9 },
 			form2_passport_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" }, minlength: 5, maxlength: 16 },
@@ -1980,6 +1997,14 @@ $(document).ready(function(){
 			form2_promotionCode: { validPromoCode: true }
   		},		
 		messages: {
+			form2_pcl_question: { required: "Please select an option" },
+			form2_pcl_amount: { required: "Please enter your preferred credit limit", 
+								min: "The Preferred Credit Limit amount you entered is invalid", 
+								max: "The Preferred Credit Limit amount you entered is invalid", 
+								number: "The Preferred Credit Limit amount you entered is invalid", 
+								maxlength: "The Preferred Credit Limit amount you entered is invalid", 
+								minlength: "The Preferred Credit Limit amount you entered is invalid"},
+		
 			form2_name_on_card: { required: "Please enter the name that you want to be displayed on your card.", minlength: "Please enter a valid card name (min 5 characters).", maxlength: "Please enter a valid card name (max 19 characters)." },
 			form2_nric_number: { required: "Please enter your NRIC." },
 			form2_passport_number: { required: "Please enter your passport number" },
@@ -2038,6 +2063,8 @@ $(document).ready(function(){
         			error.insertAfter("#form2_name_of_relative_not_living_with_you_label_container");
             else if (element.attr("name") == "form2_employ_pass_type")
         			error.insertAfter("#form2_employ_pass_type_lbl");
+			else if (element.attr("name") == "form2_pcl_question")
+        			error.insertAfter("#form2_pcl_question_cust");		
  			else {
                 error.appendTo( element.parent().next() ); 
 			}
@@ -3342,6 +3369,9 @@ $(document).ready(function(){
             form2_135: "form2_sup_02_areacode_office form2_sup_02_office"
         },
   		rules: {
+			form2_pcl_question: { required: function(element) {return ($("input[name='form2_pcl_question']:visible").length > 0) && $("input[name='form2_pcl_question']:checked").val() == undefined} },
+			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 0, max: 999999999, number: true, maxlength:9, minlength: 1},
+		
 			//form2_salutation: { required: true, minlength: 1 },
 			//form2_name: { required: true, minlength: 2, maxlength: 30, alphanumeric: true }, 
 			form2_name_on_card: { required: true, minlength: 5, maxlength: 19 },
@@ -3445,6 +3475,14 @@ $(document).ready(function(){
 			form2_sup_02_business: { minlength: 1 }
   		},		
 		messages: {
+			form2_pcl_question: { required: "Please select an option" },
+			form2_pcl_amount: { required: "Please enter your preferred credit limit", 
+								min: "The preferred Credit Limit amount you entered is invalid", 
+								max: "The preferred Credit Limit amount you entered is invalid", 
+								number: "The preferred Credit Limit amount you entered is invalid", 
+								maxlength: "The preferred Credit Limit amount you entered is invalid", 
+								minlength: "The preferred Credit Limit amount you entered is invalid"},
+		
 			//form2_salutation: { required: "Please enter your salutation / title." },
 			//form2_name: { required: "Please enter your name."},
 			form2_name_on_card: { required: "Please enter the name that you want to be displayed on your card.", minlength: "Please enter a valid card name (min 5 characters).", maxlength: "Please enter a valid card name (max 19 characters)." },
@@ -3569,6 +3607,8 @@ $(document).ready(function(){
        			error.insertAfter("#lbl_form2_employer_unit_number_container");
             else if (element.attr("name") == "form2_employ_pass_type")
         			error.insertAfter("#form2_employ_pass_type_lbl");
+			else if (element.attr("name") == "form2_pcl_question")
+        			error.insertAfter("#form2_pcl_question_cust");		
  			else {
                 error.appendTo( element.parent().next() ); 
 			}
@@ -3753,6 +3793,36 @@ $(document).ready(function(){
 		}
 	);
 
+	$("#from2_pcl_edit").click(	function() {
+		$("#pre_form2_pcl_edit_container").show();
+		$("#pre_form2_pcl_preview_container").hide();
+		$('#form2_pcl_container').appendTo('#pre_form2_pcl_edit_content_container');
+		resizeSlider();
+		clonefields( "pre_form2_pcl_edit_content_container" );
+		return false;
+	});
+	
+	$("#from2_pcl_cancel").click( function() {
+		$("#pre_form2_pcl_edit_container").hide();
+		$("#pre_form2_pcl_preview_container").show();
+		resizeSlider();
+		restorefields( "pre_form2_pcl_edit_content_container" );
+		resetCancelFields( "pre_form2_pcl_edit_content_container" );
+		return false;
+	});
+	
+	$("#from2_pcl_save").click(	function() {
+		if (($("#form_new_customer_credit_cards").valid())) {
+			preview_form2();
+			$("#pre_form2_pcl_preview_container .tab_content").addClass("yellow_box_no_padding");
+			$("#pre_form2_pcl_edit_container").hide();
+			$("#pre_form2_pcl_preview_container").show();
+		}
+		resizeSlider();
+		resetCancelFields( "pre_form2_pcl_edit_content_container" );
+		return false;
+	});		
+	
 	$("#from2_pdpa_edit").click(
 		function() {
 			$("#pre_form2_pdpa_edit_container").show();
@@ -4004,6 +4074,16 @@ $(document).ready(function(){
 	/******** preview generation **********/
 	
 	function preview_form2(){
+	
+		if( $("#form2_pcl_question_bank").attr("checked") ) {
+			$("#pre_form2_pcl_question").html("You will leave it to the bank to assign a credit card limit for you base on the supporting income documents you are providing.");
+		} else if( $("#form2_pcl_question_cust").attr("checked") ) {
+			$("#pre_form2_pcl_question").html("You have a preferred credit card limit and would like to specify this to the bank.");
+		} else {
+			$("#pre_form2_pcl_question").html("");
+		}
+		$("#pre_form2_pcl_amount").html( $("#form2_pcl_amount").val() );
+	
 		var form2_salutation = $("#form2_salutation").val();
 		// trim space
 		var form2_first_name = $.trim( $("#form2_first_name").val() );

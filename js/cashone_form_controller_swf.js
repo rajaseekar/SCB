@@ -1615,6 +1615,16 @@ function generateXml() {
 	addXML=addXML+"\t\t\t<S-DUMMY-3></S-DUMMY-3>\n";
 	addXML=addXML+"\t\t\t<S-DUMMY-4></S-DUMMY-4>\n";
 	addXML=addXML+"\t\t\t<S-DUMMY-5></S-DUMMY-5>\n";
+
+	// Preferred Credit Limit fields
+	var form2_pcl_amount = $("#form2_pcl_amount").val() == "" ? "0" : $("#form2_pcl_amount").val();
+	var form2_pcl_question = $("input[name='form2_pcl_question']:checked").val();
+	if(form2_pcl_question == undefined) {
+		form2_pcl_question = "NOT APPLICABLE" ;
+		form2_pcl_amount = "" ;
+	}	
+	addXML=addXML+"\t\t\t<form2_pcl_question><![CDATA["+ form2_pcl_question +"]]></form2_pcl_question>\n";
+	addXML=addXML+"\t\t\t<form2_pcl_amount><![CDATA["+ form2_pcl_amount +"]]></form2_pcl_amount>\n";
 	
 	endXML=endXML+"\t\t</instance>\n";
 	endXML=endXML+"\t</model>\n";
@@ -3131,6 +3141,17 @@ $(document).ready(function(){
 		function() {
 
 			if (  ($("#form_new_customer_credit_cards_0").valid())) {
+			
+				if( parseFloat($("#form2_loan_my_income").val(),10) < 30000 ) {
+					$(".pcl_section").hide();
+					$("input[name='form2_pcl_question']").attr("checked",false);
+					$("label[for='form2_pcl_question_bank']").removeClass("checked");					
+					$("label[for='form2_pcl_question_cust']").removeClass("checked");					
+					$("#form2_pcl_amount").val("");
+				} else {
+					$(".pcl_section").show();				
+				}
+				
 				preview_form2();
 				//if ( $('#form2_cheque_acc_no').val() == $('#form2_cheque_acc_no_verify').val() && $('#form2_other_bank_acc_no').val() == $('#form2_other_bank_acc_no_verify').val() ) {
 				
@@ -3719,6 +3740,19 @@ $(document).ready(function(){
 		$("#form_new_customer_credit_cards_1").validate().element("#form2_postal_code");
 		$("#form_new_customer_credit_cards").validate().element("#form2_postal_code");
 	});
+
+	$(".pcl_amount").hide();
+	
+	$("#form2_pcl_question_bank").click( function() {
+		$("tr.pcl_question div.error_box").remove();	
+		$(".pcl_amount").hide();
+		$("#form2_pcl_amount").val("");
+	});
+
+	$("#form2_pcl_question_cust").click( function() {
+		$("tr.pcl_question div.error_box").remove();	
+		$(".pcl_amount").show();
+	});
 	
 	// form validation
 	$("#form_new_customer_credit_cards_1").validate({
@@ -3728,6 +3762,9 @@ $(document).ready(function(){
             form2_13: "form2_overseas_contact_country_code form2_overseas_contact_area_code form2_overseas_contact_tel_no"
         },
   		rules: {
+			form2_pcl_question: { required: function(element) {return ($("input[name='form2_pcl_question']:visible").length > 0) && $("input[name='form2_pcl_question']:checked").val() == undefined} },
+			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 0, max: 999999999, number: true, maxlength:9, minlength: 1},
+		
 			//form2_salutation: { required: true, minlength: 1 },
 			//form2_name: { required: true, minlength: 2, maxlength: 30, alphanumeric: true }, 
 			form2_name_on_card: { required: true, minlength: 5, maxlength: 19 },
@@ -3779,6 +3816,14 @@ $(document).ready(function(){
 			form2_promotionCode: { validPromoCode: true }
   		},		
 		messages: {
+			form2_pcl_question: { required: "Please select an option" },
+			form2_pcl_amount: { required: "Please enter your preferred credit limit", 
+								min: "The Preferred Credit Limit amount you entered is invalid", 
+								max: "The Preferred Credit Limit amount you entered is invalid", 
+								number: "The Preferred Credit Limit amount you entered is invalid", 
+								maxlength: "The Preferred Credit Limit amount you entered is invalid", 
+								minlength: "The Preferred Credit Limit amount you entered is invalid"},
+		
 			//form2_salutation: { required: "Please enter your salutation / title." },
 			//form2_name: { required: "Please enter your name."},
 			form2_name_on_card: { required: "Please enter the name that you want to be displayed on your card.", minlength: "Please enter a valid card name (min 5 characters).", maxlength: "Please enter a valid card name (max 19 characters)." },
@@ -3859,6 +3904,8 @@ $(document).ready(function(){
       			error.insertAfter("#form2_overseas_contact_tel_no_label_container");
             else if (element.attr("name") == "form2_employ_pass_type")
         			error.insertAfter("#form2_employ_pass_type_lbl");
+			else if (element.attr("name") == "form2_pcl_question")
+        			error.insertAfter("#form2_pcl_question_cust");		
              else {
                 error.appendTo( element.parent().next() );   
 			}
@@ -4895,6 +4942,9 @@ $(document).ready(function(){
             //form2_64: "form2_areacode_office form2_office"
         },
   		rules: {
+			form2_pcl_question: { required: function(element) {return ($("input[name='form2_pcl_question']:visible").length > 0) && $("input[name='form2_pcl_question']:checked").val() == undefined} },
+			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 0, max: 999999999, number: true, maxlength:9, minlength: 1},
+		
 			form2_loan_customer: {required: function(element) { return $("input[name='form2_loan_customer']:checked").val() == undefined}},
 			form2_loan_my_income: {required: true, digits: true, min: 20000},
 			form2_deposit_bank_acc_type: {required: true},
@@ -4985,6 +5035,14 @@ $(document).ready(function(){
 
   		},		
 		messages: {
+			form2_pcl_question: { required: "Please select an option" },
+			form2_pcl_amount: { required: "Please enter your preferred credit limit", 
+								min: "The preferred Credit Limit amount you entered is invalid", 
+								max: "The preferred Credit Limit amount you entered is invalid", 
+								number: "The preferred Credit Limit amount you entered is invalid", 
+								maxlength: "The preferred Credit Limit amount you entered is invalid", 
+								minlength: "The preferred Credit Limit amount you entered is invalid"},
+		
   			form2_loan_customer: {required: 'Please declare if you are an exisiting Standard Chartered Bank Customer'},
 			form2_loan_my_income: {required: 'Please enter your annual income', digits: 'Please enter digits only without comas, decimals or special characters. Minimum annual income requirement is SGD 20000 for Singaporeans/PR & SGD 60000 for  Foreigners.', min: 'Please enter digits only without comas, decimals or special characters. Minimum annual income requirement is SGD 20000 for Singaporeans/PR & SGD 60000 for  Foreigners.'},
 			form2_deposit_bank_acc_type: {required: 'Please select your disbursement bank'},
@@ -5109,6 +5167,8 @@ $(document).ready(function(){
        			error.insertAfter("#lbl_form2_employer_unit_number_container");
             else if (element.attr("name") == "form2_employ_pass_type")
         			error.insertAfter("#form2_employ_pass_type_lbl");
+			else if (element.attr("name") == "form2_pcl_question")
+        			error.insertAfter("#form2_pcl_question_cust");		
  			else {
                 error.appendTo( element.parent().next() ); 
 			}
@@ -5199,6 +5259,25 @@ $(document).ready(function(){
 				$("#pre_form2_loan_edit_container").hide();
 				$("#pre_form2_loan_preview_container").show();
 			}
+			if( parseFloat($("#form2_loan_my_income").val(),10) < 30000 ) {
+				$(".pcl_section").hide();
+				$(".pcl_amount").hide();
+				$("input[name='form2_pcl_question']").attr("checked",false);
+				$("label[for='form2_pcl_question_bank']").removeClass("checked");					
+				$("label[for='form2_pcl_question_cust']").removeClass("checked");					
+				$("#form2_pcl_amount").val("");
+				if( $("#form2_pcl_save:visible").length > 0 ) {
+					$("#from2_pcl_save").click();
+				}
+			} else {
+				$(".pcl_section").show();
+				if( $("input[name='form2_pcl_question']:checked").val() == undefined ) {
+					$(".pcl_amount").hide();	
+					$("tr.pcl_question div.error_box").remove();						
+					$("#from2_pcl_edit").click();
+				}	
+			}
+			
 			resizeSlider();
 			resetCancelFields( "pre_form2_loan_edit_content_container" );
   			return false;
@@ -5336,6 +5415,39 @@ $(document).ready(function(){
 		}
 	);
 
+	$("#from2_pcl_edit").click(	function() {
+		$("#pre_form2_pcl_edit_container").show();
+		$("#pre_form2_pcl_preview_container").hide();
+		$('#form2_pcl_container').appendTo('#pre_form2_pcl_edit_content_container');
+		resizeSlider();
+		clonefields( "pre_form2_pcl_edit_content_container" );
+		return false;
+	});
+	
+	$("#from2_pcl_cancel").click( function() {
+		if( $("#pre_form2_pcl_question").html() == "" && parseFloat($("#form2_loan_my_income").val(),10) >= 30000 ) {	
+			return false;
+		}
+		$("#pre_form2_pcl_edit_container").hide();
+		$("#pre_form2_pcl_preview_container").show();
+		resizeSlider();
+		restorefields( "pre_form2_pcl_edit_content_container" );
+		resetCancelFields( "pre_form2_pcl_edit_content_container" );
+		return false;
+	});
+	
+	$("#from2_pcl_save").click(	function() {
+		if (($("#form_new_customer_credit_cards").valid())) {
+			preview_form2();
+			$("#pre_form2_pcl_preview_container .tab_content").addClass("yellow_box_no_padding");
+			$("#pre_form2_pcl_edit_container").hide();
+			$("#pre_form2_pcl_preview_container").show();
+		}
+		resizeSlider();
+		resetCancelFields( "pre_form2_pcl_edit_content_container" );
+		return false;
+	});		
+	
 	$("#from2_pdpa_edit").click(
 		function() {
 			$("#pre_form2_pdpa_edit_container").show();
@@ -5559,6 +5671,16 @@ $(document).ready(function(){
 	/******** preview generation **********/
 	
 	function preview_form2(){
+	
+		if( $("#form2_pcl_question_bank").attr("checked") ) {
+			$("#pre_form2_pcl_question").html("You will leave it to the bank to assign a credit card limit for you base on the supporting income documents you are providing.");
+		} else if( $("#form2_pcl_question_cust").attr("checked") ) {
+			$("#pre_form2_pcl_question").html("You have a preferred credit card limit and would like to specify this to the bank.");
+		} else {
+			$("#pre_form2_pcl_question").html("");
+		}
+		$("#pre_form2_pcl_amount").html( $("#form2_pcl_amount").val() );
+	
 		var form2_salutation = $("#form2_salutation").val();
 		// trim space
 		var form2_first_name = $.trim( $("#form2_first_name").val() );

@@ -824,7 +824,18 @@ function generateXml() {
 	addXML=addXML+"\t\t\t<S-DUMMY-2></S-DUMMY-2>\n";
 	addXML=addXML+"\t\t\t<S-DUMMY-3></S-DUMMY-3>\n";
 	addXML=addXML+"\t\t\t<S-DUMMY-4></S-DUMMY-4>\n";
-	addXML=addXML+"\t\t\t<S-DUMMY-5></S-DUMMY-5>\n";	
+	addXML=addXML+"\t\t\t<S-DUMMY-5></S-DUMMY-5>\n";
+
+	// Preferred Credit Limit fields
+	var form2_pcl_amount = $("#form2_pcl_amount").val() == "" ? "0" : $("#form2_pcl_amount").val();
+	var form2_pcl_question = $("input[name='form2_pcl_question']:checked").val();
+	if(form2_pcl_question == undefined) {
+		form2_pcl_question = "NOT APPLICABLE" ;
+		form2_pcl_amount = "" ;
+	}	
+	addXML=addXML+"\t\t\t<form2_pcl_question><![CDATA["+ form2_pcl_question +"]]></form2_pcl_question>\n";
+	addXML=addXML+"\t\t\t<form2_pcl_amount><![CDATA["+ form2_pcl_amount +"]]></form2_pcl_amount>\n";
+
 	endXML=endXML+"\t\t</instance>\n";
 	endXML=endXML+"\t</model>\n";
 	endXML=endXML+"</eform>\n";
