@@ -253,7 +253,14 @@ function generateForm() {
 		if($('input[name="form2_pdpa_q'+i+'"]:checked').val() == "No") $("#form2_pdpa_q"+i+"_yesno").val("No");			
 	}	
 
-// Bank Info
+	$('#hiddenForm').append('<input type="hidden" id="pcl_option_text" name="pcl_option_text" value="" >');
+	if( $("input[name='form2_pcl_question']:checked").val() == "BY BANK") {
+		$("#pcl_option_text").val("You will leave it to the bank to assign a credit card limit for you base on the supporting income documents you are providing.");
+	} else if( $("input[name='form2_pcl_question']:checked").val() == "BY CUSTOMER") {
+		$("#pcl_option_text").val("You have specified a preferred credit card limit of "+$("#form2_pcl_amount").val()+" to the bank.");	
+	} else {
+		$("#pcl_option_text").val("N/A");	
+	}
 	
 	$('#hiddenForm').append('<input type="hidden" id="selectedForms" name="selectedForms" value="sgccenaip" >');
 	setTimeout(function(){
@@ -282,7 +289,8 @@ $(document).ready(function(){
 	$('#hiddenForm').append('<input type="hidden" name="selectedCard" id="selectedCard">');
 	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR49">'); // prod
 	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR472">'); // AIP SIT
-	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR582">'); // AIP SIT (PDPA)	
+	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR582">'); // AIP SIT (PDPA)	
+	$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR598">'); // AIP SIT (PCL)	
 	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR487">'); // Prod UVT (PSDU)
 	//$('#hiddenForm').append('<input type="hidden" name="formId" id="formId" value="SGR481">'); // Prod (PDPA/PSDU)
 	$('.formidfield').val( $('#formId').val() );

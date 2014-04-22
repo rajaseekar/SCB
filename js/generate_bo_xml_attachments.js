@@ -5,8 +5,9 @@ function checkDocType( docRefId ) {
 			return "ID Document";
 		} else if( docTypeId == "CPFHS" || docTypeId == "PSlip" || docTypeId == "ITNA") {
 			return "Income Document";
+		} else {
+			return "others";
 		}
-		
 	} else {
 		return "";
 	}

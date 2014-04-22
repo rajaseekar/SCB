@@ -3753,6 +3753,20 @@ $(document).ready(function(){
 		$("tr.pcl_question div.error_box").remove();	
 		$(".pcl_amount").show();
 	});
+
+	$("#form2_pcl_amount").blur( function() {
+		if(this.value.length > 1) {
+			var s = "";
+			var nonZero=false;
+			for(var i=0; i < this.value.length; i++) {
+				if( this.value.substr(i,1) != "0" || nonZero) {
+					s+=this.value.substr(i,1);
+					nonZero=true;
+				}
+			}
+			this.value = s;
+		}
+	});	
 	
 	// form validation
 	$("#form_new_customer_credit_cards_1").validate({
@@ -3763,7 +3777,7 @@ $(document).ready(function(){
         },
   		rules: {
 			form2_pcl_question: { required: function(element) {return ($("input[name='form2_pcl_question']:visible").length > 0) && $("input[name='form2_pcl_question']:checked").val() == undefined} },
-			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 0, max: 999999999, number: true, maxlength:9, minlength: 1},
+			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 1, max: 999999999, number: true, lenstay: true, maxlength:9, minlength: 1},
 		
 			//form2_salutation: { required: true, minlength: 1 },
 			//form2_name: { required: true, minlength: 2, maxlength: 30, alphanumeric: true }, 
@@ -3821,6 +3835,7 @@ $(document).ready(function(){
 								min: "The Preferred Credit Limit amount you entered is invalid", 
 								max: "The Preferred Credit Limit amount you entered is invalid", 
 								number: "The Preferred Credit Limit amount you entered is invalid", 
+								lenstay: "The preferred Credit Limit amount you entered is invalid", 
 								maxlength: "The Preferred Credit Limit amount you entered is invalid", 
 								minlength: "The Preferred Credit Limit amount you entered is invalid"},
 		
@@ -4943,7 +4958,7 @@ $(document).ready(function(){
         },
   		rules: {
 			form2_pcl_question: { required: function(element) {return ($("input[name='form2_pcl_question']:visible").length > 0) && $("input[name='form2_pcl_question']:checked").val() == undefined} },
-			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 0, max: 999999999, number: true, maxlength:9, minlength: 1},
+			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 1, max: 999999999, number: true, lenstay: true, maxlength:9, minlength: 1},
 		
 			form2_loan_customer: {required: function(element) { return $("input[name='form2_loan_customer']:checked").val() == undefined}},
 			form2_loan_my_income: {required: true, digits: true, min: 20000},
@@ -5040,6 +5055,7 @@ $(document).ready(function(){
 								min: "The preferred Credit Limit amount you entered is invalid", 
 								max: "The preferred Credit Limit amount you entered is invalid", 
 								number: "The preferred Credit Limit amount you entered is invalid", 
+								lenstay: "The preferred Credit Limit amount you entered is invalid", 
 								maxlength: "The preferred Credit Limit amount you entered is invalid", 
 								minlength: "The preferred Credit Limit amount you entered is invalid"},
 		
@@ -6123,8 +6139,11 @@ $(document).ready(function(){
 					async: 'true'
 					});
 				setTimeout(function(){
-					$.post("/nfs-ofp/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
-					//$.post("/nfs-ofp-foa/ofpservice.htm", { formXML :  resultXML }, function(responseText, statusText){
+					var postURL="/nfs-ofp/ofpservice.htm";					
+					if(window.location.hostname.toLowerCase().indexOf("localhost") > -1)			
+						postURL = "/outputaip2.php";
+					$.post(postURL, { formXML :  resultXML }, function(responseText, statusText){					
+				
 						if(statusText == "success") {
 							var returnCode = "";
 							var returnID = "";
