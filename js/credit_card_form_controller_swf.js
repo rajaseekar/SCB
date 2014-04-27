@@ -1979,8 +1979,8 @@ $(document).ready(function(){
             form2_13: "form2_overseas_contact_country_code form2_overseas_contact_area_code form2_overseas_contact_tel_no"
         },
   		rules: {
-			form2_pcl_question: { required: function(element) {return ($("input[name='form2_pcl_question']:visible").length > 0) && $("input[name='form2_pcl_question']:checked").val() == undefined} },
-			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 1, max: 999999999, number: true, lenstay: true, maxlength:9, minlength: 1},
+			form2_pcl_question: { required: function(element) {return ($(".pcl_section").css("display") != "none" && $("input[name='form2_pcl_question']:checked").val() == undefined)} },
+			form2_pcl_amount: {required: function(element) { return $("input[name='form2_pcl_question']:checked").val() == "BY CUSTOMER"}, min: 1, max: 999999999, number: true, lenstay: true, maxlength:9, minlength: 1},
 		
 			form2_name_on_card: { required: true, minlength: 5, maxlength: 19 },
 			form2_nric_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Foreigner" }, minlength: 9, maxlength: 9 },
@@ -3384,8 +3384,8 @@ $(document).ready(function(){
             form2_135: "form2_sup_02_areacode_office form2_sup_02_office"
         },
   		rules: {
-			form2_pcl_question: { required: function(element) {return ($("input[name='form2_pcl_question']:visible").length > 0) && $("input[name='form2_pcl_question']:checked").val() == undefined} },
-			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 1, max: 999999999, number: true, lenstay: true, maxlength:9, minlength: 1},
+			form2_pcl_question: { required: function(element) {return ($(".pcl_section").css("display") != "none" && $("input[name='form2_pcl_question']:checked").val() == undefined)} },
+			form2_pcl_amount: {required: function(element) { return $("input[name='form2_pcl_question']:checked").val() == "BY CUSTOMER"}, min: 1, max: 999999999, number: true, lenstay: true, maxlength:9, minlength: 1},
 		
 			//form2_salutation: { required: true, minlength: 1 },
 			//form2_name: { required: true, minlength: 2, maxlength: 30, alphanumeric: true }, 

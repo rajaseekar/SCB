@@ -3776,8 +3776,8 @@ $(document).ready(function(){
             form2_13: "form2_overseas_contact_country_code form2_overseas_contact_area_code form2_overseas_contact_tel_no"
         },
   		rules: {
-			form2_pcl_question: { required: function(element) {return ($("input[name='form2_pcl_question']:visible").length > 0) && $("input[name='form2_pcl_question']:checked").val() == undefined} },
-			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 1, max: 999999999, number: true, lenstay: true, maxlength:9, minlength: 1},
+			form2_pcl_question: { required: function(element) {return ($(".pcl_section").css("display") != "none" && $("input[name='form2_pcl_question']:checked").val() == undefined)} },
+			form2_pcl_amount: {required: function(element) { return $("input[name='form2_pcl_question']:checked").val() == "BY CUSTOMER"}, min: 1, max: 999999999, number: true, lenstay: true, maxlength:9, minlength: 1},
 		
 			//form2_salutation: { required: true, minlength: 1 },
 			//form2_name: { required: true, minlength: 2, maxlength: 30, alphanumeric: true }, 
@@ -4957,8 +4957,8 @@ $(document).ready(function(){
             //form2_64: "form2_areacode_office form2_office"
         },
   		rules: {
-			form2_pcl_question: { required: function(element) {return ($("input[name='form2_pcl_question']:visible").length > 0) && $("input[name='form2_pcl_question']:checked").val() == undefined} },
-			form2_pcl_amount: {required: "#form2_pcl_amount:visible", min: 1, max: 999999999, number: true, lenstay: true, maxlength:9, minlength: 1},
+			form2_pcl_question: { required: function(element) {return ($(".pcl_section").css("display") != "none" && $("input[name='form2_pcl_question']:checked").val() == undefined)} },
+			form2_pcl_amount: {required: function(element) { return $("input[name='form2_pcl_question']:checked").val() == "BY CUSTOMER"}, min: 1, max: 999999999, number: true, lenstay: true, maxlength:9, minlength: 1},
 		
 			form2_loan_customer: {required: function(element) { return $("input[name='form2_loan_customer']:checked").val() == undefined}},
 			form2_loan_my_income: {required: true, digits: true, min: 20000},
