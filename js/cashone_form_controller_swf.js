@@ -1546,7 +1546,13 @@ function generateXml() {
     addXML=addXML+"\t\t\t<staffContactNo></staffContactNo>\n";
 	addXML=addXML+"\t\t\t<referralId>1889559</referralId>\n";
 	addXML=addXML+"\t\t\t<closingId>1889559</closingId>\n";
-	addXML=addXML+"\t\t\t<prodType2>01001</prodType2>\n";
+	
+	if( parseFloat($("#form2_loan_my_income").val(),10) < 30000 ) {
+		addXML=addXML+"\t\t\t<prodType2></prodType2>\n";
+	} else {	
+		addXML=addXML+"\t\t\t<prodType2>01001</prodType2>\n";
+	}	
+	
 	addXML=addXML+"\t\t\t<prodType3></prodType3>\n";
 	addXML=addXML+"\t\t\t<prodType4></prodType4>\n";
 	addXML=addXML+"\t\t\t<prodType5></prodType5>\n";
