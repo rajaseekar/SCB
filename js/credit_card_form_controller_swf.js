@@ -4,7 +4,7 @@ var get80id = '';
 var isDGM;
 var subChanCode = '';
 // get80 end
-
+/*
 var idleTime = 0;
 var timeoutUrl = "http://www.standardchartered.com.sg/credit-cards/";
 
@@ -14,7 +14,7 @@ function timerIncrement() {
 		window.location.replace(timeoutUrl);
     }
 }
-
+*/
 var status = false;
 
 function resizeSlider() {
@@ -849,7 +849,7 @@ window.open('print_form_cc_new.html','SCBPrint','resizable=yes,toolbar=yes,locat
 
 /************************** onload functions ***************************/
 $(document).ready(function(){
-
+/*
     // AVT 15 mins timeout
     $(this).keypress(function (e) {
         idleTime = 0;
@@ -858,7 +858,7 @@ $(document).ready(function(){
         idleTime = 0;
     });	
 	setInterval("timerIncrement()", 1000); // 1 second
-
+*/
 	$('#form2_upload_id_01').change(function() {
 		if( $('#form2_upload_id_01selectedfile').val() != '' ) {
 			$('#form2_upload_id_01selectedfile').val('').val( $('#form2_upload_id_01 option:selected').text() );
@@ -4448,7 +4448,7 @@ $(document).ready(function(){
 	$("#check_new_credit_card_6").click(
 		function() {
 			
-			$('.error_box').hide();
+
 			if ( !$("#form_new_customer_credit_cards").valid() ) {
 				resizeSlider();
 				return false;
@@ -4458,7 +4458,7 @@ $(document).ready(function(){
 				resizeSlider();
 				return false;
 			}
-		
+//			$('.error_box').hide();		
 			$("#h4declation, #divdeclation").hide();
 			
 			if ($("#"+"pre_form2_nationality").text() == "Singaporean" || $("#"+"pre_form2_nationality").text() == "Singapore Permanent Resident") {
