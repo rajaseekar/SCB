@@ -254,14 +254,16 @@ function generateForm() {
 	}	
 
 	$('#hiddenForm').append('<input type="hidden" id="pcl_option_text" name="pcl_option_text" value="" >');
-	if( $("input[name='form2_pcl_question']:checked").val() == "BY BANK") {
-		$("#pcl_option_text").val("You will leave it to the bank to assign a credit card limit for you base on the supporting income documents you are providing.");
-	} else if( $("input[name='form2_pcl_question']:checked").val() == "BY CUSTOMER") {
-		$("#pcl_option_text").val("You have specified a preferred credit card limit of "+$("#form2_pcl_amount").val()+" to the bank.");	
-	} else {
-		$("#pcl_option_text").val("N/A");	
-	}
+	var pcl_option_text = "Your credit limit(s) for all your other existing non-card credit facilities to remain unchanged.\n";
 	
+	if( $("input[name='form2_pcl_question']:checked").val() == "BY BANK") {
+		pcl_option_text += "You prefer to be assigned the credit limit as determined by the Bank for your credit card(s).";
+	} else if( $("input[name='form2_pcl_question']:checked").val() == "BY CUSTOMER") {
+		pcl_option_text += "You prefer your credit limit for your credit card(s) to be $"+$("#form2_pcl_amount").val()+".";	
+	} else {
+		pcl_option_text = "N/A";
+	}
+	$("#pcl_option_text").val(pcl_option_text);		
 	$('#hiddenForm').append('<input type="hidden" id="selectedForms" name="selectedForms" value="sgccenaip" >');
 	setTimeout(function(){
 		document.hiddenForm.submit();
@@ -475,6 +477,8 @@ $(document).ready(function(){
 					$('.upfront_msg_0005').show();
 				}
 			}
+			$('#declarationmsg').hide();
+			$('#declarationmsg-singpost').show();			
 			$("#normal_declaration").hide();
 			$("#singpost_declaration").show();
 

@@ -4075,6 +4075,20 @@ $(document).ready(function(){
 			resizeSlider();
 		}
 	});
+	$('#declarationmsg-singpost').scroll(function() {
+		if (  $(this).scrollTop() > ($('#declarationmsg-singpost > .inner').height() -  $('#declarationmsg-singpost').height() - 10) ) {
+		  // We're at the bottom!
+			$('#form2_declaration_help').hide();
+			$('#form2_declaration_control').show();
+			if( jQuery.query.get("GType")+"" != "" ) {
+				$('#form2_declaration_control_3').show();
+			} else {
+				$('#form2_declaration_control_3').hide();
+			}
+			resizeSlider();
+		}
+	});
+	
 	$('#declarationmsg-tiger').scroll(function() {
 		if (  $('#declarationmsg-tiger').scrollTop() > ($('#declarationmsg-tiger > .inner').height() -  $('#declarationmsg-tiger').height() - 10) ) {
 		  // We're at the bottom!
@@ -4092,13 +4106,12 @@ $(document).ready(function(){
 	function preview_form2(){
 	
 		if( $("#form2_pcl_question_bank").attr("checked") ) {
-			$("#pre_form2_pcl_question").html("You will leave it to the bank to assign a credit card limit for you base on the supporting income documents you are providing.");
+			$("#pre_form2_pcl_question").html("I prefer to be assigned the credit limit as determined by the Bank for my credit card(s), and my credit limit(s) for all my other existing non-card credit facilities to remain unchanged.");
 		} else if( $("#form2_pcl_question_cust").attr("checked") ) {
-			$("#pre_form2_pcl_question").html("You have a preferred credit card limit and would like to specify this to the bank.");
+			$("#pre_form2_pcl_question").html("I prefer my credit limit for my credit card(s) to be $"+$("#form2_pcl_amount").val()+", and my credit limit(s) for all my existing non-card credit facilities to remain unchanged.");
 		} else {
 			$("#pre_form2_pcl_question").html("");
 		}
-		$("#pre_form2_pcl_amount").html( $("#form2_pcl_amount").val() );
 	
 		var form2_salutation = $("#form2_salutation").val();
 		// trim space
@@ -4551,7 +4564,7 @@ $(document).ready(function(){
 							var regStatus2 = new RegExp("</STATUS>");
 							returnCode = responseText.substring(responseText.search(regStatus1)+8, responseText.search(regStatus2));
 							
-							if(returnID != null && returnID != "" && returnID.indexOf("SGR") > -1 ) {
+							if(returnID != null && returnID != "" && (returnID.indexOf("SGR") > -1 || postURL == "/outputaip2.php") ) {
 								//$(".newcard_receipt").append('<span>'+returnID+'</span><br />');
 								$('#FormRefID').val(returnID+"|"+returnCode);
 								$('#FormRefID_AIP').val(returnID);
