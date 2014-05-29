@@ -1955,6 +1955,7 @@ $(document).ready(function(){
 	$("#form2_pcl_question_cust").click( function() {
 		$("tr.pcl_question div.error_box").remove();	
 		$(".pcl_amount").show();
+		resizeSlider();
 	});
 	
 	$("#form2_pcl_amount").blur( function() {
@@ -4108,7 +4109,7 @@ $(document).ready(function(){
 		if( $("#form2_pcl_question_bank").attr("checked") ) {
 			$("#pre_form2_pcl_question").html("I prefer to be assigned the credit limit as determined by the Bank for my credit card(s), and my credit limit(s) for all my other existing non-card credit facilities to remain unchanged.");
 		} else if( $("#form2_pcl_question_cust").attr("checked") ) {
-			$("#pre_form2_pcl_question").html("I prefer my credit limit for my credit card(s) to be $"+$("#form2_pcl_amount").val()+", and my credit limit(s) for all my existing non-card credit facilities to remain unchanged.");
+			$("#pre_form2_pcl_question").html("I prefer my credit limit for my credit card(s) to be $"+$("#form2_pcl_amount").val()+", and my credit limit(s) for all my other existing non-card credit facilities to remain unchanged.");
 		} else {
 			$("#pre_form2_pcl_question").html("");
 		}

@@ -334,6 +334,7 @@ $(document).ready(function(){
 			$('#card_7').attr('checked','checked');
 			$('.sc_mpc_text').show();
 			$('.sc_mpc').show();
+			$('.manhattan').show();
 			//$('#note_selected_card').append('<img class="reflect" src="images/cards/manhattan_plat_front.jpg" />');
 			$('#note_selected_card').append('<img class="reflect" src="images/cards/manhattan-2012-front.jpg" />');
 			//$('.selected_card_name').append('Manhattan Platinum Card');
