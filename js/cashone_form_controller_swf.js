@@ -1339,9 +1339,9 @@ function generateXml() {
 	commonXML=commonXML+"\t\t\t<per-noDep>0</per-noDep>\n";
 	commonXML=commonXML+"\t\t\t<per-education><![CDATA["+education_status.toUpperCase()+"]]></per-education>\n";
 	
-	if( $("input[name='form2_nationality']:checked").val() != "Singaporean" && $('#form2_employ_pass_type_p1p2').is(':checked') ) {
+	if( $("input[name='form2_nationality']:checked").val() == "Foreigner" && $('#form2_employ_pass_type_p1p2').is(':checked') ) {
     	commonXML=commonXML+"\t\t\t<per-mobph>Q</per-mobph>\n";
-	} else if( $("input[name='form2_nationality']:checked").val() != "Singaporean" && $('#form2_employ_pass_type_s').is(':checked') ) {
+	} else if( $("input[name='form2_nationality']:checked").val() == "Foreigner" && $('#form2_employ_pass_type_s').is(':checked') ) {
     	commonXML=commonXML+"\t\t\t<per-mobph>S</per-mobph>\n";
 	} else {
     	commonXML=commonXML+"\t\t\t<per-mobph>0</per-mobph>\n";
@@ -3791,7 +3791,7 @@ $(document).ready(function(){
 			form2_name_on_card: { required: true, minlength: 5, maxlength: 19 },
 			form2_nric_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Foreigner" }, minlength: 9, maxlength: 9 },
 			form2_passport_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" }, minlength: 5, maxlength: 16 },
-			form2_employ_pass_type: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" } },
+			form2_employ_pass_type: { required: function(element) { return $("input[name='form2_nationality']:checked").val() == "Foreigner" } },
 			//form2_previous_passport_number: { minlength: 5, maxlength: 16 },
 			form2_date_of_birth: { required: true, dpDate: true, dpMinMaxDate: [] },
 			form2_gender: {required: function(element) { return $("input[name='form2_gender']:checked").val() == undefined}},
@@ -4995,7 +4995,7 @@ $(document).ready(function(){
 			form2_name_on_card: { required: true, minlength: 5, maxlength: 19 },
 			form2_nric_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Foreigner" }, minlength: 9, maxlength: 9 },
 			form2_passport_number: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" }, minlength: 5, maxlength: 16 },
-			form2_employ_pass_type: { required: function(element) { return $("input[name='form2_nationality']:checked").val() != "Singaporean" } },
+			form2_employ_pass_type: { required: function(element) { return $("input[name='form2_nationality']:checked").val() == "Foreigner" } },
 			//form2_previous_passport_number: { minlength: 5, maxlength: 16 },
 			form2_date_of_birth: { required: true, dpDate: true, dpMinMaxDate: [] },
 			form2_gender: {required: function(element) { return $("input[name='form2_gender']:checked").val() == undefined}},
@@ -5848,10 +5848,10 @@ $(document).ready(function(){
 		$("#pre_form2_nationality").html(form2_nationality);
 		$("#pre_form2_nric_number").html(form2_nric_number);
 		$("#pre_form2_passport_number").html(form2_passport_number);
-		if( $("input[name='form2_nationality']:checked").val() != "Singaporean" && $('#form2_employ_pass_type_p1p2').is(':checked') ) {
+		if( $("input[name='form2_nationality']:checked").val() == "Foreigner" && $('#form2_employ_pass_type_p1p2').is(':checked') ) {
 			$("#pre_form2_employ_pass_type").html( "P1/P2" );
 			$("#form2_employ_pass_type_p1p2").val( "P1/P2" );
-		} else if( $("input[name='form2_nationality']:checked").val() != "Singaporean" && $('#form2_employ_pass_type_s').is(':checked') ) {
+		} else if( $("input[name='form2_nationality']:checked").val() == "Foreigner" && $('#form2_employ_pass_type_s').is(':checked') ) {
 			$("#pre_form2_employ_pass_type").html( "S" );
 			$("#form2_employ_pass_type_s").val( "S" );
 		}

@@ -565,9 +565,9 @@ function generateXml() {
 	commonXML=commonXML+"\t\t\t<per-noDep>0</per-noDep>\n";
 	commonXML=commonXML+"\t\t\t<per-education><![CDATA["+education_status.toUpperCase()+"]]></per-education>\n";
 
-	if( $("input[name='form2_nationality']:checked").val() != "Singaporean" && $('#form2_employ_pass_type_p1p2').is(':checked') ) {
+	if( $("input[name='form2_nationality']:checked").val() == "Foreigner" && $('#form2_employ_pass_type_p1p2').is(':checked') ) {
     	commonXML=commonXML+"\t\t\t<per-mobph>Q</per-mobph>\n";
-	} else if( $("input[name='form2_nationality']:checked").val() != "Singaporean" && $('#form2_employ_pass_type_s').is(':checked') ) {
+	} else if( $("input[name='form2_nationality']:checked").val() == "Foreigner" && $('#form2_employ_pass_type_s').is(':checked') ) {
     	commonXML=commonXML+"\t\t\t<per-mobph>S</per-mobph>\n";
 	} else {
     	commonXML=commonXML+"\t\t\t<per-mobph>0</per-mobph>\n";
