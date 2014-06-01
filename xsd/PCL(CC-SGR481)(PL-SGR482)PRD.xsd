@@ -1071,6 +1071,22 @@
                 </xs:simpleType>
             </xs:element>
 			<!-- end dummy fields for APPS batch run -->
+            <xs:element name="form2_pcl_question">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>			
+            <xs:element name="form2_pcl_amount">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="30"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
         </xs:sequence>
     </xs:group>
     <!-- end form definition fields -->
@@ -1212,5 +1228,7 @@
         <xs:attribute name="filenetCountry" fixed="Filenet Country"/>
         <xs:attribute name="form2_name" fixed="Filenet User name"/>
         <xs:attribute name="filenetIdNumber" fixed="Filenet IC number"/>
+        <xs:attribute name="form2_pcl_question" fixed="Credit limit option"/>
+        <xs:attribute name="form2_pcl_amount" fixed="Preferred credit limit amount"/>
     </xs:attributeGroup>
 </xs:schema>
