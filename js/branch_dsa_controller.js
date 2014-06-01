@@ -1,10 +1,16 @@
 $(document).ready(function(){
+    $('.card_name').css("height","82px");
+    $('#thanks_left h4').css("line-height","18px");
+    $('.btn_ccform').css("margin-bottom","5px");
+    $('.card_name_2line').css("height","52px");
+
 	$('body').keypress(function(event){
 	    if (event.keyCode == 10 || event.keyCode == 13) 
 	        event.preventDefault();
 	  });
 	
 	var selectedCard = jQuery.query.get("Cardtype")+"";
+	var selectedGift = jQuery.query.get("GType")+"";
 	/*
 if( selectedCard == "" || selectedCard.length == 0 || selectedCard == null || selectedCard == "true" || selectedCard == "undefined" ) {
 		$(".btn_ccform").hide();
@@ -45,6 +51,9 @@ if( selectedCard == "" || selectedCard.length == 0 || selectedCard == null || se
 	if( TGRType != "" && TGRType.length != 0 && TGRType != null && TGRType != "true" && TGRType != "undefined" && TGRType != "#" ) {
 		TGRTypeParam = "&TGRType="+TGRType;
 	}
+	
+	var GTypeParam = "";
+	
 	$('.btn_ccform, .apply-now').click(function() {
 		if( $("#form_new_customer_office_form").valid() ) {
 		    if( $(this).hasClass('SG_MPC') ) {
@@ -67,8 +76,15 @@ if( selectedCard == "" || selectedCard.length == 0 || selectedCard == null || se
 		        selectedCard = 'SG_PVC_TGR';
         		TGRTypeParam = "&TGRType=URR";
     	    }
-			$(this).attr('href','credit_card_form_swf.html?dsaStaffId='+$('#staff_input_id').val()+'&inputmode=DSA&Cardtype='+selectedCard+TGRTypeParam);
-			location.replace('credit_card_form_swf.html?dsaStaffId='+$('#staff_input_id').val()+'&inputmode=DSA&Cardtype='+selectedCard+TGRTypeParam);        	    
+    	    // check gift
+    	    if( $(this).hasClass('GIFT_5303') ) {
+        	    GTypeParam = "&GType=5303";
+    	    } else if( $(this).hasClass('GIFT_5301') ) {
+        	    GTypeParam = "&GType=5301";
+    	    }
+    	    
+			$(this).attr('href','credit_card_form_swf.html?dsaStaffId='+$('#staff_input_id').val()+'&inputmode=DSA&Cardtype='+selectedCard+TGRTypeParam+GTypeParam);
+			location.replace('credit_card_form_swf.html?dsaStaffId='+$('#staff_input_id').val()+'&inputmode=DSA&Cardtype='+selectedCard+TGRTypeParam+GTypeParam);        	    
 
 		}
 	});
