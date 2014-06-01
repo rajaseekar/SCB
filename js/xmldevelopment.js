@@ -348,9 +348,9 @@ $(document).ready(function(){
 			$('.sc_platinum_mastercard_text').show();
 			$('.sc_platinum_mastercard').show();
 			$('#note_selected_card').append('<img class="reflect" src="images/cards/platinum-visa_front.jpg" />');
-			$('.selected_card_name').append('Platinum Card Visa');
+			$('.selected_card_name').append('Platinum Visa Credit Card');
 			$('#side_selected_card').append('<img class="reflect" src="images/cards/platinum-visa_side.jpg" />');
-			$('#form2_product_select').val('Platinum Card Visa');
+			$('#form2_product_select').val('Platinum Visa Credit Card');
 			var URType = jQuery.query.get("URType");
 			if( URType == "PVCU0001" || URType == "PVCU0005" || URType == "PVCU0006" ){
 				$('#selected_cards').find('h4').css('padding','0 0 10px 9px');
@@ -368,9 +368,9 @@ $(document).ready(function(){
 			$('.sc_platinum_visa_card_text').show();
 			$('.sc_platinum_visa_card').show();
 			$('#note_selected_card').append('<img class="reflect" src="images/cards/Platinum-master_front.jpg" />');
-			$('.selected_card_name').append('Platinum Card MasterCard');
+			$('.selected_card_name').append('Platinum MasterCard Credit Card');
 			$('#side_selected_card').append('<img class="reflect" src="images/cards/Platinum-master_side.jpg" />');
-			$('#form2_product_select').val('Platinum Card MasterCard');
+			$('#form2_product_select').val('Platinum MasterCard Credit Card');
 			var URType = jQuery.query.get("URType");
 			if( URType == "PMCU0001" || URType == "PMCU0005" || URType == "PMCU0006" ){
 				$('#selected_cards').find('h4').css('padding','0 0 10px 9px');
