@@ -1,0 +1,41 @@
+@media only screen and (max-width: 950px) {
+#page_container { width: 98%; margin:0 auto; float:none; height:auto; position:relative; top:0; left:0; padding:0; }
+#page_container #header, #page_container #topbg, #page_container #topline { width:100%; height:auto; }
+#page_container #topbg { background-size:100%; }
+#landing_page .buttons, #important_notes { width:100%; }
+#important_notes #notes_requirement { width:40%; padding-left:15px; }
+#notes_form_personal { width:55%; }
+#notes_requirement_content { margin-right:15px; }
+#notes_documents { width:100%; height:auto; }
+#notes_documents #notes_document_message { width:28%; }
+#notes_documents #notes_document_lists { width:72% }
+#footer { padding-bottom:10px; }
+#footer .float_right { width:60%; }
+@media only screen and (max-width: 800px) {
+#notes_documents { height:auto !important; }
+#notes_documents #notes_document_message { width:100%; }
+#notes_documents #notes_document_lists { display:table; float:none; margin:0 auto; }
+}
+
+@media only screen and (max-width:690px) { 
+#notes_documents #notes_document_lists { width:95% }
+#notes_form_personal { width:98%; }
+#footer .float_right { width:100%; line-height:20px; }
+#footer p { text-align:left; }
+#important_notes #notes_requirement, #notes_selected_product_name { display:none; }
+#notes-hide-show { display:block; width:100%; line-height:30px; margin-bottom:5px; }
+#notes-hide-show a { display:block; line-height:30px; color:#FFFFFF; text-align:left; padding:0 5px; text-decoration:underline; }
+#important_notes { background-image:none; padding-top:5px; }
+}
+@media only screen and (max-width:400px) { 
+#notes-hide-show a { font-size:12px; }
+#notes_form_personal table.application_form tr td { width:100%; display:table; text-align:left !important; padding:0; font-size:13px; font-weight:bold; margin:5px 0; }
+#form2_salutation { width:25%!important; height:30px; margin:0; }
+#notes_form_personal table.application_form tr td input { width:95% !important; height:25px !important; margin:0; }
+#notes_form_personal table.application_form tr td input#form2_first_name { width:70% !important; }
+
+#notes_document_lists { width:98%; }
+#notes_document_lists table#notes_document_table_lists tr#notes_document_table_row td { width:100%; padding-right:0 !important; display:inline-block; }
+#notes_document_lists table#notes_document_table_lists tr#notes_document_table_row td#document-listing_vbar_short { display:none !important; }
+#notes_document_lists table#notes_document_table_lists tr#notes_document_table_row td#document-listing_vbar_long { display:none !important; }
+}
