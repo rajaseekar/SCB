@@ -1,7 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <title>Standard Chartered Bank (Singapore) Limited</title>
+<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-us" />
 <meta http-equiv="imagetoolbar" content="no" />
@@ -16,7 +17,10 @@
 <link href="css2011/default-listeffect.css" rel="stylesheet" type="text/css" />
 <link href="css2011/default-swfupload.css" rel="stylesheet" type="text/css" />
 <link href="css2011/popup-progress.css" rel="stylesheet" type="text/css" />-->
-
+<style type="text/css">
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear:both; }
+</style>
 <link href="css2011/singapore_cc_en_min_css.css" rel="stylesheet" type="text/css" />
 <!--[if lte IE 6]>
 <link href="css2011/default-ie6.css" rel="stylesheet" type="text/css" />
@@ -91,6 +95,7 @@ if( self == top ) {
     top.location = self.location ;
 }
 </script>
+<link href="css/responsive.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
 <noscript><div style="width: 100%; height: 2200px;font-family: sans-serif; font-size: 22px; text-align: center;margin: 50px; padding: 20px; line-height: 30px;">Your browser does not support JavaScript, the form has been disabled.<br />Please enable the Javascript engine in your browser.</div></noscript>
@@ -145,8 +150,8 @@ if( self == top ) {
       <!-- loading page -->
       <table width="100%" id="loading_page">
       	<tr height="150px" align="center">
-      		<td height="150px" align="center">
-      			&nbsp;
+      		<td height="150px" align="center">&nbsp;
+      			
       		</td>
       	</tr>
       	<tr height="50px" align="center">
@@ -155,8 +160,8 @@ if( self == top ) {
       		</td>
       	</tr>
       	<tr height="2000px" align="center">
-      		<td height="2000px" align="center">
-      			&nbsp;
+      		<td height="2000px" align="center">&nbsp;
+      			
       		</td>
       	</tr>
       </table>
@@ -322,6 +327,7 @@ if( self == top ) {
 					</div>
 	              <!--<form id="form_source_promo_code" method="get" action="">-->
                   <!------------ contact details container ------------>
+                  <div id="notes-hide-show"><a href="#" title="Minimum Requirements">Minimum Requirements</a></div>
             		<p style="font-size: 14px;line-height: 15px;font-weight: bold;">Provide your contact info and click Next</p>
                  <div id="form2_main_contact_container">
 	              <form id="form_notes_information" name="form_notes_information" method="get" action="" autocomplete="off" class="alteriantr fn-wireupchildrenrecursive param1-form_notes_information param2-content param3-id" >
@@ -1534,6 +1540,7 @@ if( self == top ) {
                       <tr>
                         <td width="200" style="text-align:right;">Building number<span class="mandatory">*</span></td>
                         <td><input name="form2_contact_block_number" id="form2_contact_block_number" readonly="readonly" /></td>
+                        </tr>
                       <tr>
                         <td width="200" style="text-align:right;">Unit no. <span class="mandatory">*</span></td>
                         <td><input name="form2_contact_unit_number" class="float_left" id="form2_contact_unit_number" value="#" size="5" maxlength="30" readonly="readonly" />
@@ -2613,7 +2620,7 @@ if( self == top ) {
 	                          <input id="form2_doc_upload_no" name="form2_doc_upload" type="radio" value="No" style="display: block;"/>
 	                          <label for="form2_doc_upload_no"><span style="line-height:18px;"><strong>No,</strong> I will provide my supporting documents by fax/email or will do CPF authorization later.</span></label>                            
                             </div>
-                            <div id="lbl_form2_doc_upload" class="error_box" style="display:none;">
+                            <div id="lbl_form2_doc_upload" class="error_box" style="display:none;"></div>
                         </td>
                       </tr>
                       <tr style="display: none;">
@@ -2681,7 +2688,7 @@ if( self == top ) {
                     <table width="100%" class="application_form form2_id_proof_01_container gray_border table_upload">
                       <tr height="46" style="background:url(../images/title_bg.gif) repeat-x;">
                         <td width="140" height="46" style="vertical-align: middle; text-align:left;">
-                        	<strong>Identification proof: </strang>
+                        	<strong>Identification proof: </strong>
                         </td>
                         <td width="280" height="46" style="vertical-align: middle; text-align:left;">
                         	<select id="form2_upload_id_01" name="form2_upload_id_01">
@@ -2731,7 +2738,7 @@ if( self == top ) {
                     <table width="100%" class="application_form form2_id_proof_02_container gray_border table_upload">
                       <tr height="46" style="background:url(../images/title_bg.gif) repeat-x;">
                         <td width="140" height="46" style="vertical-align: middle; text-align:left;">
-                        	<strong>Identification proof: </strang>
+                        	<strong>Identification proof: </strong>
                         </td>
                         <td width="280" height="46" style="vertical-align: middle; text-align:left;">
                         	<select id="form2_upload_id_02" name="form2_upload_id_02">
@@ -2781,7 +2788,7 @@ if( self == top ) {
                     <table width="100%" class="application_form form2_id_proof_03_container gray_border table_upload">
                       <tr height="46" style="background:url(../images/title_bg.gif) repeat-x;">
                         <td width="140" height="46" style="vertical-align: middle; text-align:left;">
-                        	<strong>Identification proof 1: </strang>
+                        	<strong>Identification proof 1: </strong>
                         </td>
                         <td width="280" height="46" style="vertical-align: middle; text-align:left;">
                         	<select id="form2_upload_id_03" name="form2_upload_id_03">
@@ -2830,7 +2837,7 @@ if( self == top ) {
                     <table width="100%" class="application_form form2_id_proof_04_container gray_border table_upload">
                       <tr height="46" style="background:url(../images/title_bg.gif) repeat-x;">
                         <td width="140" height="46" style="vertical-align: middle; text-align:left;">
-                        	<strong>Identification proof 2: </strang>
+                        	<strong>Identification proof 2: </strong>
                         </td>
                         <td width="280" height="46" style="vertical-align: middle; text-align:left;">
                         	<select id="form2_upload_id_04" name="form2_upload_id_04">
@@ -2879,7 +2886,7 @@ if( self == top ) {
                     <table width="100%" class="application_form form2_income_proof_01_container gray_border table_upload">
                       <tr height="46" style="background:url(../images/title_bg.gif) repeat-x;">
                         <td width="140" height="46" style="vertical-align: middle; text-align:left;">
-                        	<strong>Proof of income:</strang> 
+                        	<strong>Proof of income:</strong>
                         </td>
                         <td width="280" height="46" style="vertical-align: middle; text-align:left;">
                         	<select id="form2_upload_income_01" name="form2_upload_income_01">
@@ -2890,8 +2897,8 @@ if( self == top ) {
                         </td>
                       </tr>
                       <tr height="46" style="background:url(../images/title_bg.gif) repeat-x;">
-                        <td width="140" height="46" style="vertical-align: middle; text-align:left;">
-                            &nbsp;
+                        <td width="140" height="46" style="vertical-align: middle; text-align:left;">&nbsp;
+                            
                         </td>
                         <td width="280" height="46" style="vertical-align: middle; text-align:left; padding-left: 0;">
                             * Download your Notice of Assessment at <a href="http://mytax.iras.gov.sg" target="_blank">myTax Portal</a>
@@ -2938,7 +2945,7 @@ if( self == top ) {
                     <table width="100%" class="application_form form2_income_proof_02_container gray_border table_upload">
                       <tr height="46" style="background:url(../images/title_bg.gif) repeat-x;">
                         <td width="140" height="46" style="vertical-align: middle; text-align:left;">
-                        	<strong>Proof of income:</strang> 
+                        	<strong>Proof of income:</strong>
                         </td>
                         <td width="280" height="46" style="vertical-align: middle; text-align:left;">
                         	<select id="form2_upload_income_02" name="form2_upload_income_02">
@@ -2986,7 +2993,7 @@ if( self == top ) {
                     <table width="100%" class="application_form form2_supcard_proof_01_container gray_border table_upload">
                       <tr height="46" style="background:url(../images/title_bg.gif) repeat-x;">
                         <td width="140" height="46" style="vertical-align: middle; text-align:left;">
-                        	<strong>ID proof of 1st supplementary card:</strang>
+                        	<strong>ID proof of 1st supplementary card:</strong>
                         </td>
                         <td width="280" height="46" style="vertical-align: middle; text-align:left;">
                         	<select id="form2_upload_supcard_01" name="form2_upload_supcard_01">
@@ -3035,7 +3042,7 @@ if( self == top ) {
                     <table width="100%" class="application_form form2_supcard_proof_02_container gray_border table_upload">
                       <tr height="46" style="background:url(../images/title_bg.gif) repeat-x;">
                         <td width="140" height="46" style="vertical-align: middle; text-align:left;">
-                        	<strong>ID proof of 2nd supplementary card:</strang>
+                        	<strong>ID proof of 2nd supplementary card:</strong>
                         </td>
                         <td width="280" height="46" style="vertical-align: middle; text-align:left;">
                         	<select id="form2_upload_supcard_02" name="form2_upload_supcard_02">
@@ -3085,7 +3092,7 @@ if( self == top ) {
                     <table width="100%" class="application_form form2_for_01_container gray_border table_upload">
                       <tr height="46" style="background:url(../images/title_bg.gif) repeat-x;">
                         <td width="140" height="46" style="vertical-align: middle; text-align:left;">
-                            <strong>Proof of residential address:</strang>
+                            <strong>Proof of residential address:</strong>
                         </td>
                         <td width="280" height="46" style="vertical-align: middle; text-align:left;">
                             <select id="form2_upload_for_01" name="form2_upload_for_01">
@@ -3529,7 +3536,7 @@ if( self == top ) {
                       <tr>
                         <td width="200" style="text-align:right;">Phone number:</td>
                         <!--<td><div id="pre_form2_overseas_contact_tel_no"></div></td>-->
-                        <td><div><span id="pre_form2_overseas_contact_country_code"></span>&nbsp;<span id="pre_form2_overseas_contact_area_code"></span>&nbsp;<span id="pre_form2_overseas_contact_tel_no"></span></td></div>
+                        <td><div><span id="pre_form2_overseas_contact_country_code"></span>&nbsp;<span id="pre_form2_overseas_contact_area_code"></span>&nbsp;<span id="pre_form2_overseas_contact_tel_no"></span></div></td>
                      </tr>
                     </table>
                   </div>
@@ -4132,19 +4139,19 @@ if( self == top ) {
   </div>
   <!-- end content -->
   <!-- footer -->
-<div id="footer">
+<div id="footer" class="clearfix">
     <!-- footer padding -->
     <div class="padding">
   <p style="font-style:italic;color:#333333;font-size:11px;text-align:right;clear:both">This form is best viewed on IE 8.0, Firefox 4.0, Safari and Chrome.</p>
       <hr class="footer" />
       <!-- alternate footer -->
-      <div class="float_right"> <a href="http://www.standardchartered.com.sg/about-us/en/">About Us</a> | <a href="http://investors.standardchartered.com/">Investor Relations</a> | <a href="http://www.standardchartered.com/sustainability" target="_blank">Sustainability</a> | <a href="http://www.standardchartered.com/about-us/global-network/en/index.html" target="_blank">Worldwide Locations</a> </div>
+      
       <!-- end alternate footer -->
-      Copyright &copy; 2013 Standard Chartered Bank &nbsp;&nbsp;&nbsp; <a href="http://www.standardchartered.com.sg/terms-conditions/en/" target="_blank">Terms &amp; Conditions</a> | <a href="http://www.standardchartered.com.sg/data-protection-privacy-policy/en/" target="_blank">Data Protection &amp; Privacy Policy</a> </div>
+      Copyright &copy; 2013 Standard Chartered Bank  <div class="float_right"> <a href="http://www.standardchartered.com.sg/terms-conditions/en/" target="_blank">Terms &amp; Conditions</a> | <a href="http://www.standardchartered.com.sg/data-protection-privacy-policy/en/" target="_blank">Data Protection &amp; Privacy Policy</a> &nbsp;&nbsp;&nbsp; <a href="http://www.standardchartered.com.sg/about-us/en/">About Us</a> | <a href="http://investors.standardchartered.com/">Investor Relations</a> | <a href="http://www.standardchartered.com/sustainability" target="_blank">Sustainability</a> | <a href="http://www.standardchartered.com/about-us/global-network/en/index.html" target="_blank">Worldwide Locations</a> </div></div>
     <!-- end footer padding -->
   </div>
   <!-- end footer -->
-</div>
+  </div>
 <!-- end page container -->
 
 <div id="tempReturn" style="display: none;"></div>
